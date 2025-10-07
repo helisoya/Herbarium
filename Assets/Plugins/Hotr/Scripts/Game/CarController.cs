@@ -15,11 +15,10 @@ namespace MyHerbagnole
         [SerializeField] private float maxSteerAngle = 30f;
 
         [Header("Components")]
-        [SerializeField] private Wheel[] wheels;
-        [SerializeField] private Rigidbody rb;
+        [SerializeField] private CarData data;
         [SerializeField] private CinemachineBrain cinemachineBrain;
         [SerializeField] private CinemachineCamera cinemachineCamera;
-        [SerializeField] private Transform centerOfMass;
+        [SerializeField] private Camera playerCamera;
 
         private float currentAccel = 0;
         private float currentTurnAngle = 0;
@@ -42,11 +41,22 @@ namespace MyHerbagnole
             this.id = id;
         }
 
+        public void SetDriver(GameObject driverPrefab)
+        {
+            foreach (Transform child in data.driverSpot) Destroy(child.gameObject);
+            Instantiate(driverPrefab, data.driverSpot).GetComponent<Animator>().runtimeAnimatorController = data.driverController;
+        }
+
+        public Camera GetCamera()
+        {
+            return playerCamera;
+        }
+
         public void SetCanMove(bool value)
         {
             canMove = value;
-            
-            foreach (Wheel wheel in wheels)
+
+            foreach (Wheel wheel in data.wheels)
             {
                 wheel.collider.motorTorque = 0;
                 wheel.collider.steerAngle = 0;
@@ -58,14 +68,14 @@ namespace MyHerbagnole
             flagNextLap = true;
         }
 
-        void OnMove(InputValue inputValue)
+        public void Move(Vector2 vector)
         {
-            currentInput = inputValue.Get<Vector2>();
+            currentInput = vector;
         }
 
         void Start()
         {
-            rb.centerOfMass = centerOfMass.localPosition;
+            data.rb.centerOfMass = data.centerOfMass.localPosition;
         }
 
         void Update()
@@ -86,7 +96,7 @@ namespace MyHerbagnole
             currentAccel = maxAccelleration * currentInput.y;
             currentTurnAngle = currentInput.x * maxSteerAngle;
 
-            foreach (Wheel wheel in wheels)
+            foreach (Wheel wheel in data.wheels)
             {
                 wheel.collider.motorTorque = currentAccel;
 

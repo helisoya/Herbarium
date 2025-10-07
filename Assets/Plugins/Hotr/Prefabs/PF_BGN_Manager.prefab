@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5046204662846668833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1764744274321201188}
+  - component: {fileID: 4462667050359734237}
+  - component: {fileID: 5371792236551078169}
+  m_Layer: 0
+  m_Name: PF_BGN_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1764744274321201188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046204662846668833}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.95525, y: -2.5, z: -5.84181}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4462667050359734237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046204662846668833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fb351dfd246c84887c7ce15f696ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::MyHerbagnole.BagnoleManager
+  inputManager: {fileID: 5371792236551078169}
+  cars:
+  - visualPrefab: {fileID: 4014601526907591548, guid: de13f08dcbccad44ab10ce2bebca18c9, type: 3}
+    playablePrefab: {fileID: 5594939187914460391, guid: 3e06e96a5d157204494ddaf88259612d, type: 3}
+    label: Cardboard Kart
+  - visualPrefab: {fileID: 6305858210307835478, guid: 58f86f48ec4476c4082e87222426cb0a, type: 3}
+    playablePrefab: {fileID: 5594939187914460391, guid: 8745ca2c2170e964a9dbf16820bd20aa, type: 3}
+    label: Harold Mobile
+  - visualPrefab: {fileID: 2929815132643687539, guid: ff887e4515277d4449e6d7209d8d310b, type: 3}
+    playablePrefab: {fileID: 5594939187914460391, guid: 0459e3eae96a13e4bbbaf9d4f18d57d8, type: 3}
+    label: Big Poney
+  drivers:
+  - prefab: {fileID: 7861758954584087228, guid: 22052632dcf06b741a68d9ea0fe8baaa, type: 3}
+    label: Harold
+  - prefab: {fileID: 7383989492624011120, guid: 364b0ef3407fb934ca886371f849c8b5, type: 3}
+    label: Judge
+  - prefab: {fileID: 5390211841352264926, guid: eb31a0b9cf4719f47932f46c382737a6, type: 3}
+    label: Man
+  races:
+  - sprite: {fileID: 7342855291394742531, guid: bd32e2ff809c07e49841df5206bc21ec, type: 3}
+    label: Test Area
+    raceName: SC_BGN_TestRoad
+  - sprite: {fileID: 6457696547884119355, guid: 1b5e72e6fdcfcfd468b7a33b6c10c561, type: 3}
+    label: Test Area II
+    raceName: SC_BGN_TestRoad
+  mainMenuName: SC_BGN_Menu
+  debug: 1
+  startInRace: 0
+  debugSchemes:
+  - Keyboard&Mouse
+  - KeyboardAlt
+--- !u!114 &5371792236551078169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046204662846668833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInputManager
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: 4
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 2537b0f7-c76e-44f8-a01a-681936610cfa
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 5708779616151989523, guid: 5322105893d059e4a813601e0240bcab, type: 3}
+  m_SplitScreen: 1
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1

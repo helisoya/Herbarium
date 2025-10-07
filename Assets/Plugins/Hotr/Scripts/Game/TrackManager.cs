@@ -8,27 +8,27 @@ namespace MyHerbagnole
     /// </summary>
     public class TrackManager : MonoBehaviour
     {
-        [SerializeField] private GameObject playerPrefab;
         [SerializeField] private Transform playerSpawnsRoot;
         [SerializeField] private int lapsAmount = 3;
-
-        private string[] currentSchemes = { "Keyboard&Mouse", "KeyboardAlt" };
         private PlayerData[] playerDatas;
 
         void Start()
         {
-            playerDatas = new PlayerData[currentSchemes.Length];
-            for (int i = 0; i < currentSchemes.Length; i++)
+            playerDatas = new PlayerData[4];
+            for (int i = 0; i < 4; i++)
             {
+                if (!BagnoleManager.instance.players[i]) continue;
+
                 playerDatas[i] = new PlayerData();
                 playerDatas[i].lap = 0;
-                playerDatas[i].input = PlayerInput.Instantiate(playerPrefab, controlScheme: currentSchemes[i], pairWithDevice: Keyboard.current);
-                playerDatas[i].controller = playerDatas[i].input.GetComponent<CarController>();
+                playerDatas[i].player = BagnoleManager.instance.players[i];
+                playerDatas[i].controller = playerDatas[i].player.CreateCar();
                 playerDatas[i].controller.Init(i, this);
                 playerDatas[i].controller.transform.position = playerSpawnsRoot.GetChild(i).position;
 
                 playerDatas[i].controller.SetCanMove(true);
             }
+            BagnoleManager.instance.EnableSplitScreen(true);
         }
 
         public void DoLap(int id)
@@ -38,7 +38,7 @@ namespace MyHerbagnole
             {
                 foreach (PlayerData data in playerDatas)
                 {
-                    data.controller.SetCanMove(false);
+                    if(data.controller) data.controller.SetCanMove(false);
                 }
             }
         }
@@ -50,7 +50,7 @@ namespace MyHerbagnole
         }
 
         public struct PlayerData {
-            public PlayerInput input;
+            public BagnolePlayer player;
             public int lap;
             public CarController controller;
         }
