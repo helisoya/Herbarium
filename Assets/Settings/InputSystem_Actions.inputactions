@@ -43,6 +43,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Drift",
+                    "type": "Button",
+                    "id": "eb05c87b-a989-4cc8-bd4e-fd5858b55412",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Crouch",
                     "type": "Button",
                     "id": "27c5f898-bc57-4ee1-8800-db469aca5fe3",
@@ -515,6 +524,28 @@
                     "processors": "",
                     "groups": ";KeyboardAlt",
                     "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6dce24fa-4993-4a86-b6db-4c4116dd0e4b",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f36491f0-6cb6-4f50-9db0-9c7539f10a6b",
+                    "path": "<Keyboard>/numpadMinus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardAlt",
+                    "action": "Drift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

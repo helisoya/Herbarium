@@ -11,7 +11,7 @@ namespace MyHerbagnole
         public int id { get; private set; }
         private PlayerInput input;
         private CarController carController;
-        public GameObject prefabCar { get;  private set;}
+        public GameObject prefabCar { get; private set; }
         public GameObject prefabDriver { get; private set; }
 
         public void Init(int id, PlayerInput input)
@@ -72,7 +72,16 @@ namespace MyHerbagnole
             else if (BagnoleManager.instance.state == BagnoleManager.GameState.MAINMENU)
             {
                 BagnoleMenuManager.instance.ForwardOnSubmit(id);
-            } 
+            }
+        }
+
+        void OnDrift(InputValue inputValue)
+        {
+            if (carController && BagnoleManager.instance.state == BagnoleManager.GameState.RACE)
+            {
+                if (inputValue.isPressed) carController.StartDrift();
+                else carController.StopDrift();
+            }
         }
     }
 }

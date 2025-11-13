@@ -1,5 +1,6 @@
 using System;
 using Unity.Cinemachine;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,6 +27,8 @@ namespace MyHerbagnole
         private bool flagNextLap;
         private TrackManager manager;
         private int id;
+        private bool driftRight;
+        private bool driftLeft;
 
 
         private Vector2 currentInput;
@@ -73,6 +76,18 @@ namespace MyHerbagnole
             currentInput = vector;
         }
 
+        public void StartDrift()
+        {
+            driftLeft = currentInput.x < 0;
+            driftRight = currentInput.x > 0;
+        }
+
+        public void StopDrift()
+        {
+            driftLeft = false;
+            driftRight = false;
+        }
+
         void Start()
         {
             data.rb.centerOfMass = data.centerOfMass.localPosition;
@@ -96,6 +111,15 @@ namespace MyHerbagnole
             currentAccel = maxAccelleration * currentInput.y;
             currentTurnAngle = currentInput.x * maxSteerAngle;
 
+            if (driftLeft)
+            {
+                currentTurnAngle = (currentInput.x - 1.0f) * maxSteerAngle;
+            }
+            else if (driftRight)
+            {
+                currentTurnAngle = (currentInput.x + 1.0f) * maxSteerAngle;
+            }
+
             foreach (Wheel wheel in data.wheels)
             {
                 wheel.collider.motorTorque = currentAccel;
@@ -107,7 +131,6 @@ namespace MyHerbagnole
                 }
             }
         }
-
 
         public enum Axel
         {

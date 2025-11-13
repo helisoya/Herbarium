@@ -70,12 +70,12 @@ namespace MyHerbagnole
 
                 if (debug)
                 {
+                    if(startInRace) state = GameState.RACE;
+
                     for (int i = 0; i < debugSchemes.Length; i++)
                     {
                         PlayerInput.Instantiate(inputManager.playerPrefab, controlScheme: debugSchemes[i], pairWithDevice: Keyboard.current);
                     }
-
-                    if(startInRace) state = GameState.RACE;
                 }
 
                 DontDestroyOnLoad(gameObject);
