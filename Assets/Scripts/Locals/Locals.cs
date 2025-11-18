@@ -25,26 +25,34 @@ public class Locals
         }
     }
 
-    public static int fontIndexPrimary {
-        get{
+    public static int fontIndexPrimary
+    {
+        get
+        {
             return self.currentFontIdxPrimary;
         }
     }
 
-    public static int fontIndexSecondary {
-        get{
+    public static int fontIndexSecondary
+    {
+        get
+        {
             return self.currentFontIdxSecondary;
         }
     }
 
-    public static TMP_FontAsset fontPrimary {
-        get{
+    public static TMP_FontAsset fontPrimary
+    {
+        get
+        {
             return self.staticData.fonts[self.currentFontIdxPrimary];
         }
     }
 
-    public static TMP_FontAsset fontSecondary {
-        get{
+    public static TMP_FontAsset fontSecondary
+    {
+        get
+        {
             return self.staticData.fonts[self.currentFontIdxSecondary];
         }
     }
@@ -66,11 +74,11 @@ public class Locals
     public Locals()
     {
         self = this;
-        staticData = Resources.Load<LocalsData>("Locals/SO_LocalsData");
+        staticData = Resources.Load<LocalsData>("Data/SO_LocalsData");
         locals = new Dictionary<string, string>();
         currentFontIdxPrimary = 0;
         currentFontIdxSecondary = 1;
-        if(staticData.languages.Length > 0) ChangeLanguage(staticData.languages[0]);
+        if (staticData.languages.Length > 0) ChangeLanguage(staticData.languages[0]);
     }
 
     /// <summary>
@@ -79,7 +87,7 @@ public class Locals
     /// <param name="newOne">The new language's code</param>
     public static void ChangeLanguage(string newOne)
     {
-        if(Locals.self == null) Init();
+        if (Locals.self == null) Init();
         if (newOne.Equals(self.currentLanguage)) return;
 
         self.currentLanguage = newOne;
@@ -87,24 +95,26 @@ public class Locals
         self.LoadContent(newOne + "_system");
         self.LoadContent(newOne + "_story");
     }
-    
+
     /// <summary>
     /// Changes the current primary font
     /// </summary>
     /// <param name="fontIndex">The new font</param>
-    public static void ChangeFontPrimary(int fontIndex){
-        if(Locals.self == null) Init();
+    public static void ChangeFontPrimary(int fontIndex)
+    {
+        if (Locals.self == null) Init();
 
         self.currentFontIdxPrimary = fontIndex;
         onChangeFontPrimary.Invoke(self.staticData.fonts[fontIndex]);
     }
-    
+
     /// <summary>
     /// Changes the current secondary font
     /// </summary>
     /// <param name="fontIndex">The new font</param>
-    public static void ChangeFontSecondary(int fontIndex){
-        if(Locals.self == null) Init();
+    public static void ChangeFontSecondary(int fontIndex)
+    {
+        if (Locals.self == null) Init();
 
         self.currentFontIdxSecondary = fontIndex;
         onChangeFontSecondary.Invoke(self.staticData.fonts[fontIndex]);
@@ -130,7 +140,7 @@ public class Locals
     public static TMP_FontAsset GetFont(int idx)
     {
         if (Locals.self == null) Init();
-        if(idx >= 0 && idx < self.staticData.fonts.Length) return self.staticData.fonts[idx];
+        if (idx >= 0 && idx < self.staticData.fonts.Length) return self.staticData.fonts[idx];
         return null;
     }
 
