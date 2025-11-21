@@ -16,6 +16,10 @@ public class Locals
     private string currentLanguage;
     private int currentFontIdxPrimary;
     private int currentFontIdxSecondary;
+    private int currentSizeIdxPrimary;
+    private int currentSizeIdxSecondary;
+    private Color currentColorPrimary;
+    private Color currentColorSecondary;
 
     public static string current
     {
@@ -57,11 +61,65 @@ public class Locals
         }
     }
 
+    public static int textSizeIdxPrimary
+    {
+        get
+        {
+            return self.currentSizeIdxPrimary;
+        }
+    }
+
+    public static int textSizeIdxSecondary
+    {
+        get
+        {
+            return self.currentSizeIdxSecondary;
+        }
+    }
+
+    public static int textSizePrimary
+    {
+        get
+        {
+            return self.staticData.sizes[self.currentSizeIdxPrimary];
+        }
+    }
+
+    public static int textSizeSecondary
+    {
+        get
+        {
+            return self.staticData.sizes[self.currentSizeIdxSecondary];
+        }
+    }
+
+    public static Color colorPrimary
+    {
+        get
+        {
+            return self.currentColorPrimary;
+        }
+    }
+
+    public static Color colorSecondary
+    {
+        get
+        {
+            return self.currentColorSecondary;
+        }
+    }
+
+
     private Dictionary<string, string> locals;
 
-    public static UnityEvent onChangeLocal = new UnityEvent();
-    public static UnityEvent<TMP_FontAsset> onChangeFontPrimary = new UnityEvent<TMP_FontAsset>();
-    public static UnityEvent<TMP_FontAsset> onChangeFontSecondary = new UnityEvent<TMP_FontAsset>();
+    private UnityEvent onChangeLocal;
+    private UnityEvent<TMP_FontAsset> onChangeFontPrimary;
+    private UnityEvent<TMP_FontAsset> onChangeFontSecondary;
+    private UnityEvent<int> onChangeSizePrimary;
+    private UnityEvent<int> onChangeSizeSecondary;
+    private UnityEvent<Color> onChangeColorPrimary;
+    private UnityEvent<Color> onChangeColorSecondary;
+
 
     /// <summary>
     /// Initiliazes the Locals
@@ -74,11 +132,67 @@ public class Locals
     public Locals()
     {
         self = this;
+        onChangeLocal = new UnityEvent();
+        onChangeFontPrimary = new UnityEvent<TMP_FontAsset>();
+        onChangeFontSecondary = new UnityEvent<TMP_FontAsset>();
+        onChangeSizePrimary = new UnityEvent<int>();
+        onChangeSizeSecondary = new UnityEvent<int>();
+        onChangeColorPrimary = new UnityEvent<Color>();
+        onChangeColorSecondary = new UnityEvent<Color>();
+
         staticData = Resources.Load<LocalsData>("Data/SO_LocalsData");
         locals = new Dictionary<string, string>();
         currentFontIdxPrimary = 0;
         currentFontIdxSecondary = 1;
+        currentSizeIdxPrimary = 0;
+        currentSizeIdxSecondary = 0;
+        currentColorPrimary = Color.blue;
+        currentColorSecondary = Color.red;
         if (staticData.languages.Length > 0) ChangeLanguage(staticData.languages[0]);
+    }
+
+    /// <summary>
+    /// Registers a localized text
+    /// </summary>
+    /// <param name="text">The localized text</param>
+    public static void RegisterText(LocalizedText text)
+    {
+        if (Locals.self == null) Init();
+        self.onChangeLocal.AddListener(text.ReloadText);
+        if (text.isUsingPrimaryFont)
+        {
+            self.onChangeFontPrimary.AddListener(text.SetFont);
+            self.onChangeSizePrimary.AddListener(text.SetSize);
+            self.onChangeColorPrimary.AddListener(text.SetColor);
+        } 
+        else
+        {
+            self.onChangeFontSecondary.AddListener(text.SetFont);
+            self.onChangeSizeSecondary.AddListener(text.SetSize);
+            self.onChangeColorSecondary.AddListener(text.SetColor);
+        } 
+    }
+
+    /// <summary>
+    /// Unregisters a localized text
+    /// </summary>
+    /// <param name="text">The localized text</param>
+    public static void UnregisterText(LocalizedText text)
+    {
+        if (Locals.self == null) Init();
+
+        self.onChangeLocal.RemoveListener(text.ReloadText);
+        if (text.isUsingPrimaryFont)
+        {
+            self.onChangeSizePrimary.RemoveListener(text.SetSize);
+            self.onChangeFontPrimary.RemoveListener(text.SetFont);
+            self.onChangeColorPrimary.RemoveListener(text.SetColor);
+        } 
+        else{
+            self.onChangeSizeSecondary.RemoveListener(text.SetSize);
+            self.onChangeFontSecondary.RemoveListener(text.SetFont);
+            self.onChangeColorSecondary.RemoveListener(text.SetColor);
+        }
     }
 
     /// <summary>
@@ -105,7 +219,7 @@ public class Locals
         if (Locals.self == null) Init();
 
         self.currentFontIdxPrimary = fontIndex;
-        onChangeFontPrimary.Invoke(self.staticData.fonts[fontIndex]);
+        self.onChangeFontPrimary.Invoke(self.staticData.fonts[fontIndex]);
     }
 
     /// <summary>
@@ -117,7 +231,55 @@ public class Locals
         if (Locals.self == null) Init();
 
         self.currentFontIdxSecondary = fontIndex;
-        onChangeFontSecondary.Invoke(self.staticData.fonts[fontIndex]);
+        self.onChangeFontSecondary.Invoke(self.staticData.fonts[fontIndex]);
+    }
+
+    /// <summary>
+    /// Changes the current primary size
+    /// </summary>
+    /// <param name="sizeIndex">The new size's index</param>
+    public static void ChangeSizePrimary(int sizeIndex)
+    {
+        if (Locals.self == null) Init();
+
+        self.currentSizeIdxPrimary = sizeIndex;
+        self.onChangeSizePrimary.Invoke(self.staticData.sizes[sizeIndex]);
+    }
+
+    /// <summary>
+    /// Changes the current secondary size
+    /// </summary>
+    /// <param name="sizeIndex">The new size's index</param>
+    public static void ChangeSizeSecondary(int sizeIndex)
+    {
+        if (Locals.self == null) Init();
+
+        self.currentSizeIdxSecondary = sizeIndex;
+        self.onChangeSizeSecondary.Invoke(self.staticData.sizes[sizeIndex]);
+    }
+
+    /// <summary>
+    /// Changes the current primary color
+    /// </summary>
+    /// <param name="color">The new color</param>
+    public static void ChangeColorPrimary(Color color)
+    {
+        if (Locals.self == null) Init();
+
+        self.currentColorPrimary = color;
+        self.onChangeColorPrimary.Invoke(color);
+    }
+
+    /// <summary>
+    /// Changes the current secondary color
+    /// </summary>
+    /// <param name="color">The new color</param>
+    public static void ChangeColorSecondary(Color color)
+    {
+        if (Locals.self == null) Init();
+
+        self.currentColorSecondary = color;
+        self.onChangeColorSecondary.Invoke(color);
     }
 
     /// <summary>
@@ -153,6 +315,27 @@ public class Locals
         if (Locals.self == null) Init();
         return self.staticData.fonts;
     }
+
+    /// <summary>
+    /// Gets all available text sizes
+    /// </summary>
+    /// <returns>The available text sizes</returns>
+    public static int[] GetSizes()
+    {
+        if (Locals.self == null) Init();
+        return self.staticData.sizes;
+    }
+
+    /// <summary>
+    /// Gets a text size
+    /// </summary>
+    /// <returns>The text size's index</returns>
+    public static int GetSize(int index)
+    {
+        if (Locals.self == null) Init();
+        return self.staticData.sizes[index];
+    }
+
 
     /// <summary>
     /// Gets all available languages

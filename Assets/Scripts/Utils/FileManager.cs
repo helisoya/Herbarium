@@ -248,8 +248,21 @@ public class FileManager : MonoBehaviour
     public static T LoadJSON<T>(string filePath)
 	{
         string jsonString = LoadFile(filePath)[0];
-
 		return JsonUtility.FromJson<T>(jsonString);
+	}
+
+    /// <summary>
+    /// Load a class from a JSON file by converting every string to its proper value. 
+    /// Loads non serializable objects such as colors, vectors, quaternions, sprites, textures, audio clips, etc.
+    /// </summary>
+    /// <returns>The JSO.</returns>
+    /// <param name="filePath">File path.</param>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
+    /// <typeparam name="obj">The object to overwrite.</typeparam>
+    public static void LoadJSON<T>(string filePath, ref T obj)
+	{
+        string jsonString = LoadFile(filePath)[0];
+		JsonUtility.FromJsonOverwrite(jsonString,obj);
 	}
 
     public static T LoadEncryptedJSON<T>(string filePath, byte[] encryptionKeys)

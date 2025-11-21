@@ -12,6 +12,7 @@ public class LocalsWindowEditor : EditorWindow
 	private LocalsData data;
 	private SerializedObject serializedData;
 	private SerializedProperty fontsProperty;
+	private SerializedProperty sizesProperty;
 	private bool foldoutAdd = false;
 	private string textAdd = "";
 	private bool[] foldouts;
@@ -22,6 +23,7 @@ public class LocalsWindowEditor : EditorWindow
 		foldouts = new bool[data.languages.Length];
 		serializedData = new SerializedObject(data);
 		fontsProperty = serializedData.FindProperty("fonts");
+		sizesProperty = serializedData.FindProperty("sizes");
 	}
 
 	[MenuItem("Herbarium/Locals")]
@@ -31,9 +33,14 @@ public class LocalsWindowEditor : EditorWindow
 		wnd.titleContent = new GUIContent("Locals");
 	}
 
+	public LocalsWindowEditor()
+    {
+        
+    }
+
 	public void OnGUI()
 	{
-		if (!data) Init();
+		if (!data || serializedData == null) Init();
 		serializedData.Update();
 
 		for (int i = 0; i < data.languages.Length; i++)
@@ -91,6 +98,10 @@ public class LocalsWindowEditor : EditorWindow
 		GUILayout.Space(30);
 		EditorGUILayout.LabelField("Fonts");
 		EditorGUILayout.PropertyField(fontsProperty);
+
+		EditorGUILayout.LabelField("Sizes");
+		EditorGUILayout.PropertyField(sizesProperty);
+
 		serializedData.ApplyModifiedProperties();
 
 		EditorUtility.SetDirty(data);

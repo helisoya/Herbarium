@@ -9,4 +9,5 @@ public class LocalsData : ScriptableObject
 {
     public string[] languages;
     public TMP_FontAsset[] fonts;
+    public int[] sizes;
 }

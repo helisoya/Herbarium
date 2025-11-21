@@ -15,26 +15,27 @@ public class LocalizedText : MonoBehaviour
 
     void Start()
     {
+        Locals.RegisterText(this);
+
         ReloadText();
-        Locals.onChangeLocal.AddListener(ReloadText);
 
         if (usePrimaryFont)
         {
             SetFont(Locals.fontPrimary);
-            Locals.onChangeFontPrimary.AddListener(SetFont);
+            SetSize(Locals.textSizePrimary);
+            SetColor(Locals.colorPrimary);
         }
         else
         {
             SetFont(Locals.fontSecondary);
-            Locals.onChangeFontSecondary.AddListener(SetFont);
+            SetSize(Locals.textSizeSecondary);
+            SetColor(Locals.colorSecondary);
         }
     }
 
     protected void OnDestroy()
     {
-        Locals.onChangeLocal.RemoveListener(ReloadText);
-        if (usePrimaryFont) Locals.onChangeFontPrimary.RemoveListener(SetFont);
-        else Locals.onChangeFontSecondary.RemoveListener(SetFont);
+        Locals.UnregisterText(this);
     }
 
     /// <summary>
@@ -96,5 +97,16 @@ public class LocalizedText : MonoBehaviour
         text.color = color;
     }
 
+    /// <summary>
+    /// Sets the font size
+    /// </summary>
+    /// <param name="size">The new size</param>
+    public void SetSize(int size)
+    {
+        text.fontSize = size;
+        text.fontSizeMax = size;
+    }
+
     public string key { get { return localKey; } }
+    public bool isUsingPrimaryFont {get{return usePrimaryFont;}}
 }
