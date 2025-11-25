@@ -13,7 +13,7 @@ public class PlayerInteraction : MonoBehaviour
     private InteractableObject currentObject;
 
 
-    void OnDrawGzmosSelected()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(playerBody.position,interactionDistance);
@@ -28,16 +28,23 @@ public class PlayerInteraction : MonoBehaviour
         {
             InteractableObject newObj = hitInfo.collider.GetComponent<InteractableObject>();
 
-            if(newObj == currentObject) return;
-            
-            if (currentObject) currentObject.SetActive(false);
-            currentObject = newObj;
-            if (currentObject) currentObject.SetActive(true);
+            if(newObj != currentObject)
+            {
+                if (currentObject) currentObject.SetActive(false);
+                currentObject = newObj;
+            }
         }
-        else
+        else if (currentObject)
         {
-            if (currentObject) currentObject.SetActive(false);
+            currentObject.SetActive(false);
             currentObject = null;
+        }
+
+        // Update if the interactionIcon should be shown
+        if (currentObject)
+        {
+            float distance = Vector3.Distance(playerBody.position,currentObject.transform.position);
+            currentObject.SetActive(distance <= interactionDistance);
         }
     }
 
@@ -61,7 +68,6 @@ public class PlayerInteraction : MonoBehaviour
         if (currentObject != null)
         {
             float distance = Vector3.Distance(playerBody.position,currentObject.transform.position);
-            print(distance);
             if(distance > interactionDistance) return;
 
             if (currentObject.stopPlayerOnInterract)

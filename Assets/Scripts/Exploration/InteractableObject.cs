@@ -10,7 +10,8 @@ public class InteractableObject : MonoBehaviour
     [Header("Interaction")]
     public bool stopPlayerOnInterract = true;
     [SerializeField] protected DialogGraph linkedGraph;
-    private bool playerIsInside = false;
+    [SerializeField] protected GameObject interactionIcon;
+    private bool playerCouldInteract = false;
 
     /// <summary>
     /// Changes if the interaction is "active" or not
@@ -18,7 +19,8 @@ public class InteractableObject : MonoBehaviour
     /// <param name="value">True if active</param>
     public void SetActive(bool value)
     {
-        playerIsInside = value;
+        playerCouldInteract = value;
+        interactionIcon.SetActive(value);
     }
 
     /// <summary>

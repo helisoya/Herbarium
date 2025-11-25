@@ -19,7 +19,7 @@ public class DialogNode : HerbariumNode {
 
     public override IEnumerator Apply()
     {
-        /*
+        
         GameGUI.instance.ShowDialog(dialogID);
 
         // Dialog appears
@@ -33,7 +33,7 @@ public class DialogNode : HerbariumNode {
             yield return new WaitForEndOfFrame();
         }
         GameGUI.instance.SetDialogOpen(false);
-        */
+        
         yield return 0;
     }
 }
