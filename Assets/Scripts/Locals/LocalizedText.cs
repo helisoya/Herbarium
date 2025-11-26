@@ -18,19 +18,6 @@ public class LocalizedText : MonoBehaviour
         Locals.RegisterText(this);
 
         ReloadText();
-
-        if (usePrimaryFont)
-        {
-            SetFont(Locals.fontPrimary);
-            SetSize(Locals.textSizePrimary);
-            SetColor(Locals.colorPrimary);
-        }
-        else
-        {
-            SetFont(Locals.fontSecondary);
-            SetSize(Locals.textSizeSecondary);
-            SetColor(Locals.colorSecondary);
-        }
     }
 
     protected void OnDestroy()

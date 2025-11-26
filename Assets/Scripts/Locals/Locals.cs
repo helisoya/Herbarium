@@ -164,12 +164,20 @@ public class Locals
             self.onChangeFontPrimary.AddListener(text.SetFont);
             self.onChangeSizePrimary.AddListener(text.SetSize);
             self.onChangeColorPrimary.AddListener(text.SetColor);
-        } 
+
+            text.SetFont(fontPrimary);
+            text.SetSize(textSizePrimary);
+            text.SetColor(colorPrimary);
+        }
         else
         {
             self.onChangeFontSecondary.AddListener(text.SetFont);
             self.onChangeSizeSecondary.AddListener(text.SetSize);
             self.onChangeColorSecondary.AddListener(text.SetColor);
+
+            text.SetFont(fontSecondary);
+            text.SetSize(textSizeSecondary);
+            text.SetColor(colorSecondary);
         } 
     }
 
