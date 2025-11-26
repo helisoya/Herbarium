@@ -15,22 +15,9 @@ public class LocalizedText : MonoBehaviour
 
     void Start()
     {
-        Locals.RegisterText(this);
+        Locals.RegisterText(this,isUsingPrimaryFont);
 
         ReloadText();
-
-        if (usePrimaryFont)
-        {
-            SetFont(Locals.fontPrimary);
-            SetSize(Locals.textSizePrimary);
-            SetColor(Locals.colorPrimary);
-        }
-        else
-        {
-            SetFont(Locals.fontSecondary);
-            SetSize(Locals.textSizeSecondary);
-            SetColor(Locals.colorSecondary);
-        }
     }
 
     protected void OnDestroy()
@@ -64,7 +51,11 @@ public class LocalizedText : MonoBehaviour
         text.text = txt;
     }
     
-
+    /// <summary>
+    /// Sets the injectors for this string
+    /// </summary>
+    /// <param name="newInjectors">The new injectors</param>
+    /// <param name="reloadText">True if the text should be immediatly reloaded</param>
     public void SetInjectors(object[] newInjectors, bool reloadText = true)
     {
         injectors = newInjectors;

@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Settings
 {
-    private static Settings instance;
+    public static Settings instance;
     private SettingsData data;
     private SettingsData defaultData;
 

@@ -155,21 +155,30 @@ public class Locals
     /// Registers a localized text
     /// </summary>
     /// <param name="text">The localized text</param>
-    public static void RegisterText(LocalizedText text)
+    /// <param name="isUsingPrimaryFont">True if using the primary font</param>
+    public static void RegisterText(LocalizedText text, bool isUsingPrimaryFont)
     {
         if (Locals.self == null) Init();
         self.onChangeLocal.AddListener(text.ReloadText);
-        if (text.isUsingPrimaryFont)
+        if (isUsingPrimaryFont)
         {
             self.onChangeFontPrimary.AddListener(text.SetFont);
             self.onChangeSizePrimary.AddListener(text.SetSize);
             self.onChangeColorPrimary.AddListener(text.SetColor);
-        } 
+
+            text.SetFont(fontPrimary);
+            text.SetSize(textSizePrimary);
+            text.SetColor(colorPrimary);
+        }
         else
         {
             self.onChangeFontSecondary.AddListener(text.SetFont);
             self.onChangeSizeSecondary.AddListener(text.SetSize);
             self.onChangeColorSecondary.AddListener(text.SetColor);
+
+            text.SetFont(fontSecondary);
+            text.SetSize(textSizeSecondary);
+            text.SetColor(colorSecondary);
         } 
     }
 
