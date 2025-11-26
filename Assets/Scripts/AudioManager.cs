@@ -3,10 +3,16 @@ using FMODUnity;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] private AudioData audioData;
+    
     private static AudioManager instance;
     public static AudioManager Instance => instance;
 
-    [SerializeField] private AudioData audioData;
+    void Start()
+    {
+        //FMODUnity.RuntimeManager.LoadBank(audioData.banks[id], true);
+    }
+    
     public void Play2DEvent(EventID id)
     {
         RuntimeManager.PlayOneShot(audioData.events[id]);
@@ -15,5 +21,10 @@ public class AudioManager : MonoBehaviour
     public void Play3DEvent(EventID id, GameObject eventSource = null)
     {
         RuntimeManager.PlayOneShotAttached(audioData.events[id], eventSource);
+    }
+
+    public void LoadFMODBank(BankID id)
+    {
+        //RuntimeManager.StudioBankLoader(audioData.banks[id]);
     }
 }
