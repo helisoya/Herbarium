@@ -15,7 +15,7 @@ public class LocalizedText : MonoBehaviour
 
     void Start()
     {
-        Locals.RegisterText(this);
+        Locals.RegisterText(this,isUsingPrimaryFont);
 
         ReloadText();
     }
