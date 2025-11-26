@@ -95,6 +95,9 @@
 		<property name="length">
 			<value>8.2000000000000011</value>
 		</property>
+		<property name="volume">
+			<value>5.5</value>
+		</property>
 		<relationship name="sound">
 			<destination>{6bb5877e-695b-4ff8-a828-6574664f60e0}</destination>
 		</relationship>
@@ -160,8 +163,11 @@
 		</relationship>
 	</object>
 	<object class="ObjectSpatialiserEffect" id="{5e23c234-0cc4-4e99-82c6-3151afb1f09e}">
+		<property name="minimumDistance">
+			<value>0</value>
+		</property>
 		<property name="maximumDistance">
-			<value>7.80000019</value>
+			<value>4.80000019</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>

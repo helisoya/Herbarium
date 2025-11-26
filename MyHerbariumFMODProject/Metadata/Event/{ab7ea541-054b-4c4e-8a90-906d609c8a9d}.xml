@@ -106,6 +106,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{52e5e4a8-16dc-4247-8ea9-0853339a4669}">
+		<property name="volume">
+			<value>-15.5</value>
+		</property>
 		<property name="name">
 			<value>BirdB</value>
 		</property>
@@ -174,8 +177,14 @@
 		</relationship>
 	</object>
 	<object class="ObjectSpatialiserEffect" id="{95aeab22-8ab9-48bc-8f21-b4e461095289}">
+		<property name="distanceRolloffType">
+			<value>3</value>
+		</property>
+		<property name="minimumDistance">
+			<value>0.5</value>
+		</property>
 		<property name="maximumDistance">
-			<value>7.80000019</value>
+			<value>6.20000029</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>
