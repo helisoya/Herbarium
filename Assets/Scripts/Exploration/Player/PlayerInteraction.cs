@@ -21,23 +21,43 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        InteractableObject selected = null;
+        float distTemp;
+
         // Check at mouse
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
 
         if(Physics.Raycast(ray, out RaycastHit hitInfo,100f,interactionMask))
         {
-            InteractableObject newObj = hitInfo.collider.GetComponent<InteractableObject>();
+            distTemp = Vector3.Distance(hitInfo.collider.bounds.center, playerBody.position);
 
-            if(newObj != currentObject)
+            if(distTemp < interactionDistance)
             {
-                if (currentObject) currentObject.SetActive(false);
-                currentObject = newObj;
+                selected = hitInfo.collider.GetComponent<InteractableObject>();
             }
         }
-        else if (currentObject)
+
+        // Check by distance
+        if (!selected)
         {
-            currentObject.SetActive(false);
-            currentObject = null;
+            Collider[] colliders = Physics.OverlapSphere(playerBody.position,interactionDistance,interactionMask);
+            float minDistance = 999f;
+            
+            foreach(Collider collider in colliders)
+            {
+                distTemp = Vector3.Distance(collider.bounds.center, playerBody.position);
+                if(distTemp < minDistance)
+                {
+                    minDistance = distTemp;
+                    selected = collider.GetComponent<InteractableObject>();
+                }
+            }
+        }
+
+        if(selected != currentObject)
+        {
+            if(currentObject) currentObject.SetActive(false);
+            currentObject = selected;
         }
 
         // Update if the interactionIcon should be shown
