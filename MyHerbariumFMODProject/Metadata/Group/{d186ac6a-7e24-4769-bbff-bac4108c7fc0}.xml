@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{d186ac6a-7e24-4769-bbff-bac4108c7fc0}">
+		<property name="name">
+			<value>ExploEnviro3D</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{873fb08d-4519-489d-a3d6-494997efac78}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{53fe4925-ac33-4336-b993-7011631c6ec3}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{57c2d721-5945-41e7-88ed-4a07e4bb087c}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{873fb08d-4519-489d-a3d6-494997efac78}">
+		<relationship name="effects">
+			<destination>{e834913c-77e7-4ac5-bf60-6e22e7f71bc9}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{53fe4925-ac33-4336-b993-7011631c6ec3}" />
+	<object class="MixerBusFader" id="{e834913c-77e7-4ac5-bf60-6e22e7f71bc9}" />
+</objects>

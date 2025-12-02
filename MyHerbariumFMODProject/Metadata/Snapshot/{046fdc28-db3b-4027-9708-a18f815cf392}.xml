@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Snapshot" id="{046fdc28-db3b-4027-9708-a18f815cf392}">
+		<property name="name">
+			<value>TodTwilight</value>
+		</property>
+		<property name="behavior">
+			<value>1</value>
+		</property>
+		<relationship name="mixer">
+			<destination>{49798537-88be-4f52-9a0d-35ee4c217317}</destination>
+		</relationship>
+		<relationship name="automatableProperties">
+			<destination>{b8852e8e-2ef1-4370-991b-6943469e8608}</destination>
+		</relationship>
+		<relationship name="markerTracks">
+			<destination>{9d78942e-859c-4d82-917c-e26ac7d6d0ca}</destination>
+		</relationship>
+		<relationship name="timeline">
+			<destination>{e0111581-fb48-4027-b4f9-946c2573351e}</destination>
+		</relationship>
+		<relationship name="snapshotMasterTrack">
+			<destination>{0b281ad4-d7c3-40fd-9305-7dcfa7e7aca3}</destination>
+		</relationship>
+	</object>
+	<object class="EventAutomatableProperties" id="{b8852e8e-2ef1-4370-991b-6943469e8608}" />
+	<object class="MarkerTrack" id="{9d78942e-859c-4d82-917c-e26ac7d6d0ca}" />
+	<object class="Timeline" id="{e0111581-fb48-4027-b4f9-946c2573351e}" />
+	<object class="SnapshotMasterTrack" id="{0b281ad4-d7c3-40fd-9305-7dcfa7e7aca3}" />
+</objects>
