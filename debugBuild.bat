@@ -1,0 +1,1 @@
+"C:\Program Files\Unity\Hub\Editor\6000.2.9f1\Editor\Unity.exe" -quit -batchmode -nographics -executeMethod HerbariumBuild.BuildDebug -projectPath .
