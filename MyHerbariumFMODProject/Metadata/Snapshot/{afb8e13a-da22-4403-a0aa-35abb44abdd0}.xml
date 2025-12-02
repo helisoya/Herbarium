@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Snapshot" id="{afb8e13a-da22-4403-a0aa-35abb44abdd0}">
+		<property name="name">
+			<value>WeatherClean</value>
+		</property>
+		<property name="behavior">
+			<value>1</value>
+		</property>
+		<relationship name="mixer">
+			<destination>{49798537-88be-4f52-9a0d-35ee4c217317}</destination>
+		</relationship>
+		<relationship name="automatableProperties">
+			<destination>{661b6db4-392c-4781-8d71-9b87e85ad690}</destination>
+		</relationship>
+		<relationship name="markerTracks">
+			<destination>{7eec7816-eaf1-4aa1-bb8e-c131d42eed9c}</destination>
+		</relationship>
+		<relationship name="timeline">
+			<destination>{e0a9f78a-3192-4fd0-a734-bc70a3e3c83e}</destination>
+		</relationship>
+		<relationship name="snapshotMasterTrack">
+			<destination>{de050a40-0c90-4f67-a93c-2a7156a7e166}</destination>
+		</relationship>
+	</object>
+	<object class="EventAutomatableProperties" id="{661b6db4-392c-4781-8d71-9b87e85ad690}" />
+	<object class="MarkerTrack" id="{7eec7816-eaf1-4aa1-bb8e-c131d42eed9c}" />
+	<object class="Timeline" id="{e0a9f78a-3192-4fd0-a734-bc70a3e3c83e}" />
+	<object class="SnapshotMasterTrack" id="{de050a40-0c90-4f67-a93c-2a7156a7e166}" />
+</objects>
