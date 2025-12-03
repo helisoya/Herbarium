@@ -11,6 +11,7 @@ public class LocalizedText : MonoBehaviour
     [SerializeField] protected string localKey;
     [SerializeField] protected bool usePrimaryFont = true;
     [SerializeField] protected TMP_Text text;
+    [SerializeField] protected bool canResize = true;
     protected object[] injectors;
 
     void Start()
@@ -94,6 +95,8 @@ public class LocalizedText : MonoBehaviour
     /// <param name="size">The new size</param>
     public void SetSize(int size)
     {
+        if(!canResize) return;
+        
         text.fontSize = size;
         text.fontSizeMax = size;
     }

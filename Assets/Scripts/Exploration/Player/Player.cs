@@ -19,14 +19,16 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if(CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) return;
+        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) ||
+            GameGUI.instance.radialMenuOpen) return;
 
         controller.SetMoveVector(value.Get<Vector2>());
     }
 
     void OnMousePosition(InputValue value)
     {
-        if(CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) return;
+        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) ||
+            GameGUI.instance.radialMenuOpen) return;
 
         Vector2 mousePos = value.Get<Vector2>();
         interaction.SetMousePosition(mousePos);
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour
             CutsceneManager.instance.UserSubmit();
             return;
         }
+
+        if(GameGUI.instance.radialMenuOpen) return;
 
         bool shouldHold = Settings.instance.IsHoldModeEnabled();
 

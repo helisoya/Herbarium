@@ -37,6 +37,7 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
 
+        /*
         // Check by distance
         if (!selected)
         {
@@ -53,6 +54,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
+        */
 
         if(selected != currentObject)
         {
