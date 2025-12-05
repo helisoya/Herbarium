@@ -8,7 +8,6 @@ public struct RadialMenuData
 {
     public RadialMenuEntryData[] entries;
     public float radius;
-    public Action backCallback;
 
 }
 
