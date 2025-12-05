@@ -8,6 +8,19 @@ public class AudioManager : MonoBehaviour
     private static AudioManager instance;
     public static AudioManager Instance => instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+        
+    }
+
     void Start()
     {
         //FMODUnity.RuntimeManager.LoadBank(audioData.banks[id], true);

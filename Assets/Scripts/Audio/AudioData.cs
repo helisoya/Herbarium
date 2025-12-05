@@ -11,12 +11,13 @@ public class AudioData : ScriptableObject
 
 public enum EventID
 {
-    Amb, TreeTypeA, TreeTypeB, River, BirdTypeA, BirdTypeB
+    Amb, TreeA, TreeB, River, BirdA, BirdB, BirdC, BirdD, BushA, BushB, BushC, BioLightA, BioLightB,
+    Enviro2DMusic, Entry1Music3D, Entry2Music3D, Entry3Music3D,
 }
 
 public enum ParamID
 {
-
+    HerbariumEntries, 
 }
 
 public enum BankID
