@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 519318841}
   - component: {fileID: 519318840}
   - component: {fileID: 519318843}
+  - component: {fileID: 519318844}
   m_Layer: 0
   m_Name: PLANT BIG
   m_TagString: Untagged
@@ -1274,6 +1275,37 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &519318844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519318839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 161353499
+      Data2: 1113378874
+      Data3: 1697953439
+      Data4: 2053219554
+    Path: event:/Enviro/TreeA
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &521076517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1579,7 @@ GameObject:
   - component: {fileID: 643704756}
   - component: {fileID: 643704755}
   - component: {fileID: 643704754}
+  - component: {fileID: 643704757}
   m_Layer: 0
   m_Name: Tree (1)
   m_TagString: Untagged
@@ -1618,6 +1651,37 @@ Transform:
   - {fileID: 1380873293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643704757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643704753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -605334147
+      Data2: 1256568988
+      Data3: -271094642
+      Data4: 1078125191
+    Path: event:/Music/Entry2Music3D
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &672646815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,6 +4154,7 @@ GameObject:
   - component: {fileID: 1930068884}
   - component: {fileID: 1930068883}
   - component: {fileID: 1930068882}
+  - component: {fileID: 1930068885}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -4161,6 +4226,37 @@ Transform:
   - {fileID: 941654012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930068885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930068881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1362770042
+      Data2: 1119854668
+      Data3: -1488861055
+      Data4: 1398650092
+    Path: event:/Music/Entry1Music3D
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1952378271
 GameObject:
   m_ObjectHideFlags: 0
