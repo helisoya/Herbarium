@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -14,6 +12,9 @@ public class GameGUI : MonoBehaviour
     [Header("Pause")]
     //[SerializeField] private PauseMenu pauseMenu;
 
+    [Header("Radial Menu")]
+    [SerializeField] private RadialMenu radialMenu;
+    public bool radialMenuOpen {get{return radialMenu.inRadialMenu;}}
 
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
@@ -132,6 +133,40 @@ public class GameGUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         //pauseMenu.Close();
+    }
+
+    /// <summary>
+    /// Opens a radial menu
+    /// </summary>
+    /// <param name="data">The radial menu</param>
+    public void OpenRadialMenu(RadialMenuData data)
+    {
+        radialMenu.Open(data);
+    }
+
+    /// <summary>
+    /// Closes the radial menu
+    /// </summary>
+    public void CloseRadialMenu()
+    {
+        radialMenu.Close();
+    }
+
+    /// <summary>
+    /// Updates the radial menu
+    /// </summary>
+    /// <param name="mousePosition">The new mouse position</param>
+    public void UpdateRadial(Vector2 mousePosition)
+    {
+        radialMenu.UpdateMousePosition(mousePosition);
+    }
+
+    /// <summary>
+    /// Activate the current radial menu's entry
+    /// </summary>
+    public void ActivateCurrentRadialMenuEntry()
+    {
+        radialMenu.ActivateCurrentlySelected();
     }
 
     /// <summary>

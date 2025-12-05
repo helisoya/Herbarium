@@ -19,16 +19,24 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if(CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) return;
+        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) ||
+            GameGUI.instance.radialMenuOpen) return;
 
         controller.SetMoveVector(value.Get<Vector2>());
     }
 
     void OnMousePosition(InputValue value)
     {
-        if(CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) return;
+        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)) return;
 
         Vector2 mousePos = value.Get<Vector2>();
+
+        if (GameGUI.instance.radialMenuOpen)
+        {
+            GameGUI.instance.UpdateRadial(mousePos);
+            return;
+        }
+
         interaction.SetMousePosition(mousePos);
         controller.SetMousePosition(mousePos);
     }
@@ -39,6 +47,12 @@ public class Player : MonoBehaviour
             CutsceneManager.instance.UserSubmit();
             return;
         }
+
+        if (GameGUI.instance.radialMenuOpen)
+        {
+            if(value.isPressed) GameGUI.instance.ActivateCurrentRadialMenuEntry();
+            return;
+        } 
 
         bool shouldHold = Settings.instance.IsHoldModeEnabled();
 
