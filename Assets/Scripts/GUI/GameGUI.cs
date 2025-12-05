@@ -153,6 +153,23 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Updates the radial menu
+    /// </summary>
+    /// <param name="mousePosition">The new mouse position</param>
+    public void UpdateRadial(Vector2 mousePosition)
+    {
+        radialMenu.UpdateMousePosition(mousePosition);
+    }
+
+    /// <summary>
+    /// Activate the current radial menu's entry
+    /// </summary>
+    public void ActivateCurrentRadialMenuEntry()
+    {
+        radialMenu.ActivateCurrentlySelected();
+    }
+
+    /// <summary>
     /// Sets if the dialog panel is active or not
     /// </summary>
     /// <param name="value">True if it is active</param>

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Represents an entry in the radial menu
 /// </summary>
-public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class RadialMenuEntry : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private LocalizedText label;
@@ -60,17 +60,16 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
     /// <param name="x">The X position</param>
     /// <param name="y">The Y position</param>
     /// <param name="immediate">True if the change must be immediate</param>
-    public DG.Tweening.Core.TweenerCore<Vector2, Vector2, DG.Tweening.Plugins.Options.VectorOptions> SetPosition(float x, float y, bool immediate)
+    public void SetPosition(float x, float y, bool immediate)
     {
         
         if (immediate)
         {
             rectTransform.anchoredPosition = new Vector2(x, y);
-            return null;
         } 
         else
         {
-            return rectTransform.DOAnchorPos(new Vector2(x, y),0.30f).SetEase(Ease.OutQuad);
+            rectTransform.DOAnchorPos(new Vector2(x, y),0.30f).SetEase(Ease.OutQuad);
         }
     }
 
@@ -100,12 +99,10 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
         if(canBeInteractedWith && onClick != null) onClick.Invoke();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Activate();
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
+    /// <summary>
+    /// Highlight the entry
+    /// </summary>
+    public void Highlight()
     {
         if (canBeInteractedWith)
         {
@@ -115,7 +112,10 @@ public class RadialMenuEntry : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    /// <summary>
+    /// Stop highlighting the entry
+    /// </summary>
+    public void StopHighlight()
     {
         if (canBeInteractedWith)
         {
