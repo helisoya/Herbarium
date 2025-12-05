@@ -114,6 +114,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f9a1a653-8b90-4222-a7a8-ae9fd1bc8f7c}">
+		<property name="volume">
+			<value>-7.5</value>
+		</property>
 		<property name="name">
 			<value>SharkerEntry2</value>
 		</property>
@@ -159,7 +162,7 @@
 		<relationship name="effects">
 			<destination>{70996a1d-7a46-490c-9dc8-956e6a43e495}</destination>
 			<destination>{94132026-3f86-455a-9acb-2740dc2a1a8f}</destination>
-			<destination>{8d42bab9-6789-4158-84eb-ded6bc95bd59}</destination>
+			<destination>{f4955560-b094-4474-b1d5-60f0bd34462f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{8588e3ad-69e1-4a94-9517-9ac2eee2d764}" />
@@ -182,9 +185,12 @@
 			<destination>{1769da96-c052-4495-a3b3-a5bd029c11f7}</destination>
 		</relationship>
 	</object>
-	<object class="ObjectSpatialiserEffect" id="{8d42bab9-6789-4158-84eb-ded6bc95bd59}">
+	<object class="ObjectSpatialiserEffect" id="{f4955560-b094-4474-b1d5-60f0bd34462f}">
+		<property name="distanceRolloffType">
+			<value>3</value>
+		</property>
 		<property name="maximumDistance">
-			<value>7.80000019</value>
+			<value>4.5999999</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>

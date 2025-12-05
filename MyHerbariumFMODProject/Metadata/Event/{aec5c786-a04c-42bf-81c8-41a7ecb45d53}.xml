@@ -112,6 +112,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{6e6566ea-45c8-44f7-bb3e-a0de10ed6cba}">
+		<property name="volume">
+			<value>-14</value>
+		</property>
 		<property name="name">
 			<value>Sequis Entry 1</value>
 		</property>
@@ -181,8 +184,11 @@
 		</relationship>
 	</object>
 	<object class="ObjectSpatialiserEffect" id="{2dd13176-ea2c-4a2f-91fc-c8a26849960a}">
+		<property name="distanceRolloffType">
+			<value>3</value>
+		</property>
 		<property name="maximumDistance">
-			<value>7.80000019</value>
+			<value>4.5999999</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>

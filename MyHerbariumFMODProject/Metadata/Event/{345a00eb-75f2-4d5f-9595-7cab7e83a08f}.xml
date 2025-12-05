@@ -183,6 +183,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{256ee606-5803-4000-bf7b-42d641bf7faa}">
+		<property name="volume">
+			<value>-80</value>
+		</property>
 		<property name="name">
 			<value>WoodsHollow</value>
 		</property>
@@ -276,7 +279,7 @@
 			<value>0</value>
 		</property>
 		<property name="quantizationInterval">
-			<value>5</value>
+			<value>3</value>
 		</property>
 		<relationship name="triggerConditions">
 			<destination>{8ce4eb31-ddd1-4843-a88b-f26e9559a5b8}</destination>
