@@ -215,7 +215,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1004933203}
+    m_TransformParent: {fileID: 658757321}
     m_Modifications:
     - target: {fileID: 1885766155311655312, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10178,9 +10178,9 @@ GameObject:
   m_Component:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
-  - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10188,14 +10188,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &330585544
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -10338,6 +10330,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 1046215903}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -10849,6 +10855,9 @@ Transform:
   - {fileID: 1101979390}
   - {fileID: 242099337}
   - {fileID: 330585546}
+  - {fileID: 76118655}
+  - {fileID: 954636430}
+  - {fileID: 1091344067}
   - {fileID: 410087041}
   - {fileID: 832575519}
   m_Father: {fileID: 0}
@@ -10970,7 +10979,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1004933203}
+    m_TransformParent: {fileID: 658757321}
     m_Modifications:
     - target: {fileID: 549926983900649549, guid: 302d3213487e2aa4a953cc5ebafb519c, type: 3}
       propertyPath: m_Name
@@ -11067,9 +11076,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1046215902}
-  - {fileID: 76118655}
-  - {fileID: 954636430}
-  - {fileID: 1091344067}
   - {fileID: 718168672}
   - {fileID: 1980803100}
   - {fileID: 276044277}
@@ -11314,7 +11320,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1004933203}
+    m_TransformParent: {fileID: 658757321}
     m_Modifications:
     - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
       propertyPath: m_LocalPosition.x
