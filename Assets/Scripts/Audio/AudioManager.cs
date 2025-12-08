@@ -31,10 +31,12 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(audioData.events[id]);
     }
 
-    public void Play3DEvent(EventID id, GameObject eventSource = null)
+    public void Play3DEvent(EventID id, GameObject eventSource)
     {
         RuntimeManager.PlayOneShotAttached(audioData.events[id], eventSource);
     }
+
+
 
     public void LoadFMODBank(BankID id)
     {

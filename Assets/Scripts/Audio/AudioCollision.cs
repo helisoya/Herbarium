@@ -7,15 +7,17 @@ public class AudioCollision : MonoBehaviour
     [SerializeField] private EventID rockCollision;
     [SerializeField] private EventID npcCollision;
 
-    public void PostTreeCollision()
+
+    public void PostTreeCollision(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(treeCollision);
+        
+        AudioManager.Instance.Play3DEvent(treeCollision, obj);
         Debug.Log("AIE L'ARBRE IMPACT");
     }
 
-    public void PostPlantCollision()
+    public void PostPlantCollision(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(plantCollision);
+        AudioManager.Instance.Play3DEvent(plantCollision, obj);
     }
    
 }

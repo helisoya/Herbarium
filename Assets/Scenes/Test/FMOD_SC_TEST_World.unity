@@ -130,8 +130,6 @@ GameObject:
   - component: {fileID: 51689106}
   - component: {fileID: 51689105}
   - component: {fileID: 51689104}
-  - component: {fileID: 51689108}
-  - component: {fileID: 51689107}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -203,68 +201,6 @@ Transform:
   - {fileID: 991311085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &51689107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51689103}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 161353499
-      Data2: 1113378874
-      Data3: 1697953439
-      Data4: 2053219554
-    Path: event:/Enviro/TreeA
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &51689108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51689103}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -655086729
-      Data2: 1128514749
-      Data3: -807855972
-      Data4: -1666243746
-    Path: event:/Enviro/BirdA
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &91869976
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +302,7 @@ GameObject:
   - component: {fileID: 95775466}
   - component: {fileID: 95775465}
   - component: {fileID: 95775464}
+  - component: {fileID: 95775467}
   m_Layer: 0
   m_Name: Tree (4)
   m_TagString: Untagged
@@ -437,6 +374,36 @@ Transform:
   - {fileID: 2072445183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95775467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95775463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efe947b2c514254bab4a80e2876b0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1116019772307665852}
+        m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
+        m_MethodName: PostTreeCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 95775463}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &105701755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,7 +1140,6 @@ GameObject:
   - component: {fileID: 519318841}
   - component: {fileID: 519318840}
   - component: {fileID: 519318843}
-  - component: {fileID: 519318844}
   m_Layer: 0
   m_Name: PLANT BIG
   m_TagString: Untagged
@@ -1260,13 +1226,13 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+      - m_Target: {fileID: 8183730161216068002}
+        m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
         m_MethodName: 
-        m_Mode: 5
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1275,37 +1241,6 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &519318844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519318839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 161353499
-      Data2: 1113378874
-      Data3: 1697953439
-      Data4: 2053219554
-    Path: event:/Enviro/TreeA
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &521076517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,7 +1514,6 @@ GameObject:
   - component: {fileID: 643704756}
   - component: {fileID: 643704755}
   - component: {fileID: 643704754}
-  - component: {fileID: 643704757}
   m_Layer: 0
   m_Name: Tree (1)
   m_TagString: Untagged
@@ -1651,37 +1585,6 @@ Transform:
   - {fileID: 1380873293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &643704757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643704753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -605334147
-      Data2: 1256568988
-      Data3: -271094642
-      Data4: 1078125191
-    Path: event:/Music/Entry2Music3D
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &672646815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1776,7 @@ GameObject:
   - component: {fileID: 723969050}
   - component: {fileID: 723969049}
   - component: {fileID: 723969048}
+  - component: {fileID: 723969051}
   m_Layer: 0
   m_Name: Grass (4)
   m_TagString: Untagged
@@ -1944,6 +1848,36 @@ Transform:
   - {fileID: 1673224234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &723969051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723969047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efe947b2c514254bab4a80e2876b0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1116019772307665852}
+        m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
+        m_MethodName: PostPlantCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 723969047}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &775657299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 900874698637131177, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
@@ -2129,6 +2063,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 533210236089813830, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 533210236089813830, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.25962
@@ -2778,7 +2720,6 @@ GameObject:
   - component: {fileID: 1284960403}
   - component: {fileID: 1284960402}
   - component: {fileID: 1284960401}
-  - component: {fileID: 1284960405}
   - component: {fileID: 1284960404}
   m_Layer: 0
   m_Name: Tree (3)
@@ -2858,61 +2799,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284960400}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 8efe947b2c514254bab4a80e2876b0c4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1178635317
-      Data2: 1275270852
-      Data3: -1904233324
-      Data4: -1829338755
-    Path: event:/Enviro/TreeB
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1284960405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284960400}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1058518020
-      Data2: 1173878232
-      Data3: -262715235
-      Data4: 287586015
-    Path: event:/Enviro/BirdB
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1116019772307665852}
+        m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
+        m_MethodName: PostTreeCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1284960400}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1292988688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,10 +3210,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1116019772307665852}
         m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
         m_MethodName: PostTreeCollision
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1345122647}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4790,6 +4699,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+--- !u!1 &8183730161216068002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5625584107415344172, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+  m_PrefabInstance: {fileID: 8183730161216068001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
