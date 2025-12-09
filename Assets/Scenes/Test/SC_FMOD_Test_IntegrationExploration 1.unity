@@ -240,6 +240,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &69160491 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6788078632806885439, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88644670
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +285,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88644670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
   m_Name: 
@@ -290,7 +295,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1359207620}
         m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
-        m_MethodName: PostEntry3
+        m_MethodName: PostBioLightA
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1591993616}
@@ -322,7 +327,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &89703964
 GameObject:
@@ -10072,7 +10077,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196763923}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -10080,11 +10085,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1362770042
-      Data2: 1119854668
-      Data3: -1488861055
-      Data4: 1398650092
-    Path: event:/Music/Entry1Music3D
+      Data1: -1072876751
+      Data2: 1092233566
+      Data3: -1276406858
+      Data4: 1436739522
+    Path: event:/Music/Entry3Music3D
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -10261,6 +10266,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1122928126489395880, guid: f51724a8da183054b85946fb4778adf2, type: 3}
   m_PrefabInstance: {fileID: 6534051820127149276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &266347499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 616772680113425488, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &266347504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266347499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostFrogMedium
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 266347499}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &276044276
 GameObject:
   m_ObjectHideFlags: 0
@@ -10298,6 +10338,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 435091372354367667, guid: f401dd267a1020d48bab4ec992344955, type: 3}
   m_PrefabInstance: {fileID: 4290558102357114066}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &345474165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5944482552174538070, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &345474166 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5594535332702782225, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &345474170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345474165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efe947b2c514254bab4a80e2876b0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2072378292}
+        m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
+        m_MethodName: PostTreeCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 345474165}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &345474171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345474165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 161353499
+      Data2: 1113378874
+      Data3: 1697953439
+      Data4: 2053219554
+    Path: event:/Enviro/TreeA
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &357520323 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6945746502232717982, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -10319,6 +10430,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &357520328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1556435077196587827, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &366128496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7598607515454659988, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -10329,6 +10445,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2540135898664853885, guid: f51724a8da183054b85946fb4778adf2, type: 3}
   m_PrefabInstance: {fileID: 6534051820127149276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &381079486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7548776657784484603, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &381079487 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396251718693525563, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &381079491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381079486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efe947b2c514254bab4a80e2876b0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2072378292}
+        m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
+        m_MethodName: PostRockCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 381079486}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &387049990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8344874406823511796, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -10350,6 +10506,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &387049995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7380052799273704061, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &407641617
 GameObject:
   m_ObjectHideFlags: 0
@@ -10681,6 +10842,90 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &422400103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422400104}
+  - component: {fileID: 422400106}
+  - component: {fileID: 422400105}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422400104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422400103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1015246106}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &422400105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422400103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1015246101}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &422400106
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422400103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &451936425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6818360494454702238, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -10826,6 +11071,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6224849496841613385, guid: f51724a8da183054b85946fb4778adf2, type: 3}
   m_PrefabInstance: {fileID: 6534051820127149276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &514367568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3795416107413052632, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &514367569 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032018603968739153, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &534457535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4855465019837842773, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &534457536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4851816850120547117, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &553178064
 GameObject:
   m_ObjectHideFlags: 0
@@ -10910,6 +11175,90 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &568822419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568822420}
+  - component: {fileID: 568822422}
+  - component: {fileID: 568822421}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568822420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568822419}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.4156095, y: 1.4156096, z: 1.4156096}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 69160491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568822421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568822419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 69160486}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &568822422
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568822419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &605744390
 GameObject:
   m_ObjectHideFlags: 0
@@ -10950,7 +11299,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605744390}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
   m_Name: 
@@ -10960,7 +11309,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1359207620}
         m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
-        m_MethodName: PostEntry1
+        m_MethodName: PostBioLightA
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 196763923}
@@ -10992,7 +11341,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &615006941
 GameObject:
@@ -11099,6 +11448,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &618328414 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8811861567764847529, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &626908867
 GameObject:
   m_ObjectHideFlags: 0
@@ -11398,6 +11752,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8573302193750240203, guid: 7d11369812d2f444a800fcce9dd26d98, type: 3}
   m_PrefabInstance: {fileID: 718168671}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &732572348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732572349}
+  - component: {fileID: 732572351}
+  - component: {fileID: 732572350}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &732572349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732572348}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 387049995}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &732572350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732572348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 387049990}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &732572351
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732572348}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &746916576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 640053073064236778, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -11433,6 +11871,90 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &754648094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754648095}
+  - component: {fileID: 754648097}
+  - component: {fileID: 754648096}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754648095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754648094}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.9677785, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2024763296}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754648096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754648094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2024763291}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &754648097
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754648094}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &755355514
 GameObject:
   m_ObjectHideFlags: 0
@@ -11552,6 +12074,90 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &765238908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 765238909}
+  - component: {fileID: 765238911}
+  - component: {fileID: 765238910}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &765238909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765238908}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -6.938893e-18, z: 1.07066314e-10, w: 1}
+  m_LocalPosition: {x: -2.6500015, y: 1.32, z: 0.17000008}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 534457536}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &765238910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765238908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostTreeA
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 534457535}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &765238911
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765238908}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &811030052
 GameObject:
   m_ObjectHideFlags: 0
@@ -11635,6 +12241,90 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &823964812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 823964813}
+  - component: {fileID: 823964815}
+  - component: {fileID: 823964814}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &823964813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823964812}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 6.938893e-18, z: -1.07066314e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 514367569}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823964814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823964812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostTreeA
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 514367568}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &823964815
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823964812}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &826566840 stripped
 GameObject:
@@ -11856,6 +12546,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &927445518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5994630888460535851, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &927445519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3203186612966730529, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &951736355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3566180133731984206, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -16837,6 +17537,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &1015246106 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2252844858298630281, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1017819799
 GameObject:
   m_ObjectHideFlags: 0
@@ -17048,6 +17753,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
   m_PrefabInstance: {fileID: 1046215901}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1052880457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8721930866249703329, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052880462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052880457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostFrogMedium
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1052880457}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1068094292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1885766155311655312, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
@@ -17074,6 +17814,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &1070800584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4934599697523257935, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1071109223
 GameObject:
   m_ObjectHideFlags: 0
@@ -17248,6 +17993,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1077476800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077476801}
+  - component: {fileID: 1077476803}
+  - component: {fileID: 1077476802}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077476801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077476800}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.9677785, y: 1.2279283, z: 1.2279283}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 357520328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077476802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077476800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 357520323}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1077476803
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077476800}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1094911667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1858878314939214360, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -17269,6 +18098,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &1094911672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9070954541344656977, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1101979389
 GameObject:
   m_ObjectHideFlags: 0
@@ -17583,6 +18417,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 420874389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1172559823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172559824}
+  - component: {fileID: 1172559826}
+  - component: {fileID: 1172559825}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1172559824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172559823}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.227928, y: 1.2279283, z: 1.2279283}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2115310130}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172559825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172559823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2115310125}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1172559826
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172559823}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1251431580
 GameObject:
   m_ObjectHideFlags: 0
@@ -17667,6 +18585,130 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1288064773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288064774}
+  - component: {fileID: 1288064776}
+  - component: {fileID: 1288064775}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1288064774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288064773}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000020861623, y: 0.053058214, z: 0.053058244, w: 0.9971809}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.50000006}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2004470748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288064775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288064773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostFrogTiny
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2004470747}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1288064776
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288064773}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 14
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1304905496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 654628068449182946, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1304905497 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5487606132579168299, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1304905501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304905496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efe947b2c514254bab4a80e2876b0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2072378292}
+        m_TargetAssemblyTypeName: AudioCollision, Assembly-CSharp
+        m_MethodName: PostRockCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1304905496}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1308590079
 GameObject:
   m_ObjectHideFlags: 0
@@ -22611,7 +23653,8 @@ Transform:
   m_LocalPosition: {x: 9.82, y: 1.53, z: 15.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1972835710}
   m_Father: {fileID: 1980803100}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1353851605 stripped
@@ -22734,6 +23777,90 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1444393481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444393482}
+  - component: {fileID: 1444393484}
+  - component: {fileID: 1444393483}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1444393482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444393481}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 6.938893e-18, z: -1.07066314e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 345474166}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1444393483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444393481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostTreeB
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 345474165}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1444393484
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444393481}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1458536443
 GameObject:
@@ -22920,7 +24047,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591993616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -23037,6 +24164,90 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed4e7ef78c6f2cd4286e235e7c31340c, type: 3}
+--- !u!1 &1663591988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663591989}
+  - component: {fileID: 1663591991}
+  - component: {fileID: 1663591990}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663591989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663591988}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.70209926, y: 0.7020993, z: 0.7020993}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 618328414}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1663591990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663591988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 618328409}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1663591991
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663591988}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1691203376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6487253718125399164, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -23203,6 +24414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821840729}
   - component: {fileID: 1821840730}
+  - component: {fileID: 1821840731}
   m_Layer: 0
   m_Name: T_SunnyGuy_1
   m_TagString: Untagged
@@ -23284,6 +24496,121 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1821840731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821840728}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -605334147
+      Data2: 1256568988
+      Data3: -271094642
+      Data4: 1078125191
+    Path: event:/Music/Entry2Music3D
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &1828872749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828872750}
+  - component: {fileID: 1828872752}
+  - component: {fileID: 1828872751}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1828872750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828872749}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.9677785, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1070800584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828872751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828872749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1070800579}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1828872752
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828872749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1855680971
 GameObject:
   m_ObjectHideFlags: 0
@@ -23548,6 +24875,90 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1881984425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881984426}
+  - component: {fileID: 1881984428}
+  - component: {fileID: 1881984427}
+  m_Layer: 0
+  m_Name: TriggerPlayerCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881984426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881984425}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1094911672}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881984427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881984425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1094911667}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1881984428
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881984425}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1934226130
 GameObject:
   m_ObjectHideFlags: 0
@@ -23664,6 +25075,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6078943099309853234, guid: f51724a8da183054b85946fb4778adf2, type: 3}
   m_PrefabInstance: {fileID: 6534051820127149276}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1972835709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972835710}
+  - component: {fileID: 1972835712}
+  - component: {fileID: 1972835711}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1972835710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972835709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1352864293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1972835711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972835709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostInsectA
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1352864290}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1972835712
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972835709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1980803099
 GameObject:
   m_ObjectHideFlags: 0
@@ -23699,6 +25194,100 @@ Transform:
   - {fileID: 1698938859}
   m_Father: {fileID: 1004933203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1988231413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988231414}
+  - component: {fileID: 1988231416}
+  - component: {fileID: 1988231415}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1988231414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988231413}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -1.070663e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 381079487}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988231415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988231413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostTreeB
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 381079486}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &1988231416
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988231413}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2004470747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5098949385100590414, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2004470748 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9005893563988876106, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2024763291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2672509229602605768, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -23720,6 +25309,11 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &2024763296 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2144737871745731374, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2072378292 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3553815426165198026, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
@@ -23888,6 +25482,179 @@ MonoBehaviour:
   _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+--- !u!4 &2115310130 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1178641734551367919, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+  m_PrefabInstance: {fileID: 6534051820127149276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2136740831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136740832}
+  - component: {fileID: 2136740834}
+  - component: {fileID: 2136740833}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136740832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136740831}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -3.4694465e-18, z: -1.0706628e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1304905497}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136740833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136740831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostTreeB
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1304905496}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &2136740834
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136740831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2142013370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142013371}
+  - component: {fileID: 2142013373}
+  - component: {fileID: 2142013372}
+  m_Layer: 0
+  m_Name: ProximityTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2142013371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142013370}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 3.4694465e-18, z: -1.0706634e-10, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 927445519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142013372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142013370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1359207620}
+        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+        m_MethodName: PostTreeA
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 927445518}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!135 &2142013373
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142013370}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &213206338626782161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23997,8 +25764,20 @@ PrefabInstance:
       value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8196124120688689219, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
+      propertyPath: insectA
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196124120688689219, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
+      propertyPath: insectB
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196124120688689219, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
       propertyPath: frogTiny
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196124120688689219, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
+      propertyPath: bioLightA
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8196124120688689219, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
       propertyPath: frogMedium
@@ -24126,11 +25905,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4022621611025878507, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271893754461852645, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271893754461852645, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271893754461852645, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      propertyPath: m_Size.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4398904741688999182, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4882474088354414663, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924305216906454479, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -24143,6 +25942,10 @@ PrefabInstance:
       value: -----ENVIRO
       objectReference: {fileID: 0}
     - target: {fileID: 7384504827756085073, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025517880046534723, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -24195,15 +25998,63 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6377475181326691139, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1864985971}
+    - targetCorrespondingSourceObject: {fileID: 8811861567764847529, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1663591989}
+    - targetCorrespondingSourceObject: {fileID: 2252844858298630281, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 422400104}
+    - targetCorrespondingSourceObject: {fileID: 4934599697523257935, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1828872750}
+    - targetCorrespondingSourceObject: {fileID: 9070954541344656977, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1881984426}
+    - targetCorrespondingSourceObject: {fileID: 7380052799273704061, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 732572349}
+    - targetCorrespondingSourceObject: {fileID: 2144737871745731374, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 754648095}
+    - targetCorrespondingSourceObject: {fileID: 6788078632806885439, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 568822420}
+    - targetCorrespondingSourceObject: {fileID: 1178641734551367919, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1172559824}
+    - targetCorrespondingSourceObject: {fileID: 1556435077196587827, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077476801}
     - targetCorrespondingSourceObject: {fileID: 9039406756000989847, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 88644671}
+    - targetCorrespondingSourceObject: {fileID: 9005893563988876106, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1288064774}
     - targetCorrespondingSourceObject: {fileID: 6962448578539144397, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 605744391}
     - targetCorrespondingSourceObject: {fileID: 2540135898664853885, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1430916151}
+    - targetCorrespondingSourceObject: {fileID: 4851816850120547117, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 765238909}
+    - targetCorrespondingSourceObject: {fileID: 3203186612966730529, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2142013371}
+    - targetCorrespondingSourceObject: {fileID: 5487606132579168299, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2136740832}
+    - targetCorrespondingSourceObject: {fileID: 8396251718693525563, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1988231414}
+    - targetCorrespondingSourceObject: {fileID: 5594535332702782225, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1444393482}
+    - targetCorrespondingSourceObject: {fileID: 8032018603968739153, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 823964813}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 213270368601539192, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
@@ -24277,6 +26128,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3143645444925307438, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1591993621}
+    - targetCorrespondingSourceObject: {fileID: 8721930866249703329, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1052880462}
+    - targetCorrespondingSourceObject: {fileID: 616772680113425488, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 266347504}
     - targetCorrespondingSourceObject: {fileID: 49389739744091138, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 196763928}
@@ -24298,6 +26155,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7311652567040371016, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 838344864}
+    - targetCorrespondingSourceObject: {fileID: 654628068449182946, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1304905501}
+    - targetCorrespondingSourceObject: {fileID: 7548776657784484603, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 381079491}
+    - targetCorrespondingSourceObject: {fileID: 5944482552174538070, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 345474170}
+    - targetCorrespondingSourceObject: {fileID: 5944482552174538070, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 345474171}
   m_SourcePrefab: {fileID: 100100000, guid: f51724a8da183054b85946fb4778adf2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

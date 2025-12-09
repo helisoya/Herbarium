@@ -4,6 +4,9 @@ public class AudioProximity : MonoBehaviour
 {
     [SerializeField] private EventID treeA;
     [SerializeField] private EventID treeB;
+    [SerializeField] private EventID bioLightA;
+    [SerializeField] private EventID insectA;
+    [SerializeField] private EventID insectB;
     [SerializeField] private EventID birdA;
     [SerializeField] private EventID birdB;
     [SerializeField] private EventID birdC;
@@ -28,6 +31,24 @@ public class AudioProximity : MonoBehaviour
     {
         AudioManager.Instance.Play3DEvent(treeB, obj);
         Debug.Log("tu entres dans la zooooone de l'arbre B");
+    }
+
+    public void PostBioLightA(GameObject obj)
+    {
+        AudioManager.Instance.Play3DEvent(bioLightA, obj);
+        Debug.Log("tu entres dans la zooooone du nénuphar lumineux");
+    }
+
+    public void PostInsectA(GameObject obj)
+    {
+        AudioManager.Instance.Play3DEvent(insectA, obj);
+        Debug.Log("tu entres dans la zooooone des moucherons");
+    }
+
+    public void PostInsectB(GameObject obj)
+    {
+        AudioManager.Instance.Play3DEvent(insectB, obj);
+        Debug.Log("tu entres dans la zooooone des lucioles");
     }
 
     public void PostBirdA(GameObject obj)

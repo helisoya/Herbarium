@@ -56,7 +56,14 @@
 			<destination>{d186ac6a-7e24-4769-bbff-bac4108c7fc0}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{458cbe7c-a7d9-4e02-9726-43535bdcb464}" />
+	<object class="EventAutomatableProperties" id="{458cbe7c-a7d9-4e02-9726-43535bdcb464}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+		<property name="voiceStealing">
+			<value>4</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{fac0e9a7-2e68-4998-a3ff-a8e90d252a8d}" />
 	<object class="GroupTrack" id="{f3035618-af4d-44fc-abcc-155d400be454}">
 		<relationship name="modules">
@@ -225,11 +232,14 @@
 		</relationship>
 	</object>
 	<object class="ObjectSpatialiserEffect" id="{6e291a70-0463-4ff4-8ce1-270ba1fb8890}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
 		<property name="minimumDistance">
 			<value>0</value>
 		</property>
 		<property name="maximumDistance">
-			<value>5.5999999</value>
+			<value>9.80000019</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>

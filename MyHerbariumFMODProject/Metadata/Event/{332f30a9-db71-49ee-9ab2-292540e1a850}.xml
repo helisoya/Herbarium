@@ -5,7 +5,7 @@
 			<value>CollisionPlant</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{bca40fe1-a5d8-4f18-9e69-e6d61ec61e3b}</destination>
@@ -56,7 +56,11 @@
 			<destination>{df75935a-a53c-406d-8dd0-d6c43c6f5a2b}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{b1e35ac1-7284-43fc-8acd-d35b49ec19b8}" />
+	<object class="EventAutomatableProperties" id="{b1e35ac1-7284-43fc-8acd-d35b49ec19b8}">
+		<property name="maxVoices">
+			<value>4</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{8ebfd333-33d3-4a84-adf2-a3cff9c4458c}" />
 	<object class="GroupTrack" id="{c7e2be2a-c0ad-4073-8f0d-5a49cea5ca2c}">
 		<relationship name="modules">
@@ -123,8 +127,10 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{c021ebf8-e49e-4dba-8cd3-a8512b0466e1}">
 		<relationship name="effects">
+			<destination>{2ede38d7-f098-49f2-b546-9ac120097de9}</destination>
 			<destination>{df34c295-9587-4baf-b172-ff66c6592d85}</destination>
 			<destination>{ecfef8f5-7821-4d6a-9914-b70f8a359c5e}</destination>
+			<destination>{c1b79cde-f99d-44cf-a36d-a60039b3c9bc}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{73dafea8-dec9-4551-9f84-81ff0baa9b61}" />
@@ -160,17 +166,33 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3ff32755-015d-43ad-a9fd-a26f602a7fcd}" />
+	<object class="PannerEffect" id="{2ede38d7-f098-49f2-b546-9ac120097de9}">
+		<property name="overridingOutputFormat">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{df34c295-9587-4baf-b172-ff66c6592d85}" />
 	<object class="MixerSend" id="{ecfef8f5-7821-4d6a-9914-b70f8a359c5e}">
 		<property name="level">
 			<value>-19</value>
 		</property>
 		<property name="inputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="mixerReturn">
 			<destination>{1769da96-c052-4495-a3b3-a5bd029c11f7}</destination>
 		</relationship>
+	</object>
+	<object class="ObjectSpatialiserEffect" id="{c1b79cde-f99d-44cf-a36d-a60039b3c9bc}">
+		<property name="minimumDistance">
+			<value>0</value>
+		</property>
+		<property name="maximumDistance">
+			<value>4</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
 	</object>
 	<object class="AutomationPoint" id="{af247cb4-b865-49b4-bd4b-6555b531a244}">
 		<property name="position">
