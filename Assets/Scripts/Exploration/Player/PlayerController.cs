@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform target;
     [SerializeField] private LayerMask mask;
+    
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private Transform graphicToFlip;
+    
     private bool shouldTryToMoveUsingCursor;
     private Vector2 mousePosition;
     private Vector2 moveVector;
@@ -83,6 +88,31 @@ public class PlayerController : MonoBehaviour
             {
                 rb.linearVelocity = new Vector3(moveVector.x,0,moveVector.y) * playerSpeed;
             }
+        }
+        
+        // Walking animation
+        
+        bool isWalking = rb.linearVelocity.magnitude > 0.1f;
+
+        animator.SetBool("isWalking", isWalking);
+        
+        Vector3 velocity = rb.linearVelocity;
+        
+        // Flip to the right side
+
+        if (velocity.x > 0.1f)
+        {
+            // Right
+            Vector3 s = graphicToFlip.localScale;
+            s.x = -Mathf.Abs(s.x);
+            graphicToFlip.localScale = s;
+        }
+        else if (velocity.x < -0.1f)
+        {
+            // Left
+            Vector3 s = graphicToFlip.localScale;
+            s.x = Mathf.Abs(s.x);
+            graphicToFlip.localScale = s;
         }
     }
 }
