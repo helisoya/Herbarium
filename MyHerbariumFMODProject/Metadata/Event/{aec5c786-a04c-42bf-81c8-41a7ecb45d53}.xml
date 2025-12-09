@@ -113,10 +113,10 @@
 	</object>
 	<object class="EventMixerGroup" id="{6e6566ea-45c8-44f7-bb3e-a0de10ed6cba}">
 		<property name="volume">
-			<value>-14</value>
+			<value>-6.5</value>
 		</property>
 		<property name="name">
-			<value>Sequis Entry 1</value>
+			<value>SequisEntry1</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{bdd00fbc-2bdb-465a-9ae7-5003ebad3ba7}</destination>
@@ -147,7 +147,7 @@
 			<value>0</value>
 		</property>
 		<property name="tempo">
-			<value>67</value>
+			<value>65</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{0fc25b36-ebec-4c8b-8ac8-98f203be4afa}</destination>
@@ -184,11 +184,8 @@
 		</relationship>
 	</object>
 	<object class="ObjectSpatialiserEffect" id="{2dd13176-ea2c-4a2f-91fc-c8a26849960a}">
-		<property name="distanceRolloffType">
-			<value>3</value>
-		</property>
 		<property name="maximumDistance">
-			<value>4.5999999</value>
+			<value>30</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>
