@@ -29,6 +29,7 @@
 			<destination>{83bf6181-d022-4fc4-bb08-5b657433f354}</destination>
 			<destination>{cc6996e9-62d2-4e33-8476-dcdda5efe823}</destination>
 			<destination>{c057dfc9-d81a-4cc0-af2d-e43f7fcdc1be}</destination>
+			<destination>{2c30b7a0-e874-45e2-932d-a5b8530fe460}</destination>
 			<destination>{47a2cc05-1848-45ce-9b4d-1c934dbdcc4b}</destination>
 			<destination>{7dde4dc5-b7ff-46ae-a218-79c470611334}</destination>
 			<destination>{4804ba64-dcf2-4f97-aca4-21c1d214d32f}</destination>
@@ -100,6 +101,18 @@
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{8423aaa3-ab48-443c-a78f-0e74b3e69336}</destination>
+		</relationship>
+	</object>
+	<object class="GroupTrack" id="{2c30b7a0-e874-45e2-932d-a5b8530fe460}">
+		<relationship name="modules">
+			<destination>{3ccdb0df-ac51-4172-87d6-b764f1c36def}</destination>
+			<destination>{f1a2aff8-db51-4f1d-8fa4-f32e190bf958}</destination>
+			<destination>{0ec31261-159b-4168-8a28-8e3ca6d1d92e}</destination>
+			<destination>{50933d24-4bcc-4798-a7f4-3b1771498454}</destination>
+			<destination>{90ab266e-bb39-4a3b-bdeb-28cb8e31218b}</destination>
+		</relationship>
+		<relationship name="mixerGroup">
+			<destination>{f3276651-8c35-45ff-8da6-c20b7bcb6dd0}</destination>
 		</relationship>
 	</object>
 	<object class="GroupTrack" id="{47a2cc05-1848-45ce-9b4d-1c934dbdcc4b}">
@@ -176,6 +189,11 @@
 			<destination>{b06a758e-cc34-4b90-b154-87fbf78a32c5}</destination>
 			<destination>{bf0151e8-f7ee-4dc3-99f1-43fd50bbab4e}</destination>
 			<destination>{3e48ce80-f761-49fc-9845-322f633624f4}</destination>
+			<destination>{3ccdb0df-ac51-4172-87d6-b764f1c36def}</destination>
+			<destination>{f1a2aff8-db51-4f1d-8fa4-f32e190bf958}</destination>
+			<destination>{0ec31261-159b-4168-8a28-8e3ca6d1d92e}</destination>
+			<destination>{50933d24-4bcc-4798-a7f4-3b1771498454}</destination>
+			<destination>{90ab266e-bb39-4a3b-bdeb-28cb8e31218b}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{d82da24b-f03d-4cf9-b8c3-3f59d985fac5}</destination>
@@ -355,13 +373,94 @@
 			<value>-35</value>
 		</property>
 		<property name="name">
-			<value>Audio 1</value>
+			<value>LeavesWood</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{685c6f08-6bad-451b-8a34-91f954d1b8be}</destination>
 		</relationship>
 		<relationship name="panner">
 			<destination>{b4feb9da-840e-4345-969a-644b78c9900e}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{7d36b74c-bfb6-4e68-8d8c-1362f7694f5d}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{3ccdb0df-ac51-4172-87d6-b764f1c36def}">
+		<property name="length">
+			<value>36</value>
+		</property>
+		<property name="volume">
+			<value>10</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{45a7aa48-5bf7-43e4-b79c-d6a8ea013747}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{f1a2aff8-db51-4f1d-8fa4-f32e190bf958}">
+		<property name="start">
+			<value>36</value>
+		</property>
+		<property name="length">
+			<value>36</value>
+		</property>
+		<property name="volume">
+			<value>10</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{45a7aa48-5bf7-43e4-b79c-d6a8ea013747}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{0ec31261-159b-4168-8a28-8e3ca6d1d92e}">
+		<property name="start">
+			<value>72</value>
+		</property>
+		<property name="length">
+			<value>36</value>
+		</property>
+		<property name="volume">
+			<value>10</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{45a7aa48-5bf7-43e4-b79c-d6a8ea013747}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{50933d24-4bcc-4798-a7f4-3b1771498454}">
+		<property name="start">
+			<value>108</value>
+		</property>
+		<property name="length">
+			<value>36</value>
+		</property>
+		<property name="volume">
+			<value>10</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{45a7aa48-5bf7-43e4-b79c-d6a8ea013747}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{90ab266e-bb39-4a3b-bdeb-28cb8e31218b}">
+		<property name="start">
+			<value>144</value>
+		</property>
+		<property name="length">
+			<value>36</value>
+		</property>
+		<property name="volume">
+			<value>10</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{45a7aa48-5bf7-43e4-b79c-d6a8ea013747}</destination>
+		</relationship>
+	</object>
+	<object class="EventMixerGroup" id="{f3276651-8c35-45ff-8da6-c20b7bcb6dd0}">
+		<property name="name">
+			<value>Saint-Fraigne Birds</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{6ad6758a-ad22-4c7c-8047-b265c6140ebf}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{5b066410-d8d2-4b55-b4ab-cb421752982b}</destination>
 		</relationship>
 		<relationship name="output">
 			<destination>{7d36b74c-bfb6-4e68-8d8c-1362f7694f5d}</destination>
@@ -704,6 +803,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b4feb9da-840e-4345-969a-644b78c9900e}" />
+	<object class="MixerBusEffectChain" id="{6ad6758a-ad22-4c7c-8047-b265c6140ebf}">
+		<relationship name="effects">
+			<destination>{d8ea125a-59e2-4ddc-b7fa-ca59d402798a}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{5b066410-d8d2-4b55-b4ab-cb421752982b}" />
 	<object class="MixerBusEffectChain" id="{a11c835c-8969-4237-955e-7f3f3ebd1447}">
 		<relationship name="effects">
 			<destination>{77ab6e4f-c424-4fea-94af-62fab662d3ee}</destination>
@@ -1018,6 +1123,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{62a210b5-8d68-47c4-b6a8-c6c1106be396}" />
+	<object class="MixerBusFader" id="{d8ea125a-59e2-4ddc-b7fa-ca59d402798a}" />
 	<object class="MixerBusFader" id="{77ab6e4f-c424-4fea-94af-62fab662d3ee}" />
 	<object class="MixerBusFader" id="{a294cd3a-62e4-4f0b-99f5-107417658af4}" />
 	<object class="MixerBusFader" id="{12d99f11-9b04-45b9-b3f2-65242113e30a}" />

@@ -8,7 +8,7 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        //AudioManager.Instance.Play2DEvent(EventID.Enviro2DMusic);
+        AudioManager.Instance.Play2DEvent(EventID.Enviro2DMusic);
         AudioManager.Instance.Play2DEvent(EventID.Amb);
     }
 

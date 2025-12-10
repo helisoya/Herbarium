@@ -119,7 +119,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{86014888-906f-473b-a035-3efb1db7fd42}">
 		<property name="volume">
-			<value>3</value>
+			<value>6</value>
 		</property>
 		<property name="name">
 			<value>Flies with Amb</value>
@@ -171,7 +171,7 @@
 	<object class="MixerBusFader" id="{0549312d-21ae-497d-a285-1ab8a573d241}" />
 	<object class="MixerSend" id="{19f03ee1-5f7a-4133-97a1-301522ee72c1}">
 		<property name="level">
-			<value>-11</value>
+			<value>-17.5</value>
 		</property>
 		<property name="inputFormat">
 			<value>5</value>
@@ -192,6 +192,9 @@
 		</property>
 	</object>
 	<object class="SingleSound" id="{b4374173-466b-4a25-8bbb-bf6797e1361e}">
+		<property name="pitch">
+			<value>3.79999995</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{ce9d00c6-dd04-4345-99a5-eed89232954b}</destination>
 		</relationship>
