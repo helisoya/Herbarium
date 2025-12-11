@@ -14,7 +14,7 @@ public class GameGUI : MonoBehaviour
 
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
-    public bool radialMenuOpen {get{return radialMenu.inRadialMenu;}}
+    public bool radialMenuOpen { get { return radialMenu.inRadialMenu; } }
 
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
@@ -145,6 +145,22 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+	/// Opens the default inventory radial menu
+	/// </summary>
+    public void OpenInventory()
+    {
+        radialMenu.OpenInventory();
+    }
+
+    /// <summary>
+	/// Opens the default backpack radial menu
+	/// </summary>
+    public void OpenBackpack()
+    {
+        radialMenu.OpenBackpack();
+    }
+
+    /// <summary>
     /// Closes the radial menu
     /// </summary>
     public void CloseRadialMenu()
@@ -201,7 +217,7 @@ public class GameGUI : MonoBehaviour
         float speed = 5f;
         skipDialog = false;
 
-        
+
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         SetDialogOpen(true);
         dialogText.SetNewKey(dialogID);

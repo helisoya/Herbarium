@@ -179,7 +179,7 @@ public class Locals
             text.SetFont(fontSecondary);
             text.SetSize(textSizeSecondary);
             text.SetColor(colorSecondary);
-        } 
+        }
     }
 
     /// <summary>
@@ -196,8 +196,9 @@ public class Locals
             self.onChangeSizePrimary.RemoveListener(text.SetSize);
             self.onChangeFontPrimary.RemoveListener(text.SetFont);
             self.onChangeColorPrimary.RemoveListener(text.SetColor);
-        } 
-        else{
+        }
+        else
+        {
             self.onChangeSizeSecondary.RemoveListener(text.SetSize);
             self.onChangeFontSecondary.RemoveListener(text.SetFont);
             self.onChangeColorSecondary.RemoveListener(text.SetColor);

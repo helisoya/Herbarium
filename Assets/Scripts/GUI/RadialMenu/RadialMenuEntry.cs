@@ -30,6 +30,7 @@ public class RadialMenuEntry : MonoBehaviour
     public void Init(RadialMenuEntryData data)
     {
         image.sprite = data.sprite;
+        label.SetInjectors(data.injectors, false);
         label.SetNewKey(data.key);
         canBeInteractedWith = data.interactable;
         onClick = data.callback;
@@ -62,14 +63,14 @@ public class RadialMenuEntry : MonoBehaviour
     /// <param name="immediate">True if the change must be immediate</param>
     public void SetPosition(float x, float y, bool immediate)
     {
-        
+
         if (immediate)
         {
             rectTransform.anchoredPosition = new Vector2(x, y);
-        } 
+        }
         else
         {
-            rectTransform.DOAnchorPos(new Vector2(x, y),0.30f).SetEase(Ease.OutQuad);
+            rectTransform.DOAnchorPos(new Vector2(x, y), 0.30f).SetEase(Ease.OutQuad);
         }
     }
 
@@ -83,12 +84,12 @@ public class RadialMenuEntry : MonoBehaviour
         if (immediate)
         {
             rectTransform.localScale = scale;
-        } 
+        }
         else
         {
-            rectTransform.DOScale(scale,0.3f).SetEase(Ease.OutQuad);
+            rectTransform.DOScale(scale, 0.3f).SetEase(Ease.OutQuad);
         }
-        
+
     }
 
     /// <summary>
@@ -96,7 +97,7 @@ public class RadialMenuEntry : MonoBehaviour
     /// </summary>
     public void Activate()
     {
-        if(canBeInteractedWith && onClick != null) onClick.Invoke();
+        if (canBeInteractedWith && onClick != null) onClick.Invoke();
     }
 
     /// <summary>
@@ -107,7 +108,7 @@ public class RadialMenuEntry : MonoBehaviour
         if (canBeInteractedWith)
         {
             rectTransform.DOComplete();
-            rectTransform.DOScale(Vector3.one * 1.5f, 0.3f).SetEase(Ease.OutQuad); 
+            rectTransform.DOScale(Vector3.one * 1.5f, 0.3f).SetEase(Ease.OutQuad);
         }
 
     }
