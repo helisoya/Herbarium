@@ -9,21 +9,21 @@ using TMPro;
 public class LocalizedText : MonoBehaviour
 {
     [SerializeField] protected string localKey;
-    [SerializeField] protected bool usePrimaryFont = true;
+    [SerializeField] protected Locals.Channel channel;
     [SerializeField] protected TMP_Text text;
     [SerializeField] protected bool canResize = true;
     protected object[] injectors;
 
     void Start()
     {
-        Locals.RegisterText(this, isUsingPrimaryFont);
+        Locals.RegisterText(this, channel);
 
         ReloadText();
     }
 
     protected void OnDestroy()
     {
-        Locals.UnregisterText(this);
+        Locals.UnregisterText(this, channel);
     }
 
     /// <summary>
@@ -102,6 +102,6 @@ public class LocalizedText : MonoBehaviour
         text.fontSizeMax = size;
     }
 
-    public string key { get { return localKey; } }
-    public bool isUsingPrimaryFont { get { return usePrimaryFont; } }
+    public string Key { get { return localKey; } }
+    public Locals.Channel Channel { get { return channel; } }
 }

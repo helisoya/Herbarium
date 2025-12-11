@@ -20,28 +20,28 @@ public class SettingsData : ScriptableObject
 	[Header("Interface")]
 	public float gamma;
 	[HideInInspector] public uint refreshRateNumerator;
-    [HideInInspector] public uint refreshRateDenominator;
-    [HideInInspector] public int screenHeight;
-    [HideInInspector] public int screenWidth;
-    [HideInInspector] public bool fullscreen;
+	[HideInInspector] public uint refreshRateDenominator;
+	[HideInInspector] public int screenHeight;
+	[HideInInspector] public int screenWidth;
+	[HideInInspector] public bool fullscreen;
 	public bool hideHUD;
 	public int placementHUD;
 	public int sizeHUD;
-    public bool outlinePlayer;
+	public bool outlinePlayer;
 	public float outlinePlayerStrength;
 	public Color outlinePlayerColor;
-    public bool outlineObjects;
+	public bool outlineObjects;
 	public float outlineObjectsStrength;
 	public Color outlineObjectsColor;
 	public bool negativeColorFilter;
 
 	[Header("Sound")]
-    public float volumeMaster;
+	public float volumeMaster;
 	public float volumeMusic;
-    public float volumeSfx;
+	public float volumeSfx;
 	public bool muteAll;
 	public int outputDevice;
-    
+
 
 	[Header("Input")]
 	public string remaping;
@@ -49,15 +49,10 @@ public class SettingsData : ScriptableObject
 
 
 	[Header("Text")]
-    public string language;
-	public int currentTypoIndexPrimary;
-    public int primaryTextSize;
-    public Color primaryTextColor;
+	public string language;
 	public bool subtitles;
-	public int currentTypoIndexSecondary;
-	public int secondaryTextSize;
-    public Color secondaryTextColor;
 	public float subtitlesBackgroundOpacity;
+	public LocalChannelData[] textChannelsDatas;
 
 	public void Copy(SettingsData copy)
 	{
@@ -68,8 +63,7 @@ public class SettingsData : ScriptableObject
 		refreshRateDenominator = copy.refreshRateDenominator;
 		language = copy.language;
 		remaping = copy.remaping;
-		currentTypoIndexPrimary = copy.currentTypoIndexPrimary;
-		currentTypoIndexSecondary = copy.currentTypoIndexSecondary;
+		textChannelsDatas = copy.textChannelsDatas;
 		volumeMaster = copy.volumeMaster;
 		volumeSfx = copy.volumeSfx;
 		volumeMusic = copy.volumeMusic;
@@ -96,11 +90,7 @@ public class SettingsData : ScriptableObject
 		muteAll = copy.muteAll;
 		outputDevice = copy.outputDevice;
 		holdButtonEnabled = copy.holdButtonEnabled;
-    	primaryTextSize = copy.primaryTextSize;
-		primaryTextColor = copy.primaryTextColor;
 		subtitles = copy.subtitles;
-		secondaryTextColor = copy.secondaryTextColor;
-		secondaryTextSize = copy.secondaryTextSize;
 		subtitlesBackgroundOpacity = copy.subtitlesBackgroundOpacity;
 	}
 }
