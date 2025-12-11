@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{e105838f-b230-4bbf-b984-b58f051e636f}">
+		<property name="color">
+			<value>Yellow Light 1</value>
+		</property>
 		<property name="name">
-			<value>ApprenticeHello</value>
+			<value>ApprenticeIdle</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -29,7 +32,7 @@
 			<destination>{959a30f2-83db-4c39-a942-68b509220c07}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{f58db0d4-b2d9-4c66-bbec-cb0d34e5bc3a}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{2017b88c-8c52-451e-a144-63b44ffe41de}">
@@ -50,7 +53,7 @@
 			<destination>{d3263173-f582-4589-a7cb-895a4e4e177f}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{6589d867-c452-4cde-8062-9eb9a2eda90b}</destination>
+			<destination>{10d719ac-a19c-4813-a636-1ea76e200100}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{efa208c8-7260-496f-a6ae-792a9da7b24d}" />

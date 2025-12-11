@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{f793f35a-5b0f-407c-b928-75be62001a41}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>PlayerVoice</value>
 		</property>
@@ -29,7 +32,7 @@
 			<destination>{abdc8551-7415-4123-bd68-0e0bbf1710a3}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{f58db0d4-b2d9-4c66-bbec-cb0d34e5bc3a}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{693a4314-d397-45ab-8609-5483f41e1eba}">
@@ -50,7 +53,7 @@
 			<destination>{29ab2775-5d7e-4fe5-a46c-834d96d5cb16}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{6589d867-c452-4cde-8062-9eb9a2eda90b}</destination>
+			<destination>{3e47b2c1-f705-434b-acab-7d5b308f23ab}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{2bf4c792-de08-48c0-bcc8-b441aae26fe0}" />

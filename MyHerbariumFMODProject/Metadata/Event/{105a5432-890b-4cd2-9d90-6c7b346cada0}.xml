@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{105a5432-890b-4cd2-9d90-6c7b346cada0}">
+		<property name="color">
+			<value>Yellow Light 1</value>
+		</property>
 		<property name="name">
-			<value>NPCHello</value>
+			<value>ApprenticeVoice</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -32,7 +35,7 @@
 			<destination>{29612206-76d0-4f1b-ad3b-79c4349a0f6c}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{f58db0d4-b2d9-4c66-bbec-cb0d34e5bc3a}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{eebc7654-e0a4-48fe-8082-a0ae06fb4872}">
@@ -56,7 +59,7 @@
 			<destination>{d8a59251-cbef-4e7f-973d-9f5de9409c21}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{6589d867-c452-4cde-8062-9eb9a2eda90b}</destination>
+			<destination>{8a11eaaf-cc3a-47b1-8495-9a5580df0b7a}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{1c014c76-0dcf-4534-ad5a-d46da01405b9}" />

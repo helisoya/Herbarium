@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{80d688b2-b05c-46db-8825-8ce6ebda0409}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
-			<value>PlayerWalk</value>
+			<value>PlayerFootstep</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -29,7 +32,7 @@
 			<destination>{a03cbf42-0e91-4680-811f-cf630c5d08b8}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{f58db0d4-b2d9-4c66-bbec-cb0d34e5bc3a}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{11f0693c-4313-4ca3-9156-7d8ac3ad04a0}">

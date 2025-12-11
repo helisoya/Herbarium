@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{c37a78cf-60a6-4a87-ae67-085df593fd3d}">
+		<property name="color">
+			<value>Purple</value>
+		</property>
 		<property name="name">
-			<value>HerbariumAmb</value>
+			<value>HerbariumMusic</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -25,6 +28,9 @@
 		<relationship name="markerTracks">
 			<destination>{412f46b6-11e4-4bda-b157-ca81ac89c897}</destination>
 		</relationship>
+		<relationship name="groupTracks">
+			<destination>{ae2963e1-ea9b-4c49-bb60-7512973eb54a}</destination>
+		</relationship>
 		<relationship name="timeline">
 			<destination>{1a77db19-cfca-49f5-ab5d-beacc769049c}</destination>
 		</relationship>
@@ -32,7 +38,7 @@
 			<destination>{669e1286-ee86-49af-b06f-c320c770a6c8}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{fb37ae72-09d1-4db2-ad98-353bb269fb91}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{8c186dfc-34c1-4f87-8c31-78a6b5114a48}">
@@ -53,11 +59,16 @@
 			<destination>{2270a282-6a56-43d8-b1ff-c717673d7e0d}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{df75935a-a53c-406d-8dd0-d6c43c6f5a2b}</destination>
+			<destination>{4eaca6e6-b426-46a4-8fd8-45c6bb13f2d7}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{804f1a55-3136-41f1-b15e-4f0efae529f3}" />
 	<object class="MarkerTrack" id="{412f46b6-11e4-4bda-b157-ca81ac89c897}" />
+	<object class="GroupTrack" id="{ae2963e1-ea9b-4c49-bb60-7512973eb54a}">
+		<relationship name="mixerGroup">
+			<destination>{09bab4cc-f4f9-4d2a-b3e3-f2cc4bbe2c60}</destination>
+		</relationship>
+	</object>
 	<object class="Timeline" id="{1a77db19-cfca-49f5-ab5d-beacc769049c}" />
 	<object class="ParameterProxy" id="{669e1286-ee86-49af-b06f-c320c770a6c8}">
 		<relationship name="preset">
@@ -81,6 +92,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2270a282-6a56-43d8-b1ff-c717673d7e0d}" />
+	<object class="EventMixerGroup" id="{09bab4cc-f4f9-4d2a-b3e3-f2cc4bbe2c60}">
+		<property name="name">
+			<value>Music</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{dce4cdec-6a88-41d9-8520-9f659d00e5ca}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{9f4eec8a-6bd9-4d85-96bc-84abfcd79975}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{8191e31a-8879-4f0b-ae91-02db28627660}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{e601a6c0-51cf-4045-b6e9-ad40cdbd41b0}">
 		<relationship name="effects">
 			<destination>{214a4098-1278-433a-b04b-5c6cb560e26e}</destination>
@@ -88,5 +113,12 @@
 	</object>
 	<object class="MixerBusPanner" id="{58598c8e-ce91-4562-b30c-efed3e2d7bbd}" />
 	<object class="MixerBusFader" id="{91539705-d5a6-4eb0-8dda-b380a492792d}" />
+	<object class="MixerBusEffectChain" id="{dce4cdec-6a88-41d9-8520-9f659d00e5ca}">
+		<relationship name="effects">
+			<destination>{8371e8cd-ea88-4d77-8aea-47c38c10bc31}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{9f4eec8a-6bd9-4d85-96bc-84abfcd79975}" />
 	<object class="MixerBusFader" id="{214a4098-1278-433a-b04b-5c6cb560e26e}" />
+	<object class="MixerBusFader" id="{8371e8cd-ea88-4d77-8aea-47c38c10bc31}" />
 </objects>

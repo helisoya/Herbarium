@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{c18c1a6c-0c0d-4a88-8dc6-9b60cdbf5c53}">
+		<property name="color">
+			<value>Green</value>
+		</property>
 		<property name="name">
 			<value>Amb</value>
 		</property>
@@ -49,7 +52,7 @@
 			<destination>{2407dfec-9da8-4d3b-ae5e-48b380eaca61}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{fb37ae72-09d1-4db2-ad98-353bb269fb91}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{8c8cffba-022c-4225-bd4f-7fccdf10fd4c}">
@@ -70,7 +73,7 @@
 			<destination>{5534135a-5acd-4b49-805b-0ce26551d80d}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{3591b140-1566-492d-a1db-a57d958f941e}</destination>
+			<destination>{d186ac6a-7e24-4769-bbff-bac4108c7fc0}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{520d8443-56ef-4904-8517-b7f33fb914b5}" />

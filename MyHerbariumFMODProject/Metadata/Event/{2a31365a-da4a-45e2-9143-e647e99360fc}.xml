@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{2a31365a-da4a-45e2-9143-e647e99360fc}">
+		<property name="color">
+			<value>Yellow Light 2</value>
+		</property>
 		<property name="name">
-			<value>NPCQuestion</value>
+			<value>SpiritVoice</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -32,7 +35,7 @@
 			<destination>{e78d540e-2563-475e-bcbe-84a178b26c05}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{f58db0d4-b2d9-4c66-bbec-cb0d34e5bc3a}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{e87de3f0-a413-490a-9b3f-444662a80809}">
@@ -56,7 +59,7 @@
 			<destination>{7fd9da9d-ec2a-4082-986f-ebd786655c7c}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{6589d867-c452-4cde-8062-9eb9a2eda90b}</destination>
+			<destination>{8a11eaaf-cc3a-47b1-8495-9a5580df0b7a}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{40f125c7-a893-4911-932d-6bf0c609045a}" />

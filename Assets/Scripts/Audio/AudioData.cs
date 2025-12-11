@@ -24,5 +24,5 @@ public enum ParamID
 
 public enum BankID
 {
-    Master,
+    Master, GameplayMusic, GameplayEnviro, GameplaySFX,
 }

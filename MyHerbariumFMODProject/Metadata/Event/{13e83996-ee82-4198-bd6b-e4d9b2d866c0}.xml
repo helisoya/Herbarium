@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{13e83996-ee82-4198-bd6b-e4d9b2d866c0}">
+		<property name="color">
+			<value>Green</value>
+		</property>
 		<property name="name">
 			<value>BioLightA</value>
 		</property>
@@ -33,7 +36,7 @@
 			<destination>{3480c2a6-12c4-4382-92ab-e2bdf31dcc8f}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{ba881f1c-d7f9-4f13-9b9a-2f8ced9fab4d}</destination>
+			<destination>{fb37ae72-09d1-4db2-ad98-353bb269fb91}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{14b86861-c333-44e8-8c8f-04f788210d5d}">
@@ -54,7 +57,7 @@
 			<destination>{fb77632e-f078-495c-8798-aa5933419928}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{df75935a-a53c-406d-8dd0-d6c43c6f5a2b}</destination>
+			<destination>{d186ac6a-7e24-4769-bbff-bac4108c7fc0}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e77a8fba-f7f3-44c2-8969-808b6eaef39e}">
@@ -255,7 +258,7 @@
 			<value>0</value>
 		</property>
 		<property name="maximumDistance">
-			<value>9.80000019</value>
+			<value>25</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>
