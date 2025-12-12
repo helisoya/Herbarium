@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlayerDataHandler playerDataHandler;
+    [SerializeField] private PlantDatabase plantDatabase;
     public static GameManager instance;
 
     void Awake()
@@ -22,8 +23,19 @@ public class GameManager : MonoBehaviour
             Locals.Init();
             Settings.Init();
             playerDataHandler.ResetData();
+            plantDatabase.Init();
 
             DontDestroyOnLoad(gameObject);
+
+
+
+
+            // Debug build
+            if (Debug.isDebugBuild)
+            {
+                playerDataHandler.AddHerbariumPage("TestPlant1");
+                playerDataHandler.AddHerbariumPage("TestPlant2");
+            }
         }
     }
 
@@ -36,6 +48,14 @@ public class GameManager : MonoBehaviour
         return playerDataHandler;
     }
 
+    /// <summary>
+	/// Gets the plant database
+	/// </summary>
+	/// <returns></returns>
+    public PlantDatabase GetPlantDatabase()
+    {
+        return plantDatabase;
+    }
 
     void Update()
     {

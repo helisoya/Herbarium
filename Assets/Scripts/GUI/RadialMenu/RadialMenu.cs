@@ -131,6 +131,12 @@ public class RadialMenu : MonoBehaviour
         }
     }
 
+    private void OpenHerbarium()
+    {
+        Close();
+        GameGUI.instance.OpenHerbarium();
+    }
+
     /// <summary>
 	/// Opens the default backpack menu
 	/// </summary>
@@ -152,8 +158,8 @@ public class RadialMenu : MonoBehaviour
         {
             key = "RadialMenu_Herbarium",
             sprite = null,
-            callback = Close,
-            interactable = false
+            callback = OpenHerbarium,
+            interactable = true
         };
 
         testData.entries[1] = new RadialMenuEntryData()

@@ -20,14 +20,15 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) ||
-            GameGUI.instance.radialMenuOpen) return;
+            GameGUI.instance.radialMenuOpen || GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
         controller.SetMoveVector(value.Get<Vector2>());
     }
 
     void OnMousePosition(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
+        || GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
         Vector2 mousePos = value.Get<Vector2>();
 
@@ -55,6 +56,8 @@ public class Player : MonoBehaviour
             return;
         }
 
+        if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
+
         bool shouldHold = Settings.instance.IsHoldModeEnabled();
 
         if (shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
@@ -65,7 +68,8 @@ public class Player : MonoBehaviour
 
     void OnBackpack(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
+        || GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
         if (!GameGUI.instance.radialMenuOpen)
         {

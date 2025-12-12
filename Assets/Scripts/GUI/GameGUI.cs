@@ -11,10 +11,15 @@ public class GameGUI : MonoBehaviour
 {
     [Header("Pause")]
     //[SerializeField] private PauseMenu pauseMenu;
+    //public bool isPauseOpen { get { return pauseMenu.isOpen; } }
 
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
     public bool radialMenuOpen { get { return radialMenu.inRadialMenu; } }
+
+    [Header("Herbarium")]
+    [SerializeField] private HerbariumGUI herbariumGUI;
+    public bool inHerbarium { get { return herbariumGUI.isOpen; } }
 
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
@@ -22,6 +27,7 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private LocalizedText dialogText;
     private Coroutine routineDialog;
     private bool skipDialog = false;
+    public bool showingDialog { get { return routineDialog != null; } }
 
 
     [Header("Fading")]
@@ -36,9 +42,6 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private ChoiceButton choiceButtonPrefab;
     public int selectedChoiceIndex { get; private set; }*/
 
-
-    public bool showingDialog { get { return routineDialog != null; } }
-    //public bool isPauseOpen { get { return pauseMenu.isOpen; } }
     public static GameGUI instance;
 
 
@@ -166,6 +169,23 @@ public class GameGUI : MonoBehaviour
     public void CloseRadialMenu()
     {
         radialMenu.Close();
+    }
+
+    /// <summary>
+	/// Opens the herbarium
+	/// </summary>
+	/// <param name="pageIndex">The page index</param>
+    public void OpenHerbarium(int pageIndex = 0)
+    {
+        herbariumGUI.Open(pageIndex);
+    }
+
+    /// <summary>
+	/// Closes the Herbarium
+	/// </summary>
+    public void CloseHerbarium()
+    {
+        herbariumGUI.Close();
     }
 
     /// <summary>
