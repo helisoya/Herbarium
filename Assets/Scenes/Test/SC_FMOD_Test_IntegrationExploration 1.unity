@@ -10089,7 +10089,7 @@ MonoBehaviour:
       Data2: 1092233566
       Data3: -1276406858
       Data4: 1436739522
-    Path: event:/Music/Entry3Music3D
+    Path: event:/Music/Plant3Music3DA
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -24059,7 +24059,7 @@ MonoBehaviour:
       Data2: 1092233566
       Data3: -1276406858
       Data4: 1436739522
-    Path: event:/Music/Entry3Music3D
+    Path: event:/Music/Plant3Music3DA
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -24515,7 +24515,7 @@ MonoBehaviour:
       Data2: 1256568988
       Data3: -271094642
       Data4: 1078125191
-    Path: event:/Music/Entry2Music3D
+    Path: event:/Music/Plant2Music3DA
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -25790,8 +25790,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3623451763102074883, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 213206338626782163}
   m_SourcePrefab: {fileID: 100100000, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
+--- !u!1 &213206338626782162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3623451763102074883, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
+  m_PrefabInstance: {fileID: 213206338626782161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &213206338626782163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213206338626782162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioBankLoader
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - Master
+  - GameplayEnviro
+  - GameplayMusic
+  - GameplaySFX
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!1001 &4290558102357114066
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        //FMODUnity.RuntimeManager.LoadBank(audioData.banks[id], true);
+        
     }
     
     public void Play2DEvent(EventID id)
@@ -36,10 +36,4 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShotAttached(audioData.events[id], eventSource);
     }
 
-
-
-    public void LoadFMODBank(BankID id)
-    {
-        //RuntimeManager.StudioBankLoader(audioData.banks[id]);
-    }
 }

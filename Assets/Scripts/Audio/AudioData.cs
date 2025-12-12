@@ -6,7 +6,6 @@ public class AudioData : ScriptableObject
 {
     public SerializedDictionary<EventID, FMODUnity.EventReference> events = new();
     public SerializedDictionary<ParamID, FMODUnity.ParamRef> parameters = new();
-    public SerializedDictionary<BankID, FMODUnity.EditorBankRef> banks = new();
 }
 
 public enum EventID
@@ -20,9 +19,4 @@ public enum EventID
 public enum ParamID
 {
     HerbariumEntries, 
-}
-
-public enum BankID
-{
-    Master, GameplayMusic, GameplayEnviro, GameplaySFX,
 }
