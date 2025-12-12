@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -8,4 +9,7 @@ using UnityEngine;
 public class PlayerData
 {
     public string[] inventory;
+    public LinkedList<string> dialogLog;
+    public PlayerVariable[] variables;
+    public List<string> herbarium;
 }
