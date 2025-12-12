@@ -19,5 +19,6 @@ public struct RadialMenuEntryData
     public Sprite sprite;
     public string key;
     public bool interactable;
+    public object[] injectors;
     public Action callback;
 }

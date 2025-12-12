@@ -251,7 +251,8 @@ public class Settings
     /// Sets the current gamma
     /// </summary>
     /// <param name="gamma">The new gamma</param>
-    public void SetGamma(float gamma){
+    public void SetGamma(float gamma)
+    {
         data.gamma = gamma;
         //GameManager.instance.UpdateVolume();
         Save();
@@ -600,87 +601,56 @@ public class Settings
     }
 
     /// <summary>
-    /// Save the current primary typo index
+    /// Sets the text font index of a text channel
     /// </summary>
-    /// <param name="newIdx">The new typo index</param>
-    public void SetCurrentTypoIndexPrimary(int newIdx)
+    /// <param name="channel">The text channel</param>
+    /// <param name="fontIndex">The font index</param>
+    public void SetTextFont(Locals.Channel channel, int fontIndex)
     {
-        data.currentTypoIndexPrimary = newIdx;
-        Locals.ChangeFontPrimary(newIdx);
+        data.textChannelsDatas[(int)channel].fontIndex = fontIndex;
+        Locals.ChangeFont(channel, fontIndex);
         Save();
     }
 
     /// <summary>
-    /// Get the current primary typo index
+    /// Gets the text font index of a text channel
     /// </summary>
-    /// <returns>The current typo index</returns>
-    public int GetCurrentTypoIndexPrimary()
+    /// <param name="channel">The text channel</param>
+    /// <returns>The font index</returns>
+    public int GetTextFontIndex(Locals.Channel channel)
     {
-        return data.currentTypoIndexPrimary;
+        return data.textChannelsDatas[(int)channel].fontIndex;
     }
-    
+
+
     /// <summary>
-    /// Save the current secondary typo index
+    /// Sets the text size index of a text channel
     /// </summary>
-    /// <param name="newIdx">The new typo index</param>
-    public void SetCurrentTypoIndexSecondary(int newIdx)
+    /// <param name="channel">The text channel</param>
+    /// <param name="sizeIndex">The size index</param>
+    public void SetTextSize(Locals.Channel channel, int sizeIndex)
     {
-        data.currentTypoIndexSecondary = newIdx;
-        Locals.ChangeFontSecondary(newIdx);
+        data.textChannelsDatas[(int)channel].sizeIndex = sizeIndex;
+        Locals.ChangeSize(channel, sizeIndex);
         Save();
     }
 
     /// <summary>
-    /// Get the current secondary typo index
+    /// Gets the text size index of a text channel
     /// </summary>
-    /// <returns>The current typo index</returns>
-    public int GetCurrentTypoIndexSecondary()
-    {
-        return data.currentTypoIndexSecondary;
-    }
-
- 
-    /// <summary>
-    /// Sets the primary text size
-    /// </summary>
-    /// <param name="size">The size index</param>
-    public void SetPrimaryTextSize(int size){
-        data.primaryTextSize = size;
-        Locals.ChangeSizePrimary(size);
-        Save();
-    }
-
-    /// <summary>
-    /// Gets the primary text size index
-    /// </summary>
+    /// <param name="channel">The text channel</param>
     /// <returns>The size index</returns>
-    public int GetPrimaryTextSize(){
-        return data.primaryTextSize;
-    }
-
-    /// <summary>
-    /// Sets the secondary text size
-    /// </summary>
-    /// <param name="size">The size index</param>
-    public void SetSecondaryTextSize(int size){
-        data.secondaryTextSize = size;
-        Locals.ChangeSizeSecondary(size);
-        Save();
-    }
-
-    /// <summary>
-    /// Gets the secondary text size index
-    /// </summary>
-    /// <returns>The size index</returns>
-    public int GetSecondaryTextSize(){
-        return data.secondaryTextSize;
+    public int GetTextSizeIndex(Locals.Channel channel)
+    {
+        return data.textChannelsDatas[(int)channel].sizeIndex;
     }
 
     /// <summary>
     /// Sets the game's test opacity index
     /// </summary>
     /// <param name="opacity">The opacity index</param>
-    public void SetSubtitlesBackgroundOpacity(float opacity){
+    public void SetSubtitlesBackgroundOpacity(float opacity)
+    {
         data.subtitlesBackgroundOpacity = opacity;
         //if(!GameManager.instance.inMainMenu) GameGUI.instance.SetDialogBackgroundAlpha(opacity);
         Save();
@@ -690,11 +660,12 @@ public class Settings
     /// Gets the game's text opacity index
     /// </summary>
     /// <returns>The opacity index</returns>
-    public float GetSubtitlesBackgroundOpacity(){
+    public float GetSubtitlesBackgroundOpacity()
+    {
         return data.subtitlesBackgroundOpacity;
     }
 
-   /// <summary>
+    /// <summary>
     /// Changes if the subtitles are active or not
     /// </summary>
     /// <param name="active">True if active</param>
@@ -714,39 +685,25 @@ public class Settings
     }
 
     /// <summary>
-    /// Sets the secondary text color
+    /// Sets the text color of a text channel
     /// </summary>
+    /// <param name="channel">The text channel</param>
     /// <param name="color">The color</param>
-    public void SetSecondaryColor(Color color){
-        data.secondaryTextColor = color;
-        Locals.ChangeColorSecondary(color);
+    public void SetTextColor(Locals.Channel channel, Color color)
+    {
+        data.textChannelsDatas[(int)channel].color = color;
+        Locals.ChangeColor(channel, color);
         Save();
     }
 
     /// <summary>
-    /// Gets the secondary text color
+    /// Gets the text color of a text channel
     /// </summary>
+    /// <param name="channel">The text channel</param>
     /// <returns>The color</returns>
-    public Color GetSecondaryTextColor(){
-        return data.secondaryTextColor;
-    }
-
-    /// <summary>
-    /// Sets the primary text color
-    /// </summary>
-    /// <param name="color">The color</param>
-    public void SetPrimaryColor(Color color){
-        data.primaryTextColor = color;
-        Locals.ChangeColorPrimary(color);
-        Save();
-    }
-
-    /// <summary>
-    /// Gets the primary text color
-    /// </summary>
-    /// <returns>The color</returns>
-    public Color GetPrimaryTextColor(){
-        return data.primaryTextColor;
+    public Color GetTextColor(Locals.Channel channel)
+    {
+        return data.textChannelsDatas[(int)channel].color;
     }
 
     #endregion
@@ -765,14 +722,16 @@ public class Settings
         data.refreshRateNumerator = Screen.currentResolution.refreshRateRatio.numerator;
         data.screenHeight = Screen.currentResolution.height;
         data.screenWidth = Screen.currentResolution.width;
-        
+
         Locals.ChangeLanguage(defaultData.language);
-        Locals.ChangeColorPrimary(defaultData.primaryTextColor);
-        Locals.ChangeColorSecondary(defaultData.secondaryTextColor);
-        Locals.ChangeFontPrimary(defaultData.currentTypoIndexPrimary);
-        Locals.ChangeFontSecondary(defaultData.currentTypoIndexSecondary);
-        Locals.ChangeSizePrimary(defaultData.primaryTextSize);
-        Locals.ChangeSizeSecondary(defaultData.secondaryTextSize);
+
+        for (int i = 0; i < defaultData.textChannelsDatas.Length; i++)
+        {
+            Locals.Channel channel = (Locals.Channel)i;
+            Locals.ChangeFont(channel, defaultData.textChannelsDatas[i].fontIndex);
+            Locals.ChangeSize(channel, defaultData.textChannelsDatas[i].sizeIndex);
+            Locals.ChangeColor(channel, defaultData.textChannelsDatas[i].color);
+        }
     }
 
     #endregion
@@ -783,7 +742,7 @@ public class Settings
     /// </summary>
     private void Load()
     {
-        FileManager.LoadJSON<SettingsData>(filePath,ref data);
+        FileManager.LoadJSON<SettingsData>(filePath, ref data);
 
         RefreshRate refreshRate = new RefreshRate
         {
@@ -796,13 +755,14 @@ public class Settings
         Screen.fullScreen = data.fullscreen;
         //GameManager.instance.GetInputs().LoadBindingOverridesFromJson(data.remaping);
         //GameManager.instance.UpdateVolume();
-        Locals.ChangeFontPrimary(data.currentTypoIndexPrimary);
-        Locals.ChangeColorPrimary(data.primaryTextColor);
-        Locals.ChangeSizePrimary(data.primaryTextSize);
 
-        Locals.ChangeFontSecondary(data.currentTypoIndexSecondary);
-        Locals.ChangeColorSecondary(data.secondaryTextColor);
-        Locals.ChangeSizeSecondary(data.secondaryTextSize);
+        for (int i = 0; i < data.textChannelsDatas.Length; i++)
+        {
+            Locals.Channel channel = (Locals.Channel)i;
+            Locals.ChangeFont(channel, data.textChannelsDatas[i].fontIndex);
+            Locals.ChangeSize(channel, data.textChannelsDatas[i].sizeIndex);
+            Locals.ChangeColor(channel, data.textChannelsDatas[i].color);
+        }
     }
 
     /// <summary>
@@ -811,6 +771,6 @@ public class Settings
     private void Save()
     {
         FileManager.SaveJSON(filePath, data);
-    }  
+    }
 
 }

@@ -9,21 +9,21 @@ using TMPro;
 public class LocalizedText : MonoBehaviour
 {
     [SerializeField] protected string localKey;
-    [SerializeField] protected bool usePrimaryFont = true;
+    [SerializeField] protected Locals.Channel channel;
     [SerializeField] protected TMP_Text text;
     [SerializeField] protected bool canResize = true;
     protected object[] injectors;
 
     void Start()
     {
-        Locals.RegisterText(this,isUsingPrimaryFont);
+        Locals.RegisterText(this, channel);
 
         ReloadText();
     }
 
     protected void OnDestroy()
     {
-        Locals.UnregisterText(this);
+        Locals.UnregisterText(this, channel);
     }
 
     /// <summary>
@@ -42,16 +42,16 @@ public class LocalizedText : MonoBehaviour
     public virtual void ReloadText()
     {
         string txt = Locals.GetLocal(localKey);
-        if(injectors != null && injectors.Length > 0)
+        if (injectors != null && injectors.Length > 0)
         {
-            for(int i = 0; i < injectors.Length; i++)
+            for (int i = 0; i < injectors.Length; i++)
             {
-                txt.Replace(string.Concat("[",i,"]"),injectors[i].ToString());
+                txt = txt.Replace(string.Concat("[", i, "]"), injectors[i].ToString());
             }
         }
         text.text = txt;
     }
-    
+
     /// <summary>
     /// Sets the injectors for this string
     /// </summary>
@@ -60,16 +60,17 @@ public class LocalizedText : MonoBehaviour
     public void SetInjectors(object[] newInjectors, bool reloadText = true)
     {
         injectors = newInjectors;
-        if(reloadText) ReloadText();
+        if (reloadText) ReloadText();
     }
 
     /// <summary>
     /// Sets the current font for the text
     /// </summary>
     /// <param name="font">The new font</param>
-    public void SetFont(TMP_FontAsset font){
+    public void SetFont(TMP_FontAsset font)
+    {
         text.font = font;
-    } 
+    }
 
     /// <summary>
     /// Returns the text field
@@ -95,12 +96,12 @@ public class LocalizedText : MonoBehaviour
     /// <param name="size">The new size</param>
     public void SetSize(int size)
     {
-        if(!canResize) return;
-        
+        if (!canResize) return;
+
         text.fontSize = size;
         text.fontSizeMax = size;
     }
 
-    public string key { get { return localKey; } }
-    public bool isUsingPrimaryFont {get{return usePrimaryFont;}}
+    public string Key { get { return localKey; } }
+    public Locals.Channel Channel { get { return channel; } }
 }

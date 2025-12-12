@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) ||
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) ||
             GameGUI.instance.radialMenuOpen) return;
 
         controller.SetMoveVector(value.Get<Vector2>());
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     void OnMousePosition(InputValue value)
     {
-        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)) return;
 
         Vector2 mousePos = value.Get<Vector2>();
 
@@ -43,23 +43,39 @@ public class Player : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        if(CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene){
+        if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
+        {
             CutsceneManager.instance.UserSubmit();
             return;
         }
 
         if (GameGUI.instance.radialMenuOpen)
         {
-            if(value.isPressed) GameGUI.instance.ActivateCurrentRadialMenuEntry();
+            if (value.isPressed) GameGUI.instance.ActivateCurrentRadialMenuEntry();
             return;
-        } 
+        }
 
         bool shouldHold = Settings.instance.IsHoldModeEnabled();
 
-        if(shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
-        else if(value.isPressed) controller.ToggleTryToMoveUsingCursor();
+        if (shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
+        else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
 
-        if(value.isPressed) interaction.TryInterract();
+        if (value.isPressed) interaction.TryInterract();
+    }
+
+    void OnBackpack(InputValue value)
+    {
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)) return;
+
+        if (!GameGUI.instance.radialMenuOpen)
+        {
+            if (value.isPressed)
+            {
+                StopPlayerMovements();
+                GameGUI.instance.OpenBackpack();
+            }
+            return;
+        }
     }
 
     /// <summary>
