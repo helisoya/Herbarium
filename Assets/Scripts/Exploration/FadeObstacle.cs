@@ -12,7 +12,7 @@ public class FadeObstacle : MonoBehaviour
     private float _originalAlpha;
     private Coroutine _fadeRoutine;
 
-    private static readonly int BaseColorID = Shader.PropertyToID("_BaseColor");
+    private static readonly int BaseColorID = Shader.PropertyToID("_Color");
 
     private void Awake()
     {
