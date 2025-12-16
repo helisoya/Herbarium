@@ -12,17 +12,14 @@ public abstract class HerbariumPage : MonoBehaviour
     [SerializeField] protected GameObject root;
     [SerializeField] protected HerbariumGUI gui;
 
-    protected int pageIndex;
     protected int localPageIndex;
 
     /// <summary>
 	/// Opens the page
 	/// </summary>
-	/// <param name="pageIndex">The total page index</param>
 	/// <param name="localPageIndex">The local page index (N page of plant entries, ...)</param>
-    public void Open(int pageIndex, int localPageIndex)
+    public void Open(int localPageIndex)
     {
-        this.pageIndex = pageIndex;
         this.localPageIndex = localPageIndex;
         root.SetActive(true);
         OnOpen();
@@ -46,4 +43,14 @@ public abstract class HerbariumPage : MonoBehaviour
 	/// Called when closing the page
 	/// </summary>
     public abstract void OnClose();
+
+    /// <summary>
+    /// Go backwards in the Herbarium (to page n-1)
+    /// </summary>
+    public abstract void GoLeft();
+
+    /// <summary>
+    /// Go fowards in the Herbarium (to page n+1)
+    /// </summary>
+    public abstract void GoRight();
 }

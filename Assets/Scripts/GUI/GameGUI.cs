@@ -174,10 +174,9 @@ public class GameGUI : MonoBehaviour
     /// <summary>
 	/// Opens the herbarium
 	/// </summary>
-	/// <param name="pageIndex">The page index</param>
-    public void OpenHerbarium(int pageIndex = 0)
+    public void OpenHerbarium()
     {
-        herbariumGUI.Open(pageIndex);
+        herbariumGUI.Open();
     }
 
     /// <summary>

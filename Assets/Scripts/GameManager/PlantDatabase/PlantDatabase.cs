@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -9,11 +10,20 @@ using UnityEngine;
 public class PlantDatabase : MonoBehaviour
 {
     private Dictionary<string, Plant> plants;
-
+    private string[] availablePlants;
 
     public void Init()
     {
         plants = new Dictionary<string, Plant>();
+        
+        Plant[] allPlants = Resources.LoadAll<Plant>("Plants");
+        availablePlants = new string[allPlants.Length];
+
+        for(int i = 0;i < availablePlants.Length; i++)
+        {
+            availablePlants[i] = allPlants[i].id;
+            Resources.UnloadAsset(allPlants[i]);
+        }
     }
 
     /// <summary>
@@ -36,11 +46,24 @@ public class PlantDatabase : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets all the plants that exists in game
+    /// </summary>
+    /// <returns>The plants</returns>
+    public string[] GetExistingPlants()
+    {
+        return availablePlants;
+    }
+
+    /// <summary>
 	/// Clears the plant database
     /// (Only clears the cache, not the actual plant data)
 	/// </summary>
     public void ClearDatabase()
     {
+        foreach(Plant value in plants.Values)
+        {
+            Resources.UnloadAsset(value);
+        }
         plants.Clear();
     }
 }

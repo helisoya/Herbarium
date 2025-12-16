@@ -1,4 +1,6 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngineInternal;
 
 /// <summary>
 /// Represents the Plants index in the Herbarium
@@ -22,16 +24,57 @@ public class HerbariumPlantIndex : HerbariumPage
 
     public override void OnOpen()
     {
+        RefreshVisuals();
+    }
+
+    /// <summary>
+    /// Refreshes the page's visuals
+    /// </summary>
+    private void RefreshVisuals()
+    {
         // There can be 14 entries per page
-
+        
+        string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
         string[] unlockedPages = GameManager.instance.GetPlayerDataHandler().GetHerbariumUnlockedPages();
-        int pagesCount = Mathf.CeilToInt((float)unlockedPages.Length / ENTRY_COUNT);
+        bool unlocked;
+        int correctedIdx;
 
-        for (int i = 0; i < ENTRY_COUNT && i + ENTRY_COUNT * localPageIndex < unlockedPages.Length; i++)
+        for (int i = 0; i < ENTRY_COUNT && i + ENTRY_COUNT * localPageIndex < allPlants.Length ; i++)
         {
+            correctedIdx = i + ENTRY_COUNT * localPageIndex;
+            unlocked = false;
+            
+            for(int j = 0; j < unlockedPages.Length; j++)
+            {
+                if(allPlants[correctedIdx] == unlockedPages[j])
+                {
+                    unlocked = true;
+                    break;
+                }
+            }
+
             Instantiate<HerbariumPlantIndexEntry>(prefabEntry,
-            i < ENTRY_COUNT / 2 ? holderLeft : holderRight
-            ).Init(pagesCount + i, gui, GameManager.instance.GetPlantDatabase().GetPlant(unlockedPages[i]).Name);
+            i <= ENTRY_COUNT / 2.0f ? holderLeft : holderRight
+            ).Init(i, gui, unlocked ? GameManager.instance.GetPlantDatabase().GetPlant(allPlants[correctedIdx]).Name : "Herbarium_PlantsIndex_Unknown");
         }
+    }
+
+    public override void GoLeft()
+    {
+        if(localPageIndex == 0)
+        {
+            gui.SetMainPage();
+        }
+        else
+        {
+            localPageIndex--;
+            RefreshVisuals();
+        }
+    }
+
+    public override void GoRight()
+    {
+        string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
+        int pagesCount = Mathf.CeilToInt((float)allPlants.Length / ENTRY_COUNT);
     }
 }
