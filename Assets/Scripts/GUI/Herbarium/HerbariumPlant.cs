@@ -61,6 +61,7 @@ public class HerbariumPlant : HerbariumPage
 
     public override void OnClose()
     {
+        CloseHints();
     }
 
     public override void OnOpen()
@@ -108,7 +109,7 @@ public class HerbariumPlant : HerbariumPage
     private void RefreshVisuals()
     {
         onPageChange.Invoke(localPageIndex);
-        
+
         string plantId = GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex];
         string[] plantsFound = GameManager.instance.GetPlayerDataHandler().GetHerbariumUnlockedPages();
         bool wasPlantFound = false;

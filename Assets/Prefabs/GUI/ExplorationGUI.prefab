@@ -33,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 8965088492911549626}
   - {fileID: 5247253059492871764}
-  - {fileID: 2603520091055363811}
+  - {fileID: 4318419000207231776}
   - {fileID: 6898579339150518324}
   m_Father: {fileID: 8573302193750240203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -309,10 +309,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RadialMenu
   radialParent: {fileID: 5247253059492871764}
   entryPrefab: {fileID: 980257407546204855, guid: 39175adc92a44194d9dd08ce8602a439, type: 3}
-  onRadialMenuOpen:
+  onOpenBackpack:
     m_PersistentCalls:
       m_Calls: []
-  onRadialMenuClosed:
+  onCloseBackpack:
+    m_PersistentCalls:
+      m_Calls: []
+  onOpenInventory:
+    m_PersistentCalls:
+      m_Calls: []
+  onCloseInventory:
     m_PersistentCalls:
       m_Calls: []
   onRadialMenuHover:
@@ -523,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameGUI
   radialMenu: {fileID: 6818114824953064218}
-  herbariumGUI: {fileID: 3290559294402311179}
+  herbariumGUI: {fileID: 3631588738848614856}
   dialogRoot: {fileID: 4583242997462677075}
   dialogBg: {fileID: 1637534122983171194}
   dialogText: {fileID: 4370594717092895515}
@@ -631,7 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fade
   canvaGroup: {fileID: 7865068163943885243}
   fadeImg: {fileID: 3259530836467271773}
---- !u!1001 &3696675278176516074
+--- !u!1001 &3207317326768187945
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -649,11 +655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1602769576020603901, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70.1759
+      value: 34.16365
       objectReference: {fileID: 0}
     - target: {fileID: 1602769576020603901, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: -24.00305
       objectReference: {fileID: 0}
     - target: {fileID: 1687923173646885129, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_Pivot.x
@@ -717,11 +723,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1687923173646885129, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 48.612488
       objectReference: {fileID: 0}
     - target: {fileID: 1687923173646885129, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -3.4694524
       objectReference: {fileID: 0}
     - target: {fileID: 1687923173646885129, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -745,11 +751,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1714448803384421699, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70.1759
+      value: 34.16365
       objectReference: {fileID: 0}
     - target: {fileID: 1714448803384421699, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55
+      value: -82.00915
       objectReference: {fileID: 0}
     - target: {fileID: 1928154029181243364, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_IsActive
@@ -759,36 +765,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbarium
       objectReference: {fileID: 0}
-    - target: {fileID: 6878013458708522187, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6878013458708522187, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6878013458708522187, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 70.1759
-      objectReference: {fileID: 0}
-    - target: {fileID: 6878013458708522187, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -95
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
---- !u!224 &2603520091055363811 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1687923173646885129, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
-  m_PrefabInstance: {fileID: 3696675278176516074}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3290559294402311179 stripped
+--- !u!114 &3631588738848614856 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2226837232278848481, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
-  m_PrefabInstance: {fileID: 3696675278176516074}
+  m_PrefabInstance: {fileID: 3207317326768187945}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -796,3 +781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c500ec26d5aeb44bf89103a6aa164d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HerbariumGUI
+--- !u!224 &4318419000207231776 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1687923173646885129, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
+  m_PrefabInstance: {fileID: 3207317326768187945}
+  m_PrefabAsset: {fileID: 0}
