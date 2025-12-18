@@ -309,10 +309,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RadialMenu
   radialParent: {fileID: 5247253059492871764}
   entryPrefab: {fileID: 980257407546204855, guid: 39175adc92a44194d9dd08ce8602a439, type: 3}
-  onRadialMenuOpen:
+  onOpenBackpack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 442039224484206792}
+        m_TargetAssemblyTypeName: AudioBackpack, Assembly-CSharp
+        m_MethodName: PostOpenBackpack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCloseBackpack:
     m_PersistentCalls:
       m_Calls: []
-  onRadialMenuClosed:
+  onOpenInventory:
+    m_PersistentCalls:
+      m_Calls: []
+  onCloseInventory:
     m_PersistentCalls:
       m_Calls: []
   onRadialMenuHover:
@@ -506,6 +524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2285107314954308415}
   - {fileID: 5374606533167868362}
   - {fileID: 798933622687086441}
   m_Father: {fileID: 0}
@@ -631,6 +650,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fade
   canvaGroup: {fileID: 7865068163943885243}
   fadeImg: {fileID: 3259530836467271773}
+--- !u!1 &8826808777751135168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2285107314954308415}
+  - component: {fileID: 442039224484206792}
+  m_Layer: 0
+  m_Name: AudioBackpack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2285107314954308415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826808777751135168}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8573302193750240203}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442039224484206792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826808777751135168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49da2eff454ce0744bd0df05f88b5b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  backpackOpen: 28
+  backpackClose: 29
+  backpackHover: 30
+  backpackClick: 31
+  backpackBack: 32
+  inventoryOpen: 33
+  inventoryClose: 34
+  inventoryHover: 35
+  herbariumOpen: 37
+  herbariumClose: 38
+  pageTurnPrevious: 39
+  pageTurnNext: 40
+  pageHover: 41
+  plantsIndex: 42
+  questsIndex: 43
 --- !u!1001 &3696675278176516074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,9 +833,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2226837232278848481, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
+      propertyPath: onOpen.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226837232278848481, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
+      propertyPath: onOpen.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055928165876135530, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3079402255956517377, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_Name
       value: Herbarium
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666024512420314113, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6878013458708522187, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -774,6 +868,14 @@ PrefabInstance:
     - target: {fileID: 6878013458708522187, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553539059582297120, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329344524886614782, guid: 79bf948a31292c542b8f887392914c1b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
