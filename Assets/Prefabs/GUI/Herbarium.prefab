@@ -1329,6 +1329,7 @@ GameObject:
   - component: {fileID: 5263445149429835631}
   - component: {fileID: 5187315857211736899}
   - component: {fileID: 7644478770712302442}
+  - component: {fileID: 2406800570157760038}
   m_Layer: 5
   m_Name: Hint2
   m_TagString: Untagged
@@ -1450,6 +1451,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2406800570157760038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812320429477798182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6468083452827719995}
+          m_TargetAssemblyTypeName: HerbariumPlant, Assembly-CSharp
+          m_MethodName: InvokeOnHoverHint
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1928154029181243364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,6 +2914,7 @@ GameObject:
   - component: {fileID: 4131241251629852129}
   - component: {fileID: 9019077388268628152}
   - component: {fileID: 8112501238017530121}
+  - component: {fileID: 7146367469355868486}
   m_Layer: 5
   m_Name: Hint0
   m_TagString: Untagged
@@ -3005,6 +3036,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7146367469355868486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4029127513436029630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6468083452827719995}
+          m_TargetAssemblyTypeName: HerbariumPlant, Assembly-CSharp
+          m_MethodName: InvokeOnHoverHint
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4271711183437733196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,6 +3899,7 @@ GameObject:
   - component: {fileID: 7806406549763518955}
   - component: {fileID: 6662030781049007565}
   - component: {fileID: 637557357561038672}
+  - component: {fileID: 1582760114870885624}
   m_Layer: 5
   m_Name: Hint
   m_TagString: Untagged
@@ -3959,6 +4020,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1582760114870885624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526282574187894105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6468083452827719995}
+          m_TargetAssemblyTypeName: HerbariumPlant, Assembly-CSharp
+          m_MethodName: InvokeOnHoverButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5531007505771769802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,6 +4783,21 @@ MonoBehaviour:
   - {fileID: 1682774111114280917}
   - {fileID: 4448926940311120531}
   - {fileID: 5933944601562711806}
+  onHoverHintButton:
+    m_PersistentCalls:
+      m_Calls: []
+  onHintOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverIndividualHint:
+    m_PersistentCalls:
+      m_Calls: []
+  onClickIndividualHint:
+    m_PersistentCalls:
+      m_Calls: []
+  onHintClosed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6779190982355310251
 GameObject:
   m_ObjectHideFlags: 0
@@ -5586,6 +5691,7 @@ GameObject:
   - component: {fileID: 2047667283738272335}
   - component: {fileID: 1314000565576721566}
   - component: {fileID: 7969955513897014399}
+  - component: {fileID: 3718390700462852501}
   m_Layer: 5
   m_Name: Hint1
   m_TagString: Untagged
@@ -5707,6 +5813,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3718390700462852501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7885480127272257545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6468083452827719995}
+          m_TargetAssemblyTypeName: HerbariumPlant, Assembly-CSharp
+          m_MethodName: InvokeOnHoverHint
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7984865033674504547
 GameObject:
   m_ObjectHideFlags: 0
