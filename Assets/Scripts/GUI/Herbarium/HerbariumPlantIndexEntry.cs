@@ -43,4 +43,12 @@ public class HerbariumPlantIndexEntry : MonoBehaviour
     {
         gui.SetPlant(linkedPage);
     }
+
+    /// <summary>
+    /// On Hover event
+    /// </summary>
+    public void Hover()
+    {
+        gui.InvokeOnHover();
+    }
 }

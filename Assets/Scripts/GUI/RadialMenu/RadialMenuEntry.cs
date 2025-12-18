@@ -95,9 +95,15 @@ public class RadialMenuEntry : MonoBehaviour
     /// <summary>
     /// Activate the entry (click)
     /// </summary>
-    public void Activate()
+    /// <returns>True if the click was accepted</returns>
+    public bool Activate()
     {
-        if (canBeInteractedWith && onClick != null) onClick.Invoke();
+        if (canBeInteractedWith && onClick != null)
+        {
+            onClick.Invoke();
+            return true;
+        } 
+        return false;
     }
 
     /// <summary>

@@ -1,16 +1,29 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Handles the GUI of the Herbarium
 /// </summary>
 public class HerbariumGUI : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] private GameObject root;
     [SerializeField] private HerbariumMainPage mainPage;
     [SerializeField] private HerbariumPlantIndex plantIndex;
     [SerializeField] private HerbariumPlant plant;
     [SerializeField] private HerbariumQuestIndex questIndex;
     [SerializeField] private HerbariumQuest quest;
+
+
+    [Header("Audio Events")]
+    [SerializeField] private UnityEvent onOpen;
+    [SerializeField] private UnityEvent onClose;
+    [SerializeField] private UnityEvent onLeft;
+    [SerializeField] private UnityEvent onRight;
+    [SerializeField] private UnityEvent onPlantsIndex;
+    [SerializeField] private UnityEvent onQuestsIndex;
+    [SerializeField] private UnityEvent onHover;
+
 
     private HerbariumPage currentPage;
 
@@ -23,6 +36,7 @@ public class HerbariumGUI : MonoBehaviour
     {
         if (!isOpen)
         {
+            onOpen.Invoke();
             root.SetActive(true);
         }
 
@@ -36,6 +50,7 @@ public class HerbariumGUI : MonoBehaviour
     {
         if (isOpen)
         {
+            onClose.Invoke();
             root.SetActive(false);
         }
     }
@@ -54,6 +69,48 @@ public class HerbariumGUI : MonoBehaviour
     public void GoRight()
     {
         currentPage.GoRight();
+    }
+
+    /// <summary>
+    /// Invokes the on right event
+    /// </summary>
+    public void InvokeOnRightEvent()
+    {
+        onRight.Invoke();
+    }
+    
+    /// <summary>
+    /// Invokes the on left event
+    /// </summary>
+    public void InvokeOnLeftEvent()
+    {
+        onLeft.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the on hover event
+    /// </summary>
+    public void InvokeOnHover()
+    {
+        onHover.Invoke();
+    }
+
+    /// <summary>
+    /// Opens the plant index
+    /// </summary>
+    public void QuickOpenPlantIndex()
+    {
+        onPlantsIndex.Invoke();
+        SetPlantIndex(0);
+    }
+
+    /// <summary>
+    /// Opens the quest index
+    /// </summary>
+    public void QuickOpenQuestIndex()
+    {
+        onQuestsIndex.Invoke();
+        SetQuestIndex(0);
     }
 
     /// <summary>

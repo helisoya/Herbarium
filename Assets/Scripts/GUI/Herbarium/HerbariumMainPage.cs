@@ -11,6 +11,7 @@ public class HerbariumMainPage : HerbariumPage
 
     public override void GoRight()
     {
+        gui.InvokeOnRightEvent();
         gui.SetPlantIndex(0);
     }
 
@@ -20,6 +21,7 @@ public class HerbariumMainPage : HerbariumPage
 
     public override void OnOpen()
     {
+        onPageChange.Invoke(localPageIndex);
     }
 
 }

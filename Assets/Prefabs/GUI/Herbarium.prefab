@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 2770788014277969616}
   - component: {fileID: 5765372550151808402}
   - component: {fileID: 8778983887466248953}
+  - component: {fileID: 6360802794553981737}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -194,6 +195,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6360802794553981737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597949436271681124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &705155465817920088
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +433,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HerbariumPlantIndex
   root: {fileID: 925968530219539225}
   gui: {fileID: 2226837232278848481}
+  onPageChange:
+    m_PersistentCalls:
+      m_Calls: []
   prefabEntry: {fileID: 5989838099945586399, guid: d6f0dba08e4ba644eb67b26b8ac9a07f, type: 3}
   holderLeft: {fileID: 8887751412007036876}
   holderRight: {fileID: 8008641427540672058}
@@ -1952,6 +1985,7 @@ GameObject:
   - component: {fileID: 4503047305481475734}
   - component: {fileID: 2635058802946703249}
   - component: {fileID: 7573385095376199245}
+  - component: {fileID: 8561474088469065810}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -2072,6 +2106,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8561474088469065810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108012019626875617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2182567498880913417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2562,27 @@ MonoBehaviour:
   plant: {fileID: 6468083452827719995}
   questIndex: {fileID: 8375785925203041451}
   quest: {fileID: 7922157936686320389}
+  onOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onClose:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  onRight:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlantsIndex:
+    m_PersistentCalls:
+      m_Calls: []
+  onQuestsIndex:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3200667869107973682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2698,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HerbariumMainPage
   root: {fileID: 3209879486345474708}
   gui: {fileID: 2226837232278848481}
+  onPageChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3210755376015653928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,6 +3021,7 @@ GameObject:
   - component: {fileID: 8971085150984393143}
   - component: {fileID: 4024839493889196006}
   - component: {fileID: 8527415889114605958}
+  - component: {fileID: 5357595995878634514}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -3054,6 +3142,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5357595995878634514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591500218656498160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3593704548716253911
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,6 +3183,7 @@ GameObject:
   - component: {fileID: 3551756511229351406}
   - component: {fileID: 6710664696326143655}
   - component: {fileID: 8399798770898616803}
+  - component: {fileID: 4481259165385684731}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -3186,6 +3304,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4481259165385684731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593704548716253911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3613775304978498801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3575,7 @@ GameObject:
   - component: {fileID: 1172654077933988800}
   - component: {fileID: 6024964535362145901}
   - component: {fileID: 7072208143118648697}
+  - component: {fileID: 7472911175253561886}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -3548,6 +3696,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7472911175253561886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3746478527399780626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3833758113146185776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,8 +3848,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2226837232278848481}
         m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
-        m_MethodName: SetQuestIndex
-        m_Mode: 3
+        m_MethodName: QuickOpenQuestIndex
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3693,6 +3870,7 @@ GameObject:
   - component: {fileID: 8666634995639121688}
   - component: {fileID: 3223140454416235137}
   - component: {fileID: 6787355899478808019}
+  - component: {fileID: 7394321301534736109}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -3813,6 +3991,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7394321301534736109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903245153125450760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4029127513436029630
 GameObject:
   m_ObjectHideFlags: 0
@@ -5223,6 +5430,7 @@ GameObject:
   - component: {fileID: 1019205227871105774}
   - component: {fileID: 5486333943289410535}
   - component: {fileID: 8785866198587496979}
+  - component: {fileID: 7458146188685113289}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -5343,6 +5551,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7458146188685113289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583081831147565713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5751533570366072953
 GameObject:
   m_ObjectHideFlags: 0
@@ -5632,6 +5869,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HerbariumQuestIndex
   root: {fileID: 5848679278228245881}
   gui: {fileID: 2226837232278848481}
+  onPageChange:
+    m_PersistentCalls:
+      m_Calls: []
   NoQuestsObj: {fileID: 6149768695537896774}
   prefabEntry: {fileID: 3831708796785698868, guid: 07a70a7dbf92c2a4aa95588108ec4681, type: 3}
   holderLeft: {fileID: 690395269735496892}
@@ -5903,6 +6143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HerbariumPlant
   root: {fileID: 6690734708987005427}
   gui: {fileID: 2226837232278848481}
+  onPageChange:
+    m_PersistentCalls:
+      m_Calls: []
   textName: {fileID: 2017696449328136065}
   textLatinName: {fileID: 7846032116040580619}
   textCategory: {fileID: 6337546837462059841}
@@ -6116,6 +6359,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HerbariumQuest
   root: {fileID: 6884638779249490037}
   gui: {fileID: 2226837232278848481}
+  onPageChange:
+    m_PersistentCalls:
+      m_Calls: []
   textName: {fileID: 2774239813792819291}
   textDescription: {fileID: 3477344634093841909}
   textLore: {fileID: 1976583609031633656}
@@ -6134,6 +6380,7 @@ GameObject:
   - component: {fileID: 5731815313123621960}
   - component: {fileID: 6957375717582150590}
   - component: {fileID: 7137040772337249809}
+  - component: {fileID: 5391142288751414637}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -6254,6 +6501,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5391142288751414637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6968473138254249559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7221995379077662332
 GameObject:
   m_ObjectHideFlags: 0
@@ -6377,8 +6653,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2226837232278848481}
         m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
-        m_MethodName: SetPlantIndex
-        m_Mode: 3
+        m_MethodName: QuickOpenPlantIndex
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6629,6 +6905,7 @@ GameObject:
   - component: {fileID: 8882297215512017151}
   - component: {fileID: 5219840476620214012}
   - component: {fileID: 3601982580109421429}
+  - component: {fileID: 3853194816368254330}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -6749,6 +7026,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3853194816368254330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7561370453373575700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7757346549422420748
 GameObject:
   m_ObjectHideFlags: 0
@@ -7048,6 +7354,7 @@ GameObject:
   - component: {fileID: 7361008267967460226}
   - component: {fileID: 5801106846387198118}
   - component: {fileID: 3445136630662335795}
+  - component: {fileID: 1917119140782844759}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -7168,6 +7475,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1917119140782844759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984865033674504547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2226837232278848481}
+          m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
+          m_MethodName: InvokeOnHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8587629228396596523
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Represents a "page" in the Herbarium
@@ -11,6 +12,9 @@ public abstract class HerbariumPage : MonoBehaviour
     [Header("Common")]
     [SerializeField] protected GameObject root;
     [SerializeField] protected HerbariumGUI gui;
+
+    [Header("Audio Event")]
+    [SerializeField] protected UnityEvent<int> onPageChange;
 
     protected int localPageIndex;
 

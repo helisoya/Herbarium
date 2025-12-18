@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -7,13 +8,20 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class RadialMenu : MonoBehaviour
 {
-
+    [Header("Radial Menu")]
     [SerializeField] private Transform radialParent;
     [SerializeField] private RadialMenuEntry entryPrefab;
     public RadialMenuID currentRadialMenu {get; private set;}
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
     private int currentEntryIdx;
+
+    [Header("Audio Event")]
+    [SerializeField] private UnityEvent<RadialMenuOpeningData> onRadialMenuOpen;
+    [SerializeField] private UnityEvent<RadialMenuOpeningData> onRadialMenuClosed;
+    [SerializeField] private UnityEvent onRadialMenuHover;
+    [SerializeField] private UnityEvent onRadialMenuClick;
+
 
     void Awake()
     {
@@ -39,6 +47,11 @@ public class RadialMenu : MonoBehaviour
     /// </summary>
     public void Populate()
     {
+        onRadialMenuOpen.Invoke(new RadialMenuOpeningData()
+        {
+            idAfter = currentData.id,
+            idBefore = currentRadialMenu
+        });
         currentRadialMenu = currentData.id;
         entries = new RadialMenuEntry[currentData.entries.Length];
         RadialMenuEntry entry;
@@ -60,7 +73,6 @@ public class RadialMenu : MonoBehaviour
 
             entries[i] = entry;
         }
-
     }
 
 
@@ -71,6 +83,11 @@ public class RadialMenu : MonoBehaviour
     public void Close()
     {
         Cleanup();
+        onRadialMenuOpen.Invoke(new RadialMenuOpeningData()
+        {
+            idAfter = RadialMenuID.CLOSED,
+            idBefore = currentRadialMenu
+        });
         currentRadialMenu = RadialMenuID.CLOSED;
         currentEntryIdx = -1;
     }
@@ -120,7 +137,9 @@ public class RadialMenu : MonoBehaviour
                 currentEntryIdx = correctBox;
                 entries[currentEntryIdx].Highlight();
 
-                if(forceInteraction) entries[currentEntryIdx].Activate();
+                onRadialMenuHover.Invoke();
+
+                if(forceInteraction) ActivateCurrentlySelected();
             }
         }
     }
@@ -132,7 +151,10 @@ public class RadialMenu : MonoBehaviour
     {
         if (currentRadialMenu != RadialMenuID.CLOSED && currentEntryIdx != -1)
         {
-            entries[currentEntryIdx].Activate();
+            if (entries[currentEntryIdx].Activate())
+            {
+                onRadialMenuClick.Invoke();
+            }
         }
     }
 

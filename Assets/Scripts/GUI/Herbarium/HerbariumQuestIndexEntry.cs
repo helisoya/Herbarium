@@ -53,4 +53,12 @@ public class HerbariumQuestIndexEntry : MonoBehaviour
         GameManager.instance.GetPlayerDataHandler().SwitchQuestPin(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id);
         imagePinned.color = GameManager.instance.GetPlayerDataHandler().IsPinned(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id) ? Color.white : Color.black;
     }
+
+    /// <summary>
+    /// On Hover event
+    /// </summary>
+    public void Hover()
+    {
+        gui.InvokeOnHover();
+    }
 }

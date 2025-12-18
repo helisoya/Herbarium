@@ -26,6 +26,8 @@ public class HerbariumQuestIndex : HerbariumPage
 
     public override void GoLeft()
     {
+        gui.InvokeOnLeftEvent();
+
         if(localPageIndex == 0)
         {
             gui.SetPlant(GameManager.instance.GetPlantDatabase().GetExistingPlants().Length-1);
@@ -39,7 +41,8 @@ public class HerbariumQuestIndex : HerbariumPage
 
     public override void GoRight()
     {
-        
+        gui.InvokeOnRightEvent();
+
         int pagesCount = Mathf.CeilToInt((float)knownQuests.Length / ENTRY_COUNT);
 
         if(knownQuests.Length == 0 || localPageIndex == pagesCount - 1)
@@ -72,6 +75,8 @@ public class HerbariumQuestIndex : HerbariumPage
     /// </summary>
     private void RefreshVisuals()
     {
+        onPageChange.Invoke(localPageIndex);
+        
         // There can be 14 entries per page
 
         foreach (Transform child in holderLeft) Destroy(child.gameObject);

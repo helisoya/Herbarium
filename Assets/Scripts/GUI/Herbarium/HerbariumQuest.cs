@@ -19,6 +19,8 @@ public class HerbariumQuest : HerbariumPage
 
     public override void GoLeft()
     {
+        gui.InvokeOnLeftEvent();
+
         if(localPageIndex == 0)
         {
             Quest[] allQuests = GameManager.instance.GetPlayerDataHandler().GetKnownQuests();
@@ -43,6 +45,7 @@ public class HerbariumQuest : HerbariumPage
         }
         else
         {
+            gui.InvokeOnRightEvent();
             localPageIndex++;
             RefreshVisuals();
         }
@@ -72,6 +75,8 @@ public class HerbariumQuest : HerbariumPage
     /// </summary>
     private void RefreshVisuals()
     {
+        onPageChange.Invoke(localPageIndex);
+        
         currentQuest = GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[localPageIndex];
 
         imagePin.color = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id) ? Color.white : Color.black;

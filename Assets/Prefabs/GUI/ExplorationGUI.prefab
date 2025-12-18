@@ -258,6 +258,7 @@ MonoBehaviour:
   channel: 0
   text: {fileID: 8721123950315186754}
   canResize: 1
+  noText: 0
 --- !u!1 &3099737262780422699
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +309,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RadialMenu
   radialParent: {fileID: 5247253059492871764}
   entryPrefab: {fileID: 980257407546204855, guid: 39175adc92a44194d9dd08ce8602a439, type: 3}
+  onRadialMenuOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  onRadialMenuClosed:
+    m_PersistentCalls:
+      m_Calls: []
+  onRadialMenuHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onRadialMenuClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4583242997462677075
 GameObject:
   m_ObjectHideFlags: 0

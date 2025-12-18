@@ -26,6 +26,8 @@ public class HerbariumPlant : HerbariumPage
     public override void GoLeft()
     {
         CloseHints();
+        gui.InvokeOnLeftEvent();
+        
         if(localPageIndex == 0)
         {
             string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
@@ -44,6 +46,7 @@ public class HerbariumPlant : HerbariumPage
     {
         CloseHints();
         string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
+        gui.InvokeOnRightEvent();
 
         if(localPageIndex == allPlants.Length - 1)
         {
@@ -104,6 +107,8 @@ public class HerbariumPlant : HerbariumPage
     /// </summary>
     private void RefreshVisuals()
     {
+        onPageChange.Invoke(localPageIndex);
+        
         string plantId = GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex];
         string[] plantsFound = GameManager.instance.GetPlayerDataHandler().GetHerbariumUnlockedPages();
         bool wasPlantFound = false;
