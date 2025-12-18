@@ -12,6 +12,7 @@ public class AudioBackpack : MonoBehaviour
     [SerializeField] private EventID inventoryHover;
     [SerializeField] private EventID herbariumOpen;
     [SerializeField] private EventID herbariumClose;
+    [SerializeField] private EventID herbariumAmb;
     [SerializeField] private EventID pageTurnPrevious;
     [SerializeField] private EventID pageTurnNext;
     [SerializeField] private EventID pageHover;
@@ -61,6 +62,11 @@ public class AudioBackpack : MonoBehaviour
     public void PostHerbariumClose()
     {
         AudioManager.Instance.Play2DEvent(herbariumClose);
+    }
+
+    public void PostHerbariumAmb()
+    {
+        AudioManager.Instance.Play2DEvent(herbariumAmb);
     }
 
     public void PostPageTurnPrevious()

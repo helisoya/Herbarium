@@ -15,7 +15,7 @@ public enum EventID
     CollisionPlant, CollisionTree, CollisionGrass, CollisionRock, CollisionNpc,
     FrogBig, FrogMedium, FrogTiny, InsectA, InsectB, InsectC,
     BackpackOpen, BackpackClose, BackpackHover, BackpackClick, BackpackBack, InventoryOpen, InventoryClose, InventoryHover, InventoryClick,
-    HerbariumOpen, HerbariumClose, PageTurnPrevious, PageTurnNext, PageHover, PlantsIndex, QuestsIndex,
+    HerbariumOpen, HerbariumClose, PageTurnPrevious, PageTurnNext, PageHover, PlantsIndex, QuestsIndex, HerbariumAmb,
 }
 
 public enum ParamID
