@@ -41,6 +41,22 @@ public class HerbariumGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Go left in the Herbarium
+    /// </summary>
+    public void GoLeft()
+    {
+        currentPage.GoLeft();
+    }
+
+    /// <summary>
+    /// Go right in the Herbarium
+    /// </summary>
+    public void GoRight()
+    {
+        currentPage.GoRight();
+    }
+
+    /// <summary>
 	/// Opens a page in the Herbarium
 	/// </summary>
 	/// <param name="pageIndex">The page index to open</param>

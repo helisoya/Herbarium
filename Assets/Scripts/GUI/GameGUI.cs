@@ -15,7 +15,7 @@ public class GameGUI : MonoBehaviour
 
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
-    public bool radialMenuOpen { get { return radialMenu.inRadialMenu; } }
+    public RadialMenuID currentRadialMenu {get{return radialMenu.currentRadialMenu;}}
 
     [Header("Herbarium")]
     [SerializeField] private HerbariumGUI herbariumGUI;
@@ -188,12 +188,31 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Go left in the Herbarium
+    /// </summary>
+    public void HerbariumGoLeft()
+    {
+        if(inHerbarium) herbariumGUI.GoLeft();
+    }
+
+    /// <summary>
+    /// Go right in the Herbarium
+    /// </summary>
+    public void HerbariumGoRight()
+    {
+        if(inHerbarium) herbariumGUI.GoRight();
+    }
+
+
+    /// <summary>
     /// Updates the radial menu
     /// </summary>
     /// <param name="mousePosition">The new mouse position</param>
-    public void UpdateRadial(Vector2 mousePosition)
+    /// <param name="forceInteraction">True if the movement should also be counted as an interaction</param>
+    public void UpdateRadial(Vector2 mousePosition, bool forceInteraction = false)
     {
-        radialMenu.UpdateMousePosition(mousePosition);
+        print(mousePosition);
+        radialMenu.UpdateMousePosition(mousePosition,forceInteraction);
     }
 
     /// <summary>

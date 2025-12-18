@@ -10,11 +10,15 @@ public class RadialMenu : MonoBehaviour
 
     [SerializeField] private Transform radialParent;
     [SerializeField] private RadialMenuEntry entryPrefab;
-
-    public bool inRadialMenu { get; private set; }
+    public RadialMenuID currentRadialMenu {get; private set;}
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
     private int currentEntryIdx;
+
+    void Awake()
+    {
+        currentRadialMenu = RadialMenuID.CLOSED;
+    }
 
     /// <summary>
     /// Open the radial menu
@@ -27,7 +31,7 @@ public class RadialMenu : MonoBehaviour
         Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
         currentEntryIdx = -1;
 
-        Invoke("Populate", inRadialMenu ? 0.4f : 0f);
+        Invoke("Populate", currentRadialMenu != RadialMenuID.CLOSED ? 0.4f : 0f);
     }
 
     /// <summary>
@@ -35,8 +39,7 @@ public class RadialMenu : MonoBehaviour
     /// </summary>
     public void Populate()
     {
-        inRadialMenu = true;
-
+        currentRadialMenu = currentData.id;
         entries = new RadialMenuEntry[currentData.entries.Length];
         RadialMenuEntry entry;
 
@@ -68,8 +71,8 @@ public class RadialMenu : MonoBehaviour
     public void Close()
     {
         Cleanup();
+        currentRadialMenu = RadialMenuID.CLOSED;
         currentEntryIdx = -1;
-        inRadialMenu = false;
     }
 
     /// <summary>
@@ -96,9 +99,10 @@ public class RadialMenu : MonoBehaviour
     /// Updates the mouse position
     /// </summary>
     /// <param name="position">The new position</param>
-    public void UpdateMousePosition(Vector2 position)
+    /// <param name="forceInteraction">True if the movement should also be counted as an interaction</param>
+    public void UpdateMousePosition(Vector2 position, bool forceInteraction = false)
     {
-        if (inRadialMenu && entries != null)
+        if (currentRadialMenu != RadialMenuID.CLOSED && entries != null)
         {
             Vector2 mouseDir = (position - new Vector2(Screen.width / 2, Screen.height / 2)).normalized;
             float mouseAngle = Mathf.Atan2(-mouseDir.x, -mouseDir.y);
@@ -115,8 +119,9 @@ public class RadialMenu : MonoBehaviour
                 if (currentEntryIdx != -1) entries[currentEntryIdx].StopHighlight();
                 currentEntryIdx = correctBox;
                 entries[currentEntryIdx].Highlight();
-            }
 
+                if(forceInteraction) entries[currentEntryIdx].Activate();
+            }
         }
     }
 
@@ -125,7 +130,7 @@ public class RadialMenu : MonoBehaviour
     /// </summary>
     public void ActivateCurrentlySelected()
     {
-        if (inRadialMenu && currentEntryIdx != -1)
+        if (currentRadialMenu != RadialMenuID.CLOSED && currentEntryIdx != -1)
         {
             entries[currentEntryIdx].Activate();
         }
@@ -146,6 +151,7 @@ public class RadialMenu : MonoBehaviour
 
         RadialMenuData testData = new RadialMenuData();
         testData.radius = 100f;
+        testData.id = RadialMenuID.BACKPACK;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
@@ -190,6 +196,7 @@ public class RadialMenu : MonoBehaviour
     {
         RadialMenuData testData = new RadialMenuData();
         testData.radius = 100f;
+        testData.id = RadialMenuID.INVENTORY;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {

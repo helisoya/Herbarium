@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,8 +18,14 @@ public class HerbariumPlant : HerbariumPage
     [SerializeField] private GameObject rootLog;
     [SerializeField] private Image imagePlant;
 
+    [Header("Hint")]
+    [SerializeField] private GameObject hintsRoot;
+    [SerializeField] private Button[] hintsButtons;
+    [SerializeField] private LocalizedText[] hintsTexts;
+
     public override void GoLeft()
     {
+        CloseHints();
         if(localPageIndex == 0)
         {
             string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
@@ -35,6 +42,7 @@ public class HerbariumPlant : HerbariumPage
 
     public override void GoRight()
     {
+        CloseHints();
         string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
 
         if(localPageIndex == allPlants.Length - 1)
@@ -57,6 +65,39 @@ public class HerbariumPlant : HerbariumPage
         RefreshVisuals();
     }
 
+    /// <summary>
+    /// Close the hints menu
+    /// </summary>
+    public void CloseHints()
+    {
+        hintsRoot.SetActive(false);
+    }
+
+    /// <summary>
+    /// Opens the hints menu
+    /// </summary>
+    public void OpenHints()
+    {
+        hintsRoot.SetActive(true);
+
+        for(int i = 0; i < hintsButtons.Length; i++)
+        {
+            hintsButtons[i].interactable = true;
+            hintsTexts[i].SetNewKey("Herbarium_Plant_Hint_"+i);
+        }
+    }
+
+    /// <summary>
+    /// Reveal an hint
+    /// </summary>
+    /// <param name="index">The hint index</param>
+    public void RevealHint(int index)
+    {
+        Plant plantData = GameManager.instance.GetPlantDatabase().GetPlant(GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex]);
+
+        hintsButtons[index].interactable = false;
+        hintsTexts[index].SetNewKey(plantData.GetHint(index));
+    }
 
     /// <summary>
     /// Refreshs the game's visuals
