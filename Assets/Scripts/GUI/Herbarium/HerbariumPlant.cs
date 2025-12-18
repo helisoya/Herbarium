@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -23,9 +24,18 @@ public class HerbariumPlant : HerbariumPage
     [SerializeField] private Button[] hintsButtons;
     [SerializeField] private LocalizedText[] hintsTexts;
 
+
+    [Header("Audio Events")]
+    [SerializeField] private UnityEvent onHoverHintButton;
+    [SerializeField] private UnityEvent onHintOpen;
+    [SerializeField] private UnityEvent onHoverIndividualHint;
+    [SerializeField] private UnityEvent onClickIndividualHint;
+    [SerializeField] private UnityEvent onHintClosed;
+
+
     public override void GoLeft()
     {
-        CloseHints();
+        CloseHints(false);
         gui.InvokeOnLeftEvent();
         
         if(localPageIndex == 0)
@@ -44,7 +54,7 @@ public class HerbariumPlant : HerbariumPage
 
     public override void GoRight()
     {
-        CloseHints();
+        CloseHints(false);
         string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
         gui.InvokeOnRightEvent();
 
@@ -61,6 +71,7 @@ public class HerbariumPlant : HerbariumPage
 
     public override void OnClose()
     {
+        CloseHints(false);
     }
 
     public override void OnOpen()
@@ -68,11 +79,23 @@ public class HerbariumPlant : HerbariumPage
         RefreshVisuals();
     }
 
+    public void InvokeOnHoverButton()
+    {
+        onHoverHintButton.Invoke();
+    }
+
+    public void InvokeOnHoverHint(int index)
+    {
+        if(hintsButtons[index].interactable) onHoverIndividualHint.Invoke();
+    }
+
     /// <summary>
     /// Close the hints menu
     /// </summary>
-    public void CloseHints()
+    /// <param name="playSound">True if the closing sound can be played</param>
+    public void CloseHints(bool playSound = true)
     {
+        if(playSound) onHintClosed.Invoke();
         hintsRoot.SetActive(false);
     }
 
@@ -81,6 +104,7 @@ public class HerbariumPlant : HerbariumPage
     /// </summary>
     public void OpenHints()
     {
+        onHintOpen.Invoke();
         hintsRoot.SetActive(true);
 
         for(int i = 0; i < hintsButtons.Length; i++)
@@ -96,6 +120,8 @@ public class HerbariumPlant : HerbariumPage
     /// <param name="index">The hint index</param>
     public void RevealHint(int index)
     {
+        onClickIndividualHint.Invoke();
+
         Plant plantData = GameManager.instance.GetPlantDatabase().GetPlant(GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex]);
 
         hintsButtons[index].interactable = false;
@@ -108,7 +134,7 @@ public class HerbariumPlant : HerbariumPage
     private void RefreshVisuals()
     {
         onPageChange.Invoke(localPageIndex);
-        
+
         string plantId = GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex];
         string[] plantsFound = GameManager.instance.GetPlayerDataHandler().GetHerbariumUnlockedPages();
         bool wasPlantFound = false;
