@@ -1,6 +1,5 @@
-using System.Linq;
 using UnityEngine;
-using UnityEngineInternal;
+using UnityEngine.UI;
 
 /// <summary>
 /// Represents the Plants index in the Herbarium
@@ -13,7 +12,13 @@ public class HerbariumPlantIndex : HerbariumPage
     [SerializeField] protected Transform holderLeft;
     [SerializeField] protected Transform holderRight;
 
-    private const int ENTRY_COUNT = 14;
+    [Header("Plant Found Color")]
+    [SerializeField] protected ColorBlock colorFound;
+
+    [Header("Plant Not Found Color")]
+    [SerializeField] protected ColorBlock colorNotFound;
+
+    public const int ENTRY_COUNT = 14;
 
 
     public override void OnClose()
@@ -33,6 +38,9 @@ public class HerbariumPlantIndex : HerbariumPage
     private void RefreshVisuals()
     {
         // There can be 14 entries per page
+
+        foreach (Transform child in holderLeft) Destroy(child.gameObject);
+        foreach (Transform child in holderRight) Destroy(child.gameObject);
         
         string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
         string[] unlockedPages = GameManager.instance.GetPlayerDataHandler().GetHerbariumUnlockedPages();
@@ -55,7 +63,7 @@ public class HerbariumPlantIndex : HerbariumPage
 
             Instantiate<HerbariumPlantIndexEntry>(prefabEntry,
             i <= ENTRY_COUNT / 2.0f ? holderLeft : holderRight
-            ).Init(i, gui, unlocked ? GameManager.instance.GetPlantDatabase().GetPlant(allPlants[correctedIdx]).Name : "Herbarium_PlantsIndex_Unknown");
+            ).Init(correctedIdx, gui, unlocked ? GameManager.instance.GetPlantDatabase().GetPlant(allPlants[correctedIdx]).Name : "Herbarium_PlantsIndex_Unknown", unlocked ? colorFound : colorNotFound);
         }
     }
 
@@ -76,5 +84,15 @@ public class HerbariumPlantIndex : HerbariumPage
     {
         string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
         int pagesCount = Mathf.CeilToInt((float)allPlants.Length / ENTRY_COUNT);
+
+        if(localPageIndex == pagesCount - 1)
+        {
+            gui.SetPlant(0);
+        }
+        else
+        {
+            localPageIndex++;
+            RefreshVisuals();
+        }
     }
 }

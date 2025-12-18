@@ -12,6 +12,7 @@ public class PlayerDataHandler : MonoBehaviour
     [SerializeField] private int inventorySize;
     [SerializeField] private int dialogLogMaxSize;
     [SerializeField] private DefaultPlayerVariables variables;
+    [SerializeField] private PlayerQuests quests;
 
     public string filePath
     {
@@ -32,7 +33,102 @@ public class PlayerDataHandler : MonoBehaviour
     private PlayerData data;
 
 
+    #region Quests
 
+    /// <summary>
+    /// Gets a quest
+    /// </summary>
+    /// <param name="quest">The quest ID</param>
+    /// <returns>The quest</returns>
+    public Quest GetQuest(string quest)
+    {
+        foreach(Quest q in quests.quests)
+        {
+            if(q.id.Equals(quest)) return q;
+        }
+
+        return new Quest();
+    }
+
+    /// <summary>
+    /// Gets a quest using its linked variable
+    /// </summary>
+    /// <param name="variable">The variable</param>
+    /// <returns>The quest</returns>
+    public Quest GetQuestFromVariable(string variable)
+    {
+        foreach(Quest q in quests.quests)
+        {
+            if(q.linkedVariable.Equals(variable)) return q;
+        }
+
+        return new Quest();
+    }
+
+    /// <summary>
+    /// Gets all existing quests
+    /// </summary>
+    /// <returns>Every quests</returns>
+    public Quest[] GetAllQuests()
+    {
+        return quests.quests;
+    }
+
+    /// <summary>
+    /// Gets known quests
+    /// </summary>
+    /// <returns>The known quests</returns>
+    public Quest[] GetKnownQuests()
+    {
+        List<Quest> result = new List<Quest>();
+
+        foreach(Quest quest in quests.quests)
+        {
+            if(GetVariable(quest.linkedVariable) > -1) result.Add(quest);
+        }
+
+        return result.ToArray();
+    }
+
+
+    /// <summary>
+    /// Pin a quest
+    /// </summary>
+    /// <param name="questID">The quest's ID</param>
+    public void PinQuest(string questID)
+    {
+        if(!data.pinnedQuests.Contains(questID)) data.pinnedQuests.Add(questID);
+    }
+
+    /// <summary>
+    /// Unpin a quest
+    /// </summary>
+    /// <param name="questID">The quest's ID</param>
+    public void UnpinQuest(string questID)
+    {
+        data.pinnedQuests.Remove(questID);
+    }
+
+    /// <summary>
+    /// Switch if a quest is pinned or not
+    /// </summary>
+    /// <param name="questID">The quest ID</param>
+    public void SwitchQuestPin(string questID)
+    {
+        if(!data.pinnedQuests.Remove(questID)) data.pinnedQuests.Add(questID);
+    }
+
+    /// <summary>
+    /// Checks if a quest is pinned
+    /// </summary>
+    /// <param name="questID">The quest's ID</param>
+    /// <returns>True if pinned</returns>
+    public bool IsPinned(string questID)
+    {
+        return data.pinnedQuests.Contains(questID);
+    }
+
+    #endregion
 
     #region Herbarium
 
@@ -206,6 +302,7 @@ public class PlayerDataHandler : MonoBehaviour
         data.inventory = new string[inventorySize];
         data.dialogLog = new System.Collections.Generic.LinkedList<string>();
         data.herbarium = new System.Collections.Generic.List<string>();
+        data.pinnedQuests = new List<string>();
 
         data.variables = new PlayerVariable[variables.variables.Length];
         for (int i = 0; i < variables.variables.Length; i++)

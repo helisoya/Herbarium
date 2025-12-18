@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Represents a button that can open a specific page on the plant index 
@@ -6,6 +7,7 @@ using UnityEngine;
 public class HerbariumPlantIndexEntry : MonoBehaviour
 {
     [SerializeField] private LocalizedText label;
+    [SerializeField] private Button button;
 
     private int linkedPage;
     private HerbariumGUI gui;
@@ -16,11 +18,13 @@ public class HerbariumPlantIndexEntry : MonoBehaviour
 	/// <param name="page">The linked page</param>
 	/// <param name="gui">The Herbarium's GUI</param>
     /// <param name="plantId">The plant's ID</param>
-    public void Init(int page, HerbariumGUI gui, string plantId)
+    /// <param name="colorBlock">The button's color block</param>
+    public void Init(int page, HerbariumGUI gui, string plantId, ColorBlock colorBlock)
     {
         this.linkedPage = page;
         this.gui = gui;
         label.SetNewKey(plantId);
+        button.colors = colorBlock;
     }
 
     /// <summary>

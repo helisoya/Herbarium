@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a3ee5d0bd154c4b8e6b2bc11d2373e, type: 3}
+  m_Name: SO_Quests
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerQuests
+  quests:
+  - id: Quest_Test
+    linkedVariable: quest_test
+    questSprite: {fileID: -4471924529666879738, guid: 8979eb8adc47c2d4597fc175890c1727, type: 3}

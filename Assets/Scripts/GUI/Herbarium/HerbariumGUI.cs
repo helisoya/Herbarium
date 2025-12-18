@@ -8,6 +8,9 @@ public class HerbariumGUI : MonoBehaviour
     [SerializeField] private GameObject root;
     [SerializeField] private HerbariumMainPage mainPage;
     [SerializeField] private HerbariumPlantIndex plantIndex;
+    [SerializeField] private HerbariumPlant plant;
+    [SerializeField] private HerbariumQuestIndex questIndex;
+    [SerializeField] private HerbariumQuest quest;
 
     private HerbariumPage currentPage;
 
@@ -68,9 +71,27 @@ public class HerbariumGUI : MonoBehaviour
     /// <summary>
     /// Opens the plant description
     /// </summary>
-    /// <param name="localIndex">The plant index's local index</param>
+    /// <param name="localIndex">The plant's index</param>
     public void SetPlant(int localIndex)
     {
+        SetPage(plant,localIndex);
+    }
 
+    /// <summary>
+    /// Opens the quest index
+    /// </summary>
+    /// <param name="localIndex">The quest index's local index</param>
+    public void SetQuestIndex(int localIndex)
+    {
+        SetPage(questIndex,localIndex);
+    }
+
+    /// <summary>
+    /// Opens the quest description
+    /// </summary>
+    /// <param name="localIndex">The quest's index</param>
+    public void SetQuest(int localIndex)
+    {
+        SetPage(quest,localIndex);
     }
 }

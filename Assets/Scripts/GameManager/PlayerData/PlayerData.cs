@@ -12,4 +12,5 @@ public class PlayerData
     public LinkedList<string> dialogLog;
     public PlayerVariable[] variables;
     public List<string> herbarium;
+    public List<string> pinnedQuests;
 }

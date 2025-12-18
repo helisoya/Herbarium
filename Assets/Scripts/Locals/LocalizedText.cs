@@ -12,6 +12,7 @@ public class LocalizedText : MonoBehaviour
     [SerializeField] protected Locals.Channel channel;
     [SerializeField] protected TMP_Text text;
     [SerializeField] protected bool canResize = true;
+    [SerializeField] protected bool noText = false;
     protected object[] injectors;
 
     void Start()
@@ -41,6 +42,12 @@ public class LocalizedText : MonoBehaviour
     /// </summary>
     public virtual void ReloadText()
     {
+        if (noText)
+        {
+            text.text = "";
+            return;
+        }
+
         string txt = Locals.GetLocal(localKey);
         if (injectors != null && injectors.Length > 0)
         {
@@ -70,6 +77,17 @@ public class LocalizedText : MonoBehaviour
     public void SetFont(TMP_FontAsset font)
     {
         text.font = font;
+    }
+
+    /// <summary>
+    /// Sets if the text should be shown or not
+    /// </summary>
+    /// <param name="textActive">True if the text is shown</param>
+    /// <param name="reloadText">True if the visual should be reloaded</param>
+    public void SetNoText(bool textActive, bool reloadText = true)
+    {
+        noText = textActive;
+        if(reloadText) ReloadText();
     }
 
     /// <summary>
