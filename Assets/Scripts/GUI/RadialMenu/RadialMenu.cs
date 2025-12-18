@@ -17,8 +17,10 @@ public class RadialMenu : MonoBehaviour
     private int currentEntryIdx;
 
     [Header("Audio Event")]
-    [SerializeField] private UnityEvent<RadialMenuOpeningData> onRadialMenuOpen;
-    [SerializeField] private UnityEvent<RadialMenuOpeningData> onRadialMenuClosed;
+    [SerializeField] private UnityEvent onOpenBackpack;
+    [SerializeField] private UnityEvent onCloseBackpack;
+    [SerializeField] private UnityEvent onOpenInventory;
+    [SerializeField] private UnityEvent onCloseInventory;
     [SerializeField] private UnityEvent onRadialMenuHover;
     [SerializeField] private UnityEvent onRadialMenuClick;
 
@@ -47,11 +49,6 @@ public class RadialMenu : MonoBehaviour
     /// </summary>
     public void Populate()
     {
-        onRadialMenuOpen.Invoke(new RadialMenuOpeningData()
-        {
-            idAfter = currentData.id,
-            idBefore = currentRadialMenu
-        });
         currentRadialMenu = currentData.id;
         entries = new RadialMenuEntry[currentData.entries.Length];
         RadialMenuEntry entry;
@@ -83,11 +80,6 @@ public class RadialMenu : MonoBehaviour
     public void Close()
     {
         Cleanup();
-        onRadialMenuOpen.Invoke(new RadialMenuOpeningData()
-        {
-            idAfter = RadialMenuID.CLOSED,
-            idBefore = currentRadialMenu
-        });
         currentRadialMenu = RadialMenuID.CLOSED;
         currentEntryIdx = -1;
     }
@@ -164,10 +156,24 @@ public class RadialMenu : MonoBehaviour
         GameGUI.instance.OpenHerbarium();
     }
 
+    private void CloseBackpack()
+    {
+        onCloseBackpack.Invoke();
+        Close();
+    }
+
+    private void CloseInventory()
+    {
+        onCloseInventory.Invoke();
+        OpenBackpack(false);
+    }
+
+
     /// <summary>
 	/// Opens the default backpack menu
 	/// </summary>
-    public void OpenBackpack()
+    /// <param name="openSound">True if the opening sound should be invoked</param>
+    public void OpenBackpack(bool openSound = true)
     {
         PlayerDataHandler dataHandler = GameManager.instance.GetPlayerDataHandler();
 
@@ -179,7 +185,7 @@ public class RadialMenu : MonoBehaviour
         {
             key = "RadialMenu_Close",
             sprite = null,
-            callback = Close,
+            callback = CloseBackpack,
             interactable = true
         };
         testData.entries[2] = new RadialMenuEntryData()
@@ -201,12 +207,14 @@ public class RadialMenu : MonoBehaviour
         {
             key = "RadialMenu_Inventory",
             sprite = null,
-            callback = OpenInventory,
+            callback = () =>{ OpenInventory();},
             injectors = new object[] {
                 dataHandler.GetInventorySize() - dataHandler.GetRemainingInventorySpace(),
                 dataHandler.GetInventorySize() },
             interactable = true
         };
+
+        if(openSound) onOpenBackpack.Invoke();
 
         Open(testData);
     }
@@ -214,7 +222,8 @@ public class RadialMenu : MonoBehaviour
     /// <summary>
 	/// Opens the default inventory menu
 	/// </summary>
-    public void OpenInventory()
+    /// <param name="openSound">True if the opening sound should be invoked</param>
+    public void OpenInventory(bool openSound = true)
     {
         RadialMenuData testData = new RadialMenuData();
         testData.radius = 100f;
@@ -224,7 +233,7 @@ public class RadialMenu : MonoBehaviour
         {
             key = "Close",
             sprite = null,
-            callback = OpenBackpack,
+            callback = CloseInventory,
             interactable = true
         };
 
@@ -242,6 +251,8 @@ public class RadialMenu : MonoBehaviour
                 interactable = false
             };
         }
+
+        if(openSound) onOpenInventory.Invoke();
 
         Open(testData);
     }

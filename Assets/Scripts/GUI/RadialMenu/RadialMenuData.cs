@@ -32,12 +32,3 @@ public enum RadialMenuID{
         BACKPACK,
         INVENTORY
 }
-
-/// <summary>
-/// Represents the data sent when a radial menu is opened
-/// </summary>
-public struct RadialMenuOpeningData
-{
-    public RadialMenuID idAfter;
-    public RadialMenuID idBefore;
-}
