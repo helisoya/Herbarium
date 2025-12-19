@@ -51,7 +51,11 @@ public class HerbariumQuestIndexEntry : MonoBehaviour
     public void SwitchPin()
     {
         GameManager.instance.GetPlayerDataHandler().SwitchQuestPin(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id);
-        imagePinned.color = GameManager.instance.GetPlayerDataHandler().IsPinned(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id) ? Color.white : Color.black;
+
+        bool isPinned = GameManager.instance.GetPlayerDataHandler().IsPinned(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id);
+        imagePinned.color = isPinned ? Color.white : Color.black;
+
+        gui.InvokeOnPinQuest(isPinned);
     }
 
     /// <summary>
@@ -59,6 +63,6 @@ public class HerbariumQuestIndexEntry : MonoBehaviour
     /// </summary>
     public void Hover()
     {
-        gui.InvokeOnHover();
+        gui.InvokeOnHoverLink();
     }
 }

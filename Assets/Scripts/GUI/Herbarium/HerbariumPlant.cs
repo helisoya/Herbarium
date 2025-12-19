@@ -76,6 +76,8 @@ public class HerbariumPlant : HerbariumPage
 
     public override void OnOpen()
     {
+        gui.SetMarkers(true,false);
+        gui.SetLeftRightActive(true,true);
         RefreshVisuals();
     }
 

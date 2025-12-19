@@ -57,6 +57,7 @@ public class HerbariumQuest : HerbariumPage
 
     public override void OnOpen()
     {
+        gui.SetMarkers(false,true);
         RefreshVisuals();
     }
 
@@ -66,7 +67,11 @@ public class HerbariumQuest : HerbariumPage
     public void SwitchQuestPin()
     {
         GameManager.instance.GetPlayerDataHandler().SwitchQuestPin(currentQuest.id);
-        imagePin.color = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id) ? Color.white : Color.black;
+
+        bool isPinned = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id);
+        imagePin.color = isPinned ? Color.white : Color.black;
+
+        gui.InvokeOnPinQuest(isPinned);
     }
 
 
@@ -76,8 +81,12 @@ public class HerbariumQuest : HerbariumPage
     private void RefreshVisuals()
     {
         onPageChange.Invoke(localPageIndex);
+
+        Quest[] quests = GameManager.instance.GetPlayerDataHandler().GetKnownQuests();
+
+        gui.SetLeftRightActive(true,localPageIndex < quests.Length - 1);
         
-        currentQuest = GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[localPageIndex];
+        currentQuest = quests[localPageIndex];
 
         imagePin.color = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id) ? Color.white : Color.black;
 

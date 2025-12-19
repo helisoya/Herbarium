@@ -66,6 +66,8 @@ public class HerbariumQuestIndex : HerbariumPage
 
     public override void OnOpen()
     {
+        gui.SetMarkers(false,true);
+        gui.SetLeftRightActive(true,true);
         knownQuests = GameManager.instance.GetPlayerDataHandler().GetKnownQuests();
         RefreshVisuals();
     }

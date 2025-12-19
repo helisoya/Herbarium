@@ -21,6 +21,8 @@ public class HerbariumMainPage : HerbariumPage
 
     public override void OnOpen()
     {
+        gui.SetMarkers(false,false);
+        gui.SetLeftRightActive(false,true);
         onPageChange.Invoke(localPageIndex);
     }
 

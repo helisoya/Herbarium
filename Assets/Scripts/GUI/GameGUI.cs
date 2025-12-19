@@ -211,7 +211,6 @@ public class GameGUI : MonoBehaviour
     /// <param name="forceInteraction">True if the movement should also be counted as an interaction</param>
     public void UpdateRadial(Vector2 mousePosition, bool forceInteraction = false)
     {
-        print(mousePosition);
         radialMenu.UpdateMousePosition(mousePosition,forceInteraction);
     }
 
