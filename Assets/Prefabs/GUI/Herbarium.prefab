@@ -2133,7 +2133,13 @@ MonoBehaviour:
   onQuestsIndex:
     m_PersistentCalls:
       m_Calls: []
-  onHover:
+  onHoverLink:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverChangePage:
+    m_PersistentCalls:
+      m_Calls: []
+  onPinQuest:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3200667869107973682
@@ -5878,7 +5884,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2226837232278848481}
           m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
-          m_MethodName: InvokeOnHover
+          m_MethodName: InvokeOnHoverChangePage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6357,7 +6363,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2226837232278848481}
           m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
-          m_MethodName: InvokeOnHover
+          m_MethodName: InvokeOnHoverChangePage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

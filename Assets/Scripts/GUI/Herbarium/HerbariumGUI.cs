@@ -27,7 +27,9 @@ public class HerbariumGUI : MonoBehaviour
     [SerializeField] private UnityEvent onRight;
     [SerializeField] private UnityEvent onPlantsIndex;
     [SerializeField] private UnityEvent onQuestsIndex;
-    [SerializeField] private UnityEvent onHover;
+    [SerializeField] private UnityEvent onHoverLink;
+    [SerializeField] private UnityEvent onHoverChangePage;
+    [SerializeField] private UnityEvent<bool> onPinQuest;
 
 
     private HerbariumPage currentPage;
@@ -116,11 +118,28 @@ public class HerbariumGUI : MonoBehaviour
     }
 
     /// <summary>
-    /// Invokes the on hover event
+    /// Invokes the on hover change page event
     /// </summary>
-    public void InvokeOnHover()
+    public void InvokeOnHoverChangePage()
     {
-        onHover.Invoke();
+        onHoverChangePage.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the on hover link event
+    /// </summary>
+    public void InvokeOnHoverLink()
+    {
+        onHoverLink.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the on pin Quest Event
+    /// </summary>
+    /// <param name="isPinned">True if the quest is pinned</param>
+    public void InvokeOnPinQuest(bool isPinned)
+    {
+        onPinQuest.Invoke(isPinned);
     }
 
     /// <summary>

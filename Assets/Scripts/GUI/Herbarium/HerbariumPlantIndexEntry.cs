@@ -49,6 +49,6 @@ public class HerbariumPlantIndexEntry : MonoBehaviour
     /// </summary>
     public void Hover()
     {
-        gui.InvokeOnHover();
+        gui.InvokeOnHoverLink();
     }
 }

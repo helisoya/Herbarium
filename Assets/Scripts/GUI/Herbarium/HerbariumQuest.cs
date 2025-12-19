@@ -67,7 +67,11 @@ public class HerbariumQuest : HerbariumPage
     public void SwitchQuestPin()
     {
         GameManager.instance.GetPlayerDataHandler().SwitchQuestPin(currentQuest.id);
-        imagePin.color = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id) ? Color.white : Color.black;
+
+        bool isPinned = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id);
+        imagePin.color = isPinned ? Color.white : Color.black;
+
+        gui.InvokeOnPinQuest(isPinned);
     }
 
 
