@@ -18,6 +18,16 @@ public class AudioBackpack : MonoBehaviour
     [SerializeField] private EventID pageHover;
     [SerializeField] private EventID plantsIndex;
     [SerializeField] private EventID questsIndex;
+    [SerializeField] private EventID pinQuest;
+    [SerializeField] private EventID linkHover;
+    [SerializeField] private EventID hintHover;
+    [SerializeField] private EventID hintClick;
+    [SerializeField] private EventID hintReveal;
+    [SerializeField] private EventID hintClose;
+    [SerializeField] private EventID pageCresson;
+    [SerializeField] private EventID pageMurailles;
+    [SerializeField] private EventID pageAquaMint;
+
 
     public void PostBackpackOpen()
     {
@@ -93,4 +103,48 @@ public class AudioBackpack : MonoBehaviour
         AudioManager.Instance.Play2DEvent(questsIndex);
     }
 
+    public void PostPinQuest()
+    {
+        AudioManager.Instance.Play2DEvent(pinQuest);
+    }
+
+    public void PostLinkHover()
+    {
+        AudioManager.Instance.Play2DEvent(linkHover);
+    }
+
+    public void PostHintHover()
+    {
+        AudioManager.Instance.Play2DEvent(hintHover);
+    }
+
+    public void PostHintClick()
+    {
+        AudioManager.Instance.Play2DEvent(hintClick);
+    }
+
+    public void PostHintReveal()
+    {
+        AudioManager.Instance.Play2DEvent(hintReveal);
+    }
+
+    public void PostHintClose()
+    {
+        AudioManager.Instance.Play2DEvent(hintClose);
+    }
+
+    public void PostPageCresson()
+    {
+        AudioManager.Instance.Play2DEvent(pageCresson);
+    }
+
+    public void PostPageMurailles()
+    {
+        AudioManager.Instance.Play2DEvent(pageMurailles);
+    }
+
+    public void PostPageAquaMint()
+    {
+        AudioManager.Instance.Play2DEvent(pageAquaMint);
+    }
 }

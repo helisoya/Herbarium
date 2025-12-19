@@ -209,11 +209,19 @@ MonoBehaviour:
     - Key: 31
       Value:
         Guid:
+          Data1: -641168340
+          Data2: 1269011271
+          Data3: 943345071
+          Data4: -1861687253
+        Path: event:/Backpack/InventoryOpen
+    - Key: 32
+      Value:
+        Guid:
           Data1: 322501970
           Data2: 1287373941
           Data3: 7893903
           Data4: -1760100468
-        Path: event:/Backpack/BackpackClick
+        Path: event:/Backpack/InventoryClose
     - Key: 37
       Value:
         Guid:
@@ -261,7 +269,7 @@ MonoBehaviour:
           Data2: 1149496862
           Data3: -1737303128
           Data4: -1619933153
-        Path: event:/Herbarium/GoToPlants
+        Path: event:/Herbarium/PlantsIndex
     - Key: 43
       Value:
         Guid:
@@ -269,7 +277,7 @@ MonoBehaviour:
           Data2: 1146472561
           Data3: -2126332032
           Data4: 144649729
-        Path: event:/Herbarium/GoToQuests
+        Path: event:/Herbarium/QuestsIndex
     - Key: 44
       Value:
         Guid:
@@ -278,6 +286,78 @@ MonoBehaviour:
           Data3: 1560831918
           Data4: 1040028661
         Path: event:/Herbarium/HerbariumAmb
+    - Key: 45
+      Value:
+        Guid:
+          Data1: -1729080200
+          Data2: 1274938705
+          Data3: -2066254449
+          Data4: -1209897726
+        Path: event:/Herbarium/LinkHover
+    - Key: 46
+      Value:
+        Guid:
+          Data1: 1629418892
+          Data2: 1102213398
+          Data3: 1028730753
+          Data4: -618213913
+        Path: event:/Herbarium/PinQuest
+    - Key: 47
+      Value:
+        Guid:
+          Data1: 1668387115
+          Data2: 1155659706
+          Data3: -1134555505
+          Data4: -2046391313
+        Path: event:/Herbarium/HintHover
+    - Key: 48
+      Value:
+        Guid:
+          Data1: -1518856456
+          Data2: 1281628923
+          Data3: -1203665238
+          Data4: 1818969386
+        Path: event:/Herbarium/HintClick
+    - Key: 49
+      Value:
+        Guid:
+          Data1: -839902492
+          Data2: 1207073715
+          Data3: -1457734508
+          Data4: 1678915277
+        Path: event:/Herbarium/HintReveal
+    - Key: 50
+      Value:
+        Guid:
+          Data1: -359584930
+          Data2: 1106073252
+          Data3: 1161172356
+          Data4: 1221335680
+        Path: event:/Herbarium/HintClose
+    - Key: 51
+      Value:
+        Guid:
+          Data1: -367046397
+          Data2: 1187808582
+          Data3: -1658223965
+          Data4: 851339927
+        Path: event:/Herbarium/PageCresson
+    - Key: 52
+      Value:
+        Guid:
+          Data1: 528554951
+          Data2: 1103713744
+          Data3: 1983132293
+          Data4: -147631320
+        Path: event:/Herbarium/PageAquaMint
+    - Key: 53
+      Value:
+        Guid:
+          Data1: -1015080236
+          Data2: 1316445871
+          Data3: -1944942419
+          Data4: -410257525
+        Path: event:/Herbarium/PageMurailles
   parameters:
     _serializedList:
     - Key: 0
