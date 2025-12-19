@@ -13,6 +13,11 @@ public class HerbariumGUI : MonoBehaviour
     [SerializeField] private HerbariumPlant plant;
     [SerializeField] private HerbariumQuestIndex questIndex;
     [SerializeField] private HerbariumQuest quest;
+    [SerializeField] private GameObject buttonLeft;
+    [SerializeField] private GameObject buttonRight;
+    [SerializeField] private RectTransform markerPlant;
+    [SerializeField] private RectTransform markerQuest;
+    [SerializeField] private RectTransform markerMiddle;
 
 
     [Header("Audio Events")]
@@ -53,6 +58,29 @@ public class HerbariumGUI : MonoBehaviour
             onClose.Invoke();
             root.SetActive(false);
         }
+    }
+
+    /// <summary>
+    /// Sets the positions of the markers
+    /// </summary>
+    /// <param name="markerPlantFront">True if the plant marker is up front</param>
+    /// <param name="markerQuestFront">True if the quest marker is up front</param>
+    public void SetMarkers(bool markerPlantFront, bool markerQuestFront)
+    {
+        markerMiddle.SetAsFirstSibling();
+        if(!markerPlantFront) markerPlant.SetAsFirstSibling();
+        if(!markerQuestFront) markerQuest.SetAsFirstSibling();
+    }
+
+    /// <summary>
+    /// Sets if the left & right buttons are active
+    /// </summary>
+    /// <param name="leftActive">True if the left button is active</param>
+    /// <param name="rightActive">True if the right button is active</param>
+    public void SetLeftRightActive(bool leftActive, bool rightActive)
+    {
+        buttonLeft.SetActive(leftActive);
+        buttonRight.SetActive(rightActive);
     }
 
     /// <summary>
