@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class ForagingPickable : MonoBehaviour
 {
+    public enum PickableType
+    {
+        PLANT,
+        CUTTER
+    }
+
+
     [SerializeField] private Rigidbody2D moveRb;
     [SerializeField] private Rigidbody2D[] rbs;
     [SerializeField] private Joint2D[] joints;
     [SerializeField] private bool canBePickedUp;
-    [SerializeField] private bool canCut;
+    [SerializeField] private PickableType type;
     [SerializeField] private bool canRotate;
 
     private ForagingPickablePart currentMovablePart;
@@ -26,9 +33,9 @@ public class ForagingPickable : MonoBehaviour
         return canBePickedUp;
     }
 
-    public bool CanCut()
+    public PickableType GetPickableType()
     {
-        return canCut;
+        return type;
     }
 
     public void EnablePickup()
@@ -51,6 +58,11 @@ public class ForagingPickable : MonoBehaviour
         }
         
         canBePickedUp = true;
+    }
+
+    public void DisablePickup()
+    {
+        canBePickedUp = false;
     }
 
 

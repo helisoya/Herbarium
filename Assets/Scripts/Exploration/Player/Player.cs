@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Represents the player
@@ -9,18 +11,22 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private PlayerController controller;
     [SerializeField] private PlayerInteraction interaction;
+    private MicroInteraction currentMicroInteraction;
     public static Player instance;
+
+    public bool inMicroInteraction{get{return currentMicroInteraction != null;}}
 
 
     void Awake()
     {
         instance = this;
+        currentMicroInteraction = null;
     }
     
 
     void OnMove(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
 
         Vector2 vec = value.Get<Vector2>();
 
@@ -54,6 +60,11 @@ public class Player : MonoBehaviour
 
     void OnMousePosition(InputValue value)
     {
+        if(inMicroInteraction){
+            currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MousePosition,value);
+            return;
+        } 
+
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
         || GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
@@ -71,6 +82,12 @@ public class Player : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
+        if(inMicroInteraction)
+        { 
+            currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseLeftClick,value);
+            return;
+        } 
+
         if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
         {
             CutsceneManager.instance.UserSubmit();
@@ -95,6 +112,12 @@ public class Player : MonoBehaviour
 
     void OnBackpack(InputValue value)
     {
+        if (inMicroInteraction)
+        {
+            currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseRightClick,value);
+            return;
+        } 
+
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK)
@@ -111,7 +134,7 @@ public class Player : MonoBehaviour
 
     void OnInventory(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY)
         {
@@ -127,7 +150,7 @@ public class Player : MonoBehaviour
 
     void OnHerbarium(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
 
         if (!GameGUI.instance.inHerbarium)
         {
@@ -144,7 +167,7 @@ public class Player : MonoBehaviour
 
     void OnPause(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
 
         if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
         {
@@ -160,6 +183,38 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
+    /// Starts a micro interaction
+    /// </summary>
+    /// <param name="sceneName">The interaction's scene name</param>
+    /// <param name="plantId">The plant id for the interaction</param>
+    public void StartMicroInteraction(string sceneName, string plantId)
+    {
+        SceneManager.LoadScene(sceneName,LoadSceneMode.Additive);
+        Scene s = SceneManager.GetSceneByName(sceneName);
+        GameObject[] gameObjects = s.GetRootGameObjects();
+        foreach(GameObject obj in gameObjects)
+        {
+            if(obj.TryGetComponent<MicroInteraction>(out MicroInteraction interaction))
+            {
+                StartMicroInteraction(interaction,plantId);
+                break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Starts a micro interaction
+    /// </summary>
+    /// <param name="microInteraction">The interaction</param>
+    /// <param name="plantId">The plant id for the interaction</param>
+    public void StartMicroInteraction(MicroInteraction microInteraction, string plantId)
+    {
+        currentMicroInteraction = microInteraction;
+        microInteraction.StartInteraction(plantId);
+    }
+
+
+    /// <summary>
     /// Sets the player's move vector
     /// </summary>
     /// <param name="vector">The new move vector</param>
@@ -168,6 +223,9 @@ public class Player : MonoBehaviour
         controller.SetMoveVector(vector);
     }
 
+    /// <summary>
+    /// Stops all player movements
+    /// </summary>
     public void StopPlayerMovements()
     {
         controller.SetMoveVector(Vector2.zero);
