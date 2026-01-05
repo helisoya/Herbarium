@@ -124,10 +124,8 @@ public class HerbariumPlant : HerbariumPage
     {
         onClickIndividualHint.Invoke();
 
-        Plant plantData = GameManager.instance.GetPlantDatabase().GetPlant(GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex]);
-
         hintsButtons[index].interactable = false;
-        hintsTexts[index].SetNewKey(plantData.GetHint(index));
+        hintsTexts[index].SetNewKey(Plant.GetHint(GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex],index));
     }
 
     /// <summary>
@@ -163,10 +161,10 @@ public class HerbariumPlant : HerbariumPage
         if (wasPlantFound)
         {
             
-            textName.SetNewKey(plantData.Name);
-            textLatinName.SetNewKey(plantData.LatinName);
-            textInformations.SetNewKey(plantData.Lore);
-            textSpecifics.SetNewKey(plantData.Specifics);
+            textName.SetNewKey(Plant.GetName(plantId));
+            textLatinName.SetNewKey(Plant.GetLatinName(plantId));
+            textInformations.SetNewKey(Plant.GetLore(plantId));
+            textSpecifics.SetNewKey(Plant.GetSpecifics(plantId));
             textCategory.SetNewKey(plantData.Category);
             imagePlant.color = Color.white;
             
