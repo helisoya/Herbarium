@@ -41,6 +41,7 @@ public class HerbariumPlantIndexEntry : MonoBehaviour
 	/// </summary>
     public void Click()
     {
+        gui.InvokeOnClickPlantLink();
         gui.SetPlant(linkedPage);
     }
 

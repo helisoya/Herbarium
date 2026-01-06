@@ -67,7 +67,7 @@ public class HerbariumPlantIndex : HerbariumPage
 
             Instantiate<HerbariumPlantIndexEntry>(prefabEntry,
             i <= ENTRY_COUNT / 2.0f ? holderLeft : holderRight
-            ).Init(correctedIdx, gui, unlocked ? GameManager.instance.GetPlantDatabase().GetPlant(allPlants[correctedIdx]).Name : "Herbarium_PlantsIndex_Unknown", unlocked ? colorFound : colorNotFound);
+            ).Init(correctedIdx, gui, unlocked ? Plant.GetName(allPlants[correctedIdx]) : "Herbarium_PlantsIndex_Unknown", unlocked ? colorFound : colorNotFound);
         }
     }
 
