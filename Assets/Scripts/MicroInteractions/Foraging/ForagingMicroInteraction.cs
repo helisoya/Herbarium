@@ -51,10 +51,6 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnEnd(bool succeeded)
     {
-        if (succeeded)
-        {
-            GameManager.instance.GetPlayerDataHandler().AddInInventory(currentPlantId);
-        }
     }
 
 
@@ -95,7 +91,9 @@ public class ForagingMicroInteraction : MicroInteraction
                     plantHealthText.text = plantHP.ToString();
                     if(plantHP <= 0)
                     {
-                        foreach (Joint2D joint in plantJoints) joint.enabled = false;
+                        foreach (Joint2D joint in plantJoints) {
+                            if(joint) joint.enabled = false;
+                        }
                     }
                 }
             }

@@ -65,6 +65,7 @@ public abstract class MicroInteraction : MonoBehaviour
     {
         inMicroInteraction = false;
         OnEnd(succeeded);
+        Player.instance.StopMicroInteraction(succeeded);
     }
 
     /// <summary>

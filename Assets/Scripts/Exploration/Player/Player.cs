@@ -11,16 +11,20 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private PlayerController controller;
     [SerializeField] private PlayerInteraction interaction;
+    [SerializeField] private Camera playerCamera;
     private MicroInteraction currentMicroInteraction;
+    private string currentMicroInteractionScene;
     public static Player instance;
 
-    public bool inMicroInteraction{get{return currentMicroInteraction != null;}}
-
+    public bool inMicroInteraction{get; private set;}
+    public bool lastMicroInteractionSucceeded {get; private set;}
 
     void Awake()
     {
         instance = this;
         currentMicroInteraction = null;
+        currentMicroInteractionScene = null;
+        lastMicroInteractionSucceeded = false;
     }
     
 
@@ -61,7 +65,7 @@ public class Player : MonoBehaviour
     void OnMousePosition(InputValue value)
     {
         if(inMicroInteraction){
-            currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MousePosition,value);
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MousePosition,value);
             return;
         } 
 
@@ -84,7 +88,7 @@ public class Player : MonoBehaviour
     {
         if(inMicroInteraction)
         { 
-            currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseLeftClick,value);
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseLeftClick,value);
             return;
         } 
 
@@ -114,7 +118,7 @@ public class Player : MonoBehaviour
     {
         if (inMicroInteraction)
         {
-            currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseRightClick,value);
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseRightClick,value);
             return;
         } 
 
@@ -189,17 +193,21 @@ public class Player : MonoBehaviour
     /// <param name="plantId">The plant id for the interaction</param>
     public void StartMicroInteraction(string sceneName, string plantId)
     {
-        SceneManager.LoadScene(sceneName,LoadSceneMode.Additive);
-        Scene s = SceneManager.GetSceneByName(sceneName);
-        GameObject[] gameObjects = s.GetRootGameObjects();
-        foreach(GameObject obj in gameObjects)
+        inMicroInteraction = true;
+        currentMicroInteractionScene = sceneName;
+        SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Additive).completed += (x) =>
         {
-            if(obj.TryGetComponent<MicroInteraction>(out MicroInteraction interaction))
+            Scene s = SceneManager.GetSceneByName(sceneName);
+            GameObject[] gameObjects = s.GetRootGameObjects();
+            foreach(GameObject obj in gameObjects)
             {
-                StartMicroInteraction(interaction,plantId);
-                break;
+                if(obj.TryGetComponent<MicroInteraction>(out MicroInteraction interaction))
+                {
+                    StartMicroInteraction(interaction,plantId);
+                    break;
+                }
             }
-        }
+        };
     }
 
     /// <summary>
@@ -209,8 +217,39 @@ public class Player : MonoBehaviour
     /// <param name="plantId">The plant id for the interaction</param>
     public void StartMicroInteraction(MicroInteraction microInteraction, string plantId)
     {
+        inMicroInteraction = true;
+        playerCamera.enabled = false;
         currentMicroInteraction = microInteraction;
         microInteraction.StartInteraction(plantId);
+    }
+
+    /// <summary>
+    /// Ends a micro interaction
+    /// </summary>
+    /// <param name="endedInSuccess">True if the micro interaction ended in success</param>
+    public void StopMicroInteraction(bool endedInSuccess)
+    {
+        if(currentMicroInteractionScene != null)
+        {
+            SceneManager.UnloadSceneAsync(currentMicroInteractionScene).completed += (x) =>
+            {
+                // Once the scene is unloaded, restart the camera and hook up the interaction results to the other modules of the game
+                lastMicroInteractionSucceeded = endedInSuccess;
+                currentMicroInteraction = null;
+                currentMicroInteractionScene = null;
+                playerCamera.enabled = true;
+                inMicroInteraction = false;
+            };
+        }
+        else
+        {
+            // Technically, this is only true in debug conditions
+            // (When you only play the foraging part an have no concern with the exploration part)
+            lastMicroInteractionSucceeded = endedInSuccess;
+            currentMicroInteraction = null;
+            currentMicroInteractionScene = null;
+            inMicroInteraction = false;
+        }
     }
 
 
