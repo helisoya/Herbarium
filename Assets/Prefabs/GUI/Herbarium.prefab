@@ -2148,7 +2148,10 @@ MonoBehaviour:
   onClickPlantLink:
     m_PersistentCalls:
       m_Calls: []
-  onHoverMarker:
+  onHoverPlantMarker:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverQuestMarker:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3200667869107973682
@@ -3300,7 +3303,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2226837232278848481}
           m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
-          m_MethodName: InvokeOnHoverMarker
+          m_MethodName: InvokeOnHoverQuestMarker
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5561,7 +5564,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2226837232278848481}
           m_TargetAssemblyTypeName: HerbariumGUI, Assembly-CSharp
-          m_MethodName: InvokeOnHoverMarker
+          m_MethodName: InvokeOnHoverPlantMarker
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
