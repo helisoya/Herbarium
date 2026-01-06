@@ -18,8 +18,10 @@ public class AudioBackpack : MonoBehaviour
     [SerializeField] private EventID pageHover;
     [SerializeField] private EventID plantsIndex;
     [SerializeField] private EventID questsIndex;
-    [SerializeField] private EventID pinQuest;
+    [SerializeField] private EventID pinQuestOn;
+    [SerializeField] private EventID pinQuestOff;
     [SerializeField] private EventID linkHover;
+    [SerializeField] private EventID hintButtonHover;
     [SerializeField] private EventID hintHover;
     [SerializeField] private EventID hintClick;
     [SerializeField] private EventID hintReveal;
@@ -103,9 +105,21 @@ public class AudioBackpack : MonoBehaviour
         AudioManager.Instance.Play2DEvent(questsIndex);
     }
 
-    public void PostPinQuest()
+    public void PostPinQuest(bool pin)
     {
-        AudioManager.Instance.Play2DEvent(pinQuest);
+        if (pin == true)
+        {
+            AudioManager.Instance.Play2DEvent(pinQuestOn);
+            Debug.Log("Son Pin Quest On");
+        }
+
+        else
+        {
+            AudioManager.Instance.Play2DEvent(pinQuestOff);
+            Debug.Log("Son Pin Quest Off");
+        }
+            
+
     }
 
     public void PostLinkHover()
@@ -116,6 +130,11 @@ public class AudioBackpack : MonoBehaviour
     public void PostHintHover()
     {
         AudioManager.Instance.Play2DEvent(hintHover);
+    }
+
+    public void PostHintButtonHover()
+    {
+        AudioManager.Instance.Play2DEvent(hintButtonHover);
     }
 
     public void PostHintClick()
@@ -133,18 +152,22 @@ public class AudioBackpack : MonoBehaviour
         AudioManager.Instance.Play2DEvent(hintClose);
     }
 
-    public void PostPageCresson()
+    public void PostPlantInstrument(int plant)
     {
-        AudioManager.Instance.Play2DEvent(pageCresson);
+        if (plant == 0)
+        {
+            AudioManager.Instance.Play2DEvent(pageCresson);
+        }
+        
+        if (plant == 1)
+        {
+            AudioManager.Instance.Play2DEvent(pageMurailles);
+        }
+
+        if (plant == 2)
+        {
+            AudioManager.Instance.Play2DEvent(pageAquaMint);
+        }
     }
 
-    public void PostPageMurailles()
-    {
-        AudioManager.Instance.Play2DEvent(pageMurailles);
-    }
-
-    public void PostPageAquaMint()
-    {
-        AudioManager.Instance.Play2DEvent(pageAquaMint);
-    }
 }

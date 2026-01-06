@@ -18,6 +18,7 @@ public enum EventID
     HerbariumOpen, HerbariumClose, PageTurnPrevious, PageTurnNext, PageHover, PlantsIndex, QuestsIndex, HerbariumAmb, LinkHover, PinQuest,
     HintHover, HintClick, HintReveal, HintBack,
     PageCresson, PageAquaMint, PageMurailles,
+    PinQuestOff, HintButtonHover,
 }
 
 public enum ParamID
