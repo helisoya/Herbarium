@@ -38,7 +38,7 @@ public class InteractableObject : MonoBehaviour
     protected virtual void OnInterract()
     {
         // Do thing with the graph
-        CutsceneManager.instance.ProcessCutscene(linkedGraph);
+        CutsceneManager.instance.ProcessCutscene(linkedGraph,gameObject);
     }
 
 

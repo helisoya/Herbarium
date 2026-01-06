@@ -106,6 +106,7 @@ public class ForagingMicroInteraction : MicroInteraction
     {
         backpackTopCollider.SetActive(true);
         plantInBackpack = true;
+        CloseMicroInteraction();
     }
 
     /// <summary>

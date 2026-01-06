@@ -19,6 +19,7 @@ public class CutsceneManager : MonoBehaviour
     private bool currentCutsceneIsParrallel = false;
 
     private Dictionary<string, GameObject> objects;
+    private GameObject currentObject;
 
     /// <summary>
     /// Sets the user submit tag
@@ -55,15 +56,24 @@ public class CutsceneManager : MonoBehaviour
     /// <param name="value">True if it should be active</param>
     public void SetObjectActive(string id, bool value)
     {
-        if (objects.TryGetValue(id, out GameObject obj))
+        if(id.Equals("THIS") && currentObject != null)
         {
-            obj.SetActive(value);
+           currentObject.SetActive(value); 
+        } 
+        else
+        {
+            if (objects.TryGetValue(id, out GameObject obj))
+            {
+                obj.SetActive(value);
+            }
         }
+
     }
 
     void Awake()
     {
         instance = this;
+        currentObject = null;
         objects = new Dictionary<string, GameObject>();
     }
 
@@ -81,9 +91,12 @@ public class CutsceneManager : MonoBehaviour
     /// Start processing a cutscene
     /// </summary>
     /// <param name="graph">The cutscene's graph</param>
+    /// <param name="initiatorObject">The initiator object</param>
     /// <param name="overridePreviousCutscene">True if the previous cutscene should be overriden</param>
-    public void ProcessCutscene(DialogGraph graph, bool overridePreviousCutscene = true){
+    public void ProcessCutscene(DialogGraph graph,GameObject initiatorObject, bool overridePreviousCutscene = true){
         if (processingCutscene != null && !overridePreviousCutscene) return;
+
+        currentObject = initiatorObject;
 
         if (processingCutscene != null)
         {

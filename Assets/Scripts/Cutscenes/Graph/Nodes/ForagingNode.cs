@@ -39,6 +39,7 @@ public class ForagingNode : HerbariumNode
 
             if (Player.instance.lastMicroInteractionSucceeded)
             {
+                CutsceneManager.instance.SetObjectActive("THIS",false);
                 GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
                 yield return 0;
             }
