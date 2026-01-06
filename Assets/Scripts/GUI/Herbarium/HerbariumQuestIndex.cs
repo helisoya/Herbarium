@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -18,7 +19,6 @@ public class HerbariumQuestIndex : HerbariumPage
 
     [Header("Quest Done Color")]
     [SerializeField] protected ColorBlock colorDone;
-
 
     public const int ENTRY_COUNT = 14;
 

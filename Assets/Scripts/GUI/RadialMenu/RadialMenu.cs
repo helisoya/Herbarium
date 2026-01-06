@@ -77,8 +77,15 @@ public class RadialMenu : MonoBehaviour
     /// <summary>
     /// Closes the radial menu
     /// </summary>
-    public void Close()
+    /// <param name="playSound">True if the closing sound should be played</param>
+    public void Close(bool playSound = true)
     {
+        if (playSound)
+        {
+            if(currentRadialMenu == RadialMenuID.BACKPACK) onCloseBackpack.Invoke();
+            else if (currentRadialMenu == RadialMenuID.INVENTORY) onCloseInventory.Invoke();   
+        }
+
         Cleanup();
         currentRadialMenu = RadialMenuID.CLOSED;
         currentEntryIdx = -1;
@@ -152,14 +159,13 @@ public class RadialMenu : MonoBehaviour
 
     private void OpenHerbarium()
     {
-        Close();
+        Close(false);
         GameGUI.instance.OpenHerbarium();
     }
 
     private void CloseBackpack()
     {
-        onCloseBackpack.Invoke();
-        Close();
+        Close(true);
     }
 
     private void CloseInventory()
@@ -200,7 +206,7 @@ public class RadialMenu : MonoBehaviour
         {
             key = "RadialMenu_Map",
             sprite = null,
-            callback = Close,
+            callback = ()=> {Close(true);},
             interactable = false
         };
         testData.entries[3] = new RadialMenuEntryData()

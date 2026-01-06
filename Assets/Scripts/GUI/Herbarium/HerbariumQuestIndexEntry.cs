@@ -42,6 +42,7 @@ public class HerbariumQuestIndexEntry : MonoBehaviour
 	/// </summary>
     public void Click()
     {
+        gui.InvokeOnClickQuestLink();
         gui.SetQuest(linkedPage);
     }
 
