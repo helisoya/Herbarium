@@ -220,7 +220,7 @@ public class RadialMenu : MonoBehaviour
         {
             key = "RadialMenu_Map",
             sprite = backSprites[1],
-            callback = Close,
+            callback = CloseBackpack,
             interactable = false,
             inputKey = "M",
             inputPosition = inputPositions[1]
