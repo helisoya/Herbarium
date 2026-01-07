@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8703352176845578786}
   - component: {fileID: 5718841648539037701}
   - component: {fileID: 5165926482696988130}
+  - component: {fileID: 4750913489844240655}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (10)
   m_TagString: Untagged
@@ -112,6 +113,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &4750913489844240655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40788953532420299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &49389739744091138
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +485,7 @@ GameObject:
   - component: {fileID: 4468110778021508926}
   - component: {fileID: 8270881886223646754}
   - component: {fileID: 1619842926937467513}
+  - component: {fileID: 7539628915052170384}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush
   m_TagString: Untagged
@@ -569,7 +587,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!1 &384338298213110847
+--- !u!114 &7539628915052170384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213270368601539192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
+--- !u!1 &518381652186662682
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -577,39 +611,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9057401256994951107}
-  - component: {fileID: 5884728981996114994}
-  - component: {fileID: 5536946060042902695}
-  - component: {fileID: 8829330707145201774}
+  - component: {fileID: 3934257028240962582}
+  - component: {fileID: 2671703196109965833}
+  - component: {fileID: 3585969631975275531}
   m_Layer: 8
-  m_Name: T_Ray_0 (1)
+  m_Name: T_test_kit_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9057401256994951107
+--- !u!4 &3934257028240962582
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384338298213110847}
+  m_GameObject: {fileID: 518381652186662682}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06291419, y: 0.37747633, z: 0.9113086, w: 0.15188831}
-  m_LocalPosition: {x: -4.08, y: 3.2597625, z: -3.825448}
-  m_LocalScale: {x: 0.12041449, y: 0.5453879, z: 0.19506}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5763199, y: -2.5318737, z: -2.8288584}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3525871488575244557}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 161.075}
---- !u!212 &5884728981996114994
+  m_Father: {fileID: 3017308820135842327}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!212 &2671703196109965833
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384338298213110847}
+  m_GameObject: {fileID: 518381652186662682}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -628,7 +661,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d007e98c2844eab478d0917bedc9a389, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -650,24 +683,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6192399686294417394, guid: 8b5058bc1a460024f9e899d607f71079, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.09019608}
+  m_Sprite: {fileID: -1649061746120718018, guid: 83f5e279b1fb58242a1dfcc56bb49bc6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.42, y: 13.66}
+  m_Size: {x: 5.69, y: 6.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &5536946060042902695
+--- !u!65 &3585969631975275531
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384338298213110847}
+  m_GameObject: {fileID: 518381652186662682}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -680,22 +713,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.4200025, y: 13.66, z: 0.20000139}
-  m_Center: {x: 0, y: 0, z: -0.0000019073486}
---- !u!114 &8829330707145201774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384338298213110847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e9a2c5e6d3ac941a795371adbcc954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FadeObstacle
-  fadedAlpha: 0.2
-  fadeDuration: 0.25
+  m_Size: {x: 5.69, y: 6.92, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &536760672505100595
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +726,7 @@ GameObject:
   - component: {fileID: 8337920362378636101}
   - component: {fileID: 2726643770007638247}
   - component: {fileID: 4526421189814671755}
+  - component: {fileID: 4527045717258988212}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (9)
   m_TagString: Untagged
@@ -808,6 +828,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &4527045717258988212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536760672505100595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &601491479207806694
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +855,7 @@ GameObject:
   - component: {fileID: 3607086937807936522}
   - component: {fileID: 4504458383125286920}
   - component: {fileID: 7128709828883733898}
+  - component: {fileID: 6662755286899644808}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (17)
   m_TagString: Untagged
@@ -920,6 +957,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &6662755286899644808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601491479207806694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &602333874784392222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1092,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.26, y: -1.34, z: -1.7000002}
-  m_LocalScale: {x: 1.0217822, y: 1.0217822, z: 1.0217822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6141530224024019880}
@@ -1155,7 +1208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5143421844652425504
 Transform:
   m_ObjectHideFlags: 0
@@ -1403,7 +1456,7 @@ Transform:
   m_GameObject: {fileID: 891919097422122299}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.83, z: 6.32}
+  m_LocalPosition: {x: 0, y: 7.93, z: 4.42}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1440,6 +1493,7 @@ GameObject:
   - component: {fileID: 120437606293291370}
   - component: {fileID: 8523321572228491668}
   - component: {fileID: 7306481968983700980}
+  - component: {fileID: 7614199668100708066}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (7)
   m_TagString: Untagged
@@ -1541,6 +1595,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &7614199668100708066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306072457047907201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &1500733544587500972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1712,7 @@ GameObject:
   - component: {fileID: 9070954541344656977}
   - component: {fileID: 1394689983765755775}
   - component: {fileID: 8621173787949823297}
+  - component: {fileID: 3987505959282561818}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (5)
   m_TagString: Untagged
@@ -1743,6 +1814,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &3987505959282561818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858878314939214360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &2177038842509978065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1841,7 @@ GameObject:
   - component: {fileID: 4437146783605134702}
   - component: {fileID: 3475705445414018567}
   - component: {fileID: 2536027155064815663}
+  - component: {fileID: 4097888267748103337}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (8)
   m_TagString: Untagged
@@ -1855,6 +1943,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &4097888267748103337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177038842509978065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &2312260562216808117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,6 +1970,7 @@ GameObject:
   - component: {fileID: 6224849496841613385}
   - component: {fileID: 7630786754083044816}
   - component: {fileID: 5156790097713408198}
+  - component: {fileID: 4197514403569394273}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (1)
   m_TagString: Untagged
@@ -1967,6 +2072,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &4197514403569394273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2312260562216808117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &2398389240565273145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2132,7 @@ GameObject:
   - component: {fileID: 2144737871745731374}
   - component: {fileID: 3853487186603914880}
   - component: {fileID: 8706878928033729102}
+  - component: {fileID: 3896267152486864143}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (19)
   m_TagString: Untagged
@@ -2112,6 +2234,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &3896267152486864143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672509229602605768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &3097906230057921306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,6 +2479,7 @@ GameObject:
   - component: {fileID: 5012012336971101605}
   - component: {fileID: 2411802737183576093}
   - component: {fileID: 2227963076851362424}
+  - component: {fileID: 6500395451432266677}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (15)
   m_TagString: Untagged
@@ -2442,6 +2581,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &6500395451432266677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3164969482334997007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &3231324841983034773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,6 +2608,7 @@ GameObject:
   - component: {fileID: 2252844858298630281}
   - component: {fileID: 8896566589933707579}
   - component: {fileID: 8316346930801520468}
+  - component: {fileID: 1510783396775889776}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (11)
   m_TagString: Untagged
@@ -2554,7 +2710,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!1 &3309505061924481038
+--- !u!114 &1510783396775889776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231324841983034773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
+--- !u!1 &3309380277771678350
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2562,39 +2734,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4443935686712788317}
-  - component: {fileID: 852757423723335415}
-  - component: {fileID: 5775366297446730565}
-  - component: {fileID: 4946906067009834469}
+  - component: {fileID: 8281210985254437399}
+  - component: {fileID: 3004863988876077978}
+  - component: {fileID: 794433636276742563}
   m_Layer: 8
-  m_Name: T_Ray_0
+  m_Name: T_test_kit_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4443935686712788317
+--- !u!4 &8281210985254437399
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3309505061924481038}
+  m_GameObject: {fileID: 3309380277771678350}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.033771556, y: 0.3811903, z: 0.92027503, w: 0.08153174}
-  m_LocalPosition: {x: 3.0933444, y: 3.8092623, z: -1.465754}
-  m_LocalScale: {x: 0.12041441, y: 0.5453877, z: 0.19506}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.0636797, y: -2.759078, z: 1.0780201}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3525871488575244557}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 169.874}
---- !u!212 &852757423723335415
+  m_Father: {fileID: 3017308820135842327}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!212 &3004863988876077978
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3309505061924481038}
+  m_GameObject: {fileID: 3309380277771678350}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -2613,7 +2784,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d007e98c2844eab478d0917bedc9a389, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2635,24 +2806,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6192399686294417394, guid: 8b5058bc1a460024f9e899d607f71079, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.09019608}
+  m_Sprite: {fileID: 114807808, guid: 83f5e279b1fb58242a1dfcc56bb49bc6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.42, y: 13.66}
+  m_Size: {x: 5.72, y: 5.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &5775366297446730565
+--- !u!65 &794433636276742563
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3309505061924481038}
+  m_GameObject: {fileID: 3309380277771678350}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2665,22 +2836,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.420003, y: 13.660005, z: 0.20000866}
-  m_Center: {x: 0, y: -0.00000047683716, z: 0}
---- !u!114 &4946906067009834469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3309505061924481038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e9a2c5e6d3ac941a795371adbcc954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FadeObstacle
-  fadedAlpha: 0.2
-  fadeDuration: 0.25
+  m_Size: {x: 5.72, y: 5.77, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3402997145181000411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3536286925118160409
 Transform:
   m_ObjectHideFlags: 0
@@ -2947,6 +3104,7 @@ GameObject:
   - component: {fileID: 1178641734551367919}
   - component: {fileID: 742498518406207306}
   - component: {fileID: 4055624988975141790}
+  - component: {fileID: 1559717373139713529}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (13)
   m_TagString: Untagged
@@ -3048,6 +3206,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &1559717373139713529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3607718259554575343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &3618843212168012892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,6 +3350,118 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FadeObstacle
   fadedAlpha: 0.5
   fadeDuration: 0.25
+--- !u!1 &3661103454164789027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836612439188638536}
+  - component: {fileID: 2286787747892279868}
+  - component: {fileID: 4899316592197971975}
+  m_Layer: 8
+  m_Name: T_test_kit_2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836612439188638536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3661103454164789027}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.88, y: -2.32, z: -1.86}
+  m_LocalScale: {x: 1.34, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3017308820135842327}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!212 &2286787747892279868
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3661103454164789027}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d007e98c2844eab478d0917bedc9a389, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1649061746120718018, guid: 83f5e279b1fb58242a1dfcc56bb49bc6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.69, y: 6.92}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!65 &4899316592197971975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3661103454164789027}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.69, y: 6.92, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3666307361648794714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,6 +3716,118 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.86, y: 6.67, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3846006138232598995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6877358506844583731}
+  - component: {fileID: 179653923698730559}
+  - component: {fileID: 7349303412609894880}
+  m_Layer: 8
+  m_Name: T_test_kit_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6877358506844583731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846006138232598995}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5963199, y: -4.653194, z: -3.3945441}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3017308820135842327}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!212 &179653923698730559
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846006138232598995}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d007e98c2844eab478d0917bedc9a389, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -3970098175069045749, guid: 83f5e279b1fb58242a1dfcc56bb49bc6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.16, y: 10.55}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!65 &7349303412609894880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846006138232598995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.16, y: 10.55, z: 0.2}
+  m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!1 &3947878878521325973
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,6 +4251,7 @@ GameObject:
   - component: {fileID: 6078943099309853234}
   - component: {fileID: 2607852570360959926}
   - component: {fileID: 3741652967883138393}
+  - component: {fileID: 5750539562682193790}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (3)
   m_TagString: Untagged
@@ -3954,6 +4353,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &5750539562682193790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4549465711070513641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &4757250293357062228
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,6 +4380,7 @@ GameObject:
   - component: {fileID: 8811861567764847529}
   - component: {fileID: 8632062974756667439}
   - component: {fileID: 6009890045647791601}
+  - component: {fileID: 6560575892259735027}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (2)
   m_TagString: Untagged
@@ -4066,6 +4482,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &6560575892259735027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757250293357062228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &4855465019837842773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,6 +4763,7 @@ GameObject:
   - component: {fileID: 6377475181326691139}
   - component: {fileID: 5573316935918471731}
   - component: {fileID: 2952871367879807090}
+  - component: {fileID: 4741505387221653576}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (21)
   m_TagString: Untagged
@@ -4432,6 +4865,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &4741505387221653576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159455771907204333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &5169824379388500430
 GameObject:
   m_ObjectHideFlags: 0
@@ -4443,6 +4892,7 @@ GameObject:
   - component: {fileID: 4934599697523257935}
   - component: {fileID: 1094035727067899632}
   - component: {fileID: 2221206838351534982}
+  - component: {fileID: 3793332287509436772}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (18)
   m_TagString: Untagged
@@ -4544,6 +4994,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &3793332287509436772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169824379388500430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &5293737713019317580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5143,7 +5609,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1334258250, guid: 350bfa6777b81f44b868dfcb978943f6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5199,6 +5665,7 @@ GameObject:
   - component: {fileID: 4281802009435103655}
   - component: {fileID: 4205905009807788745}
   - component: {fileID: 5744263862341442052}
+  - component: {fileID: 6590429141597043152}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (14)
   m_TagString: Untagged
@@ -5300,6 +5767,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &6590429141597043152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6487253718125399164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &6520529134380225881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,6 +5794,7 @@ GameObject:
   - component: {fileID: 1619686414456445483}
   - component: {fileID: 6047547274950121549}
   - component: {fileID: 5275767104445752245}
+  - component: {fileID: 962175738201303964}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (16)
   m_TagString: Untagged
@@ -5412,6 +5896,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &962175738201303964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520529134380225881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &6683709468993193278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5539,6 +6039,118 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.21, y: 2.08, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0.0000009536743}
+--- !u!1 &6703616436861686374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6971365138530432176}
+  - component: {fileID: 4939821152281141439}
+  - component: {fileID: 8148432711672100487}
+  m_Layer: 8
+  m_Name: T_test_kit_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6971365138530432176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703616436861686374}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.77768, y: -7.007859, z: -3.1611986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3017308820135842327}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!212 &4939821152281141439
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703616436861686374}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d007e98c2844eab478d0917bedc9a389, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -3512359841879412461, guid: 83f5e279b1fb58242a1dfcc56bb49bc6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 8.15, y: 3.93}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!65 &8148432711672100487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703616436861686374}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.15, y: 3.93, z: 0.2}
+  m_Center: {x: 0, y: 0.00000011920929, z: -0.00000011920929}
 --- !u!1 &6818360494454702238
 GameObject:
   m_ObjectHideFlags: 0
@@ -5556,7 +6168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2305077730240894078
 Transform:
   m_ObjectHideFlags: 0
@@ -5881,6 +6493,7 @@ GameObject:
   - component: {fileID: 1556435077196587827}
   - component: {fileID: 1556625893143891431}
   - component: {fileID: 8669282507446093187}
+  - component: {fileID: 3627792022046499323}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (20)
   m_TagString: Untagged
@@ -5982,6 +6595,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &3627792022046499323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6945746502232717982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &7136048043116832188
 GameObject:
   m_ObjectHideFlags: 0
@@ -6013,8 +6642,6 @@ Transform:
   m_Children:
   - {fileID: 1202479123783105039}
   - {fileID: 2056349214323057740}
-  - {fileID: 4443935686712788317}
-  - {fileID: 9057401256994951107}
   - {fileID: 660696238862360435}
   - {fileID: 1182009553506743229}
   - {fileID: 6146993687129685313}
@@ -6161,6 +6788,7 @@ GameObject:
   - component: {fileID: 1007289835163513085}
   - component: {fileID: 3086069989551680298}
   - component: {fileID: 6808611086755682079}
+  - component: {fileID: 5206810381582169621}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (22)
   m_TagString: Untagged
@@ -6262,6 +6890,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &5206810381582169621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7353484255112156346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &7418881758946195253
 GameObject:
   m_ObjectHideFlags: 0
@@ -6916,7 +7560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7207206531168820122
 Transform:
   m_ObjectHideFlags: 0
@@ -7036,6 +7680,7 @@ GameObject:
   - component: {fileID: 7380052799273704061}
   - component: {fileID: 8107826725463421169}
   - component: {fileID: 2326603446134288903}
+  - component: {fileID: 144791055722381743}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (12)
   m_TagString: Untagged
@@ -7137,6 +7782,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &144791055722381743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8344874406823511796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &8378484879457771334
 GameObject:
   m_ObjectHideFlags: 0
@@ -7148,6 +7809,7 @@ GameObject:
   - component: {fileID: 1122928126489395880}
   - component: {fileID: 3561807746153122242}
   - component: {fileID: 4542187655148463504}
+  - component: {fileID: 5362619299263865700}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (4)
   m_TagString: Untagged
@@ -7249,6 +7911,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &5362619299263865700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378484879457771334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &8721930866249703329
 GameObject:
   m_ObjectHideFlags: 0
@@ -7278,7 +7956,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.21, y: -0.88, z: -1.0999999}
-  m_LocalScale: {x: 1.0217822, y: 1.0217822, z: 1.0217822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1300171369314611948}
@@ -7388,6 +8066,7 @@ GameObject:
   - component: {fileID: 6788078632806885439}
   - component: {fileID: 3822993695550342490}
   - component: {fileID: 3445419315682893065}
+  - component: {fileID: 7468738993723625001}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (6)
   m_TagString: Untagged
@@ -7489,6 +8168,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+--- !u!114 &7468738993723625001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754545443272269782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
 --- !u!1 &8797554335732623893
 GameObject:
   m_ObjectHideFlags: 0
@@ -7525,6 +8220,11 @@ Transform:
   - {fileID: 5143421844652425504}
   - {fileID: 3536286925118160409}
   - {fileID: 599166632810904469}
+  - {fileID: 6877358506844583731}
+  - {fileID: 3934257028240962582}
+  - {fileID: 1836612439188638536}
+  - {fileID: 6971365138530432176}
+  - {fileID: 8281210985254437399}
   m_Father: {fileID: 3525871488575244557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8817809149874905568
