@@ -10445,6 +10445,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2540135898664853885, guid: f51724a8da183054b85946fb4778adf2, type: 3}
   m_PrefabInstance: {fileID: 6534051820127149276}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &366128506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366128496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1362770042
+      Data2: 1119854668
+      Data3: -1488861055
+      Data4: 1398650092
+    Path: event:/Music/Plant1Music3DA
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &381079486 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7548776657784484603, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -27092,6 +27123,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 49389739744091138, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 196763928}
+    - targetCorrespondingSourceObject: {fileID: 7598607515454659988, guid: f51724a8da183054b85946fb4778adf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 366128506}
     - targetCorrespondingSourceObject: {fileID: 8252101276437662948, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 760074452}
