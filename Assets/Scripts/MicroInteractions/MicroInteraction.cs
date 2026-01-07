@@ -14,6 +14,13 @@ public abstract class MicroInteraction : MonoBehaviour
         MouseRightClick
     }
 
+    public enum EndingType
+    {
+        SUCCESS,
+        FAILURE,
+        CANCEL
+    }
+
     [Header("General")]
     [SerializeField] protected float itemSpeed = 5f;
     [SerializeField] protected float rotateSpeed = 15f;
@@ -33,8 +40,8 @@ public abstract class MicroInteraction : MonoBehaviour
     /// <summary>
     /// End the interaction
     /// </summary>
-    /// <param name="succeeded">True if the interaction ended in success</param>
-    protected abstract void OnEnd(bool succeeded);
+    /// <param name="type"The ending type</param>
+    protected abstract void OnEnd(EndingType type);
 
     /// <summary>
     /// On Update Callback
@@ -60,12 +67,12 @@ public abstract class MicroInteraction : MonoBehaviour
     /// <summary>
     /// End the interaction
     /// </summary>
-    /// <param name="succeeded">True if the interaction ended in success</param>
-    public void EndInteraction(bool succeeded)
+    /// <param name="type">The ending type</param>
+    public void EndInteraction(EndingType type)
     {
         inMicroInteraction = false;
-        OnEnd(succeeded);
-        Player.instance.StopMicroInteraction(succeeded);
+        OnEnd(type);
+        Player.instance.StopMicroInteraction(type);
     }
 
     /// <summary>

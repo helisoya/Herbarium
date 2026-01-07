@@ -17,14 +17,14 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     public bool inMicroInteraction{get; private set;}
-    public bool lastMicroInteractionSucceeded {get; private set;}
+    public MicroInteraction.EndingType lastMicroInteractionEnding {get; private set;}
 
     void Awake()
     {
         instance = this;
         currentMicroInteraction = null;
         currentMicroInteractionScene = null;
-        lastMicroInteractionSucceeded = false;
+        lastMicroInteractionEnding = MicroInteraction.EndingType.CANCEL;
     }
     
 
@@ -226,15 +226,15 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Ends a micro interaction
     /// </summary>
-    /// <param name="endedInSuccess">True if the micro interaction ended in success</param>
-    public void StopMicroInteraction(bool endedInSuccess)
+    /// <param name="endingType">The micro interaction's ending type</param>
+    public void StopMicroInteraction(MicroInteraction.EndingType endingType)
     {
         if(currentMicroInteractionScene != null)
         {
             SceneManager.UnloadSceneAsync(currentMicroInteractionScene).completed += (x) =>
             {
                 // Once the scene is unloaded, restart the camera and hook up the interaction results to the other modules of the game
-                lastMicroInteractionSucceeded = endedInSuccess;
+                lastMicroInteractionEnding = endingType;
                 currentMicroInteraction = null;
                 currentMicroInteractionScene = null;
                 playerCamera.enabled = true;
@@ -245,7 +245,7 @@ public class Player : MonoBehaviour
         {
             // Technically, this is only true in debug conditions
             // (When you only play the foraging part an have no concern with the exploration part)
-            lastMicroInteractionSucceeded = endedInSuccess;
+            lastMicroInteractionEnding = endingType;
             currentMicroInteraction = null;
             currentMicroInteractionScene = null;
             inMicroInteraction = false;

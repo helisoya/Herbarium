@@ -13,6 +13,7 @@ public class ForagingNode : HerbariumNode
     [Output(connectionType = ConnectionType.Override)] public bool exitSuccess;
     [Output(connectionType = ConnectionType.Override)] public bool exitFailure;
     [Output(connectionType = ConnectionType.Override)] public bool exitNoSpaceInInventory;
+    [Output(connectionType = ConnectionType.Override)] public bool exitCancel;
     
 
     // Use this for initialization
@@ -45,15 +46,22 @@ public class ForagingNode : HerbariumNode
                     yield return new WaitForEndOfFrame();
                 }
 
-                if (Player.instance.lastMicroInteractionSucceeded)
+                switch (Player.instance.lastMicroInteractionEnding)
                 {
-                    CutsceneManager.instance.SetObjectActive("THIS",false);
-                    GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
-                    yield return 0;
-                }
-                else
-                {
-                    yield return 1;
+                    case MicroInteraction.EndingType.SUCCESS:
+                        CutsceneManager.instance.SetObjectActive("THIS",false);
+                        GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
+                        yield return 0;
+                        break;
+
+                    case MicroInteraction.EndingType.FAILURE:
+                        CutsceneManager.instance.SetObjectActive("THIS",false);
+                        yield return 1;
+                        break;
+
+                    case MicroInteraction.EndingType.CANCEL:
+                        yield return 3;
+                        break;
                 }
             }
         }

@@ -49,7 +49,7 @@ public class ForagingMicroInteraction : MicroInteraction
         plantJoints = prefab.GetChild(0).GetComponentsInChildren<Joint2D>();
     }
 
-    protected override void OnEnd(bool succeeded)
+    protected override void OnEnd(EndingType type)
     {
     }
 
@@ -94,6 +94,7 @@ public class ForagingMicroInteraction : MicroInteraction
                         foreach (Joint2D joint in plantJoints) {
                             if(joint) joint.enabled = false;
                         }
+                        EndInteraction(EndingType.FAILURE);
                     }
                 }
             }
@@ -114,6 +115,6 @@ public class ForagingMicroInteraction : MicroInteraction
     /// </summary>
     public void CloseMicroInteraction()
     {
-        EndInteraction(plantInBackpack);
+        EndInteraction(plantInBackpack ? EndingType.SUCCESS : EndingType.CANCEL);
     }
 }
