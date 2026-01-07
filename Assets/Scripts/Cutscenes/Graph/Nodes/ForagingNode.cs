@@ -29,15 +29,7 @@ public class ForagingNode : HerbariumNode
         }
         else
         {
-            Player.instance.StartMicroInteraction("SC_Foraging",plantId);
-
-            yield return new WaitForEndOfFrame();
-            while (Player.instance.inMicroInteraction)
-            {
-                yield return new WaitForEndOfFrame();
-            }
-
-            if (Player.instance.lastMicroInteractionSucceeded)
+            if (Settings.instance.IsAutocompleteInteractionEnabled())
             {
                 CutsceneManager.instance.SetObjectActive("THIS",false);
                 GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
@@ -45,7 +37,24 @@ public class ForagingNode : HerbariumNode
             }
             else
             {
-                yield return 1;
+                Player.instance.StartMicroInteraction("SC_Foraging",plantId);
+
+                yield return new WaitForEndOfFrame();
+                while (Player.instance.inMicroInteraction)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+
+                if (Player.instance.lastMicroInteractionSucceeded)
+                {
+                    CutsceneManager.instance.SetObjectActive("THIS",false);
+                    GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
+                    yield return 0;
+                }
+                else
+                {
+                    yield return 1;
+                }
             }
         }
     }

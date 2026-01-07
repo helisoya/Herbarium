@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
 
         bool shouldHold = Settings.instance.IsHoldModeEnabled();
 
-        if (shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
+        if (!shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
         else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
 
         if (value.isPressed) interaction.TryInterract();

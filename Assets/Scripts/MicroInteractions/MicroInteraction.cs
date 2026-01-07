@@ -82,15 +82,15 @@ public abstract class MicroInteraction : MonoBehaviour
             case InputType.MousePosition:
                 mousePosition = inputValue.Get<Vector2>();
                 break;
-            case InputType.MouseLeftClick:
+            case InputType.MouseRightClick:
                 if(currentObject && inputValue.isPressed)
                 {
                     OnToolUse();
                 }
                 break;
 
-            case InputType.MouseRightClick:
-                if (!inputValue.isPressed)
+            case InputType.MouseLeftClick:
+                if ((!Settings.instance.IsHoldModeEnabled() && !inputValue.isPressed) || (Settings.instance.IsHoldModeEnabled() && inputValue.isPressed && currentObject) ) 
                 {
                     if (currentObject)
                     {
@@ -98,7 +98,7 @@ public abstract class MicroInteraction : MonoBehaviour
                         currentObject = null;
                     }
                 }
-                else
+                else if(!currentObject && inputValue.isPressed)
                 {
                     Vector2 mousePosInWorld = microInteractionCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, microInteractionCamera.nearClipPlane));
                     Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePosInWorld, 0.1f);
