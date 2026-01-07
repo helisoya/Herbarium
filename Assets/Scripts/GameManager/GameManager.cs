@@ -25,8 +25,7 @@ public class GameManager : MonoBehaviour
             playerDataHandler.ResetData();
             plantDatabase.Init();
 
-            DontDestroyOnLoad(gameObject);
-
+            SetPersistent(gameObject);
 
 
 
@@ -37,6 +36,19 @@ public class GameManager : MonoBehaviour
                 playerDataHandler.AddHerbariumPage("TestPlant2");
                 playerDataHandler.SetVariable("quest_test",0);
             }
+        }
+    }
+
+    /// <summary>
+    /// Sets the object as persistent
+    /// </summary>
+    /// <param name="obj">The object</param>
+    private void SetPersistent(GameObject obj)
+    {
+        DontDestroyOnLoad(obj);
+        foreach(Transform child in obj.transform)
+        {
+            SetPersistent(child.gameObject);
         }
     }
 
