@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -24,6 +25,8 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private UnityEvent onCloseInventory;
     [SerializeField] private UnityEvent onRadialMenuHover;
     [SerializeField] private UnityEvent onRadialMenuClick;
+
+    private const float SIZE = 75f;
 
     private readonly Vector3[] inputPositions  =
     {
@@ -140,15 +143,24 @@ public class RadialMenu : MonoBehaviour
 
             if (value % 1 >= 0.5f) correctBox = (correctBox + 1) % entries.Length;
 
+            if(57000f <= (position.x - Screen.width/2f)*(position.x - Screen.width/2) + (position.y - Screen.height/2f) * (position.y - Screen.height/2f)) correctBox = -1;
+
             if (currentEntryIdx != correctBox)
             {
                 if (currentEntryIdx != -1) entries[currentEntryIdx].StopHighlight();
                 currentEntryIdx = correctBox;
-                entries[currentEntryIdx].Highlight();
 
-                onRadialMenuHover.Invoke();
+                if(correctBox != -1)
+                {
+                    entries[currentEntryIdx].Highlight();
 
-                if(forceInteraction) ActivateCurrentlySelected();
+                    if (entries[currentEntryIdx].CanBeInteractedWith())
+                    {
+                        onRadialMenuHover.Invoke();
+
+                        if(forceInteraction) ActivateCurrentlySelected();
+                    }
+                }
             }
         }
     }
@@ -194,7 +206,7 @@ public class RadialMenu : MonoBehaviour
         PlayerDataHandler dataHandler = GameManager.instance.GetPlayerDataHandler();
 
         RadialMenuData testData = new RadialMenuData();
-        testData.radius = 75f;
+        testData.radius = SIZE;
         testData.id = RadialMenuID.BACKPACK;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
@@ -250,7 +262,7 @@ public class RadialMenu : MonoBehaviour
     public void OpenInventory(bool openSound = true)
     {
         RadialMenuData testData = new RadialMenuData();
-        testData.radius = 75f;
+        testData.radius = SIZE;
         testData.id = RadialMenuID.INVENTORY;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()

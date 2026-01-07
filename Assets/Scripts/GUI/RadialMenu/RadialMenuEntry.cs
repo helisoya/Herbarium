@@ -26,10 +26,18 @@ public class RadialMenuEntry : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets if the entry can be interacted with
+    /// </summary>
+    /// <returns>True if it can be interacted with</returns>
+    public bool CanBeInteractedWith()
+    {
+        return canBeInteractedWith;
+    }
+
+    /// <summary>
     /// Initialize the entry
     /// </summary>
-    /// <param name="sprite"></param>
-    /// <param name="labelKey"></param>
+    /// <param name="data">The entry's data</param>
     public void Init(RadialMenuEntryData data)
     {
         image.sprite = data.sprite;
