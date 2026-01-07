@@ -11,6 +11,7 @@ public class RadialMenu : MonoBehaviour
     [Header("Radial Menu")]
     [SerializeField] private Transform radialParent;
     [SerializeField] private RadialMenuEntry entryPrefab;
+    [SerializeField] private Sprite[] backSprites;
     public RadialMenuID currentRadialMenu {get; private set;}
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
@@ -23,6 +24,14 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private UnityEvent onCloseInventory;
     [SerializeField] private UnityEvent onRadialMenuHover;
     [SerializeField] private UnityEvent onRadialMenuClick;
+
+    private readonly Vector3[] inputPositions  =
+    {
+      new Vector3(0,-68,0),
+      new Vector3(-68,0,0),
+      new Vector3(0,72,0),
+      new Vector3(68,0,0)
+    };
 
 
     void Awake()
@@ -62,6 +71,7 @@ public class RadialMenu : MonoBehaviour
 
             entry.SetScale(Vector3.zero, true);
             entry.SetScale(Vector3.one, false);
+            entry.SetLabelScale(Vector3.one,true);
 
             entry.SetPosition(0, 0, true);
             entry.SetPosition(Mathf.Sin(Mathf.PI + radiansSeparation * i) * currentData.radius,
@@ -178,40 +188,48 @@ public class RadialMenu : MonoBehaviour
         PlayerDataHandler dataHandler = GameManager.instance.GetPlayerDataHandler();
 
         RadialMenuData testData = new RadialMenuData();
-        testData.radius = 100f;
+        testData.radius = 75f;
         testData.id = RadialMenuID.BACKPACK;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Close",
-            sprite = null,
+            sprite = backSprites[0],
             callback = CloseBackpack,
-            interactable = true
+            interactable = true,
+            inputKey = "Escape",
+            inputPosition = inputPositions[0]
         };
         testData.entries[2] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Herbarium",
-            sprite = null,
+            sprite = backSprites[2],
             callback = OpenHerbarium,
-            interactable = true
+            interactable = true,
+            inputKey = "H",
+            inputPosition = inputPositions[2]
         };
 
         testData.entries[1] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Map",
-            sprite = null,
+            sprite = backSprites[1],
             callback = Close,
-            interactable = false
+            interactable = false,
+            inputKey = "M",
+            inputPosition = inputPositions[1]
         };
         testData.entries[3] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Inventory",
-            sprite = null,
+            sprite = backSprites[3],
             callback = () =>{ OpenInventory();},
             injectors = new object[] {
                 dataHandler.GetInventorySize() - dataHandler.GetRemainingInventorySpace(),
                 dataHandler.GetInventorySize() },
-            interactable = true
+            interactable = true,
+            inputKey = "I",
+            inputPosition = inputPositions[3]
         };
 
         if(openSound) onOpenBackpack.Invoke();
@@ -226,15 +244,17 @@ public class RadialMenu : MonoBehaviour
     public void OpenInventory(bool openSound = true)
     {
         RadialMenuData testData = new RadialMenuData();
-        testData.radius = 100f;
+        testData.radius = 75f;
         testData.id = RadialMenuID.INVENTORY;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
             key = "Close",
-            sprite = null,
+            sprite = backSprites[0],
             callback = CloseInventory,
-            interactable = true
+            interactable = true,
+            inputKey = "Escape",
+            inputPosition = inputPositions[0]
         };
 
         PlayerDataHandler dataHandler = GameManager.instance.GetPlayerDataHandler();
@@ -246,9 +266,10 @@ public class RadialMenu : MonoBehaviour
             testData.entries[1 + i] = new RadialMenuEntryData()
             {
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
-                sprite = null,
+                sprite = backSprites[i+1],
                 callback = null,
-                interactable = false
+                interactable = false,
+                inputKey = null
             };
         }
 

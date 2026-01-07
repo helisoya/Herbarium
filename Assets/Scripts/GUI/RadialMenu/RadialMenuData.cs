@@ -22,6 +22,8 @@ public struct RadialMenuEntryData
     public bool interactable;
     public object[] injectors;
     public Action callback;
+    public Vector3 inputPosition;
+    public string inputKey;
 }
 
 /// <summary>
