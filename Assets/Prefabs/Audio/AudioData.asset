@@ -46,14 +46,6 @@ MonoBehaviour:
           Data3: -434112084
           Data4: -1779298068
         Path: event:/Enviro/River
-    - Key: 4
-      Value:
-        Guid:
-          Data1: -655086729
-          Data2: 1128514749
-          Data3: -807855972
-          Data4: -1666243746
-        Path: event:/Enviro/BirdA
     - Key: 5
       Value:
         Guid:
@@ -62,6 +54,14 @@ MonoBehaviour:
           Data3: -262715235
           Data4: 287586015
         Path: event:/Enviro/BirdB
+    - Key: 4
+      Value:
+        Guid:
+          Data1: -655086729
+          Data2: 1128514749
+          Data3: -807855972
+          Data4: -1666243746
+        Path: event:/Enviro/BirdA
     - Key: 6
       Value:
         Guid:
@@ -101,7 +101,7 @@ MonoBehaviour:
           Data2: 1298101746
           Data3: -1417898603
           Data4: -1885305986
-        Path: event:/Music/Enviro2DMusic
+        Path: event:/Music/Enviro2DMusicA
     - Key: 14
       Value:
         Guid:
@@ -109,7 +109,7 @@ MonoBehaviour:
           Data2: 1119854668
           Data3: -1488861055
           Data4: 1398650092
-        Path: event:/Music/Entry1Music3D
+        Path: event:/Music/Plant1Music3DA
     - Key: 15
       Value:
         Guid:
@@ -117,7 +117,7 @@ MonoBehaviour:
           Data2: 1256568988
           Data3: -271094642
           Data4: 1078125191
-        Path: event:/Music/Entry2Music3D
+        Path: event:/Music/Plant2Music3DA
     - Key: 16
       Value:
         Guid:
@@ -125,7 +125,7 @@ MonoBehaviour:
           Data2: 1092233566
           Data3: -1276406858
           Data4: 1436739522
-        Path: event:/Music/Entry3Music3D
+        Path: event:/Music/Plant3Music3DA
     - Key: 22
       Value:
         Guid:
@@ -182,19 +182,201 @@ MonoBehaviour:
           Data3: -639341635
           Data4: -1067001678
         Path: event:/Enviro/BioLightA
+    - Key: 28
+      Value:
+        Guid:
+          Data1: -1840539974
+          Data2: 1190194370
+          Data3: -1636264523
+          Data4: -351888896
+        Path: event:/Backpack/BackpackOpen
+    - Key: 29
+      Value:
+        Guid:
+          Data1: -94227442
+          Data2: 1178791434
+          Data3: 1608250028
+          Data4: 1980735421
+        Path: event:/Backpack/BackpackClose
+    - Key: 30
+      Value:
+        Guid:
+          Data1: 308126206
+          Data2: 1209266240
+          Data3: 841591719
+          Data4: 445293442
+        Path: event:/Backpack/BackpackHover
+    - Key: 31
+      Value:
+        Guid:
+          Data1: 308126206
+          Data2: 1209266240
+          Data3: 841591719
+          Data4: 445293442
+        Path: event:/Backpack/BackpackHover
+    - Key: 32
+      Value:
+        Guid:
+          Data1: -641168340
+          Data2: 1269011271
+          Data3: 943345071
+          Data4: -1861687253
+        Path: event:/Backpack/InventoryClose
+    - Key: 37
+      Value:
+        Guid:
+          Data1: 1154655859
+          Data2: 1185071029
+          Data3: 2143512742
+          Data4: -300870511
+        Path: event:/Herbarium/HerbariumOpen
+    - Key: 38
+      Value:
+        Guid:
+          Data1: 1268893326
+          Data2: 1235014003
+          Data3: -1444546895
+          Data4: -1368132932
+        Path: event:/Herbarium/HerbariumClose
+    - Key: 39
+      Value:
+        Guid:
+          Data1: 945921905
+          Data2: 1266814493
+          Data3: 2060770199
+          Data4: 531664028
+        Path: event:/Herbarium/PageTurnPrevious
+    - Key: 40
+      Value:
+        Guid:
+          Data1: -526924069
+          Data2: 1269835375
+          Data3: 2035009469
+          Data4: -2033078041
+        Path: event:/Herbarium/PageTurnNext
+    - Key: 41
+      Value:
+        Guid:
+          Data1: -1401686667
+          Data2: 1295178867
+          Data3: -2117750366
+          Data4: 287078453
+        Path: event:/Herbarium/PageHover
+    - Key: 42
+      Value:
+        Guid:
+          Data1: 1711190828
+          Data2: 1149496862
+          Data3: -1737303128
+          Data4: -1619933153
+        Path: event:/Herbarium/PlantsIndex
+    - Key: 43
+      Value:
+        Guid:
+          Data1: 1162431469
+          Data2: 1146472561
+          Data3: -2126332032
+          Data4: 144649729
+        Path: event:/Herbarium/QuestsIndex
+    - Key: 44
+      Value:
+        Guid:
+          Data1: -1015383857
+          Data2: 1250386086
+          Data3: 1560831918
+          Data4: 1040028661
+        Path: event:/Herbarium/HerbariumAmb
+    - Key: 45
+      Value:
+        Guid:
+          Data1: -1729080200
+          Data2: 1274938705
+          Data3: -2066254449
+          Data4: -1209897726
+        Path: event:/Herbarium/LinkHover
+    - Key: 55
+      Value:
+        Guid:
+          Data1: -1729080200
+          Data2: 1274938705
+          Data3: -2066254449
+          Data4: -1209897726
+        Path: event:/Herbarium/LinkHover
+    - Key: 47
+      Value:
+        Guid:
+          Data1: 1668387115
+          Data2: 1155659706
+          Data3: -1134555505
+          Data4: -2046391313
+        Path: event:/Herbarium/HintHover
+    - Key: 48
+      Value:
+        Guid:
+          Data1: -1518856456
+          Data2: 1281628923
+          Data3: -1203665238
+          Data4: 1818969386
+        Path: event:/Herbarium/HintClick
+    - Key: 49
+      Value:
+        Guid:
+          Data1: -839902492
+          Data2: 1207073715
+          Data3: -1457734508
+          Data4: 1678915277
+        Path: event:/Herbarium/HintReveal
+    - Key: 46
+      Value:
+        Guid:
+          Data1: 1629418892
+          Data2: 1102213398
+          Data3: 1028730753
+          Data4: -618213913
+        Path: event:/Herbarium/PinQuestOn
+    - Key: 54
+      Value:
+        Guid:
+          Data1: 1956871374
+          Data2: 1319189183
+          Data3: 1227230085
+          Data4: 1518415794
+        Path: event:/Herbarium/PinQuestOff
+    - Key: 50
+      Value:
+        Guid:
+          Data1: -359584930
+          Data2: 1106073252
+          Data3: 1161172356
+          Data4: 1221335680
+        Path: event:/Herbarium/HintClose
+    - Key: 51
+      Value:
+        Guid:
+          Data1: -367046397
+          Data2: 1187808582
+          Data3: -1658223965
+          Data4: 851339927
+        Path: event:/Herbarium/PageCresson
+    - Key: 52
+      Value:
+        Guid:
+          Data1: 528554951
+          Data2: 1103713744
+          Data3: 1983132293
+          Data4: -147631320
+        Path: event:/Herbarium/PageAquaMint
+    - Key: 53
+      Value:
+        Guid:
+          Data1: -1015080236
+          Data2: 1316445871
+          Data3: -1944942419
+          Data4: -410257525
+        Path: event:/Herbarium/PageMurailles
   parameters:
     _serializedList:
     - Key: 0
       Value:
         Name: HerbariumEntries
         Value: 2
-  banks:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: -3595971276731153634, guid: c9b6267a2e185fb4f9f1b8f672e6a308, type: 2}
-    - Key: 1
-      Value: {fileID: -2606504137462050340, guid: c9b6267a2e185fb4f9f1b8f672e6a308, type: 2}
-    - Key: 2
-      Value: {fileID: -2877051361457855574, guid: c9b6267a2e185fb4f9f1b8f672e6a308, type: 2}
-    - Key: 3
-      Value: {fileID: 4496409076182707105, guid: c9b6267a2e185fb4f9f1b8f672e6a308, type: 2}

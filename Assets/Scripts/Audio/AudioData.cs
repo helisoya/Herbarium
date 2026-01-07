@@ -14,6 +14,11 @@ public enum EventID
     Enviro2DMusic, Entry1Music3D, Entry2Music3D, Entry3Music3D,
     CollisionPlant, CollisionTree, CollisionGrass, CollisionRock, CollisionNpc,
     FrogBig, FrogMedium, FrogTiny, InsectA, InsectB, InsectC,
+    BackpackOpen, BackpackClose, BackpackHover, BackpackClick, BackpackBack, InventoryOpen, InventoryClose, InventoryHover, InventoryClick,
+    HerbariumOpen, HerbariumClose, PageTurnPrevious, PageTurnNext, PageHover, PlantsIndex, QuestsIndex, HerbariumAmb, LinkHover, PinQuest,
+    HintHover, HintClick, HintReveal, HintBack,
+    PageCresson, PageAquaMint, PageMurailles,
+    PinQuestOff, HintButtonHover,
 }
 
 public enum ParamID

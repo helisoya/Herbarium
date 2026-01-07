@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1885766155311655312}
   - component: {fileID: 4813398855494717131}
   - component: {fileID: 728792749827765943}
+  - component: {fileID: 4961862396395387733}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -63,6 +64,27 @@ MonoBehaviour:
   AmbEvent: 0
   ExploMusicEvent: 13
   HerbariumEntries: 0
+--- !u!114 &4961862396395387733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623451763102074883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioBankLoader
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - GameplayEnviro
+  - GameplayMusic
+  - GameplaySFX
+  - Master
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!1001 &658358755702190264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,6 +96,18 @@ PrefabInstance:
     - target: {fileID: 549926983900649549, guid: 302d3213487e2aa4a953cc5ebafb519c, type: 3}
       propertyPath: m_Name
       value: AudioCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067671312045505650, guid: 302d3213487e2aa4a953cc5ebafb519c, type: 3}
+      propertyPath: npcCollision
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067671312045505650, guid: 302d3213487e2aa4a953cc5ebafb519c, type: 3}
+      propertyPath: rockCollision
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067671312045505650, guid: 302d3213487e2aa4a953cc5ebafb519c, type: 3}
+      propertyPath: grassCollision
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8604384147018214591, guid: 302d3213487e2aa4a953cc5ebafb519c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -133,6 +167,74 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885766155311655312}
     m_Modifications:
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: birdA
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: birdB
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: birdC
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: birdD
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: river
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: treeA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: treeB
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: entry1
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: entry2
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: entry3
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: frogBig
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: insectA
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: insectB
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: frogTiny
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: bioLightA
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: frogMedium
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+      propertyPath: grassCollision
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

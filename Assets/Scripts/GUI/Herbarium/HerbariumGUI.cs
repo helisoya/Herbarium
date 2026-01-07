@@ -30,6 +30,10 @@ public class HerbariumGUI : MonoBehaviour
     [SerializeField] private UnityEvent onHoverLink;
     [SerializeField] private UnityEvent onHoverChangePage;
     [SerializeField] private UnityEvent<bool> onPinQuest;
+    [SerializeField] private UnityEvent onClickQuestLink;
+    [SerializeField] private UnityEvent onClickPlantLink;
+    [SerializeField] private UnityEvent onHoverPlantMarker;
+    [SerializeField] private UnityEvent onHoverQuestMarker;
 
 
     private HerbariumPage currentPage;
@@ -102,6 +106,22 @@ public class HerbariumGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Invokes on quest link click event
+    /// </summary>
+    public void InvokeOnClickQuestLink()
+    {
+        onClickQuestLink.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes on plant link click event
+    /// </summary>
+    public void InvokeOnClickPlantLink()
+    {
+        onClickPlantLink.Invoke();
+    }
+
+    /// <summary>
     /// Invokes the on right event
     /// </summary>
     public void InvokeOnRightEvent()
@@ -123,6 +143,22 @@ public class HerbariumGUI : MonoBehaviour
     public void InvokeOnHoverChangePage()
     {
         onHoverChangePage.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the on hover plant marker event
+    /// </summary>
+    public void InvokeOnHoverPlantMarker()
+    {
+        onHoverPlantMarker.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the on hover quest marker event
+    /// </summary>
+    public void InvokeOnHoverQuestMarker()
+    {
+        onHoverQuestMarker.Invoke();
     }
 
     /// <summary>
