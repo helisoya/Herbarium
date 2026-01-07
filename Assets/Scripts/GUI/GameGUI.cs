@@ -11,10 +11,15 @@ public class GameGUI : MonoBehaviour
 {
     [Header("Pause")]
     //[SerializeField] private PauseMenu pauseMenu;
+    //public bool isPauseOpen { get { return pauseMenu.isOpen; } }
 
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
-    public bool radialMenuOpen {get{return radialMenu.inRadialMenu;}}
+    public RadialMenuID currentRadialMenu {get{return radialMenu.currentRadialMenu;}}
+
+    [Header("Herbarium")]
+    [SerializeField] private HerbariumGUI herbariumGUI;
+    public bool inHerbarium { get { return herbariumGUI.isOpen; } }
 
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
@@ -22,6 +27,7 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private LocalizedText dialogText;
     private Coroutine routineDialog;
     private bool skipDialog = false;
+    public bool showingDialog { get { return routineDialog != null; } }
 
 
     [Header("Fading")]
@@ -36,9 +42,6 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private ChoiceButton choiceButtonPrefab;
     public int selectedChoiceIndex { get; private set; }*/
 
-
-    public bool showingDialog { get { return routineDialog != null; } }
-    //public bool isPauseOpen { get { return pauseMenu.isOpen; } }
     public static GameGUI instance;
 
 
@@ -145,6 +148,22 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+	/// Opens the default inventory radial menu
+	/// </summary>
+    public void OpenInventory()
+    {
+        radialMenu.OpenInventory();
+    }
+
+    /// <summary>
+	/// Opens the default backpack radial menu
+	/// </summary>
+    public void OpenBackpack()
+    {
+        radialMenu.OpenBackpack();
+    }
+
+    /// <summary>
     /// Closes the radial menu
     /// </summary>
     public void CloseRadialMenu()
@@ -153,12 +172,46 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+	/// Opens the herbarium
+	/// </summary>
+    public void OpenHerbarium()
+    {
+        herbariumGUI.Open();
+    }
+
+    /// <summary>
+	/// Closes the Herbarium
+	/// </summary>
+    public void CloseHerbarium()
+    {
+        herbariumGUI.Close();
+    }
+
+    /// <summary>
+    /// Go left in the Herbarium
+    /// </summary>
+    public void HerbariumGoLeft()
+    {
+        if(inHerbarium) herbariumGUI.GoLeft();
+    }
+
+    /// <summary>
+    /// Go right in the Herbarium
+    /// </summary>
+    public void HerbariumGoRight()
+    {
+        if(inHerbarium) herbariumGUI.GoRight();
+    }
+
+
+    /// <summary>
     /// Updates the radial menu
     /// </summary>
     /// <param name="mousePosition">The new mouse position</param>
-    public void UpdateRadial(Vector2 mousePosition)
+    /// <param name="forceInteraction">True if the movement should also be counted as an interaction</param>
+    public void UpdateRadial(Vector2 mousePosition, bool forceInteraction = false)
     {
-        radialMenu.UpdateMousePosition(mousePosition);
+        radialMenu.UpdateMousePosition(mousePosition,forceInteraction);
     }
 
     /// <summary>
@@ -201,7 +254,7 @@ public class GameGUI : MonoBehaviour
         float speed = 5f;
         skipDialog = false;
 
-        
+
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         SetDialogOpen(true);
         dialogText.SetNewKey(dialogID);

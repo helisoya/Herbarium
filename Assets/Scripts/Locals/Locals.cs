@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -14,12 +15,20 @@ public class Locals
 
     private LocalsData staticData;
     private string currentLanguage;
-    private int currentFontIdxPrimary;
-    private int currentFontIdxSecondary;
-    private int currentSizeIdxPrimary;
-    private int currentSizeIdxSecondary;
-    private Color currentColorPrimary;
-    private Color currentColorSecondary;
+
+    public enum Channel
+    {
+        CHANNEL0,
+        CHANNEL1,
+        CHANNEL2,
+        CHANNEL3,
+        CHANNEL4,
+        CHANNEL5,
+        CHANNEL6,
+        CHANNEL7,
+        CHANNEL8,
+        CHANNEL9
+    }
 
     public static string current
     {
@@ -29,96 +38,12 @@ public class Locals
         }
     }
 
-    public static int fontIndexPrimary
-    {
-        get
-        {
-            return self.currentFontIdxPrimary;
-        }
-    }
-
-    public static int fontIndexSecondary
-    {
-        get
-        {
-            return self.currentFontIdxSecondary;
-        }
-    }
-
-    public static TMP_FontAsset fontPrimary
-    {
-        get
-        {
-            return self.staticData.fonts[self.currentFontIdxPrimary];
-        }
-    }
-
-    public static TMP_FontAsset fontSecondary
-    {
-        get
-        {
-            return self.staticData.fonts[self.currentFontIdxSecondary];
-        }
-    }
-
-    public static int textSizeIdxPrimary
-    {
-        get
-        {
-            return self.currentSizeIdxPrimary;
-        }
-    }
-
-    public static int textSizeIdxSecondary
-    {
-        get
-        {
-            return self.currentSizeIdxSecondary;
-        }
-    }
-
-    public static int textSizePrimary
-    {
-        get
-        {
-            return self.staticData.sizes[self.currentSizeIdxPrimary];
-        }
-    }
-
-    public static int textSizeSecondary
-    {
-        get
-        {
-            return self.staticData.sizes[self.currentSizeIdxSecondary];
-        }
-    }
-
-    public static Color colorPrimary
-    {
-        get
-        {
-            return self.currentColorPrimary;
-        }
-    }
-
-    public static Color colorSecondary
-    {
-        get
-        {
-            return self.currentColorSecondary;
-        }
-    }
-
 
     private Dictionary<string, string> locals;
 
     private UnityEvent onChangeLocal;
-    private UnityEvent<TMP_FontAsset> onChangeFontPrimary;
-    private UnityEvent<TMP_FontAsset> onChangeFontSecondary;
-    private UnityEvent<int> onChangeSizePrimary;
-    private UnityEvent<int> onChangeSizeSecondary;
-    private UnityEvent<Color> onChangeColorPrimary;
-    private UnityEvent<Color> onChangeColorSecondary;
+
+    private LocalChannel[] channels;
 
 
     /// <summary>
@@ -133,21 +58,25 @@ public class Locals
     {
         self = this;
         onChangeLocal = new UnityEvent();
-        onChangeFontPrimary = new UnityEvent<TMP_FontAsset>();
-        onChangeFontSecondary = new UnityEvent<TMP_FontAsset>();
-        onChangeSizePrimary = new UnityEvent<int>();
-        onChangeSizeSecondary = new UnityEvent<int>();
-        onChangeColorPrimary = new UnityEvent<Color>();
-        onChangeColorSecondary = new UnityEvent<Color>();
+
+        Array values = Enum.GetValues(typeof(Locals.Channel));
+        channels = new LocalChannel[values.Length];
+
+        for (int i = 0; i < values.Length; i++)
+        {
+            channels[i].data = new LocalChannelData()
+            {
+                fontIndex = 0,
+                sizeIndex = 0,
+                color = Color.black
+            };
+            channels[i].onChangeColor = new UnityEvent<Color>();
+            channels[i].onChangeFont = new UnityEvent<TMP_FontAsset>();
+            channels[i].onChangeSize = new UnityEvent<int>();
+        }
 
         staticData = Resources.Load<LocalsData>("Data/SO_LocalsData");
         locals = new Dictionary<string, string>();
-        currentFontIdxPrimary = 0;
-        currentFontIdxSecondary = 1;
-        currentSizeIdxPrimary = 0;
-        currentSizeIdxSecondary = 0;
-        currentColorPrimary = Color.blue;
-        currentColorSecondary = Color.red;
         if (staticData.languages.Length > 0) ChangeLanguage(staticData.languages[0]);
     }
 
@@ -155,53 +84,91 @@ public class Locals
     /// Registers a localized text
     /// </summary>
     /// <param name="text">The localized text</param>
-    /// <param name="isUsingPrimaryFont">True if using the primary font</param>
-    public static void RegisterText(LocalizedText text, bool isUsingPrimaryFont)
+    /// <param name="channel">The text's channel</param>
+    public static void RegisterText(LocalizedText text, Locals.Channel channel)
     {
         if (Locals.self == null) Init();
         self.onChangeLocal.AddListener(text.ReloadText);
-        if (isUsingPrimaryFont)
-        {
-            self.onChangeFontPrimary.AddListener(text.SetFont);
-            self.onChangeSizePrimary.AddListener(text.SetSize);
-            self.onChangeColorPrimary.AddListener(text.SetColor);
 
-            text.SetFont(fontPrimary);
-            text.SetSize(textSizePrimary);
-            text.SetColor(colorPrimary);
-        }
-        else
-        {
-            self.onChangeFontSecondary.AddListener(text.SetFont);
-            self.onChangeSizeSecondary.AddListener(text.SetSize);
-            self.onChangeColorSecondary.AddListener(text.SetColor);
-
-            text.SetFont(fontSecondary);
-            text.SetSize(textSizeSecondary);
-            text.SetColor(colorSecondary);
-        } 
+        LocalChannel linkedChannel = self.channels[(int)channel];
+        linkedChannel.onChangeSize.AddListener(text.SetSize);
+        linkedChannel.onChangeFont.AddListener(text.SetFont);
+        linkedChannel.onChangeColor.AddListener(text.SetColor);
+        text.SetColor(linkedChannel.data.color);
+        text.SetFont(self.staticData.fonts[linkedChannel.data.fontIndex]);
+        text.SetSize(self.staticData.sizes[linkedChannel.data.sizeIndex]);
     }
 
     /// <summary>
     /// Unregisters a localized text
     /// </summary>
     /// <param name="text">The localized text</param>
-    public static void UnregisterText(LocalizedText text)
+    /// <param name="channel">The text's channel</param>
+    public static void UnregisterText(LocalizedText text, Locals.Channel channel)
     {
         if (Locals.self == null) Init();
 
         self.onChangeLocal.RemoveListener(text.ReloadText);
-        if (text.isUsingPrimaryFont)
-        {
-            self.onChangeSizePrimary.RemoveListener(text.SetSize);
-            self.onChangeFontPrimary.RemoveListener(text.SetFont);
-            self.onChangeColorPrimary.RemoveListener(text.SetColor);
-        } 
-        else{
-            self.onChangeSizeSecondary.RemoveListener(text.SetSize);
-            self.onChangeFontSecondary.RemoveListener(text.SetFont);
-            self.onChangeColorSecondary.RemoveListener(text.SetColor);
-        }
+
+        LocalChannel linkedChannel = self.channels[(int)channel];
+        linkedChannel.onChangeSize.RemoveListener(text.SetSize);
+        linkedChannel.onChangeFont.RemoveListener(text.SetFont);
+        linkedChannel.onChangeColor.RemoveListener(text.SetColor);
+    }
+
+    /// <summary>
+	/// Gets the font size for a channel
+	/// </summary>
+	/// <param name="channel">The channel</param>
+	/// <returns>Its font size</returns>
+    public static int GetFontSize(Locals.Channel channel)
+    {
+        if (Locals.self == null) Init();
+        return self.staticData.sizes[self.channels[(int)channel].data.sizeIndex];
+    }
+
+    /// <summary>
+	/// Gets the font size index for a channel
+	/// </summary>
+	/// <param name="channel">The channel</param>
+	/// <returns>Its font size index</returns>
+    public static int GetFontSizeIndex(Locals.Channel channel)
+    {
+        if (Locals.self == null) Init();
+        return self.channels[(int)channel].data.sizeIndex;
+    }
+
+    /// <summary>
+	/// Gets the font for a channel
+	/// </summary>
+	/// <param name="channel">The channel</param>
+	/// <returns>Its font</returns>
+    public static TMP_FontAsset GetFont(Locals.Channel channel)
+    {
+        if (Locals.self == null) Init();
+        return self.staticData.fonts[self.channels[(int)channel].data.fontIndex];
+    }
+
+    /// <summary>
+	/// Gets the font index for a channel
+	/// </summary>
+	/// <param name="channel">The channel</param>
+	/// <returns>Its font index</returns>
+    public static int GetFontIndex(Locals.Channel channel)
+    {
+        if (Locals.self == null) Init();
+        return self.channels[(int)channel].data.fontIndex;
+    }
+
+    /// <summary>
+	/// Gets the font color for a channel
+	/// </summary>
+	/// <param name="channel">The channel</param>
+	/// <returns>Its font color</returns>
+    public static Color GeColor(Locals.Channel channel)
+    {
+        if (Locals.self == null) Init();
+        return self.channels[(int)channel].data.color;
     }
 
     /// <summary>
@@ -220,75 +187,45 @@ public class Locals
     }
 
     /// <summary>
-    /// Changes the current primary font
+    /// Changes the current font for a channel
     /// </summary>
+    /// <param name="channel">The channel</param>
     /// <param name="fontIndex">The new font</param>
-    public static void ChangeFontPrimary(int fontIndex)
+    public static void ChangeFont(Locals.Channel channel, int fontIndex)
     {
         if (Locals.self == null) Init();
 
-        self.currentFontIdxPrimary = fontIndex;
-        self.onChangeFontPrimary.Invoke(self.staticData.fonts[fontIndex]);
+        LocalChannel channelToChange = self.channels[(int)channel];
+        channelToChange.data.fontIndex = fontIndex;
+        channelToChange.onChangeFont.Invoke(self.staticData.fonts[fontIndex]);
     }
 
     /// <summary>
-    /// Changes the current secondary font
+    /// Changes the current font size for a channel
     /// </summary>
-    /// <param name="fontIndex">The new font</param>
-    public static void ChangeFontSecondary(int fontIndex)
+    /// <param name="channel">The channel</param>
+    /// <param name="sizeIndex">The new size index</param>
+    public static void ChangeSize(Locals.Channel channel, int sizeIndex)
     {
         if (Locals.self == null) Init();
 
-        self.currentFontIdxSecondary = fontIndex;
-        self.onChangeFontSecondary.Invoke(self.staticData.fonts[fontIndex]);
+        LocalChannel channelToChange = self.channels[(int)channel];
+        channelToChange.data.sizeIndex = sizeIndex;
+        channelToChange.onChangeSize.Invoke(self.staticData.sizes[sizeIndex]);
     }
 
     /// <summary>
-    /// Changes the current primary size
+    /// Changes the current font color for a channel
     /// </summary>
-    /// <param name="sizeIndex">The new size's index</param>
-    public static void ChangeSizePrimary(int sizeIndex)
+    /// <param name="channel">The channel</param>
+    /// <param name="color">The new font color</param>
+    public static void ChangeColor(Locals.Channel channel, Color color)
     {
         if (Locals.self == null) Init();
 
-        self.currentSizeIdxPrimary = sizeIndex;
-        self.onChangeSizePrimary.Invoke(self.staticData.sizes[sizeIndex]);
-    }
-
-    /// <summary>
-    /// Changes the current secondary size
-    /// </summary>
-    /// <param name="sizeIndex">The new size's index</param>
-    public static void ChangeSizeSecondary(int sizeIndex)
-    {
-        if (Locals.self == null) Init();
-
-        self.currentSizeIdxSecondary = sizeIndex;
-        self.onChangeSizeSecondary.Invoke(self.staticData.sizes[sizeIndex]);
-    }
-
-    /// <summary>
-    /// Changes the current primary color
-    /// </summary>
-    /// <param name="color">The new color</param>
-    public static void ChangeColorPrimary(Color color)
-    {
-        if (Locals.self == null) Init();
-
-        self.currentColorPrimary = color;
-        self.onChangeColorPrimary.Invoke(color);
-    }
-
-    /// <summary>
-    /// Changes the current secondary color
-    /// </summary>
-    /// <param name="color">The new color</param>
-    public static void ChangeColorSecondary(Color color)
-    {
-        if (Locals.self == null) Init();
-
-        self.currentColorSecondary = color;
-        self.onChangeColorSecondary.Invoke(color);
+        LocalChannel channelToChange = self.channels[(int)channel];
+        channelToChange.data.color = color;
+        channelToChange.onChangeColor.Invoke(color);
     }
 
     /// <summary>

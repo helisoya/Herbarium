@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4952751422044168475}
   - component: {fileID: 3667257177803278283}
+  - component: {fileID: 5939968071471153341}
+  - component: {fileID: 1692928887586753417}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,3 +46,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c8511900fb42845a93e8e99ba0865e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  playerDataHandler: {fileID: 5939968071471153341}
+  plantDatabase: {fileID: 1692928887586753417}
+--- !u!114 &5939968071471153341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683757519770943646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69ebc35f198051408a8bb29fc853434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDataHandler
+  inventorySize: 3
+  dialogLogMaxSize: 15
+  variables: {fileID: 11400000, guid: e4a1def5af05ef04b9481d77be9b46aa, type: 2}
+  quests: {fileID: 11400000, guid: 89a7afd654ce240449f815f26a4faa19, type: 2}
+--- !u!114 &1692928887586753417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683757519770943646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6271d34ab6cff43ba359844bec9c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlantDatabase

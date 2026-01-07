@@ -16,22 +16,50 @@ public class Player : MonoBehaviour
     {
         instance = this;
     }
+    
 
     void OnMove(InputValue value)
     {
-        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) ||
-            GameGUI.instance.radialMenuOpen) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
 
-        controller.SetMoveVector(value.Get<Vector2>());
+        Vector2 vec = value.Get<Vector2>();
+
+        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
+        {
+            if(Mathf.Abs(vec.x) >= 0.95f ||Mathf.Abs(vec.y) >= 0.95f)
+            {
+                GameGUI.instance.UpdateRadial(new Vector2(
+                    Screen.width / 2f + vec.x * 100f,
+                    Screen.height / 2f + vec.y * 100f
+                ),true);
+            }
+            return;
+        }
+
+        if (GameGUI.instance.inHerbarium)
+        {
+            if(vec.x >= 0.95f)
+            {
+                GameGUI.instance.HerbariumGoRight();
+            }
+            else if(vec.x <= -0.95f)
+            {
+                GameGUI.instance.HerbariumGoLeft();
+            }
+            return;
+        }
+
+        controller.SetMoveVector(vec);
     }
 
     void OnMousePosition(InputValue value)
     {
-        if((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
+        || GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
         Vector2 mousePos = value.Get<Vector2>();
 
-        if (GameGUI.instance.radialMenuOpen)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
         {
             GameGUI.instance.UpdateRadial(mousePos);
             return;
@@ -43,23 +71,92 @@ public class Player : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        if(CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene){
+        if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
+        {
             CutsceneManager.instance.UserSubmit();
             return;
         }
 
-        if (GameGUI.instance.radialMenuOpen)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
         {
-            if(value.isPressed) GameGUI.instance.ActivateCurrentRadialMenuEntry();
+            if (value.isPressed) GameGUI.instance.ActivateCurrentRadialMenuEntry();
             return;
-        } 
+        }
+
+        if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
         bool shouldHold = Settings.instance.IsHoldModeEnabled();
 
-        if(shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
-        else if(value.isPressed) controller.ToggleTryToMoveUsingCursor();
+        if (shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
+        else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
 
-        if(value.isPressed) interaction.TryInterract();
+        if (value.isPressed) interaction.TryInterract();
+    }
+
+    void OnBackpack(InputValue value)
+    {
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK)
+        {
+            if (value.isPressed)
+            {
+                StopPlayerMovements();
+                if(GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
+                GameGUI.instance.OpenBackpack();
+            }
+            return;
+        }
+    }
+
+    void OnInventory(InputValue value)
+    {
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY)
+        {
+            if (value.isPressed)
+            {
+                StopPlayerMovements();
+                if(GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
+                GameGUI.instance.OpenInventory();
+            }
+            return;
+        }
+    }
+
+    void OnHerbarium(InputValue value)
+    {
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+
+        if (!GameGUI.instance.inHerbarium)
+        {
+            if (value.isPressed)
+            {
+                StopPlayerMovements();
+                if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED) GameGUI.instance.CloseRadialMenu();
+                GameGUI.instance.OpenHerbarium();
+            }
+            return;
+        }
+    }
+
+
+    void OnPause(InputValue value)
+    {
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+
+        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
+        {
+            GameGUI.instance.CloseRadialMenu();
+            return;
+        }
+
+        if (GameGUI.instance.inHerbarium)
+        {
+            GameGUI.instance.CloseHerbarium();
+            return;
+        }
     }
 
     /// <summary>

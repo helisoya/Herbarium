@@ -7,8 +7,8 @@ using UnityEngine;
 public class AlignSprites : MonoBehaviour
 {
     public Sprite[] sprites;
-    [Range(0f, 5f)]
-    public float slider;
+    [Range(0f, 5f)] public float displacement = 0.1f;
+    [Range(0f, 360f)] public float rotation = 45f;
 
     void Awake()
     {
