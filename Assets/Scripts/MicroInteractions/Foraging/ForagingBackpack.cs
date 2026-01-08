@@ -11,7 +11,7 @@ public class ForagingBackpack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.attachedRigidbody.TryGetComponent<ForagingPickablePart>(out ForagingPickablePart pickable) && pickable.GetParent().GetPickableType() == ForagingPickable.PickableType.PLANT)
+        if(collision.attachedRigidbody.TryGetComponent<MicroInteractionPickablePart>(out MicroInteractionPickablePart pickable) && pickable.GetParent().GetPickableType() == MicroInteractionPickable.PickableType.PLANT)
         {
             pickable.GetParent().DisablePickup();
             activeNextFrame = true;

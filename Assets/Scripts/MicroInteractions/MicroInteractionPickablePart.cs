@@ -1,21 +1,33 @@
 using UnityEngine;
 
+/// <summary>
+/// Represents a part of a pickable object
+/// A part is the actual thing that moves / rotates
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-public class ForagingPickablePart : MonoBehaviour
+public class MicroInteractionPickablePart : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] private ForagingPickable parent;
+    [SerializeField] private MicroInteractionPickable parent;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public ForagingPickable GetParent()
+    /// <summary>
+    /// Gets the part's parent
+    /// </summary>
+    /// <returns>Its parent</returns>
+    public MicroInteractionPickable GetParent()
     {
         return parent;
     }
 
+    /// <summary>
+    /// Pickup the part
+    /// </summary>
+    /// <param name="canRotate">True if the part can rotate</param>
     public void Pickup(bool canRotate)
     {
         //SetRigidbodyGravityScale(0f);
@@ -25,6 +37,9 @@ public class ForagingPickablePart : MonoBehaviour
         rb.freezeRotation = !canRotate;
     }
 
+    /// <summary>
+    /// Drop the part
+    /// </summary>
     public void Drop()
     {
         //SetRigidbodyGravityScale(1f);
@@ -34,6 +49,11 @@ public class ForagingPickablePart : MonoBehaviour
         rb.freezeRotation = false;
     }
 
+    /// <summary>
+    /// Moves the part towards a position
+    /// </summary>
+    /// <param name="position">The position</param>
+    /// <param name="speed">The movement speed</param>
     public void MoveTowards(Vector2 position, float speed)
     {
         rb.linearVelocity = (position - rb.position) * speed;
@@ -46,15 +66,25 @@ public class ForagingPickablePart : MonoBehaviour
         //moveRb.position = Vector2.MoveTowards(moveRb.position, position, speed * Time.deltaTime);
     }
 
-
+    /// <summary>
+    /// Rotates the part
+    /// </summary>
+    /// <param name="rotation">The rotation</param>
+    /// <param name="speed">The rotation speed</param>
     public void RotateTowards(Quaternion rotation, float speed)
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
     }
     
+    /// <summary>
+    /// Rotates the part
+    /// </summary>
+    /// <param name="direction">The up vector</param>
+    /// <param name="speed">The rotation speed</param>
     public void RotateTowards(Vector3 direction, float speed)
     {
-        rb.transform.up = direction.normalized;
+        //rb.transform.up = Vector3.MoveTowards(rb.transform.up,direction.normalized,speed*Time.deltaTime);
+        rb.transform.up = direction;
     }
 
 }

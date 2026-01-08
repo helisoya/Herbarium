@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -25,10 +26,16 @@ public abstract class MicroInteraction : MonoBehaviour
     [SerializeField] protected float itemSpeed = 5f;
     [SerializeField] protected float rotateSpeed = 15f;
     [SerializeField] protected Camera microInteractionCamera;
-    protected ForagingPickable currentObject;
+    protected MicroInteractionPickable currentObject;
     protected Vector2 mousePosition;
     protected string currentPlantId;
     public bool inMicroInteraction {get; private set;}
+
+    [Header("General Audio")]
+    [SerializeField] private UnityEvent onStartMicroInteraction;
+    [SerializeField] private UnityEvent<EndingType> onEndMicroInteraction;
+    [SerializeField] private UnityEvent<MicroInteractionPickable.PickableType> onPickUpObject;
+    [SerializeField] private UnityEvent<MicroInteractionPickable.PickableType> onDropObject;
     
 
     /// <summary>
@@ -61,6 +68,7 @@ public abstract class MicroInteraction : MonoBehaviour
     {
         currentPlantId = plantId;
         inMicroInteraction = true;
+        onStartMicroInteraction.Invoke();
         OnStart(plantId);
     }
 
@@ -71,6 +79,7 @@ public abstract class MicroInteraction : MonoBehaviour
     public void EndInteraction(EndingType type)
     {
         inMicroInteraction = false;
+        onEndMicroInteraction.Invoke(type);
         OnEnd(type);
         Player.instance.StopMicroInteraction(type);
     }
@@ -101,6 +110,7 @@ public abstract class MicroInteraction : MonoBehaviour
                 {
                     if (currentObject)
                     {
+                        onDropObject.Invoke(currentObject.GetPickableType());
                         currentObject.Drop();
                         currentObject = null;
                     }
@@ -111,11 +121,12 @@ public abstract class MicroInteraction : MonoBehaviour
                     Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePosInWorld, 0.1f);
                     foreach(Collider2D collider in colliders)
                     {
-                        if(collider.attachedRigidbody && collider.attachedRigidbody.tag == "Player" && collider.attachedRigidbody.TryGetComponent<ForagingPickablePart>(out ForagingPickablePart obj))
+                        if(collider.attachedRigidbody && collider.attachedRigidbody.tag == "Player" && collider.attachedRigidbody.TryGetComponent<MicroInteractionPickablePart>(out MicroInteractionPickablePart obj))
                         {
-                            ForagingPickable parent = obj.GetParent();
+                            MicroInteractionPickable parent = obj.GetParent();
                             if (parent.CanBePickedUp())
                             {
+                                onPickUpObject.Invoke(parent.GetPickableType());
                                 parent.Pickup(obj);
                                 currentObject = parent;
                                 break;
@@ -133,10 +144,11 @@ public abstract class MicroInteraction : MonoBehaviour
 
         if (currentObject)
         {
+            MicroInteractionPickablePart part = currentObject.GetCurrentMovingPart();
             Vector2 mousePosInWorld = microInteractionCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, microInteractionCamera.nearClipPlane));
 
-            float distance = Vector2.Distance(currentObject.transform.position, mousePosInWorld);
-            Vector2 direction = mousePosInWorld - new Vector2(currentObject.transform.position.x, currentObject.transform.position.y);
+            float distance = Vector2.Distance(part.transform.position, mousePosInWorld);
+            Vector2 direction = mousePosInWorld - new Vector2(part.transform.position.x, part.transform.position.y);
 
             if (distance >= 0.1f && currentObject.CanRotate())
             {

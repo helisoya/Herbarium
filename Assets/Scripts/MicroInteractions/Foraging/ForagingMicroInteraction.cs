@@ -1,13 +1,14 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Handles the foraging micro interaction
 /// </summary>
 public class ForagingMicroInteraction : MicroInteraction
 {
-
+    [Header("Foraging")]
     [SerializeField] private float cutForwardLength = 1f;
     [SerializeField] private LayerMask mask;
 
@@ -22,6 +23,14 @@ public class ForagingMicroInteraction : MicroInteraction
     [Header("Backpack")]
     [SerializeField] private GameObject backpackTopCollider;
     private bool plantInBackpack;
+
+    [Header("Foraging Audio")]
+    [SerializeField] private UnityEvent onCut;
+    [SerializeField] private UnityEvent onCutGood;
+    [SerializeField] private UnityEvent onCutBad;
+    [SerializeField] private UnityEvent onPlantInBag;
+
+
 
     [Header("Debug")]
     [SerializeField] private bool debugAutoPlay;
@@ -54,12 +63,12 @@ public class ForagingMicroInteraction : MicroInteraction
     }
 
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         if (currentObject)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(currentObject.transform.position, currentObject.transform.position + currentObject.transform.up * cutForwardLength);
+            Gizmos.DrawLine(currentObject.GetCurrentMovingPart().transform.position, currentObject.GetCurrentMovingPart().transform.position + currentObject.GetCurrentMovingPart().transform.up * cutForwardLength);
         }
     }
 
@@ -70,14 +79,17 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnToolUse()
     {
-            if(currentObject.GetPickableType() == ForagingPickable.PickableType.CUTTER)
+            if(currentObject.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER)
             {
+                onCut.Invoke();
                 bool cutFound = false;
-                RaycastHit2D[] hits = Physics2D.RaycastAll(currentObject.transform.position, currentObject.transform.up, cutForwardLength, mask);
+                MicroInteractionPickablePart part = currentObject.GetCurrentMovingPart();
+                RaycastHit2D[] hits = Physics2D.RaycastAll(part.transform.position, part.transform.up, cutForwardLength, mask);
                 foreach (RaycastHit2D hit in hits)
                 {
                     if (hit.rigidbody.gameObject.TryGetComponent<ForagingCutPoint>(out ForagingCutPoint cutPoint))
                     {
+                        onCutGood.Invoke();
                         cutPoint.Cut();
                         cutFound = true;
                         break;
@@ -87,6 +99,7 @@ public class ForagingMicroInteraction : MicroInteraction
                 if (!cutFound && hits.Length > 0)
                 {
                     // Unless you can interact with a non plant rigidbody (the dropped flower for instance), everything will be fine ?
+                    onCutBad.Invoke();
                     plantHP--;
                     plantHealthText.text = plantHP.ToString();
                     if(plantHP <= 0)
@@ -105,6 +118,7 @@ public class ForagingMicroInteraction : MicroInteraction
     /// </summary>
     public void RaiseFlagPlantInBackpack()
     {
+        onPlantInBag.Invoke();
         backpackTopCollider.SetActive(true);
         plantInBackpack = true;
         CloseMicroInteraction();
