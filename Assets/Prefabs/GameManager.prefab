@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3667257177803278283}
   - component: {fileID: 5939968071471153341}
   - component: {fileID: 1692928887586753417}
+  - component: {fileID: 2167863542178012100}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -77,6 +78,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6271d34ab6cff43ba359844bec9c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlantDatabase
+--- !u!114 &2167863542178012100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683757519770943646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef16e387f2cf3243ab38be3926fa693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputIcons
+  icons:
+    _serializedList:
+    - Key: leftButton
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: rightButton
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: a
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: z
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: e
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: r
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: t
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: y
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: u
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: i
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: o
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: p
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: q
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: s
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: d
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: f
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: g
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: h
+      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+    - Key: j
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: k
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: l
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: m
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: w
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: x
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: c
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: v
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: b
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+    - Key: n
+      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+  defaultIcon: {fileID: -759406481, guid: 69a667c7448ad944a94365a382d4ebf0, type: 3}
 --- !u!1001 &1577726213014465316
 PrefabInstance:
   m_ObjectHideFlags: 0

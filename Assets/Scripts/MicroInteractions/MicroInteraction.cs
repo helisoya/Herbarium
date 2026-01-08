@@ -26,6 +26,11 @@ public abstract class MicroInteraction : MonoBehaviour
     [SerializeField] protected float itemSpeed = 5f;
     [SerializeField] protected float rotateSpeed = 15f;
     [SerializeField] protected Camera microInteractionCamera;
+
+    [Header("Tutorial")]
+    [SerializeField] protected GameObject grabTutorial;
+    [SerializeField] protected GameObject cutTutorial;
+
     protected MicroInteractionPickable currentObject;
     protected Vector2 mousePosition;
     protected string currentPlantId;
@@ -69,6 +74,10 @@ public abstract class MicroInteraction : MonoBehaviour
         currentPlantId = plantId;
         inMicroInteraction = true;
         onStartMicroInteraction.Invoke();
+
+        grabTutorial.SetActive(true);
+        cutTutorial.SetActive(false);
+
         OnStart(plantId);
     }
 
@@ -110,6 +119,7 @@ public abstract class MicroInteraction : MonoBehaviour
                 {
                     if (currentObject)
                     {
+                        cutTutorial.SetActive(false);
                         onDropObject.Invoke(currentObject.GetPickableType());
                         currentObject.Drop();
                         currentObject = null;
@@ -126,6 +136,7 @@ public abstract class MicroInteraction : MonoBehaviour
                             MicroInteractionPickable parent = obj.GetParent();
                             if (parent.CanBePickedUp())
                             {
+                                cutTutorial.SetActive(parent.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER);
                                 onPickUpObject.Invoke(parent.GetPickableType());
                                 parent.Pickup(obj);
                                 currentObject = parent;
@@ -156,8 +167,6 @@ public abstract class MicroInteraction : MonoBehaviour
             }
 
             currentObject.MoveTowards(mousePosInWorld, itemSpeed);
-
-            return;
         }
 
         OnUpdate();
