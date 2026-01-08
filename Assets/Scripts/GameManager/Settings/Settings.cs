@@ -758,6 +758,7 @@ public class Settings
 
         for (int i = 0; i < data.textChannelsDatas.Length; i++)
         {
+            
             Locals.Channel channel = (Locals.Channel)i;
             Locals.ChangeFont(channel, data.textChannelsDatas[i].fontIndex);
             Locals.ChangeSize(channel, data.textChannelsDatas[i].sizeIndex);

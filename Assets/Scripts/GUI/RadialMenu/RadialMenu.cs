@@ -12,7 +12,7 @@ public class RadialMenu : MonoBehaviour
     [Header("Radial Menu")]
     [SerializeField] private Transform radialParent;
     [SerializeField] private RadialMenuEntry entryPrefab;
-    [SerializeField] private Sprite[] backSprites;
+    [SerializeField] private Sprite backSprite;
     public RadialMenuID currentRadialMenu {get; private set;}
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
@@ -212,7 +212,8 @@ public class RadialMenu : MonoBehaviour
         testData.entries[0] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Close",
-            sprite = backSprites[0],
+            sprite = backSprite,
+            rotation = 0,
             callback = CloseBackpack,
             interactable = true,
             inputKey = "Escape",
@@ -221,7 +222,8 @@ public class RadialMenu : MonoBehaviour
         testData.entries[2] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Herbarium",
-            sprite = backSprites[2],
+            sprite = backSprite,
+            rotation = 180,
             callback = OpenHerbarium,
             interactable = true,
             inputKey = "H",
@@ -231,7 +233,8 @@ public class RadialMenu : MonoBehaviour
         testData.entries[1] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Map",
-            sprite = backSprites[1],
+            rotation = 270,
+            sprite = backSprite,
             callback = CloseBackpack,
             interactable = false,
             inputKey = "M",
@@ -240,7 +243,8 @@ public class RadialMenu : MonoBehaviour
         testData.entries[3] = new RadialMenuEntryData()
         {
             key = "RadialMenu_Inventory",
-            sprite = backSprites[3],
+            sprite = backSprite,
+            rotation = 90,
             callback = () =>{ OpenInventory();},
             injectors = new object[] {
                 dataHandler.GetInventorySize() - dataHandler.GetRemainingInventorySpace(),
@@ -268,7 +272,8 @@ public class RadialMenu : MonoBehaviour
         testData.entries[0] = new RadialMenuEntryData()
         {
             key = "Close",
-            sprite = backSprites[0],
+            sprite = backSprite,
+            rotation = 0,
             callback = CloseInventory,
             interactable = true,
             inputKey = "Escape",
@@ -284,7 +289,8 @@ public class RadialMenu : MonoBehaviour
             testData.entries[1 + i] = new RadialMenuEntryData()
             {
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
-                sprite = backSprites[i+1],
+                sprite = backSprite,
+                rotation = -90*(i+1),
                 callback = null,
                 interactable = false,
                 inputKey = null

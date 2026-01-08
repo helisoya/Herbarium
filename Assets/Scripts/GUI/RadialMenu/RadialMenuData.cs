@@ -18,6 +18,7 @@ public struct RadialMenuData
 public struct RadialMenuEntryData
 {
     public Sprite sprite;
+    public float rotation;
     public string key;
     public bool interactable;
     public object[] injectors;

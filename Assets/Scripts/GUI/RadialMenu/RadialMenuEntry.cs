@@ -41,6 +41,7 @@ public class RadialMenuEntry : MonoBehaviour
     public void Init(RadialMenuEntryData data)
     {
         image.sprite = data.sprite;
+        image.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0,0,data.rotation);
         label.SetInjectors(data.injectors, false);
         label.SetNewKey(data.key);
         canBeInteractedWith = data.interactable;
