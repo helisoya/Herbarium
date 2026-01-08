@@ -49,29 +49,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4
       objectReference: {fileID: 0}
-    - target: {fileID: 617410723167729639, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
-      propertyPath: FollowOffset.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 617410723167729639, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
-      propertyPath: FollowOffset.z
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 1343234451564113889, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,15 +101,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controller
       objectReference: {fileID: 0}
-    - target: {fileID: 5095070203901680269, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
-      propertyPath: playerSpeed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
+--- !u!1 &4245416554285219243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7732181059679956263, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
+  m_PrefabInstance: {fileID: 5882974794764357772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5467636285776572299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
@@ -187,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5776578234280235538, guid: f401dd267a1020d48bab4ec992344955, type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 4245416554285219243}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
