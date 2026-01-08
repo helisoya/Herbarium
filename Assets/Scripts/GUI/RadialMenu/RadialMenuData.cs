@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Represents the data of a radial menu
@@ -24,7 +25,8 @@ public struct RadialMenuEntryData
     public object[] injectors;
     public Action callback;
     public Vector3 inputPosition;
-    public string inputKey;
+    public InputActionReference inputAction;
+    public int inputIndex;
 }
 
 /// <summary>

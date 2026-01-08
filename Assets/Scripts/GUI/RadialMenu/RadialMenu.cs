@@ -18,6 +18,13 @@ public class RadialMenu : MonoBehaviour
     private RadialMenuData currentData;
     private int currentEntryIdx;
 
+    [Header("Inputs")]
+    [SerializeField] private InputData closeInput;
+    [SerializeField] private InputData mapInput;
+    [SerializeField] private InputData inventoryInput;
+    [SerializeField] private InputData herbariumInput;
+
+
     [Header("Audio Event")]
     [SerializeField] private UnityEvent onOpenBackpack;
     [SerializeField] private UnityEvent onCloseBackpack;
@@ -36,6 +43,12 @@ public class RadialMenu : MonoBehaviour
       new Vector3(68,0,0)
     };
 
+    [System.Serializable]
+    public struct InputData
+    {
+        public InputActionReference action;
+        public int index;
+    }
 
     void Awake()
     {
@@ -216,7 +229,8 @@ public class RadialMenu : MonoBehaviour
             rotation = 0,
             callback = CloseBackpack,
             interactable = true,
-            inputKey = "Escape",
+            inputAction = closeInput.action,
+            inputIndex = closeInput.index,
             inputPosition = inputPositions[0]
         };
         testData.entries[2] = new RadialMenuEntryData()
@@ -226,7 +240,8 @@ public class RadialMenu : MonoBehaviour
             rotation = 180,
             callback = OpenHerbarium,
             interactable = true,
-            inputKey = "H",
+            inputAction = herbariumInput.action,
+            inputIndex = herbariumInput.index,
             inputPosition = inputPositions[2]
         };
 
@@ -237,7 +252,8 @@ public class RadialMenu : MonoBehaviour
             sprite = backSprite,
             callback = CloseBackpack,
             interactable = false,
-            inputKey = "M",
+            inputAction = mapInput.action,
+            inputIndex = mapInput.index,
             inputPosition = inputPositions[1]
         };
         testData.entries[3] = new RadialMenuEntryData()
@@ -250,7 +266,8 @@ public class RadialMenu : MonoBehaviour
                 dataHandler.GetInventorySize() - dataHandler.GetRemainingInventorySpace(),
                 dataHandler.GetInventorySize() },
             interactable = true,
-            inputKey = "I",
+            inputAction = inventoryInput.action,
+            inputIndex = inventoryInput.index,
             inputPosition = inputPositions[3]
         };
 
@@ -276,7 +293,8 @@ public class RadialMenu : MonoBehaviour
             rotation = 0,
             callback = CloseInventory,
             interactable = true,
-            inputKey = "Escape",
+            inputAction = closeInput.action,
+            inputIndex = closeInput.index,
             inputPosition = inputPositions[0]
         };
 
@@ -293,7 +311,8 @@ public class RadialMenu : MonoBehaviour
                 rotation = -90*(i+1),
                 callback = null,
                 interactable = false,
-                inputKey = null
+                inputAction = null,
+                inputIndex = 0
             };
         }
 

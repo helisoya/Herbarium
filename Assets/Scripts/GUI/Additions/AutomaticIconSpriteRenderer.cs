@@ -18,6 +18,18 @@ public class AutomaticIconSpriteRenderer : MonoBehaviour
     }
 
     /// <summary>
+    /// Changes the linked action
+    /// </summary>
+    /// <param name="action">The new action</param>
+    /// <param name="index">The new index</param>
+    public void ChangeAction(InputActionReference action, int index)
+    {
+        this.action = action;
+        this.indexKeyboard = index;
+        OnDeviceChange("Keyboard&Mouse");
+    }
+
+    /// <summary>
     /// Callback for changing the current device
     /// </summary>
     /// <param name="newDevice">The new device</param>

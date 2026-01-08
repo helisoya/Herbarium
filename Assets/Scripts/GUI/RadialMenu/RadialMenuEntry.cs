@@ -15,7 +15,7 @@ public class RadialMenuEntry : MonoBehaviour
     [SerializeField] private RectTransform labelRectTransform;
     [SerializeField] private bool canBeInteractedWith;
     [SerializeField] private RectTransform inputRectTransform;
-    [SerializeField] private LocalizedText inputText;
+    [SerializeField] private AutomaticIcon inputIcon;
 
     private RectTransform rectTransform;
     private Action onClick;
@@ -47,11 +47,11 @@ public class RadialMenuEntry : MonoBehaviour
         canBeInteractedWith = data.interactable;
         onClick = data.callback;
 
-        if(data.inputKey != null)
+        if(data.inputAction != null)
         {
             inputRectTransform.gameObject.SetActive(true);
             inputRectTransform.anchoredPosition = data.inputPosition;
-            inputText.SetNewKey(data.inputKey);
+            inputIcon.ChangeAction(data.inputAction,data.inputIndex);
         }
         else
         {
