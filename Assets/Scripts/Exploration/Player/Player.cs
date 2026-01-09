@@ -69,8 +69,7 @@ public class Player : MonoBehaviour
             return;
         } 
 
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
-        || GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
+        if(GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
         Vector2 mousePos = value.Get<Vector2>();
 
@@ -79,6 +78,8 @@ public class Player : MonoBehaviour
             GameGUI.instance.UpdateRadial(mousePos);
             return;
         }
+
+        if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) return;
 
         interaction.SetMousePosition(mousePos);
         controller.SetMousePosition(mousePos);
@@ -90,17 +91,17 @@ public class Player : MonoBehaviour
         { 
             if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseLeftClick,value);
             return;
-        } 
-
-        if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
-        {
-            CutsceneManager.instance.UserSubmit();
-            return;
         }
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
         {
             if (value.isPressed) GameGUI.instance.ActivateCurrentRadialMenuEntry();
+            return;
+        }
+
+        if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
+        {
+            CutsceneManager.instance.UserSubmit();
             return;
         }
 
@@ -171,7 +172,13 @@ public class Player : MonoBehaviour
 
     void OnPause(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
+        if(GameGUI.instance.showingDialog || inMicroInteraction) return;
+
+        if (GameGUI.instance.inHerbarium)
+        {
+            GameGUI.instance.CloseHerbarium();
+            return;
+        }
 
         if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
         {
@@ -179,11 +186,8 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (GameGUI.instance.inHerbarium)
-        {
-            GameGUI.instance.CloseHerbarium();
-            return;
-        }
+        if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) return;
+
     }
 
     /// <summary>

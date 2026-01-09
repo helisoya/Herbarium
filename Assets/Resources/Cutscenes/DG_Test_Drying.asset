@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 184, y: 72}
+  position: {x: 184, y: -72}
   ports:
     keys:
     - entry
@@ -25,7 +25,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exitCancel
-        node: {fileID: -8821579129801633403}
+        node: {fileID: 7311728309542192672}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -43,137 +43,6 @@ MonoBehaviour:
   entry: 0
   dialogID: CANCEL
   exit: 0
---- !u!114 &-8821579129801633403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4be89aa6a6d0e94eaf40bb79b836044, type: 3}
-  m_Name: Foraging
-  m_EditorClassIdentifier: Assembly-CSharp::ForagingNode
-  graph: {fileID: 11400000}
-  position: {x: -232, y: -184}
-  ports:
-    keys:
-    - entry
-    - exitSuccess
-    - exitFailure
-    - exitNoSpaceInInventory
-    - exitCancel
-    values:
-    - _fieldName: entry
-      _node: {fileID: -8821579129801633403}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 107968734850196264}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exitSuccess
-      _node: {fileID: -8821579129801633403}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 4750909523231131791}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exitFailure
-      _node: {fileID: -8821579129801633403}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 4203947881727129914}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exitNoSpaceInInventory
-      _node: {fileID: -8821579129801633403}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -6954097679330125316}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exitCancel
-      _node: {fileID: -8821579129801633403}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -9063015632913191171}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  plantId: TestPlant1
-  exitSuccess: 0
-  exitFailure: 0
-  exitNoSpaceInInventory: 0
-  exitCancel: 0
---- !u!114 &-6954097679330125316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68befad922e81e148867bb4b85d9e655, type: 3}
-  m_Name: Dialog
-  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
-  graph: {fileID: 11400000}
-  position: {x: 184, y: -56}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: -6954097679330125316}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exitNoSpaceInInventory
-        node: {fileID: -8821579129801633403}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: -6954097679330125316}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  dialogID: NOSPACE
-  exit: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,15 +53,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cab69574fb0bf19408772b469095a1ca, type: 3}
-  m_Name: DG_Test_Foraging
+  m_Name: DG_Test_Drying
   m_EditorClassIdentifier: Assembly-CSharp::DialogGraph
   nodes:
   - {fileID: 107968734850196264}
   - {fileID: 4750909523231131791}
   - {fileID: 4203947881727129914}
-  - {fileID: -6954097679330125316}
   - {fileID: -9063015632913191171}
-  - {fileID: -8821579129801633403}
+  - {fileID: 7311728309542192672}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -207,7 +75,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: Assembly-CSharp::StartNode
   graph: {fileID: 11400000}
-  position: {x: -488, y: -184}
+  position: {x: -488, y: -136}
   ports:
     keys:
     - exit
@@ -218,7 +86,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -8821579129801633403}
+        node: {fileID: 7311728309542192672}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -249,8 +117,8 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exitFailure
-        node: {fileID: -8821579129801633403}
+      - fieldName: exitAlreadyDone
+        node: {fileID: 7311728309542192672}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -266,7 +134,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  dialogID: FAIL
+  dialogID: ALREADYDONE
   exit: 0
 --- !u!114 &4750909523231131791
 MonoBehaviour:
@@ -293,7 +161,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exitSuccess
-        node: {fileID: -8821579129801633403}
+        node: {fileID: 7311728309542192672}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -311,3 +179,77 @@ MonoBehaviour:
   entry: 0
   dialogID: GOOD
   exit: 0
+--- !u!114 &7311728309542192672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e89781e71b02247bee371b0bbe9c84, type: 3}
+  m_Name: Drying
+  m_EditorClassIdentifier: Assembly-CSharp::DryingNode
+  graph: {fileID: 11400000}
+  position: {x: -202, y: -135.5}
+  ports:
+    keys:
+    - entry
+    - exitSuccess
+    - exitAlreadyDone
+    - exitCancel
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7311728309542192672}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 107968734850196264}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitSuccess
+      _node: {fileID: 7311728309542192672}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 4750909523231131791}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitAlreadyDone
+      _node: {fileID: 7311728309542192672}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 4203947881727129914}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitCancel
+      _node: {fileID: 7311728309542192672}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -9063015632913191171}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  showHerbariumImmediatly: 1
+  exitSuccess: 0
+  exitAlreadyDone: 0
+  exitCancel: 0

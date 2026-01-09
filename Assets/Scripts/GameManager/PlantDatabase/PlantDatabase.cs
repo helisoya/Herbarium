@@ -46,6 +46,21 @@ public class PlantDatabase : MonoBehaviour
     }
 
     /// <summary>
+    /// Converts a plant ID to a plant index
+    /// </summary>
+    /// <param name="plantId">The plant ID</param>
+    /// <returns>The plant's index</returns>
+    public int PlantIDToIndex(string plantId)
+    {
+        for(int i = 0; i < availablePlants.Length; i++)
+        {
+            if(availablePlants[i].Equals(plantId)) return i;
+        }
+
+        return 0;
+    }
+
+    /// <summary>
     /// Gets all the plants that exists in game
     /// </summary>
     /// <returns>The plants</returns>

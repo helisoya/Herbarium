@@ -91,9 +91,6 @@ public class HerbariumQuestIndex : HerbariumPage
         else
         {
             NoQuestsObj.SetActive(false);
-        
-            string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
-            string[] unlockedPages = GameManager.instance.GetPlayerDataHandler().GetHerbariumUnlockedPages();
             bool finished;
             int correctedIdx;
 

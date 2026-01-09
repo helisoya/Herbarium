@@ -16,7 +16,7 @@ public class GameGUI : MonoBehaviour
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
     public RadialMenuID currentRadialMenu {get{return radialMenu.currentRadialMenu;}}
-    public int selectedInventoryId {get{return radialMenu.selectedInventoryId;}}
+    public int selectedRadialIndex {get{return radialMenu.selectedIndex;}}
 
     [Header("Herbarium")]
     [SerializeField] private HerbariumGUI herbariumGUI;
@@ -222,6 +222,15 @@ public class GameGUI : MonoBehaviour
     {
         EnableHudIfPossible();
         herbariumGUI.Close();
+    }
+
+    /// <summary>
+    /// Show a plant page in the herbarium
+    /// </summary>
+    /// <param name="pageIndex">The plant index</param>
+    public void HerbariumShowPlantPage(int pageIndex)
+    {
+        herbariumGUI.SetPlant(pageIndex);
     }
 
     /// <summary>

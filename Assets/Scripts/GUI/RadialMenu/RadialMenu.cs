@@ -17,7 +17,7 @@ public class RadialMenu : MonoBehaviour
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
     private int currentEntryIdx;
-    public int selectedInventoryId {get; private set;}
+    public int selectedIndex {get; private set;}
 
     [Header("Inputs")]
     [SerializeField] private InputData closeInput;
@@ -62,6 +62,7 @@ public class RadialMenu : MonoBehaviour
     /// <param name="data">The radial menu's data</param>
     public void Open(RadialMenuData data)
     {
+        selectedIndex = 0;
         Cleanup();
         currentData = data;
         Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -186,6 +187,7 @@ public class RadialMenu : MonoBehaviour
     {
         if (currentRadialMenu != RadialMenuID.CLOSED && currentEntryIdx != -1)
         {
+            selectedIndex = currentEntryIdx;
             if (entries[currentEntryIdx].Activate())
             {
                 onRadialMenuClick.Invoke();
@@ -329,7 +331,6 @@ public class RadialMenu : MonoBehaviour
     /// <param name="openSound">True if the opening sound should be invoked</param>
     public void OpenInventoryGive(bool openSound = true)
     {
-        selectedInventoryId = -1;
         RadialMenuData testData = new RadialMenuData();
         testData.radius = SIZE;
         testData.id = RadialMenuID.INVENTORY;
@@ -339,7 +340,7 @@ public class RadialMenu : MonoBehaviour
             key = "Close",
             sprite = backSprite,
             rotation = 0,
-            callback = () => {selectedInventoryId = -1; Close(true);},
+            callback = () => {Close(true);},
             interactable = true,
             inputAction = closeInput.action,
             inputIndex = closeInput.index,
@@ -357,8 +358,8 @@ public class RadialMenu : MonoBehaviour
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
                 sprite = backSprite,
                 rotation = -90*(i+1),
-                callback = () => {selectedInventoryId = i; Close(true);},
-                interactable = true,
+                callback = () => {Close(true);},
+                interactable = item != null,
                 inputAction = null,
                 inputIndex = 0
             };

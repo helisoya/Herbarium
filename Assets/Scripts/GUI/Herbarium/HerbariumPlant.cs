@@ -136,18 +136,7 @@ public class HerbariumPlant : HerbariumPage
         onPageChange.Invoke(localPageIndex);
 
         string plantId = GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex];
-        string[] plantsFound = GameManager.instance.GetPlayerDataHandler().GetHerbariumUnlockedPages();
-        bool wasPlantFound = false;
-
-
-        foreach(string plant in plantsFound)
-        {
-            if (plant.Equals(plantId))
-            {
-                wasPlantFound = true;
-                break;
-            }
-        }
+        bool wasPlantFound = GameManager.instance.GetPlayerDataHandler().IsUnlockedInHerbarium(plantId);
 
         rootLog.SetActive(wasPlantFound);
         textName.SetNoText(false);
