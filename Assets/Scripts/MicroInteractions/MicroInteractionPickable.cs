@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,6 +28,9 @@ public class MicroInteractionPickable : MonoBehaviour
     [SerializeField] private UnityEvent onTouchedGround;
     [SerializeField] private UnityEvent onStartTouchPlant;
     [SerializeField] private UnityEvent onStopTouchPlant;
+    private bool shouldInvokeOnTouchGround = false;
+    private bool shouldInvokeOnStartPlant = false;
+    private bool shouldInvokeOnEndPlant = false;
 
     private MicroInteractionPickablePart currentMovablePart;
 
@@ -76,7 +80,23 @@ public class MicroInteractionPickable : MonoBehaviour
     /// </summary>
     public void InvokeOnTouchGround()
     {
-        onTouchedGround.Invoke();
+        shouldInvokeOnTouchGround = true;
+    }
+
+    /// <summary>
+    /// Invokes the on start touched plant event
+    /// </summary>
+    public void InvokeOnStartTouchPlant()
+    {
+        shouldInvokeOnStartPlant = true;
+    }
+
+    /// <summary>
+    /// Invokes the on end touched plant event
+    /// </summary>
+    public void InvokeOnEndTouchPlant()
+    {
+        shouldInvokeOnEndPlant = true;
     }
 
     /// <summary>
@@ -100,8 +120,54 @@ public class MicroInteractionPickable : MonoBehaviour
                 Physics2D.IgnoreCollision(rbs[i].GetComponent<Collider2D>(),rbs[j].GetComponent<Collider2D>(),true);
             }
         }
+
+        PropagateTag("Player",transform);
         
         canBePickedUp = true;
+    }
+
+    /// <summary>
+    /// Propagates a tag to the object's children
+    /// </summary>
+    /// <param name="tag">The tag</param>
+    /// <param name="obj">The current object</param>
+    private void PropagateTag(string tag, Transform obj)
+    {
+
+        Stack<Transform> stack = new Stack<Transform>();
+        Transform current;
+        stack.Push(obj.GetChild(0));
+        
+        while(stack.Count != 0)
+        {
+            current = stack.Pop();
+            current.tag = tag;
+            foreach(Transform child in current)
+            {
+                stack.Push(child);
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (shouldInvokeOnTouchGround)
+        {
+            shouldInvokeOnTouchGround = false;
+            onTouchedGround.Invoke();
+        }
+
+        if (shouldInvokeOnStartPlant)
+        {
+            shouldInvokeOnStartPlant = false;
+            onStartTouchPlant.Invoke();
+        }
+
+        if (shouldInvokeOnEndPlant)
+        {
+            shouldInvokeOnEndPlant = false;
+            onStopTouchPlant.Invoke();
+        }
     }
 
     /// <summary>

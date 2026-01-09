@@ -193,6 +193,7 @@ public class Player : MonoBehaviour
     /// <param name="plantId">The plant id for the interaction</param>
     public void StartMicroInteraction(string sceneName, string plantId)
     {
+        GameGUI.instance.DisableHud();
         inMicroInteraction = true;
         currentMicroInteractionScene = sceneName;
         SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Additive).completed += (x) =>
@@ -217,6 +218,7 @@ public class Player : MonoBehaviour
     /// <param name="plantId">The plant id for the interaction</param>
     public void StartMicroInteraction(MicroInteraction microInteraction, string plantId)
     {
+        GameGUI.instance.DisableHud();
         inMicroInteraction = true;
         playerCamera.enabled = false;
         currentMicroInteraction = microInteraction;
@@ -235,6 +237,7 @@ public class Player : MonoBehaviour
             {
                 // Once the scene is unloaded, restart the camera and hook up the interaction results to the other modules of the game
                 lastMicroInteractionEnding = endingType;
+                GameGUI.instance.EnableHudIfPossible();
                 currentMicroInteraction = null;
                 currentMicroInteractionScene = null;
                 playerCamera.enabled = true;
@@ -246,6 +249,7 @@ public class Player : MonoBehaviour
             // Technically, this is only true in debug conditions
             // (When you only play the foraging part an have no concern with the exploration part)
             lastMicroInteractionEnding = endingType;
+            GameGUI.instance.EnableHudIfPossible();
             currentMicroInteraction = null;
             currentMicroInteractionScene = null;
             inMicroInteraction = false;

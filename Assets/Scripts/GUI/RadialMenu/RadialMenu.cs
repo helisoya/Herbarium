@@ -17,6 +17,7 @@ public class RadialMenu : MonoBehaviour
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
     private int currentEntryIdx;
+    public int selectedInventoryId {get; private set;}
 
     [Header("Inputs")]
     [SerializeField] private InputData closeInput;
@@ -200,6 +201,7 @@ public class RadialMenu : MonoBehaviour
 
     private void CloseBackpack()
     {
+        GameGUI.instance.EnableHudIfPossible();
         Close(true);
     }
 
@@ -311,6 +313,52 @@ public class RadialMenu : MonoBehaviour
                 rotation = -90*(i+1),
                 callback = null,
                 interactable = false,
+                inputAction = null,
+                inputIndex = 0
+            };
+        }
+
+        if(openSound) onOpenInventory.Invoke();
+
+        Open(testData);
+    }
+
+    /// <summary>
+	/// Opens the inventory menu (used for giving stuff to NPC/Tables)
+	/// </summary>
+    /// <param name="openSound">True if the opening sound should be invoked</param>
+    public void OpenInventoryGive(bool openSound = true)
+    {
+        selectedInventoryId = -1;
+        RadialMenuData testData = new RadialMenuData();
+        testData.radius = SIZE;
+        testData.id = RadialMenuID.INVENTORY;
+        testData.entries = new RadialMenuEntryData[4];
+        testData.entries[0] = new RadialMenuEntryData()
+        {
+            key = "Close",
+            sprite = backSprite,
+            rotation = 0,
+            callback = () => {selectedInventoryId = -1; Close(true);},
+            interactable = true,
+            inputAction = closeInput.action,
+            inputIndex = closeInput.index,
+            inputPosition = inputPositions[0]
+        };
+
+        PlayerDataHandler dataHandler = GameManager.instance.GetPlayerDataHandler();
+        string item;
+
+        for (int i = 0; i < 3; i++)
+        {
+            item = dataHandler.GetInventoryItem(i);
+            testData.entries[1 + i] = new RadialMenuEntryData()
+            {
+                key = item == null ? "Inventory_Nothing" : item + "_Name",
+                sprite = backSprite,
+                rotation = -90*(i+1),
+                callback = () => {selectedInventoryId = i; Close(true);},
+                interactable = true,
                 inputAction = null,
                 inputIndex = 0
             };

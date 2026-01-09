@@ -24,6 +24,29 @@ public class MicroInteractionPickablePart : MonoBehaviour
         return parent;
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(parent.GetCurrentMovingPart() == null) return;
+
+        if(collision.transform.tag == "Ground")
+        {
+            parent.InvokeOnTouchGround();
+        }else if(collision.transform.tag == "Plant")
+        {
+            parent.InvokeOnStartTouchPlant();
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if(parent.GetCurrentMovingPart() == null) return;
+
+        if(collision.transform.tag == "Plant")
+        {
+            parent.InvokeOnEndTouchPlant();
+        }
+    }
+
     /// <summary>
     /// Pickup the part
     /// </summary>

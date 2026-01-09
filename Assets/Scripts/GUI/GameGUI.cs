@@ -16,10 +16,14 @@ public class GameGUI : MonoBehaviour
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
     public RadialMenuID currentRadialMenu {get{return radialMenu.currentRadialMenu;}}
+    public int selectedInventoryId {get{return radialMenu.selectedInventoryId;}}
 
     [Header("Herbarium")]
     [SerializeField] private HerbariumGUI herbariumGUI;
     public bool inHerbarium { get { return herbariumGUI.isOpen; } }
+
+    [Header("HUD")]
+    [SerializeField] private GameObject hudRoot;
 
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
@@ -92,6 +96,22 @@ public class GameGUI : MonoBehaviour
     */
 
     /// <summary>
+    /// Disables the HUD
+    /// </summary>
+    public void DisableHud()
+    {
+        hudRoot.SetActive(false);
+    }
+
+    /// <summary>
+    /// Enables the HUD if the settings allows it
+    /// </summary>
+    public void EnableHudIfPossible()
+    {
+        hudRoot.SetActive(Settings.instance.IsHUDEnabled());
+    }
+
+    /// <summary>
     /// Sets the dialog background's alpha
     /// </summary>
     /// <param name="alpha">The alpha</param>
@@ -125,6 +145,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void OpenPause()
     {
+        DisableHud();
         Time.timeScale = 0f;
         //pauseMenu.Open();
     }
@@ -134,6 +155,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void ClosePause()
     {
+        EnableHudIfPossible();
         Time.timeScale = 1f;
         //pauseMenu.Close();
     }
@@ -144,6 +166,7 @@ public class GameGUI : MonoBehaviour
     /// <param name="data">The radial menu</param>
     public void OpenRadialMenu(RadialMenuData data)
     {
+        DisableHud();
         radialMenu.Open(data);
     }
 
@@ -152,7 +175,17 @@ public class GameGUI : MonoBehaviour
 	/// </summary>
     public void OpenInventory()
     {
+        DisableHud();
         radialMenu.OpenInventory();
+    }
+
+    /// <summary>
+	/// Opens the give mode inventory radial menu
+	/// </summary>
+    public void OpenInventoryGive()
+    {
+        DisableHud();
+        radialMenu.OpenInventoryGive();
     }
 
     /// <summary>
@@ -160,6 +193,7 @@ public class GameGUI : MonoBehaviour
 	/// </summary>
     public void OpenBackpack()
     {
+        DisableHud();
         radialMenu.OpenBackpack();
     }
 
@@ -168,6 +202,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void CloseRadialMenu()
     {
+        EnableHudIfPossible();
         radialMenu.Close();
     }
 
@@ -176,6 +211,7 @@ public class GameGUI : MonoBehaviour
 	/// </summary>
     public void OpenHerbarium()
     {
+        DisableHud();
         herbariumGUI.Open();
     }
 
@@ -184,6 +220,7 @@ public class GameGUI : MonoBehaviour
 	/// </summary>
     public void CloseHerbarium()
     {
+        EnableHudIfPossible();
         herbariumGUI.Close();
     }
 
@@ -228,6 +265,8 @@ public class GameGUI : MonoBehaviour
     /// <param name="value">True if it is active</param>
     public void SetDialogOpen(bool value)
     {
+        if(value) DisableHud();
+        else EnableHudIfPossible();
         dialogRoot.SetActive(value);
     }
 
@@ -316,5 +355,14 @@ public class GameGUI : MonoBehaviour
     public void Event_CutsceneSubmit()
     {
         CutsceneManager.instance.UserSubmit();
+    }
+
+    /// <summary>
+    /// Callback clicking on the backpack button
+    /// </summary>
+    public void Event_BackpackButton()
+    {
+        Player.instance.StopPlayerMovements();
+        OpenBackpack();
     }
 }

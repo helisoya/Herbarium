@@ -22,6 +22,12 @@ public abstract class MicroInteraction : MonoBehaviour
         CANCEL
     }
 
+    public struct PickupAudioData
+    {
+        public MicroInteractionPickable.PickableType type;
+        public GameObject movingObject;
+    }
+
     [Header("General")]
     [SerializeField] protected float itemSpeed = 5f;
     [SerializeField] protected float rotateSpeed = 15f;
@@ -39,8 +45,9 @@ public abstract class MicroInteraction : MonoBehaviour
     [Header("General Audio")]
     [SerializeField] private UnityEvent onStartMicroInteraction;
     [SerializeField] private UnityEvent<EndingType> onEndMicroInteraction;
-    [SerializeField] private UnityEvent<MicroInteractionPickable.PickableType> onPickUpObject;
-    [SerializeField] private UnityEvent<MicroInteractionPickable.PickableType> onDropObject;
+    [SerializeField] private UnityEvent<PickupAudioData> onPickUpObject;
+    [SerializeField] private UnityEvent<PickupAudioData> onDropObject;
+    [SerializeField] private UnityEvent<float> onMoveObject;
     
 
     /// <summary>
@@ -120,7 +127,7 @@ public abstract class MicroInteraction : MonoBehaviour
                     if (currentObject)
                     {
                         cutTutorial.SetActive(false);
-                        onDropObject.Invoke(currentObject.GetPickableType());
+                        onDropObject.Invoke(new PickupAudioData() {movingObject = currentObject.GetCurrentMovingPart().gameObject, type = currentObject.GetPickableType()});
                         currentObject.Drop();
                         currentObject = null;
                     }
@@ -131,14 +138,14 @@ public abstract class MicroInteraction : MonoBehaviour
                     Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePosInWorld, 0.1f);
                     foreach(Collider2D collider in colliders)
                     {
-                        if(collider.attachedRigidbody && collider.attachedRigidbody.tag == "Player" && collider.attachedRigidbody.TryGetComponent<MicroInteractionPickablePart>(out MicroInteractionPickablePart obj))
+                        if(collider.attachedRigidbody && collider.attachedRigidbody.TryGetComponent<MicroInteractionPickablePart>(out MicroInteractionPickablePart obj))
                         {
                             MicroInteractionPickable parent = obj.GetParent();
                             if (parent.CanBePickedUp())
                             {
                                 cutTutorial.SetActive(parent.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER);
-                                onPickUpObject.Invoke(parent.GetPickableType());
                                 parent.Pickup(obj);
+                                onPickUpObject.Invoke(new PickupAudioData() {movingObject = parent.GetCurrentMovingPart().gameObject, type = parent.GetPickableType()});
                                 currentObject = parent;
                                 break;
                             }
@@ -167,6 +174,7 @@ public abstract class MicroInteraction : MonoBehaviour
             }
 
             currentObject.MoveTowards(mousePosInWorld, itemSpeed);
+            onMoveObject.Invoke(distance);
         }
 
         OnUpdate();

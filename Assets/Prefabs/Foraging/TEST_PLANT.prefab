@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5381744921944673254}
   m_Layer: 10
   m_Name: bone_8
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 3825950626172938292}
   m_Layer: 3
   m_Name: bone_7
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 802221852138309283}
   m_Layer: 3
   m_Name: bone_2
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 7608948380924738131}
   m_Layer: 10
   m_Name: Flower
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -623,6 +623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b21ec2baadef534da1dde5ba0098b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickable
+  canBePickedUp: 0
+  type: 0
+  canRotate: 0
   moveRb: {fileID: 3454280979484523854}
   rbs:
   - {fileID: 3454280979484523854}
@@ -641,9 +644,15 @@ MonoBehaviour:
   joints:
   - {fileID: 374510791416586617}
   - {fileID: 1487956950941429922}
-  canBePickedUp: 0
-  canCut: 0
-  canRotate: 0
+  onTouchedGround:
+    m_PersistentCalls:
+      m_Calls: []
+  onStartTouchPlant:
+    m_PersistentCalls:
+      m_Calls: []
+  onStopTouchPlant:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7608948380924738131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +677,7 @@ GameObject:
   - component: {fileID: 5689715795584386529}
   m_Layer: 10
   m_Name: TEST_PLANT
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,7 +715,7 @@ GameObject:
   - component: {fileID: 5754366187797762318}
   m_Layer: 10
   m_Name: bone_12
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -873,7 +882,7 @@ GameObject:
   - component: {fileID: 4084659771787293477}
   m_Layer: 3
   m_Name: TEX_Test_CutPoint_0
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,7 +1080,7 @@ GameObject:
   - component: {fileID: 4584188097868088633}
   m_Layer: 10
   m_Name: bone_3
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1218,7 +1227,7 @@ GameObject:
   - component: {fileID: 7207351965886318164}
   m_Layer: 3
   m_Name: bone_6
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1381,7 +1390,7 @@ GameObject:
   - component: {fileID: 7977308602555877776}
   m_Layer: 10
   m_Name: bone_5
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1528,7 +1537,7 @@ GameObject:
   - component: {fileID: 457359974401732928}
   m_Layer: 3
   m_Name: bone_3
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1691,7 +1700,7 @@ GameObject:
   - component: {fileID: 8861408341501987231}
   m_Layer: 10
   m_Name: bone_4
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1838,7 +1847,7 @@ GameObject:
   - component: {fileID: 930940644390612506}
   m_Layer: 10
   m_Name: bone_2
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1984,7 +1993,7 @@ GameObject:
   - component: {fileID: 7936827010132494981}
   m_Layer: 3
   m_Name: bone_1
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2129,7 +2138,7 @@ GameObject:
   - component: {fileID: 5584972377491675512}
   m_Layer: 10
   m_Name: bone_6
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2295,7 +2304,7 @@ GameObject:
   - component: {fileID: 17965279287463564}
   m_Layer: 10
   m_Name: bone_11
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2442,7 +2451,7 @@ GameObject:
   - component: {fileID: 8943249606878003485}
   m_Layer: 3
   m_Name: bone_4
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2605,7 +2614,7 @@ GameObject:
   - component: {fileID: 1769368063362970625}
   m_Layer: 10
   m_Name: bone_1
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2762,7 +2771,7 @@ GameObject:
   - component: {fileID: 5448419796710758643}
   m_Layer: 10
   m_Name: bone_7
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2907,7 +2916,7 @@ GameObject:
   - component: {fileID: 4538304259497176225}
   m_Layer: 3
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3036,7 +3045,7 @@ GameObject:
   - component: {fileID: 6157019367661302481}
   m_Layer: 10
   m_Name: bone_13
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3183,7 +3192,7 @@ GameObject:
   - component: {fileID: 2274416655174210621}
   m_Layer: 10
   m_Name: bone_10
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3329,7 +3338,7 @@ GameObject:
   - component: {fileID: 3843852263182827574}
   m_Layer: 3
   m_Name: bone_8
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3456,7 +3465,7 @@ GameObject:
   - component: {fileID: 1172285211681791673}
   m_Layer: 3
   m_Name: bone_5
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3619,7 +3628,7 @@ GameObject:
   - component: {fileID: 5202245145636279564}
   m_Layer: 10
   m_Name: bone_9
-  m_TagString: Player
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
