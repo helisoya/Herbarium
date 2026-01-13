@@ -12,7 +12,10 @@ public class RadialMenuEntry : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private LocalizedText label;
+    [SerializeField] private RectTransform labelRectTransform;
     [SerializeField] private bool canBeInteractedWith;
+    [SerializeField] private RectTransform inputRectTransform;
+    [SerializeField] private AutomaticIcon inputIcon;
 
     private RectTransform rectTransform;
     private Action onClick;
@@ -23,17 +26,37 @@ public class RadialMenuEntry : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets if the entry can be interacted with
+    /// </summary>
+    /// <returns>True if it can be interacted with</returns>
+    public bool CanBeInteractedWith()
+    {
+        return canBeInteractedWith;
+    }
+
+    /// <summary>
     /// Initialize the entry
     /// </summary>
-    /// <param name="sprite"></param>
-    /// <param name="labelKey"></param>
+    /// <param name="data">The entry's data</param>
     public void Init(RadialMenuEntryData data)
     {
         image.sprite = data.sprite;
+        image.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0,0,data.rotation);
         label.SetInjectors(data.injectors, false);
         label.SetNewKey(data.key);
         canBeInteractedWith = data.interactable;
         onClick = data.callback;
+
+        if(data.inputAction != null)
+        {
+            inputRectTransform.gameObject.SetActive(true);
+            inputRectTransform.anchoredPosition = data.inputPosition;
+            inputIcon.ChangeAction(data.inputAction,data.inputIndex);
+        }
+        else
+        {
+            inputRectTransform.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -89,7 +112,23 @@ public class RadialMenuEntry : MonoBehaviour
         {
             rectTransform.DOScale(scale, 0.3f).SetEase(Ease.OutQuad);
         }
+    }
 
+    /// <summary>
+    /// Sets the entry's label scale
+    /// </summary>
+    /// <param name="scale">The scale</param>
+    /// <param name="immediate">True if the change must be immediate</param>
+    public void SetLabelScale(Vector3 scale, bool immediate)
+    {
+        if (immediate)
+        {
+            labelRectTransform.localScale = scale;
+        }
+        else
+        {
+            labelRectTransform.DOScale(scale, 0.3f).SetEase(Ease.OutQuad);
+        }
     }
 
     /// <summary>
@@ -113,8 +152,11 @@ public class RadialMenuEntry : MonoBehaviour
     {
         if (canBeInteractedWith)
         {
-            rectTransform.DOComplete();
-            rectTransform.DOScale(Vector3.one * 1.5f, 0.3f).SetEase(Ease.OutQuad);
+            labelRectTransform.DOComplete();
+            labelRectTransform.DOScale(Vector3.one * 1.5f, 0.3f).SetEase(Ease.OutQuad);
+
+            image.DOComplete();
+            image.DOColor(Color.gray8,0.3f).SetEase(Ease.OutQuad);
         }
 
     }
@@ -126,8 +168,11 @@ public class RadialMenuEntry : MonoBehaviour
     {
         if (canBeInteractedWith)
         {
-            rectTransform.DOComplete();
-            rectTransform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad);
+            labelRectTransform.DOComplete();
+            labelRectTransform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad);
+
+            image.DOComplete();
+            image.DOColor(Color.white,0.3f).SetEase(Ease.OutQuad);
         }
     }
 }

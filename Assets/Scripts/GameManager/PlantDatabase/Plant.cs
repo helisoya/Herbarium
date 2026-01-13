@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
 
@@ -7,11 +8,17 @@ using UnityEngine.InputSystem.Utilities;
 [CreateAssetMenu(fileName = "Plant", menuName = "Herbarium/Plant")]
 public class Plant : ScriptableObject
 {
+	[Header("General")]
 	public string id;
 	public string categoryID;
-	public Sprite herbariumSprite;
 
+	[Header("Herbarium")]
+	public Sprite herbariumSprite;
 	public string Category {get{return "Category_"+categoryID;}}
+
+	[Header("Foraging")]
+	public Transform foragingPrefab;
+	public int foragingHealth;
 
 	/// <summary>
 	/// Gets an hint for the plant
