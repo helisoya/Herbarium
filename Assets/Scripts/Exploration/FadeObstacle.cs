@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class FadeObstacle : MonoBehaviour
@@ -9,55 +8,49 @@ public class FadeObstacle : MonoBehaviour
 
     private Renderer _renderer;
     private Material _material;
+
     private float _originalAlpha;
-    private Coroutine _fadeRoutine;
+    private float _currentAlpha;
+    private float _targetAlpha;
+    private float _fadeVelocity;
 
     private static readonly int BaseColorID = Shader.PropertyToID("_Color");
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
-        _material = _renderer.material; // instance material for this object
+        _material = _renderer.material;
 
         Color c = _material.GetColor(BaseColorID);
         _originalAlpha = c.a;
+        _currentAlpha = c.a;
+        _targetAlpha = c.a;
+    }
+
+    private void Update()
+    {
+        if (Mathf.Approximately(_currentAlpha, _targetAlpha))
+            return;
+
+        _currentAlpha = Mathf.SmoothDamp(
+            _currentAlpha,
+            _targetAlpha,
+            ref _fadeVelocity,
+            fadeDuration
+        );
+
+        Color c = _material.GetColor(BaseColorID);
+        c.a = _currentAlpha;
+        _material.SetColor(BaseColorID, c);
     }
 
     public void FadeOut()
     {
-        StartFade(_originalAlpha * fadedAlpha);
+        _targetAlpha = _originalAlpha * fadedAlpha;
     }
 
     public void FadeIn()
     {
-        StartFade(_originalAlpha);
-    }
-
-    private void StartFade(float targetAlpha)
-    {
-        if (_fadeRoutine != null)
-            StopCoroutine(_fadeRoutine);
-
-        _fadeRoutine = StartCoroutine(FadeCoroutine(targetAlpha));
-    }
-
-    private IEnumerator FadeCoroutine(float targetAlpha)
-    {
-        Color c = _material.GetColor(BaseColorID);
-        float startAlpha = c.a;
-        float t = 0f;
-
-        while (t < 1f)
-        {
-            t += Time.deltaTime / fadeDuration;
-            float a = Mathf.Lerp(startAlpha, targetAlpha, t);
-            c.a = a;
-            _material.SetColor(BaseColorID, c);
-            yield return null;
-        }
-
-        c.a = targetAlpha;
-        _material.SetColor(BaseColorID, c);
-        _fadeRoutine = null;
+        _targetAlpha = _originalAlpha;
     }
 }

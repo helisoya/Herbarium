@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 8703352176845578786}
   - component: {fileID: 5718841648539037701}
   - component: {fileID: 5165926482696988130}
-  - component: {fileID: 4750913489844240655}
-  - component: {fileID: 7987381410682687307}
+  - component: {fileID: 4339225572228332138}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (10)
   m_TagString: Untagged
@@ -114,7 +113,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &4750913489844240655
+--- !u!114 &4339225572228332138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,23 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &7987381410682687307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40788953532420299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &49389739744091138
@@ -502,8 +485,7 @@ GameObject:
   - component: {fileID: 4468110778021508926}
   - component: {fileID: 8270881886223646754}
   - component: {fileID: 1619842926937467513}
-  - component: {fileID: 7539628915052170384}
-  - component: {fileID: 840452538170255111}
+  - component: {fileID: 7994705283354742381}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush
   m_TagString: Untagged
@@ -605,7 +587,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &7539628915052170384
+--- !u!114 &7994705283354742381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -618,23 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &840452538170255111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213270368601539192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &426910066930425203
@@ -813,8 +779,7 @@ GameObject:
   - component: {fileID: 8337920362378636101}
   - component: {fileID: 2726643770007638247}
   - component: {fileID: 4526421189814671755}
-  - component: {fileID: 4527045717258988212}
-  - component: {fileID: 3355772564736318714}
+  - component: {fileID: 7648285114969745358}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (9)
   m_TagString: Untagged
@@ -916,7 +881,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &4527045717258988212
+--- !u!114 &7648285114969745358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -929,23 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &3355772564736318714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536760672505100595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &601491479207806694
@@ -959,8 +908,7 @@ GameObject:
   - component: {fileID: 3607086937807936522}
   - component: {fileID: 4504458383125286920}
   - component: {fileID: 7128709828883733898}
-  - component: {fileID: 6662755286899644808}
-  - component: {fileID: 7345696526477340042}
+  - component: {fileID: 4587929987466870989}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (17)
   m_TagString: Untagged
@@ -1062,7 +1010,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &6662755286899644808
+--- !u!114 &4587929987466870989
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1075,23 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &7345696526477340042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601491479207806694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &602333874784392222
@@ -1615,8 +1547,7 @@ GameObject:
   - component: {fileID: 120437606293291370}
   - component: {fileID: 8523321572228491668}
   - component: {fileID: 7306481968983700980}
-  - component: {fileID: 7614199668100708066}
-  - component: {fileID: 2846402241949710512}
+  - component: {fileID: 2143427793710717214}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (7)
   m_TagString: Untagged
@@ -1718,7 +1649,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &7614199668100708066
+--- !u!114 &2143427793710717214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1731,23 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &2846402241949710512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306072457047907201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &1500733544587500972
@@ -1851,8 +1766,7 @@ GameObject:
   - component: {fileID: 9070954541344656977}
   - component: {fileID: 1394689983765755775}
   - component: {fileID: 8621173787949823297}
-  - component: {fileID: 3987505959282561818}
-  - component: {fileID: 3431106925356329642}
+  - component: {fileID: 4826614799438480779}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (5)
   m_TagString: Untagged
@@ -1954,7 +1868,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &3987505959282561818
+--- !u!114 &4826614799438480779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1967,23 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &3431106925356329642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858878314939214360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2177038842509978065
@@ -1997,8 +1895,7 @@ GameObject:
   - component: {fileID: 4437146783605134702}
   - component: {fileID: 3475705445414018567}
   - component: {fileID: 2536027155064815663}
-  - component: {fileID: 4097888267748103337}
-  - component: {fileID: 4585134345900536805}
+  - component: {fileID: 3587964118764363828}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (8)
   m_TagString: Untagged
@@ -2100,7 +1997,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &4097888267748103337
+--- !u!114 &3587964118764363828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2113,23 +2010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &4585134345900536805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2177038842509978065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2312260562216808117
@@ -2143,8 +2024,7 @@ GameObject:
   - component: {fileID: 6224849496841613385}
   - component: {fileID: 7630786754083044816}
   - component: {fileID: 5156790097713408198}
-  - component: {fileID: 4197514403569394273}
-  - component: {fileID: 1513175714936368938}
+  - component: {fileID: 1402674475101983450}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (1)
   m_TagString: Untagged
@@ -2246,7 +2126,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &4197514403569394273
+--- !u!114 &1402674475101983450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2259,23 +2139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &1513175714936368938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312260562216808117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2398389240565273145
@@ -2324,8 +2188,7 @@ GameObject:
   - component: {fileID: 2144737871745731374}
   - component: {fileID: 3853487186603914880}
   - component: {fileID: 8706878928033729102}
-  - component: {fileID: 3896267152486864143}
-  - component: {fileID: 1180088418446841590}
+  - component: {fileID: 2570441578386871260}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (19)
   m_TagString: Untagged
@@ -2427,7 +2290,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &3896267152486864143
+--- !u!114 &2570441578386871260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2440,23 +2303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &1180088418446841590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2672509229602605768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2992187827170803812
@@ -2778,8 +2625,7 @@ GameObject:
   - component: {fileID: 5012012336971101605}
   - component: {fileID: 2411802737183576093}
   - component: {fileID: 2227963076851362424}
-  - component: {fileID: 6500395451432266677}
-  - component: {fileID: 7875964204597351538}
+  - component: {fileID: 91923754724577753}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (15)
   m_TagString: Untagged
@@ -2881,7 +2727,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &6500395451432266677
+--- !u!114 &91923754724577753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2894,23 +2740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &7875964204597351538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3164969482334997007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &3231324841983034773
@@ -2924,8 +2754,7 @@ GameObject:
   - component: {fileID: 2252844858298630281}
   - component: {fileID: 8896566589933707579}
   - component: {fileID: 8316346930801520468}
-  - component: {fileID: 1510783396775889776}
-  - component: {fileID: 7660532859577583415}
+  - component: {fileID: 3719566811293610146}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (11)
   m_TagString: Untagged
@@ -3027,7 +2856,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &1510783396775889776
+--- !u!114 &3719566811293610146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3040,23 +2869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &7660532859577583415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3231324841983034773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &3309380277771678350
@@ -3437,8 +3250,7 @@ GameObject:
   - component: {fileID: 1178641734551367919}
   - component: {fileID: 742498518406207306}
   - component: {fileID: 4055624988975141790}
-  - component: {fileID: 1559717373139713529}
-  - component: {fileID: 7450307404661870880}
+  - component: {fileID: 5006686476009489298}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (13)
   m_TagString: Untagged
@@ -3540,7 +3352,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &1559717373139713529
+--- !u!114 &5006686476009489298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3553,23 +3365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &7450307404661870880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3607718259554575343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &3618843212168012892
@@ -4723,8 +4519,7 @@ GameObject:
   - component: {fileID: 6078943099309853234}
   - component: {fileID: 2607852570360959926}
   - component: {fileID: 3741652967883138393}
-  - component: {fileID: 5750539562682193790}
-  - component: {fileID: 3373220930578196418}
+  - component: {fileID: 6265087349464528745}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (3)
   m_TagString: Untagged
@@ -4826,7 +4621,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &5750539562682193790
+--- !u!114 &6265087349464528745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4839,23 +4634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &3373220930578196418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4549465711070513641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &4757250293357062228
@@ -4869,8 +4648,7 @@ GameObject:
   - component: {fileID: 8811861567764847529}
   - component: {fileID: 8632062974756667439}
   - component: {fileID: 6009890045647791601}
-  - component: {fileID: 6560575892259735027}
-  - component: {fileID: 1009296680793718092}
+  - component: {fileID: 5026963908117215319}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (2)
   m_TagString: Untagged
@@ -4972,7 +4750,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &6560575892259735027
+--- !u!114 &5026963908117215319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4985,23 +4763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &1009296680793718092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4757250293357062228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &4855465019837842773
@@ -5269,8 +5031,7 @@ GameObject:
   - component: {fileID: 6377475181326691139}
   - component: {fileID: 5573316935918471731}
   - component: {fileID: 2952871367879807090}
-  - component: {fileID: 4741505387221653576}
-  - component: {fileID: 8212604163165304858}
+  - component: {fileID: 8764598180149692527}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (21)
   m_TagString: Untagged
@@ -5372,7 +5133,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &4741505387221653576
+--- !u!114 &8764598180149692527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5385,23 +5146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &8212604163165304858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5159455771907204333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &5169824379388500430
@@ -5415,8 +5160,7 @@ GameObject:
   - component: {fileID: 4934599697523257935}
   - component: {fileID: 1094035727067899632}
   - component: {fileID: 2221206838351534982}
-  - component: {fileID: 3793332287509436772}
-  - component: {fileID: 7942591639564147541}
+  - component: {fileID: 1623775857368663692}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (18)
   m_TagString: Untagged
@@ -5518,7 +5262,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &3793332287509436772
+--- !u!114 &1623775857368663692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5531,23 +5275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &7942591639564147541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5169824379388500430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &5293737713019317580
@@ -6205,8 +5933,7 @@ GameObject:
   - component: {fileID: 4281802009435103655}
   - component: {fileID: 4205905009807788745}
   - component: {fileID: 5744263862341442052}
-  - component: {fileID: 6590429141597043152}
-  - component: {fileID: 6034227099545008764}
+  - component: {fileID: 3199921447389064028}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (14)
   m_TagString: Untagged
@@ -6308,7 +6035,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &6590429141597043152
+--- !u!114 &3199921447389064028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6321,23 +6048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &6034227099545008764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6487253718125399164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &6505633525502375357
@@ -6441,8 +6152,7 @@ GameObject:
   - component: {fileID: 1619686414456445483}
   - component: {fileID: 6047547274950121549}
   - component: {fileID: 5275767104445752245}
-  - component: {fileID: 962175738201303964}
-  - component: {fileID: 6882158338963561646}
+  - component: {fileID: 259995838495068861}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (16)
   m_TagString: Untagged
@@ -6544,7 +6254,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &962175738201303964
+--- !u!114 &259995838495068861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6557,23 +6267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &6882158338963561646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6520529134380225881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &6683709468993193278
@@ -7157,8 +6851,7 @@ GameObject:
   - component: {fileID: 1556435077196587827}
   - component: {fileID: 1556625893143891431}
   - component: {fileID: 8669282507446093187}
-  - component: {fileID: 3627792022046499323}
-  - component: {fileID: 879685904931304909}
+  - component: {fileID: 7189086609181192226}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (20)
   m_TagString: Untagged
@@ -7260,7 +6953,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &3627792022046499323
+--- !u!114 &7189086609181192226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7273,23 +6966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &879685904931304909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6945746502232717982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &7072692652039369405
@@ -7527,8 +7204,7 @@ GameObject:
   - component: {fileID: 1007289835163513085}
   - component: {fileID: 3086069989551680298}
   - component: {fileID: 6808611086755682079}
-  - component: {fileID: 5206810381582169621}
-  - component: {fileID: 5191350369949277007}
+  - component: {fileID: 8078217142941622116}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (22)
   m_TagString: Untagged
@@ -7630,7 +7306,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &5206810381582169621
+--- !u!114 &8078217142941622116
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7643,23 +7319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &5191350369949277007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7353484255112156346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &7418881758946195253
@@ -7871,7 +7531,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1363215968, guid: 350bfa6777b81f44b868dfcb978943f6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8527,8 +8187,7 @@ GameObject:
   - component: {fileID: 7380052799273704061}
   - component: {fileID: 8107826725463421169}
   - component: {fileID: 2326603446134288903}
-  - component: {fileID: 144791055722381743}
-  - component: {fileID: 4624878473575652052}
+  - component: {fileID: 4361985947390011104}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (12)
   m_TagString: Untagged
@@ -8630,7 +8289,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &144791055722381743
+--- !u!114 &4361985947390011104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8643,23 +8302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &4624878473575652052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8344874406823511796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &8378484879457771334
@@ -8673,8 +8316,7 @@ GameObject:
   - component: {fileID: 1122928126489395880}
   - component: {fileID: 3561807746153122242}
   - component: {fileID: 4542187655148463504}
-  - component: {fileID: 5362619299263865700}
-  - component: {fileID: 8614528623306857955}
+  - component: {fileID: 2822938516906510115}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (4)
   m_TagString: Untagged
@@ -8776,7 +8418,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &5362619299263865700
+--- !u!114 &2822938516906510115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8789,23 +8431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &8614528623306857955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8378484879457771334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &8721930866249703329
@@ -8947,8 +8573,7 @@ GameObject:
   - component: {fileID: 6788078632806885439}
   - component: {fileID: 3822993695550342490}
   - component: {fileID: 3445419315682893065}
-  - component: {fileID: 7468738993723625001}
-  - component: {fileID: 4573454650295010436}
+  - component: {fileID: 5786982071524346631}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (6)
   m_TagString: Untagged
@@ -9050,7 +8675,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
   m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
---- !u!114 &7468738993723625001
+--- !u!114 &5786982071524346631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9063,23 +8688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!114 &4573454650295010436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754545443272269782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 30, y: 30, z: 0}
+  _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &8797554335732623893
@@ -9639,7 +9248,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 89f10907cbc17334393c000014639f03, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 10f2b6231f1016147878c75d31958f2a, type: 2}
+      objectReference: {fileID: 2100000, guid: 84270b115a9c95d4fb9947d4be631c32, type: 2}
     - target: {fileID: 919132149155446097, guid: 89f10907cbc17334393c000014639f03, type: 3}
       propertyPath: m_Name
       value: MD_Test_Ground
