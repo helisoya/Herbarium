@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 0f42a99c52f324a419858848d320bbbc
+guid: ba0838d7fe9460b4180935406efb7b39
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7079701295855981540
+    second: SPR_Foraging_Shears_0
+  - first:
+      213: -7903353637476605527
+    second: SPR_Foraging_Shears_1
+  - first:
+      213: 1506885265978703266
+    second: SPR_Foraging_Shears_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,7 +48,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -93,128 +102,71 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_HouseTest_0
+      name: SPR_Foraging_Shears_0
       rect:
         serializedVersion: 2
-        x: 59
-        y: 320
-        width: 340
-        height: 129
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 83
+        y: 6
+        width: 253
+        height: 1010
+      alignment: 9
+      pivot: {x: 0.3710122, y: 0.680766}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b5ea59c28c580154bbeaeeb1a4b1969f
-      internalID: -1971713830
+      spriteID: 4e35e5791d6204260800000000000000
+      internalID: 7079701295855981540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_HouseTest_1
+      name: SPR_Foraging_Shears_1
       rect:
         serializedVersion: 2
-        x: 521
-        y: 376
-        width: 69
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 474
+        y: 4
+        width: 254
+        height: 1005
+      alignment: 9
+      pivot: {x: 0.58333844, y: 0.6781549}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f29bf254c9561c5498c2c6347dc3fcef
-      internalID: -475151899
+      spriteID: 9a16aef8db5a15290800000000000000
+      internalID: -7903353637476605527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_HouseTest_2
+      name: SPR_Foraging_Shears_2
       rect:
         serializedVersion: 2
-        x: 44
-        y: 134
-        width: 366
-        height: 157
+        x: 899
+        y: 36
+        width: 85
+        height: 148
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 26e1b1bf6f652ca4fa1a9e12c1e1e042
-      internalID: -1216278261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: T_HouseTest_4
-      rect:
-        serializedVersion: 2
-        x: 541
-        y: 250
-        width: 92
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 686cf70a79eca7e42b1ee20f3a51467b
-      internalID: -1483444632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: T_HouseTest_5
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 16
-        width: 251
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 154a6126a76b4104389641d3485f6a15
-      internalID: -1110495012
+      spriteID: 2ad3ee36a2889e410800000000000000
+      internalID: 1506885265978703266
       vertices: []
       indices: 
       edges: []
@@ -223,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 5b55c96d2be03d544aacb4e3f0813c87
     internalID: 0
     vertices: []
     indices: 
@@ -233,12 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      T_HouseTest_0: -1971713830
-      T_HouseTest_1: -475151899
-      T_HouseTest_2: -1216278261
-      T_HouseTest_3: 515152806
-      T_HouseTest_4: -1483444632
-      T_HouseTest_5: -1110495012
+      SPR_Foraging_Shears_0: 7079701295855981540
+      SPR_Foraging_Shears_1: -7903353637476605527
+      SPR_Foraging_Shears_2: 1506885265978703266
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
