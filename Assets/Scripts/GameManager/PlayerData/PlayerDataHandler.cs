@@ -150,6 +150,16 @@ public class PlayerDataHandler : MonoBehaviour
         if (!data.herbarium.Contains(plantID)) data.herbarium.Add(plantID);
     }
 
+    /// <summary>
+    /// Checks if a plant is unlocked in the herbarium
+    /// </summary>
+    /// <param name="plantID">The plant ID</param>
+    /// <returns>True if the plant is unlocked</returns>
+    public bool IsUnlockedInHerbarium(string plantID)
+    {
+        return data.herbarium.Contains(plantID);
+    }
+
     #endregion
 
     #region Log

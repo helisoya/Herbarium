@@ -12,6 +12,7 @@ public class LocalizedText : MonoBehaviour
     [SerializeField] protected Locals.Channel channel;
     [SerializeField] protected TMP_Text text;
     [SerializeField] protected bool canResize = true;
+    [SerializeField] protected bool canRecolor = true;
     [SerializeField] protected bool noText = false;
     protected object[] injectors;
 
@@ -105,6 +106,8 @@ public class LocalizedText : MonoBehaviour
     /// <param name="color">The new color</param>
     public void SetColor(Color color)
     {
+        if(!canRecolor) return;
+        
         text.color = color;
     }
 
