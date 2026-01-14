@@ -371,6 +371,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void Event_BackpackButton()
     {
+        if(CutsceneManager.instance.inCutscene || !CutsceneManager.instance.inParrallelCutscene) return;
         Player.instance.StopPlayerMovements();
         OpenBackpack();
     }
