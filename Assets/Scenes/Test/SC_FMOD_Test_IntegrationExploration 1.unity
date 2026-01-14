@@ -283,9 +283,9 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1578393938}
         m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PostEntry1
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1591993616}
@@ -11318,9 +11318,9 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1578393938}
         m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PostEntry2
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 196763923}
@@ -24541,74 +24541,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 658757321}
     m_Modifications:
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: birdA
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: birdB
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: birdC
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: birdD
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: river
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: treeA
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: treeB
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: entry1
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: entry2
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: entry3
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: frogBig
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: insectA
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: insectB
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: frogTiny
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: bioLightA
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: frogMedium
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: grassCollision
-      value: 19
-      objectReference: {fileID: 0}
     - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1224.7719
@@ -24663,6 +24595,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
   m_PrefabInstance: {fileID: 1578393936}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1578393938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+  m_PrefabInstance: {fileID: 1578393936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f6a93e13f2b3b4eaac3515b75807df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1591993616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3143645444925307438, guid: f51724a8da183054b85946fb4778adf2, type: 3}
@@ -24673,37 +24616,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9039406756000989847, guid: f51724a8da183054b85946fb4778adf2, type: 3}
   m_PrefabInstance: {fileID: 6534051820127149276}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1591993621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591993616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1072876751
-      Data2: 1092233566
-      Data3: -1276406858
-      Data4: 1436739522
-    Path: event:/Music/Plant3Music3DA
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1001 &1637225183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25256,6 +25168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1776409954925503432, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 2138109064}
     - target: {fileID: 3807188146340823443, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: playerSpeed
       value: 7
@@ -26315,6 +26231,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2138109064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1814585188642960953, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+  m_PrefabInstance: {fileID: 1847440736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2142013370
 GameObject:
   m_ObjectHideFlags: 0
@@ -26671,9 +26592,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6945746502232717982, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 357520327}
-    - targetCorrespondingSourceObject: {fileID: 3143645444925307438, guid: f51724a8da183054b85946fb4778adf2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1591993621}
     - targetCorrespondingSourceObject: {fileID: 8721930866249703329, guid: f51724a8da183054b85946fb4778adf2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1052880462}
