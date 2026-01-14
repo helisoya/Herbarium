@@ -12,31 +12,31 @@ public class AudioCollision : MonoBehaviour
     public void PostTreeCollision(GameObject obj)
     {
         
-        AudioManager.Instance.Play3DEvent(treeCollision, obj);
+        AudioManager.Instance.PlayOneShot3D(treeCollision, obj);
         Debug.Log("AIE L'ARBRE IMPACT");
     }
 
     public void PostPlantCollision(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(plantCollision, obj);
+        AudioManager.Instance.PlayOneShot3D(plantCollision, obj);
         Debug.Log("AIE LA PLANTE IMPACT");
     }
 
     public void PostRockCollision(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(rockCollision, obj);
+        AudioManager.Instance.PlayOneShot3D(rockCollision, obj);
         Debug.Log("AIE LE ROCHER IMPACT");
     }
 
     public void PostGrassCollision(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(grassCollision, obj);
+        AudioManager.Instance.PlayOneShot3D(grassCollision, obj);
         Debug.Log("je marche sur l'herbe oui oui");
     }
 
     public void PostNpcCollision(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(npcCollision, obj);
+        AudioManager.Instance.PlayOneShot3D(npcCollision, obj);
         Debug.Log("AIE LE NPC IMPACT");
     }
 }

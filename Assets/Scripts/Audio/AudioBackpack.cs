@@ -33,89 +33,89 @@ public class AudioBackpack : MonoBehaviour
 
     public void PostBackpackOpen()
     {
-        AudioManager.Instance.Play2DEvent(backpackOpen);
+        AudioManager.Instance.PlayOneShot2D(backpackOpen);
     }
 
     public void PostBackpackClose()
     {
-        AudioManager.Instance.Play2DEvent(backpackClose);
+        AudioManager.Instance.PlayOneShot2D(backpackClose);
     }
 
     public void PostBackpackHover()
     {
-        AudioManager.Instance.Play2DEvent(backpackHover);
+        AudioManager.Instance.PlayOneShot2D(backpackHover);
     }
 
     public void PostBackpackClick()
     {
-        AudioManager.Instance.Play2DEvent(backpackClick);
+        AudioManager.Instance.PlayOneShot2D(backpackClick);
     }
 
     public void PostBackpackBack()
     {
-        AudioManager.Instance.Play2DEvent(backpackBack);
+        AudioManager.Instance.PlayOneShot2D(backpackBack);
     }
 
     public void PostInventoryOpen()
     {
-        AudioManager.Instance.Play2DEvent(inventoryOpen);
+        AudioManager.Instance.PlayOneShot2D(inventoryOpen);
     }
 
     public void PostInventoryClose()
     {
-        AudioManager.Instance.Play2DEvent(inventoryClose);
+        AudioManager.Instance.PlayOneShot2D(inventoryClose);
     }
 
     public void PostHerbariumOpen()
     {
-        AudioManager.Instance.Play2DEvent(herbariumOpen);
+        AudioManager.Instance.PlayOneShot2D(herbariumOpen);
     }
 
     public void PostHerbariumClose()
     {
-        AudioManager.Instance.Play2DEvent(herbariumClose);
+        AudioManager.Instance.PlayOneShot2D(herbariumClose);
     }
 
     public void PostHerbariumAmb()
     {
-        AudioManager.Instance.Play2DEvent(herbariumAmb);
+        AudioManager.Instance.PlayOneShot2D(herbariumAmb);
     }
 
     public void PostPageTurnPrevious()
     {
-        AudioManager.Instance.Play2DEvent(pageTurnPrevious);
+        AudioManager.Instance.PlayOneShot2D(pageTurnPrevious);
     }
 
     public void PostPageTurnNext()
     {
-        AudioManager.Instance.Play2DEvent(pageTurnNext);
+        AudioManager.Instance.PlayOneShot2D(pageTurnNext);
     }
     public void PostPageHover()
     {
-        AudioManager.Instance.Play2DEvent(pageHover);
+        AudioManager.Instance.PlayOneShot2D(pageHover);
     }
 
     public void PostPlantsIndex()
     {
-        AudioManager.Instance.Play2DEvent(plantsIndex);
+        AudioManager.Instance.PlayOneShot2D(plantsIndex);
     }
 
     public void PostQuestsIndex()
     {
-        AudioManager.Instance.Play2DEvent(questsIndex);
+        AudioManager.Instance.PlayOneShot2D(questsIndex);
     }
 
     public void PostPinQuest(bool pin)
     {
         if (pin == true)
         {
-            AudioManager.Instance.Play2DEvent(pinQuestOn);
+            AudioManager.Instance.PlayOneShot2D(pinQuestOn);
             Debug.Log("Son Pin Quest On");
         }
 
         else
         {
-            AudioManager.Instance.Play2DEvent(pinQuestOff);
+            AudioManager.Instance.PlayOneShot2D(pinQuestOff);
             Debug.Log("Son Pin Quest Off");
         }
             
@@ -124,49 +124,49 @@ public class AudioBackpack : MonoBehaviour
 
     public void PostLinkHover()
     {
-        AudioManager.Instance.Play2DEvent(linkHover);
+        AudioManager.Instance.PlayOneShot2D(linkHover);
     }
 
     public void PostHintHover()
     {
-        AudioManager.Instance.Play2DEvent(hintHover);
+        AudioManager.Instance.PlayOneShot2D(hintHover);
     }
 
     public void PostHintButtonHover()
     {
-        AudioManager.Instance.Play2DEvent(hintButtonHover);
+        AudioManager.Instance.PlayOneShot2D(hintButtonHover);
     }
 
     public void PostHintClick()
     {
-        AudioManager.Instance.Play2DEvent(hintClick);
+        AudioManager.Instance.PlayOneShot2D(hintClick);
     }
 
     public void PostHintReveal()
     {
-        AudioManager.Instance.Play2DEvent(hintReveal);
+        AudioManager.Instance.PlayOneShot2D(hintReveal);
     }
 
     public void PostHintClose()
     {
-        AudioManager.Instance.Play2DEvent(hintClose);
+        AudioManager.Instance.PlayOneShot2D(hintClose);
     }
 
     public void PostPlantInstrument(int plant)
     {
         if (plant == 0)
         {
-            AudioManager.Instance.Play2DEvent(pageCresson);
+            AudioManager.Instance.PlayOneShot2D(pageCresson);
         }
         
         if (plant == 1)
         {
-            AudioManager.Instance.Play2DEvent(pageMurailles);
+            AudioManager.Instance.PlayOneShot2D(pageMurailles);
         }
 
         if (plant == 2)
         {
-            AudioManager.Instance.Play2DEvent(pageAquaMint);
+            AudioManager.Instance.PlayOneShot2D(pageAquaMint);
         }
     }
 
