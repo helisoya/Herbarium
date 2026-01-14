@@ -61,6 +61,7 @@ public class HerbariumGUI : MonoBehaviour
     {
         if (isOpen)
         {
+            GameGUI.instance.EnableHudIfPossible();
             onClose.Invoke();
             root.SetActive(false);
         }

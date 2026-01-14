@@ -28,12 +28,11 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
 
-
-
             // Debug build
             if (Debug.isDebugBuild)
             {
-                playerDataHandler.AddHerbariumPage("TestPlant1");
+                //playerDataHandler.AddInInventory("TestPlant1");
+                //playerDataHandler.AddHerbariumPage("TestPlant1");
                 playerDataHandler.AddHerbariumPage("TestPlant2");
                 playerDataHandler.SetVariable("quest_test",0);
             }

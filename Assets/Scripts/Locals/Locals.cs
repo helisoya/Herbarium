@@ -91,9 +91,9 @@ public class Locals
         self.onChangeLocal.AddListener(text.ReloadText);
 
         LocalChannel linkedChannel = self.channels[(int)channel];
-        linkedChannel.onChangeSize.AddListener(text.SetSize);
-        linkedChannel.onChangeFont.AddListener(text.SetFont);
-        linkedChannel.onChangeColor.AddListener(text.SetColor);
+        self.channels[(int)channel].onChangeSize.AddListener(text.SetSize);
+        self.channels[(int)channel].onChangeFont.AddListener(text.SetFont);
+        self.channels[(int)channel].onChangeColor.AddListener(text.SetColor);
         text.SetColor(linkedChannel.data.color);
         text.SetFont(self.staticData.fonts[linkedChannel.data.fontIndex]);
         text.SetSize(self.staticData.sizes[linkedChannel.data.sizeIndex]);
@@ -110,10 +110,9 @@ public class Locals
 
         self.onChangeLocal.RemoveListener(text.ReloadText);
 
-        LocalChannel linkedChannel = self.channels[(int)channel];
-        linkedChannel.onChangeSize.RemoveListener(text.SetSize);
-        linkedChannel.onChangeFont.RemoveListener(text.SetFont);
-        linkedChannel.onChangeColor.RemoveListener(text.SetColor);
+        self.channels[(int)channel].onChangeSize.RemoveListener(text.SetSize);
+        self.channels[(int)channel].onChangeFont.RemoveListener(text.SetFont);
+        self.channels[(int)channel].onChangeColor.RemoveListener(text.SetColor);
     }
 
     /// <summary>
@@ -195,9 +194,8 @@ public class Locals
     {
         if (Locals.self == null) Init();
 
-        LocalChannel channelToChange = self.channels[(int)channel];
-        channelToChange.data.fontIndex = fontIndex;
-        channelToChange.onChangeFont.Invoke(self.staticData.fonts[fontIndex]);
+        self.channels[(int)channel].data.fontIndex = fontIndex;
+        self.channels[(int)channel].onChangeFont.Invoke(self.staticData.fonts[fontIndex]);
     }
 
     /// <summary>
@@ -209,9 +207,8 @@ public class Locals
     {
         if (Locals.self == null) Init();
 
-        LocalChannel channelToChange = self.channels[(int)channel];
-        channelToChange.data.sizeIndex = sizeIndex;
-        channelToChange.onChangeSize.Invoke(self.staticData.sizes[sizeIndex]);
+        self.channels[(int)channel].data.sizeIndex = sizeIndex;
+        self.channels[(int)channel].onChangeSize.Invoke(self.staticData.sizes[sizeIndex]);
     }
 
     /// <summary>
@@ -223,9 +220,8 @@ public class Locals
     {
         if (Locals.self == null) Init();
 
-        LocalChannel channelToChange = self.channels[(int)channel];
-        channelToChange.data.color = color;
-        channelToChange.onChangeColor.Invoke(color);
+        self.channels[(int)channel].data.color = color;
+        self.channels[(int)channel].onChangeColor.Invoke(color);
     }
 
     /// <summary>
