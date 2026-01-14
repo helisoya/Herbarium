@@ -22,6 +22,7 @@ public class AudioForaging : MonoBehaviour
     [SerializeField] private EventID plantStop;
     [SerializeField] private EventID plantImpact;
     [SerializeField] private EventID plantStress;
+    [SerializeField] private EventID inBag;
 
     private GameObject currentMovingObject;
     private EventInstance plantStressInstance;
@@ -85,6 +86,12 @@ public class AudioForaging : MonoBehaviour
     {
         Debug.Log("ok d'accord j'arrête de stresser la plante");
         AudioManager.Instance.Stop(plantStressInstance, FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
+    public void PostInBag()
+    {
+        AudioManager.Instance.PlayOneShot2D(inBag);
+        Debug.Log("la main dans le sac !!!");
     }
 
 }

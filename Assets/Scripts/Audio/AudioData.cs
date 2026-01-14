@@ -20,7 +20,7 @@ public enum EventID
     PageCresson, PageAquaMint, PageMurailles,
     PinQuestOff, HintButtonHover, PlantsIndexHover, QuestsIndexHover,
     ToolCut, ToolCutGood, ToolCutBad, ToolPickUp, ToolDrop, PlantPickUp, PlantDrop,
-    ToolImpact, PlantImpact, PlantStress,
+    ToolImpact, PlantImpact, PlantStress, InBag,
 }
 
 public enum ParamID
