@@ -42,7 +42,7 @@ public class ForagingMicroInteraction : MicroInteraction
         backpackTopCollider.SetActive(false);
         plantInBackpack = false;
 
-        if (debugAutoPlay)
+        if (debugAutoPlay && debugPlayer)
         {
             debugPlayer.StartMicroInteraction(this,debugPlantId);
         } 
