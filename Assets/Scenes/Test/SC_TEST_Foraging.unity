@@ -695,6 +695,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4605637071651156812, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
   m_PrefabInstance: {fileID: 715114762}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &715114764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7494732985010212119, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+  m_PrefabInstance: {fileID: 715114762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1fa845b823c854e8e18f3f34012ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &738838521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1624,7 @@ MonoBehaviour:
       m_Calls: []
   debugAutoPlay: 1
   debugPlantId: TestPlant1
-  debugPlayer: {fileID: 2090048051}
+  debugPlayer: {fileID: 715114764}
 --- !u!4 &1388873298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6953767973617601706, guid: 7127d78abed40454bacf806776e92658, type: 3}
@@ -2871,17 +2882,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0738ec879a6c9d84182b1eb8c16bb5f2, type: 3}
---- !u!114 &2090048051 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2432414658911301884, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
-  m_PrefabInstance: {fileID: 715114762}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1fa845b823c854e8e18f3f34012ee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1001 &6533590608561821118
 PrefabInstance:
   m_ObjectHideFlags: 0
