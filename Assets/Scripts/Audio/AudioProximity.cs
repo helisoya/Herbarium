@@ -23,103 +23,103 @@ public class AudioProximity : MonoBehaviour
 
     public void PostTreeA(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(treeA, obj);
+        AudioManager.Instance.PlayOneShot3D(treeA, obj);
         Debug.Log("tu entres dans la zooooone de l'arbre A");
     }
 
     public void PostTreeB(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(treeB, obj);
+        AudioManager.Instance.PlayOneShot3D(treeB, obj);
         Debug.Log("tu entres dans la zooooone de l'arbre B");
     }
 
     public void PostBioLightA(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(bioLightA, obj);
+        AudioManager.Instance.PlayOneShot3D(bioLightA, obj);
         Debug.Log("tu entres dans la zooooone du nénuphar lumineux");
     }
 
     public void PostInsectA(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(insectA, obj);
+        AudioManager.Instance.PlayOneShot3D(insectA, obj);
         Debug.Log("tu entres dans la zooooone des moucherons");
     }
 
     public void PostInsectB(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(insectB, obj);
+        AudioManager.Instance.PlayOneShot3D(insectB, obj);
         Debug.Log("tu entres dans la zooooone des lucioles");
     }
 
     public void PostBirdA(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(birdA, obj);
+        AudioManager.Instance.PlayOneShot3D(birdA, obj);
         Debug.Log("tu entres dans la zooooone de l'oiseau A");
     }
 
     public void PostBirdB(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(birdB, obj);
+        AudioManager.Instance.PlayOneShot3D(birdB, obj);
         Debug.Log("tu entres dans la zooooone de l'oiseau B");
     }
 
     public void PostBirdC(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(birdC, obj);
+        AudioManager.Instance.PlayOneShot3D(birdC, obj);
         Debug.Log("tu entres dans la zooooone de l'oiseau C");
     }
 
     public void PostBirdD(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(birdD, obj);
+        AudioManager.Instance.PlayOneShot3D(birdD, obj);
         Debug.Log("tu entres dans la zooooone de l'oiseau D");
     }
 
     public void PostFrogBig(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(frogBig, obj);
+        AudioManager.Instance.PlayOneShot3D(frogBig, obj);
         Debug.Log("tu entres dans la zooooone de la grosse grenouille");
     }
 
     public void PostFrogMedium(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(frogMedium, obj);
+        AudioManager.Instance.PlayOneShot3D(frogMedium, obj);
         Debug.Log("tu entres dans la zooooone de la medium grenouille");
     }
 
     public void PostFrogTiny(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(frogTiny, obj);
+        AudioManager.Instance.PlayOneShot3D(frogTiny, obj);
         Debug.Log("tu entres dans la zooooone de la tinyyy grenouille");
     }
 
     public void PostRiver(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(river, obj);
+        AudioManager.Instance.PlayOneShot3D(river, obj);
         Debug.Log("tu entres dans la zooooone de la rivière");
     }
 
     public void PostGrassCollision(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(grassCollision, obj);
+        AudioManager.Instance.PlayOneShot3D(grassCollision, obj);
         Debug.Log("je marche sur l'herbe oui oui");
     }
 
     public void PostEntry1(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(entry1, obj);
+        AudioManager.Instance.PlayOneShot3D(entry1, obj);
         Debug.Log("MUSIQUE ENTRY 1");
     }
 
     public void PostEntry2(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(entry2, obj);
+        AudioManager.Instance.PlayOneShot3D(entry2, obj);
         Debug.Log("MUSIQUE ENTRY 2");
     }
 
     public void PostEntry3(GameObject obj)
     {
-        AudioManager.Instance.Play3DEvent(entry3, obj);
+        AudioManager.Instance.PlayOneShot3D(entry3, obj);
         Debug.Log("MUSIQUE ENTRY 2");
     }
 }
