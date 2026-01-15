@@ -19,6 +19,7 @@ public class ForagingMicroInteraction : MicroInteraction
 
     [Header("GUI")]
     [SerializeField] private TextMeshProUGUI plantHealthText;
+    [SerializeField] private GameObject tutorialRoot;
 
     [Header("Backpack")]
     [SerializeField] private GameObject backpackTopCollider;
@@ -30,6 +31,12 @@ public class ForagingMicroInteraction : MicroInteraction
     [SerializeField] private UnityEvent onCutBad;
     [SerializeField] private UnityEvent onPlantInBag;
 
+
+    [Header("ScreenShake")]
+    [SerializeField] private float shakeAmount = 1.0f;
+    [SerializeField] private float shakeDecay = 0.7f;
+    private float currentShake;
+    private Vector3 cameraStartPos;
 
 
     [Header("Debug")]
@@ -56,6 +63,10 @@ public class ForagingMicroInteraction : MicroInteraction
         
         Transform prefab = Instantiate(plant.foragingPrefab,plantRoot);
         plantJoints = prefab.GetChild(0).GetComponentsInChildren<Joint2D>();
+
+        tutorialRoot.SetActive(!GameManager.instance.GetPlayerDataHandler().HasCompletedForagingTutorial());
+
+        cameraStartPos = microInteractionCamera.transform.localPosition;
     }
 
     protected override void OnEnd(EndingType type)
@@ -74,7 +85,13 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnUpdate()
     {
-        
+        if (currentShake > 0) {
+            microInteractionCamera.transform.localPosition = cameraStartPos + Random.insideUnitSphere * Settings.instance.GetScreenshakeStrength();            
+            currentShake -= Time.deltaTime * shakeDecay;
+
+        } else {
+            microInteractionCamera.transform.localPosition = cameraStartPos;
+        }   
     }
 
     protected override void OnToolUse()
@@ -102,6 +119,7 @@ public class ForagingMicroInteraction : MicroInteraction
                     onCutBad.Invoke();
                     plantHP--;
                     plantHealthText.text = plantHP.ToString();
+                    currentShake = shakeAmount;
                     if(plantHP <= 0)
                     {
                         foreach (Joint2D joint in plantJoints) {
@@ -111,6 +129,23 @@ public class ForagingMicroInteraction : MicroInteraction
                     }
                 }
             }
+    }
+
+    /// <summary>
+    /// Opens the tutorial window
+    /// </summary>
+    public void OpenTutorialPopup()
+    {
+        tutorialRoot.SetActive(true);
+    }
+
+    /// <summary>
+    /// Closes the tutorial window
+    /// </summary>
+    public void CloseTutorialPopup()
+    {
+        tutorialRoot.SetActive(false);
+        GameManager.instance.GetPlayerDataHandler().SetHasCompletedForagingTutorial(true);
     }
 
     /// <summary>

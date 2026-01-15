@@ -263,6 +263,28 @@ public class PlayerDataHandler : MonoBehaviour
 
     #endregion
 
+    #region Tutorials
+
+    /// <summary>
+    /// Sets if the foraging tutorial was completed or not
+    /// </summary>
+    /// <param name="value">True if it was</param>
+    public void SetHasCompletedForagingTutorial(bool value)
+    {
+        data.hadForagingTutorial = value;
+    }
+
+    /// <summary>
+    /// Gets if the foraging tutorial was completed or not 
+    /// </summary>
+    /// <returns>True if it was</returns>
+    public bool HasCompletedForagingTutorial()
+    {
+        return data.hadForagingTutorial;
+    }
+
+    #endregion
+
     #region Variables
 
     /// <summary>
