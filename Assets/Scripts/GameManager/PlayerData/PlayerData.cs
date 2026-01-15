@@ -13,4 +13,5 @@ public class PlayerData
     public PlayerVariable[] variables;
     public List<string> herbarium;
     public List<string> pinnedQuests;
+    public bool hadForagingTutorial = false;
 }

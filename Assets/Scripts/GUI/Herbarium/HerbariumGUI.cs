@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -49,6 +50,10 @@ public class HerbariumGUI : MonoBehaviour
         {
             onOpen.Invoke();
             root.SetActive(true);
+            RectTransform rt = root.GetComponent<RectTransform>();
+            rt.localScale = Vector3.zero;
+            rt.DOComplete();
+            rt.DOScale(Vector3.one,0.3f).SetEase(Ease.OutQuad);
         }
 
         SetMainPage();
@@ -63,7 +68,11 @@ public class HerbariumGUI : MonoBehaviour
         {
             GameGUI.instance.EnableHudIfPossible();
             onClose.Invoke();
-            root.SetActive(false);
+            RectTransform rt = root.GetComponent<RectTransform>();
+            rt.DOComplete();
+            rt.DOScale(Vector3.zero, 0.3f).SetEase(Ease.OutQuad).onComplete += () => {
+                root.SetActive(false);
+            };
         }
     }
 
