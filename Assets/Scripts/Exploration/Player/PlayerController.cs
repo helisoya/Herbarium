@@ -56,6 +56,14 @@ public class PlayerController : MonoBehaviour
         shouldTryToMoveUsingCursor = value;
     }
 
+    /// <summary>
+    /// Sets the position of the controller
+    /// </summary>
+    /// <param name="position">The new position</param>
+    public void SetPosition(Vector3 position)
+    {
+        rb.position = position;
+    }
 
 
     void Update()
