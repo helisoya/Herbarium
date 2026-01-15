@@ -16626,7 +16626,7 @@ MonoBehaviour:
   AutomaticDolly:
     Enabled: 1
     Method:
-      rid: 4890445551382823013
+      rid: 4890445551382823022
   TrackingTarget: {fileID: 964055640}
   m_LegacyPosition: -1
   m_LegacyUnits: 0
@@ -16634,12 +16634,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4890445551382823013
+    - rid: 4890445551382823022
       type: {class: SplineAutoDolly/NearestPointToTarget, ns: Unity.Cinemachine, asm: Unity.Cinemachine}
       data:
         PositionOffset: 0
-        SearchResolution: 4
-        SearchIteration: 2
+        SearchResolution: 10
+        SearchIteration: 10
 --- !u!114 &1295332937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16683,10 +16683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613730e4f8badc745b7b3ba2d312617e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioFollowPlayerOnSpline
-  player: {fileID: 964055640}
-  splineContainer: {fileID: 479921357}
-  cart: {fileID: 1295332936}
-  followSpeed: 15
 --- !u!43 &1310749623
 Mesh:
   m_ObjectHideFlags: 0
