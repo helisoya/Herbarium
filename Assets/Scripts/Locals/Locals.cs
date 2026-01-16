@@ -64,6 +64,7 @@ public class Locals
 
         for (int i = 0; i < values.Length; i++)
         {
+            channels[i] = new LocalChannel();
             channels[i].data = new LocalChannelData()
             {
                 fontIndex = 0,

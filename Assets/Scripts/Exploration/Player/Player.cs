@@ -271,6 +271,15 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets the controller's position
+    /// </summary>
+    /// <param name="position"></param>
+    public void SetPosition(Vector3 position)
+    {
+        controller.SetPosition(position);
+    }
+
+    /// <summary>
     /// Stops all player movements
     /// </summary>
     public void StopPlayerMovements()

@@ -49,7 +49,7 @@ public class ForagingNode : HerbariumNode
                 switch (Player.instance.lastMicroInteractionEnding)
                 {
                     case MicroInteraction.EndingType.SUCCESS:
-                        CutsceneManager.instance.SetObjectActive("THIS",false);
+                        CutsceneManager.instance.TagObjectAsNotRegrown("THIS");
                         GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
                         yield return 0;
                         break;

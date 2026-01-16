@@ -67,7 +67,25 @@ public class CutsceneManager : MonoBehaviour
                 obj.SetActive(value);
             }
         }
+    }
 
+    /// <summary>
+    /// Tag an object as not regrown (if it supports that)
+    /// </summary>
+    /// <param name="id">Its id</param>
+    public void TagObjectAsNotRegrown(string id)
+    {
+        if(id.Equals("THIS") && currentObject != null)
+        {
+           currentObject.SendMessage("TagEntityAsNotRegrown");
+        } 
+        else
+        {
+            if (objects.TryGetValue(id, out GameObject obj))
+            {
+                obj.SendMessage("TagEntityAsNotRegrown");
+            }
+        }
     }
 
     void Awake()

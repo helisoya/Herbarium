@@ -7,7 +7,7 @@ using UnityEngine.Events;
 /// A channel represents a set of size, color and font for multiple texts
 /// </summary>
 [System.Serializable]
-public struct LocalChannelData
+public class LocalChannelData
 {
     public int sizeIndex;
     public int fontIndex;
@@ -18,7 +18,7 @@ public struct LocalChannelData
 /// Represents a channel for the localization system
 /// It is a combination of the channel's data and the unityevents linked to it
 /// </summary>
-public struct LocalChannel
+public class LocalChannel
 {
     public LocalChannelData data;
     public UnityEvent<TMP_FontAsset> onChangeFont;

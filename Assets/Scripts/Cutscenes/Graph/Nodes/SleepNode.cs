@@ -32,7 +32,8 @@ public class SleepNode : HerbariumNode
 
         if (refreshRegrowthSystem)
         {
-            // Refresh the regrowth system
+            GameManager.instance.GetPlayerDataHandler().IncrementRegrowthSystem();
+            Map.instance.TriggerOnRegrowthSystemRefresh();
         }
 
         yield return new WaitForSeconds(sleepTime);

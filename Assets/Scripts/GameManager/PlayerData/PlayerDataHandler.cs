@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 /// <summary>
@@ -13,6 +14,7 @@ public class PlayerDataHandler : MonoBehaviour
     [SerializeField] private int dialogLogMaxSize;
     [SerializeField] private DefaultPlayerVariables variables;
     [SerializeField] private PlayerQuests quests;
+    [SerializeField] private SerializedDictionary<string,int> defaultPlantRegrowth;
 
     public string filePath
     {
@@ -285,6 +287,107 @@ public class PlayerDataHandler : MonoBehaviour
 
     #endregion
 
+    #region Regrowth
+
+    /// <summary>
+    /// Checks if a plant entity has regrown or not
+    /// </summary>
+    /// <param name="entityId">The entity's Id</param>
+    /// <returns>True if the plant has regrown</returns>
+    public bool HasEntityRegrown(string entityId)
+    {
+        foreach(RegrowthPlantData data in data.regrowthData)
+        {
+            if(data.entityId.Equals(entityId)) return false;
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// Increments the regrowth system
+    /// </summary>
+    public void IncrementRegrowthSystem()
+    {
+        int idx = 0;
+        while(idx < data.regrowthData.Count)
+        {
+            data.regrowthData[idx].regrowthTime -= 1;
+            if(data.regrowthData[idx].regrowthTime <= 0)
+            {
+                data.regrowthData.RemoveAt(idx);
+            }
+            else
+            {
+                idx++;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Register a new entity to the regrowth system
+    /// </summary>
+    /// <param name="plantId">The entity's linked plant</param>
+    /// <param name="entityId">The entity's Id</param>
+    public void RegisterEntityHasNotRegrown(string plantId, string entityId)
+    {
+        if(!HasEntityRegrown(entityId)) return;
+
+        data.regrowthData.Add(new RegrowthPlantData(){entityId=entityId,regrowthTime=GetDefaultPlantRegrowthSpeed(plantId)});
+    }
+
+    /// <summary>
+    /// Gets the default regrowth time for a plant
+    /// </summary>
+    /// <param name="plantId">The plant Id</param>
+    /// <returns>The plant's regrowth speed</returns>
+    public int GetDefaultPlantRegrowthSpeed(string plantId)
+    {
+        if(defaultPlantRegrowth.TryGetValue(plantId, out int value)) return value;
+        return 0;
+    }
+
+    #endregion
+
+    #region Map & Positions
+
+    /// <summary>
+    /// Gets the current map
+    /// </summary>
+    /// <returns>The current map</returns>
+    public string GetCurrentMap()
+    {
+        return data.mapName;
+    }
+
+    /// <summary>
+    /// Sets the current map
+    /// </summary>
+    /// <param name="mapName">The current map name</param>
+    public void SetCurrentMap(string mapName)
+    {
+        data.mapName = mapName;
+    }
+
+    /// <summary>
+    /// Gets the current map position
+    /// </summary>
+    /// <returns>The current map position</returns>
+    public Vector3 GetMapPosition()
+    {
+        return data.mapPosition;
+    }
+
+    /// <summary>
+    /// Sets the current map position
+    /// </summary>
+    /// <param name="position">The new position</param>
+    public void SetMapPosition(Vector3 position)
+    {
+        data.mapPosition = position;
+    }
+
+    #endregion
+
     #region Variables
 
     /// <summary>
@@ -332,8 +435,9 @@ public class PlayerDataHandler : MonoBehaviour
     {
         data = new PlayerData();
         data.inventory = new string[inventorySize];
-        data.dialogLog = new System.Collections.Generic.LinkedList<string>();
-        data.herbarium = new System.Collections.Generic.List<string>();
+        data.dialogLog = new LinkedList<string>();
+        data.herbarium = new List<string>();
+        data.regrowthData = new List<RegrowthPlantData>();
         data.pinnedQuests = new List<string>();
 
         data.variables = new PlayerVariable[variables.variables.Length];

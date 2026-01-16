@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlantDatabase plantDatabase;
     public static GameManager instance;
 
+    public bool inMainMenu {get; set;}
+    public bool loadingSave {get; set;}
+
     void Awake()
     {
         if (instance != null)
