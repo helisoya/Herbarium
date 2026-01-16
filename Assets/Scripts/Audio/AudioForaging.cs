@@ -1,10 +1,5 @@
-using System;
-using System.Runtime.CompilerServices;
 using FMOD.Studio;
-using JetBrains.Annotations;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
-using UnityEngine.Jobs;
 
 public class AudioForaging : MonoBehaviour
 {
@@ -84,7 +79,7 @@ public class AudioForaging : MonoBehaviour
 
     public void StopPlantStress()
     {
-        Debug.Log("ok d'accord j'arrête de stresser la plante");
+        Debug.Log("ok d'accord j'arrï¿½te de stresser la plante");
         AudioManager.Instance.Stop(plantStressInstance, FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 

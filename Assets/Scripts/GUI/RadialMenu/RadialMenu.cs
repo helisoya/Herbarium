@@ -149,6 +149,12 @@ public class RadialMenu : MonoBehaviour
         if (currentRadialMenu != RadialMenuID.CLOSED && entries != null)
         {
             Vector2 mouseDir = (position - new Vector2(Screen.width / 2, Screen.height / 2)).normalized;
+
+            Vector2 correctPos = new Vector2(position.x / Screen.width, position.y / Screen.height);
+            Vector2 distToWidth = new Vector2(Mathf.Abs(correctPos.x-0.5f), Mathf.Abs(correctPos.y-0.5f));
+
+            //print(distToWidth+ " "+ SIZE*2f/800f + " "+ SIZE*2f/Screen.height);
+
             float mouseAngle = Mathf.Atan2(-mouseDir.x, -mouseDir.y);
             if (mouseAngle < 0) mouseAngle += 2 * Mathf.PI;
 
@@ -158,7 +164,7 @@ public class RadialMenu : MonoBehaviour
 
             if (value % 1 >= 0.5f) correctBox = (correctBox + 1) % entries.Length;
 
-            if(57000f <= (position.x - Screen.width/2f)*(position.x - Screen.width/2) + (position.y - Screen.height/2f) * (position.y - Screen.height/2f)) correctBox = -1;
+            if(distToWidth.x > 0.18f || distToWidth.y > 0.34f) correctBox = -1;
 
             if (currentEntryIdx != correctBox)
             {
