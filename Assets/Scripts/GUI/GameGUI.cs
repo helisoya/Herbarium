@@ -25,6 +25,14 @@ public class GameGUI : MonoBehaviour
     [Header("HUD")]
     [SerializeField] private GameObject hudRoot;
 
+    [Header("Popup")]
+    [SerializeField] private CanvasGroup popupGroup;
+    [SerializeField] private LocalizedText popupText;
+    [SerializeField] private float popupFadeTime = 0.5f;
+    [SerializeField] private float popupIdleTime = 2.0f;
+    private Coroutine routinePopup;
+    public bool showingPopup{get{return routinePopup != null;}}
+
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
     [SerializeField] private Image dialogBg;
@@ -60,6 +68,8 @@ public class GameGUI : MonoBehaviour
         fade.FadeTo(0);
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
     }
+
+    #region Links
 
     /*
     /// <summary>
@@ -268,6 +278,10 @@ public class GameGUI : MonoBehaviour
         radialMenu.ActivateCurrentlySelected();
     }
 
+    #endregion
+
+    #region Dialog
+
     /// <summary>
     /// Sets if the dialog panel is active or not
     /// </summary>
@@ -349,12 +363,69 @@ public class GameGUI : MonoBehaviour
         routineDialog = null;
     }
 
+    #endregion
 
+    #region Popup
 
+    /// <summary>
+    /// Shows a new popup
+    /// </summary>
+    /// <param name="key">The text key</param>
+    /// <param name="injectors">The text injectors</param>
+    public void ShowPopup(string key, object[] injectors)
+    {
+        if(routinePopup != null) StopCoroutine(routinePopup);
+        routinePopup = StartCoroutine(Routine_Popup(key,injectors));
+    }
 
+    /// <summary>
+    /// Shows a new popup (Routine)
+    /// </summary>
+    /// <param name="key">The text key</param>
+    /// <param name="injectors">The text injectors</param>
+    private IEnumerator Routine_Popup(string key, object[] injectors)
+    {
+        if(popupGroup.alpha > 0.0001f)
+        {
+            // Fade in the text before doing anything else
+            yield return Routine_PopupFade(popupGroup.alpha,0.0f,popupFadeTime/popupGroup.alpha);
+        }
+        popupGroup.alpha = 0.0f;
 
+        popupText.SetInjectors(injectors);
+        popupText.SetNewKey(key);
 
+        yield return Routine_PopupFade(popupGroup.alpha,1.0f,popupFadeTime);
+        popupGroup.alpha = 1.0f;
 
+        yield return new WaitForSeconds(popupIdleTime);
+
+        yield return Routine_PopupFade(popupGroup.alpha,0.0f,popupFadeTime);
+        popupGroup.alpha = 0.0f;
+
+        routinePopup = null;
+    }
+
+    /// <summary>
+    /// Internal routine for fading the popup
+    /// </summary>
+    /// <param name="start">The start opacity</param>
+    /// <param name="end">The end opacity</param>
+    /// <param name="duration">The opacity duration</param>
+    private IEnumerator Routine_PopupFade(float start, float end, float duration)
+    {
+        for (float t = 0f; t <= duration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / duration;
+            popupGroup.alpha = Mathf.Lerp(start,end,normalizedTime);
+
+            yield return null;
+        }
+    }
+
+    #endregion
+
+    #region Click events
 
     /* ------------------------------------------------------- Click events ------------------------------------------------------- */
 
@@ -375,4 +446,6 @@ public class GameGUI : MonoBehaviour
         Player.instance.StopPlayerMovements();
         OpenBackpack();
     }
+
+    #endregion
 }

@@ -26,6 +26,7 @@ public class ForagingNode : HerbariumNode
     {
         if (GameManager.instance.GetPlayerDataHandler().GetRemainingInventorySpace() == 0)
         {
+            GameGUI.instance.ShowPopup("Popup_Foraging_Full",null);
             yield return 2;
         }
         else
@@ -51,11 +52,13 @@ public class ForagingNode : HerbariumNode
                     case MicroInteraction.EndingType.SUCCESS:
                         CutsceneManager.instance.TagObjectAsNotRegrown("THIS");
                         GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
+                        GameGUI.instance.ShowPopup("Popup_Foraging_Done",new object[]{Locals.GetLocal(Plant.GetName(plantId))});
                         yield return 0;
                         break;
 
                     case MicroInteraction.EndingType.FAILURE:
-                        CutsceneManager.instance.SetObjectActive("THIS",false);
+                        CutsceneManager.instance.TagObjectAsNotRegrown("THIS");
+                        GameGUI.instance.ShowPopup("Popup_Foraging_Fail",null);
                         yield return 1;
                         break;
 
