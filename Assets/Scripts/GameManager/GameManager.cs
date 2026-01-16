@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlayerDataHandler playerDataHandler;
     [SerializeField] private PlantDatabase plantDatabase;
+    [SerializeField] private AudioManager audioManager;
     public static GameManager instance;
 
     public bool inMainMenu {get; set;}
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+
+            Instantiate(audioManager, transform);
 
             Locals.Init();
             Settings.Init();
