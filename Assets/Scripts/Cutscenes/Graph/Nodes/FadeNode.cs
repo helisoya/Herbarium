@@ -22,7 +22,7 @@ public class FadeNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
-        /*
+        
         GameGUI.instance.FadeTo(target);
         if (waitForEnd)
         {
@@ -32,7 +32,7 @@ public class FadeNode : HerbariumNode
                 yield return new WaitForEndOfFrame();
             }
         }
-        */
+        
         yield return 0;
     }
 }

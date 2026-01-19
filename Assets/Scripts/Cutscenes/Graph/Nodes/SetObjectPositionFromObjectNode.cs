@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// Represents a node that can manipulate the active status of an object
+/// Represents a node that can set an object's position using another object's position
 /// </summary>
-[CreateNodeMenu("Event/SetObjectActive")]
-public class SetObjectActiveNode : HerbariumNode
+[CreateNodeMenu("Event/SetObjectPositionFromObject")]
+public class SetObjectPositionFromObjectNode : HerbariumNode
 {
     [Input(connectionType = ConnectionType.Multiple)] public bool entry;
     [SerializeField] private string objectID;
-    [SerializeField] private bool objectActive;
+    [SerializeField] private string targetID;
     [Output(connectionType = ConnectionType.Override)] public bool exit;
 
 	// Use this for initialization
@@ -19,8 +19,9 @@ public class SetObjectActiveNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
+        GameObject target = CutsceneManager.instance.GetObject(targetID);
         GameObject obj = CutsceneManager.instance.GetObject(objectID);
-        if(obj) obj.SetActive(objectActive);
+        if(obj && target) obj.transform.position = target.transform.position;
         yield return 0;
     }
 }

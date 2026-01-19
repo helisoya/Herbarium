@@ -5,7 +5,7 @@ using XNode;
 /// <summary>
 /// Represents a choice node
 /// </summary>
-[CreateNodeMenu("Control/Choice")]
+[CreateNodeMenu("Control/Choice(Deprecated)")]
 public class ControlNode : HerbariumNode {
 
     [Input(connectionType = ConnectionType.Multiple)] public bool entry;

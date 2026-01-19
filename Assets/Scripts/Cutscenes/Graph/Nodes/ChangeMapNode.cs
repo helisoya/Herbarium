@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Represents a node that can change the map
 /// </summary>
-[CreateNodeMenu("Event/Change Map")]
+[CreateNodeMenu("Event/Change Map(Deprecated)")]
 public class ChangeMapNode : HerbariumNode
 {
     [Input(connectionType = ConnectionType.Multiple)] public bool entry;
