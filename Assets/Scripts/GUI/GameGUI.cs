@@ -36,7 +36,13 @@ public class GameGUI : MonoBehaviour
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
     [SerializeField] private Image dialogBg;
+    [SerializeField] private GameObject dialogContinueRoot;
     [SerializeField] private LocalizedText dialogText;
+    [SerializeField] private LocalizedText dialogNameText;
+    [SerializeField] private LocalizedText dialogTitleText;
+    [SerializeField] private GameObject dialogNameRoot;
+    [SerializeField] private GameObject dialogTitleRoot;
+
     private Coroutine routineDialog;
     private bool skipDialog = false;
     public bool showingDialog { get { return routineDialog != null; } }
@@ -297,10 +303,12 @@ public class GameGUI : MonoBehaviour
     /// Shows a dialog on screen
     /// </summary>
     /// <param name="dialogID">The dialog's ID</param>
-    public void ShowDialog(string dialogID)
+    /// <param name="characterName">The character's name ID</param>
+    /// <param name="characterTitle">The character's title ID</param>
+    public void ShowDialog(string dialogID, string characterName, string characterTitle)
     {
         if (routineDialog != null) StopCoroutine(routineDialog);
-        routineDialog = StartCoroutine(Routine_Dialog(dialogID));
+        routineDialog = StartCoroutine(Routine_Dialog(dialogID,characterName,characterTitle));
     }
 
 
@@ -309,8 +317,10 @@ public class GameGUI : MonoBehaviour
     /// Routine for showing a dialog
     /// </summary>
     /// <param name="dialogID">The dialog's ID</param>
+    /// <param name="characterName">The character's name ID</param>
+    /// <param name="characterTitle">The character's title ID</param>
     /// <returns>IEnumerator</returns>
-    private IEnumerator Routine_Dialog(string dialogID)
+    private IEnumerator Routine_Dialog(string dialogID, string characterName, string characterTitle)
     {
         int charactersPerFrame = 1;
         float speed = 5f;
@@ -319,6 +329,28 @@ public class GameGUI : MonoBehaviour
 
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         SetDialogOpen(true);
+        dialogContinueRoot.SetActive(false);
+
+        if (string.IsNullOrEmpty(characterName))
+        {
+            dialogNameRoot.SetActive(false);
+        }
+        else
+        {
+            dialogNameRoot.SetActive(true);
+            dialogNameText.SetNewKey(characterName);
+        }
+
+        if (string.IsNullOrEmpty(characterTitle))
+        {
+            dialogTitleRoot.SetActive(false);
+        }
+        else
+        {
+            dialogTitleRoot.SetActive(true);
+            dialogTitleText.SetNewKey(characterTitle);
+        }
+
         dialogText.SetNewKey(dialogID);
         TMP_Text txt = dialogText.GetText();
 
@@ -359,6 +391,7 @@ public class GameGUI : MonoBehaviour
             yield return new WaitForSeconds(0.01f * speed);
         }
 
+        dialogContinueRoot.SetActive(true);
         skipDialog = false;
         routineDialog = null;
     }

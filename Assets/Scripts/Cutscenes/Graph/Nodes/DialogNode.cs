@@ -10,6 +10,8 @@ public class DialogNode : HerbariumNode {
 
     [Input(connectionType = ConnectionType.Multiple)] public bool entry;
     [SerializeField] private string dialogID;
+    [SerializeField] private string nameID;
+    [SerializeField] private string titleID;
     [Output(connectionType = ConnectionType.Override)] public bool exit;
 
 	// Use this for initialization
@@ -20,7 +22,7 @@ public class DialogNode : HerbariumNode {
     public override IEnumerator Apply()
     {
         
-        GameGUI.instance.ShowDialog(dialogID);
+        GameGUI.instance.ShowDialog(dialogID,nameID,titleID);
 
         // Dialog appears
         while(GameGUI.instance.showingDialog){
