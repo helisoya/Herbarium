@@ -21,7 +21,7 @@ public class DialogNode : HerbariumNode {
 
     public override IEnumerator Apply()
     {
-        
+        GameManager.instance.GetPlayerDataHandler().AddDialogLog(dialogID,nameID);
         GameGUI.instance.ShowDialog(dialogID,nameID,titleID);
 
         // Dialog appears
