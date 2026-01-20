@@ -98,7 +98,8 @@ public class PlayerInteraction : MonoBehaviour
             }
 
 
-            currentObject.SetActive(false);
+            currentObject.SetActive(false); 
+            
             currentObject.Interract();
 
             currentObject = null;

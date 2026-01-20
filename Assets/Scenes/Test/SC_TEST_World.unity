@@ -995,6 +995,7 @@ MonoBehaviour:
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: 656689fb81b8ed44aae40fbafc4d9dfa, type: 2}
   interactionIcon: {fileID: 606132703}
+  animationTrigger: 
 --- !u!114 &438042835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3678,6 +3679,7 @@ MonoBehaviour:
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: 13e994a940b8cad4b9afa4ff2b4f5b72, type: 2}
   interactionIcon: {fileID: 1581607884}
+  animationTrigger: isBending
 --- !u!114 &1502875543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3970,6 +3972,7 @@ MonoBehaviour:
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: 43500df974712064995c8c341d64d5b5, type: 2}
   interactionIcon: {fileID: 1942755163}
+  animationTrigger: isAction
 --- !u!114 &1609695168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4082,6 +4085,7 @@ MonoBehaviour:
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: 32798d10951a0424a94029f0a618f8a3, type: 2}
   interactionIcon: {fileID: 1034765741}
+  animationTrigger: 
 --- !u!114 &1616312944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4632,6 +4636,7 @@ MonoBehaviour:
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: 17785e1812eadd6499700b5f2276d2fd, type: 2}
   interactionIcon: {fileID: 821017020}
+  animationTrigger: isAction
 --- !u!1 &1832945724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5690,6 +5695,10 @@ PrefabInstance:
     - target: {fileID: 7465842058790329912, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 55.80002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140883150219220520, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -155.69135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
