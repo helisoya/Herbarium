@@ -159,6 +159,12 @@ public class ForagingMicroInteraction : MicroInteraction
     /// </summary>
     public void RaiseFlagPlantInBackpack()
     {
+        if (currentObject)
+        {
+            currentObject.Drop();
+            currentObject = null;
+        }
+
         onPlantInBag.Invoke();
         backpackTopCollider.SetActive(true);
         plantInBackpack = true;
