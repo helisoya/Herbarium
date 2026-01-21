@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,12 @@ public class MicroInteractionPickablePart : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField] private MicroInteractionPickable parent;
+
+    
+    [SerializeField] private float waitingTime = 0.05f;
+    private bool waiting;
+    private float currentwaitingTime;
+    private bool exited;
 
     void Awake()
     {
@@ -26,24 +33,51 @@ public class MicroInteractionPickablePart : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(parent.GetCurrentMovingPart() == null) return;
+        //if(parent.GetCurrentMovingPart() == null) return;
 
-        if(collision.transform.tag == "Ground")
+        
+
+        if (collision.transform.tag == "Ground")
         {
             parent.InvokeOnTouchGround();
+            waiting = true;
+            currentwaitingTime = waitingTime;
+            exited = false;
+
+
         }else if(collision.transform.tag == "Plant")
         {
             parent.InvokeOnStartTouchPlant();
+            waiting = true;
+            currentwaitingTime = waitingTime;
+            exited = false;
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if(parent.GetCurrentMovingPart() == null) return;
+        //if(parent.GetCurrentMovingPart() == null) return;
 
+        
         if(collision.transform.tag == "Plant")
         {
-            parent.InvokeOnEndTouchPlant();
+            if (waiting) exited = true;
+
+            else 
+                parent.InvokeOnEndTouchPlant();
+        }
+    }
+
+    private void Update()
+    {
+        if (waiting)
+        {
+            currentwaitingTime -= Time.deltaTime;
+            if (currentwaitingTime <= 0)
+            {
+                waiting = false;
+                if (exited) parent.InvokeOnEndTouchPlant();
+            }
         }
     }
 

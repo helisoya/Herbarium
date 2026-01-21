@@ -25,7 +25,7 @@ public class MicroInteractionPickable : MonoBehaviour
     [SerializeField] private Joint2D[] joints;
 
     [Header("Audio")]
-    [SerializeField] private UnityEvent onTouchedGround;
+    [SerializeField] private UnityEvent<Transform> onTouchedGround;
     [SerializeField] private UnityEvent onStartTouchPlant;
     [SerializeField] private UnityEvent onStopTouchPlant;
     private bool shouldInvokeOnTouchGround = false;
@@ -154,7 +154,7 @@ public class MicroInteractionPickable : MonoBehaviour
         if (shouldInvokeOnTouchGround)
         {
             shouldInvokeOnTouchGround = false;
-            onTouchedGround.Invoke();
+            onTouchedGround.Invoke(transform);
         }
 
         if (shouldInvokeOnStartPlant)

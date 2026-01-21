@@ -5425,6 +5425,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1385409252}
     m_Modifications:
+    - target: {fileID: 5118780838485740677, guid: 7127d78abed40454bacf806776e92658, type: 3}
+      propertyPath: waitingTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6953767973617601706, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.603
@@ -5483,7 +5487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onTouchedGround.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
