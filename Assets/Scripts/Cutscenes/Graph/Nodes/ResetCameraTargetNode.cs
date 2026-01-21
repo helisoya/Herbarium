@@ -1,14 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using XNode;
 
 /// <summary>
-/// Represents a node that can show / hide the player
+/// Represents a node that resets the camera target
 /// </summary>
-[CreateNodeMenu("Event/Hide player(Deprecated)")]
-public class HidePlayerNode : HerbariumNode
+[CreateNodeMenu("Event/ResetCameraTarget")]
+public class ResetCameraTargetNode : HerbariumNode
 {
+
     [Input(connectionType = ConnectionType.Multiple)] public bool entry;
-    [SerializeField] private bool playerVisible;
     [Output(connectionType = ConnectionType.Override)] public bool exit;
 
     // Use this for initialization
@@ -18,8 +19,9 @@ public class HidePlayerNode : HerbariumNode
     }
 
     public override IEnumerator Apply()
-    {
-        //Player.instance.SetPlayerModelActive(playerVisible);
+    {   
+        Player.instance.ResetCameraTarget();
+        
         yield return 0;
     }
 }

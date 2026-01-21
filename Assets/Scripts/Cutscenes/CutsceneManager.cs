@@ -50,42 +50,24 @@ public class CutsceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Changes if an object is active or not
+    /// Gets a registered object in the cutscene system
     /// </summary>
-    /// <param name="id">Its id</param>
-    /// <param name="value">True if it should be active</param>
-    public void SetObjectActive(string id, bool value)
+    /// <param name="id">The object's id. "THIS" represents the object that launched the interaction.</param>
+    /// <returns>The object</returns>
+    public GameObject GetObject(string id)
     {
         if(id.Equals("THIS") && currentObject != null)
         {
-           currentObject.SetActive(value); 
+           return currentObject;
         } 
         else
         {
             if (objects.TryGetValue(id, out GameObject obj))
             {
-                obj.SetActive(value);
+                return obj;
             }
         }
-    }
-
-    /// <summary>
-    /// Tag an object as not regrown (if it supports that)
-    /// </summary>
-    /// <param name="id">Its id</param>
-    public void TagObjectAsNotRegrown(string id)
-    {
-        if(id.Equals("THIS") && currentObject != null)
-        {
-           currentObject.SendMessage("TagEntityAsNotRegrown");
-        } 
-        else
-        {
-            if (objects.TryGetValue(id, out GameObject obj))
-            {
-                obj.SendMessage("TagEntityAsNotRegrown");
-            }
-        }
+        return null;
     }
 
     void Awake()
@@ -148,7 +130,8 @@ public class CutsceneManager : MonoBehaviour
                 currentNode = null;
             }
         }
-
+        
+        Player.instance.ResetCameraTarget();
 
         processingCutscene = null;
         yield return null;

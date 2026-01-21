@@ -71,6 +71,7 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnEnd(EndingType type)
     {
+        
     }
 
 
@@ -122,6 +123,11 @@ public class ForagingMicroInteraction : MicroInteraction
                     currentShake = shakeAmount;
                     if(plantHP <= 0)
                     {
+                        if (currentObject)
+                        {
+                            currentObject.Drop();
+                            currentObject = null;
+                        }
                         foreach (Joint2D joint in plantJoints) {
                             if(joint) joint.enabled = false;
                         }
@@ -153,6 +159,12 @@ public class ForagingMicroInteraction : MicroInteraction
     /// </summary>
     public void RaiseFlagPlantInBackpack()
     {
+        if (currentObject)
+        {
+            currentObject.Drop();
+            currentObject = null;
+        }
+
         onPlantInBag.Invoke();
         backpackTopCollider.SetActive(true);
         plantInBackpack = true;
