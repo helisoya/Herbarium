@@ -130,7 +130,8 @@ public class CutsceneManager : MonoBehaviour
                 currentNode = null;
             }
         }
-
+        
+        Player.instance.ResetCameraTarget();
 
         processingCutscene = null;
         yield return null;

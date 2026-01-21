@@ -20,6 +20,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 mousePosition;
     private Vector2 moveVector;
 
+    /// <summary>
+    /// Gets the player body
+    /// </summary>
+    /// <returns></returns>
+    public Rigidbody GetBody()
+    {
+        return rb;
+    }
+
 
     /// <summary>
     /// Sets the move vector (keyboard/gamepad)

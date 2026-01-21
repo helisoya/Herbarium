@@ -10,8 +10,8 @@ using UnityEngine.UI;
 public class GameGUI : MonoBehaviour
 {
     [Header("Pause")]
-    //[SerializeField] private PauseMenu pauseMenu;
-    //public bool isPauseOpen { get { return pauseMenu.isOpen; } }
+    [SerializeField] private PauseMenu pauseMenu;
+    public bool isPauseOpen { get { return pauseMenu.isOpen; } }
 
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
@@ -163,7 +163,7 @@ public class GameGUI : MonoBehaviour
     {
         DisableHud();
         Time.timeScale = 0f;
-        //pauseMenu.Open();
+        pauseMenu.Open();
     }
 
     /// <summary>
@@ -173,7 +173,7 @@ public class GameGUI : MonoBehaviour
     {
         EnableHudIfPossible();
         Time.timeScale = 1f;
-        //pauseMenu.Close();
+        pauseMenu.Close();
     }
 
     /// <summary>

@@ -12,6 +12,7 @@ public class DialogNode : HerbariumNode {
     [SerializeField] private string dialogID;
     [SerializeField] private string nameID;
     [SerializeField] private string titleID;
+    [SerializeField] private string targetID;
     [Output(connectionType = ConnectionType.Override)] public bool exit;
 
 	// Use this for initialization
@@ -21,6 +22,9 @@ public class DialogNode : HerbariumNode {
 
     public override IEnumerator Apply()
     {
+        GameObject obj = CutsceneManager.instance.GetObject(targetID);
+        if(obj) Player.instance.SetCameraTarget(obj.transform);
+
         GameManager.instance.GetPlayerDataHandler().AddDialogLog(dialogID,nameID);
         GameGUI.instance.ShowDialog(dialogID,nameID,titleID);
 
