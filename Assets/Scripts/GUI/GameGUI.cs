@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -42,7 +43,6 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private LocalizedText dialogTitleText;
     [SerializeField] private GameObject dialogNameRoot;
     [SerializeField] private GameObject dialogTitleRoot;
-
     private Coroutine routineDialog;
     private bool skipDialog = false;
     public bool showingDialog { get { return routineDialog != null; } }
@@ -51,6 +51,14 @@ public class GameGUI : MonoBehaviour
     [Header("Fading")]
     [SerializeField] private Fade fade;
     public bool fading { get { return fade.fading; } }
+
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent<string,string> onChangeDialogSpeaker;
+    [SerializeField] private UnityEvent onStartTypingDialog;
+    [SerializeField] private UnityEvent onStopTypingDialog;
+    [SerializeField] private UnityEvent onOpenDialogWindow;
+    [SerializeField] private UnityEvent onCloseDialogWindow;
 
 
     /*
@@ -292,11 +300,17 @@ public class GameGUI : MonoBehaviour
     /// Sets if the dialog panel is active or not
     /// </summary>
     /// <param name="value">True if it is active</param>
-    public void SetDialogOpen(bool value)
+    public void SetDialogOpen(bool value, bool playSound = false)
     {
         if(value) DisableHud();
         else EnableHudIfPossible();
         dialogRoot.SetActive(value);
+
+        if (playSound)
+        {
+            if(value) onOpenDialogWindow.Invoke();
+            else onCloseDialogWindow.Invoke();
+        }
     }
 
     /// <summary>
@@ -305,9 +319,14 @@ public class GameGUI : MonoBehaviour
     /// <param name="dialogID">The dialog's ID</param>
     /// <param name="characterName">The character's name ID</param>
     /// <param name="characterTitle">The character's title ID</param>
-    public void ShowDialog(string dialogID, string characterName, string characterTitle)
+    /// <param name="speakerAudio">The speaker's Audio ID</param>
+    /// <param name="emotionAudio">The emotions's Audio ID</param>
+    public void ShowDialog(string dialogID, string characterName, string characterTitle, string speakerAudio = null,string emotionAudio = null)
     {
         if (routineDialog != null) StopCoroutine(routineDialog);
+
+        onChangeDialogSpeaker.Invoke(speakerAudio,emotionAudio);
+
         routineDialog = StartCoroutine(Routine_Dialog(dialogID,characterName,characterTitle));
     }
 
@@ -362,6 +381,8 @@ public class GameGUI : MonoBehaviour
         int max = inf.characterCount;
         int cpf = charactersPerFrame;
 
+        onStartTypingDialog.Invoke();
+
         List<char> punctuation = new List<char>(new char[] { '.', ',', ';', '!', '?' });
 
         while (vis < max)
@@ -390,6 +411,8 @@ public class GameGUI : MonoBehaviour
             runsThisFrame = 0;
             yield return new WaitForSeconds(0.01f * speed);
         }
+
+        onStopTypingDialog.Invoke();
 
         dialogContinueRoot.SetActive(true);
         skipDialog = false;

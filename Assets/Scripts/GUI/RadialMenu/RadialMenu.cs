@@ -31,8 +31,12 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private UnityEvent onCloseBackpack;
     [SerializeField] private UnityEvent onOpenInventory;
     [SerializeField] private UnityEvent onCloseInventory;
+    [SerializeField] private UnityEvent onOpenGive;
+    [SerializeField] private UnityEvent onCloseGive;
+    [SerializeField] private UnityEvent onCancelGive;
     [SerializeField] private UnityEvent onRadialMenuHover;
     [SerializeField] private UnityEvent onRadialMenuClick;
+
 
     private const float SIZE = 75f;
 
@@ -339,14 +343,14 @@ public class RadialMenu : MonoBehaviour
     {
         RadialMenuData testData = new RadialMenuData();
         testData.radius = SIZE;
-        testData.id = RadialMenuID.INVENTORY;
+        testData.id = RadialMenuID.GIVE;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
             key = "Close",
             sprite = backSprite,
             rotation = 0,
-            callback = () => {Close(true);},
+            callback = () => {onCancelGive.Invoke();Close(false);},
             interactable = true,
             inputAction = closeInput.action,
             inputIndex = closeInput.index,
@@ -364,14 +368,14 @@ public class RadialMenu : MonoBehaviour
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
                 sprite = backSprite,
                 rotation = -90*(i+1),
-                callback = () => {Close(true);},
+                callback = () => {onCloseGive.Invoke();Close(false);},
                 interactable = item != null,
                 inputAction = null,
                 inputIndex = 0
             };
         }
 
-        if(openSound) onOpenInventory.Invoke();
+        if(openSound) onOpenGive.Invoke();
 
         Open(testData);
     }
