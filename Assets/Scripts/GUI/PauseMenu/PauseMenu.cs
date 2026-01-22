@@ -64,27 +64,13 @@ public class PauseMenu : MonoBehaviour
         DialogLog[] logs = GameManager.instance.GetPlayerDataHandler().GetLog();
         LocalizedText instance;
 
-        float totalSize = 0;
-        float tmpSize;
         foreach(DialogLog log in logs)
         {
             instance = Instantiate(dialogLogPrefab,dialogLogsRoot);
             instance.SetInjectors(new object[]{Locals.GetLocal(log.speakerId), Locals.GetLocal(log.dialogId)},false);
             instance.SetNewKey("Pause_DialogLog");
             instance.GetText().ForceMeshUpdate(true,true);
-
-            tmpSize = Mathf.Ceil(instance.GetText().textInfo.characterCount / 20f) * 30f;
-            instance.GetComponent<RectTransform>().sizeDelta = new Vector2(
-                instance.GetComponent<RectTransform>().sizeDelta.x,
-                tmpSize
-            );
-            totalSize += tmpSize;
         }
-
-        dialogLogsRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
-            dialogLogsRoot.GetComponent<RectTransform>().sizeDelta.x,
-            totalSize + dialogLogsRoot.GetComponent<VerticalLayoutGroup>().spacing * logs.Length
-        );
     }
 
     /// <summary>

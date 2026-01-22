@@ -8,6 +8,7 @@ public abstract class OptionsTab : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] protected RectTransform root;
+    [SerializeField] protected OptionsMenu parent;
     
 
     /// <summary>
@@ -18,6 +19,7 @@ public abstract class OptionsTab : MonoBehaviour
     {
         scrollView.content = root;
         root.gameObject.SetActive(true);
+        root.anchoredPosition = new Vector2(0,0);
         OnOpen();
     }
 

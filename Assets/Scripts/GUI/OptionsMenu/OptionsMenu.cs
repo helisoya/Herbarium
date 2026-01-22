@@ -12,10 +12,22 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private GameObject root;
     [SerializeField] private ScrollRect tabsRoot;
     [SerializeField] private OptionsTab[] tabs;
+    [SerializeField] private ColorPicker colorPicker;
+    [SerializeField] private RectTransform tipRoot;
+    [SerializeField] private LocalizedText tipText;
     private OptionsTab currentTab = null;
     private int currentTabIdx = 0;
     
     public bool isOpen{get{return root.activeInHierarchy;}}
+
+    /// <summary>
+    /// Gets the color picker
+    /// </summary>
+    /// <returns>The color picker</returns>
+    public ColorPicker GetColorPicker()
+    {
+        return colorPicker;
+    }
 
     /// <summary>
     /// Opens the settings
@@ -31,6 +43,7 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     public void Close()
     {
+        colorPicker.Close();
         root.SetActive(false);
     }
 
@@ -39,7 +52,8 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     public void ResetAllSettings()
     {
-        // Reset all or something
+        Settings.instance.ResetAll();
+        SetCurrentTab(currentTabIdx);
     }
 
     /// <summary>
@@ -67,8 +81,27 @@ public class OptionsMenu : MonoBehaviour
     /// <param name="tab">The tab to enable</param>
     private void EnableTab(OptionsTab tab)
     {
+        colorPicker.Close();
         if(currentTab) currentTab.Close();
         currentTab = tab;
         currentTab.Open(tabsRoot);
+    }
+
+    /// <summary>
+    /// Hides the tipRoot
+    /// </summary>
+    public void HideTip()
+    {
+        tipRoot.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Shows a tip
+    /// </summary>
+    /// <param name="tipID">The tip's ID</param>
+    public void ShowTip(string tipID)
+    {
+        tipText.SetNewKey(tipID);
+        tipRoot.gameObject.SetActive(true);
     }
 }

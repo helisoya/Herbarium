@@ -9,12 +9,22 @@ using UnityEngine.UI;
 /// </summary>
 public class OptionsInterfaceTab : OptionsTab
 {
-    [Header("Interface")]
+    [Header("Graphics")]
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Toggle fullscreenToggle;
     [SerializeField] private Slider brightnessSlider;
     [SerializeField] private Toggle hideHUDToggle;
     [SerializeField] private Toggle negativeColorFilterToggle;
+
+    [Header("Player Hightlight")]
+    [SerializeField] private Toggle playerHighlightToggle;
+    [SerializeField] private Slider playerHighlightStrengthSlider;
+    [SerializeField] private Image playerHighlightColorImage;
+
+    [Header("Interactable Hightlight")]
+    [SerializeField] private Toggle interactableHighlightToggle;
+    [SerializeField] private Slider interactableHighlightStrengthSlider;
+    [SerializeField] private Image interactableHighlightColorImage;
 
 
     protected override void OnClose()
@@ -47,6 +57,14 @@ public class OptionsInterfaceTab : OptionsTab
         resolutionDropdown.ClearOptions();
         resolutionDropdown.AddOptions(resolutionLabels);
         resolutionDropdown.SetValueWithoutNotify(currentIdx);
+
+        playerHighlightToggle.SetIsOnWithoutNotify(Settings.instance.GetPlayerOutlineActive());
+        playerHighlightStrengthSlider.SetValueWithoutNotify(Settings.instance.GetPlayerOutlineStrength());
+        playerHighlightColorImage.color = Settings.instance.GetPlayerOutlineColor();
+        
+        interactableHighlightToggle.SetIsOnWithoutNotify(Settings.instance.GetObjectOutlineActive());
+        interactableHighlightStrengthSlider.SetValueWithoutNotify(Settings.instance.GetObjectsOutlineStrength());
+        interactableHighlightColorImage.color = Settings.instance.GetObjectsOutlineColor();
     }
 
     /// <summary>
@@ -92,5 +110,86 @@ public class OptionsInterfaceTab : OptionsTab
     public void ChangeNegativeColorFilterEnabled(bool enabled)
     {
         Settings.instance.EnableNegativeColorFilter(enabled);
+    }
+
+    /// <summary>
+    /// Changes if the player highlight is enabled or not
+    /// </summary>
+    /// <param name="enabled">True if enabled</param>
+    public void ChangePlayerHighlightEnabled(bool enabled)
+    {
+        Settings.instance.SetPlayerOutlineActive(enabled);
+    }
+
+    /// <summary>
+    /// Changes the player highlight's strength
+    /// </summary>
+    /// <param name="strength">The new strength</param>
+    public void ChangePlayerHighlightStrength(float strength)
+    {
+        Settings.instance.SetPlayerOutlineStrength(strength);
+    }
+
+    /// <summary>
+    /// Starts chaning the player highlight color
+    /// </summary>
+    public void StartChangingPlayerHighlightColor()
+    {
+        parent.GetColorPicker().Open(Settings.instance.GetPlayerOutlineColor(),ChangePlayerHightlightColor);
+    }
+
+    /// <summary>
+    /// Changes the player highlight color
+    /// </summary>
+    /// <param name="color">The new color</param>
+    public void ChangePlayerHightlightColor(Color color)
+    {
+        playerHighlightColorImage.color = color;
+        Settings.instance.SetPlayerOutlineColor(color);
+    }
+
+    /// <summary>
+    /// Changes if the objects highlight is enabled or not
+    /// </summary>
+    /// <param name="enabled">True if enabled</param>
+    public void ChangeObjectsHighlightEnabled(bool enabled)
+    {
+        Settings.instance.SetObjectOutlineActive(enabled);
+    }
+
+    /// <summary>
+    /// Changes the objects highlight's strength
+    /// </summary>
+    /// <param name="strength">The new strength</param>
+    public void ChangeObjectsHighlightStrength(float strength)
+    {
+        Settings.instance.SetObjectsOutlineStrength(strength);
+    }
+
+    /// <summary>
+    /// Starts chaning the objects highlight color
+    /// </summary>
+    public void StartChangingObjectsHighlightColor()
+    {
+        parent.GetColorPicker().Open(Settings.instance.GetObjectsOutlineColor(),ChangeObjectsHightlightColor);
+    }
+
+    /// <summary>
+    /// Changes the objects highlight color
+    /// </summary>
+    /// <param name="color">The new color</param>
+    public void ChangeObjectsHightlightColor(Color color)
+    {
+        interactableHighlightColorImage.color = color;
+        Settings.instance.SetObjectsOutlineColor(color);
+    }
+
+    /// <summary>
+    /// Resets all settings
+    /// </summary>
+    public void ResetAll()
+    {
+        Settings.instance.ResetInterface();
+        OnOpen();
     }
 }

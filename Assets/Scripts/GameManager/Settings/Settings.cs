@@ -280,44 +280,6 @@ public class Settings
     }
 
     /// <summary>
-    /// Sets the HUD placement
-    /// </summary>
-    /// <param name="value">The HUD placement index</param>
-    public void SetHUDPlacement(int value)
-    {
-        data.placementHUD = value;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets the HUD placement index
-    /// </summary>
-    /// <returns>The HUD placement</returns>
-    public int GetHUDPlacement()
-    {
-        return data.placementHUD;
-    }
-
-    /// <summary>
-    /// Sets the HUD size
-    /// </summary>
-    /// <param name="value">The HUD size index</param>
-    public void SetHUDSize(int value)
-    {
-        data.sizeHUD = value;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets the HUD size index
-    /// </summary>
-    /// <returns>The HUD size</returns>
-    public int GetHUDSize()
-    {
-        return data.sizeHUD;
-    }
-
-    /// <summary>
     /// Changes the player outline color
     /// </summary>
     /// <param name="color">The player outline color</param>
@@ -732,6 +694,58 @@ public class Settings
             Locals.ChangeSize(channel, defaultData.textChannelsDatas[i].sizeIndex);
             Locals.ChangeColor(channel, defaultData.textChannelsDatas[i].color);
         }
+    }
+
+    /// <summary>
+    /// Resets the interface settings
+    /// </summary>
+    public void ResetInterface()
+    {
+        data.outlinePlayer = defaultData.outlinePlayer;
+        data.outlinePlayerStrength = defaultData.outlinePlayerStrength;
+        data.outlinePlayerColor = defaultData.outlinePlayerColor;
+
+        data.outlineObjects = defaultData.outlineObjects;
+        data.outlineObjectsStrength = defaultData.outlineObjectsStrength;
+        data.outlineObjectsColor = defaultData.outlineObjectsColor;
+
+        data.negativeColorFilter = defaultData.negativeColorFilter;
+        data.hideHUD = defaultData.hideHUD;
+        data.gamma = defaultData.gamma;
+
+        Save();
+    }
+
+    public void ResetGameplay()
+    {
+        
+    }
+
+    public void ResetSound()
+    {
+        
+    }
+
+    public void ResetInput()
+    {
+        
+    }
+
+    public void ResetText()
+    {
+        
+    }
+
+    /// <summary>
+    /// Resets all settings
+    /// </summary>
+    public void ResetAll()
+    {
+        ResetInterface();
+        ResetGameplay();
+        ResetSound();
+        ResetInput();
+        ResetText();   
     }
 
     #endregion
