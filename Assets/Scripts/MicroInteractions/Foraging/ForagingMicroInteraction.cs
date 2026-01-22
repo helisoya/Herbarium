@@ -16,6 +16,7 @@ public class ForagingMicroInteraction : MicroInteraction
     [SerializeField] private Transform plantRoot;
     private Joint2D[] plantJoints;
     private int plantHP;
+    private int plantMaxHP;
 
     [Header("GUI")]
     [SerializeField] private TextMeshProUGUI plantHealthText;
@@ -30,6 +31,8 @@ public class ForagingMicroInteraction : MicroInteraction
     [SerializeField] private UnityEvent onCutGood;
     [SerializeField] private UnityEvent onCutBad;
     [SerializeField] private UnityEvent onPlantInBag;
+    [SerializeField] private UnityEvent<float> onPlantLifeUpdate;
+    [SerializeField] private UnityEvent<string> onChangePlantID;
 
 
     [Header("ScreenShake")]
@@ -57,8 +60,11 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnStart(string plantID)
     {
+        onChangePlantID.Invoke(plantID);
+
         Plant plant = GameManager.instance.GetPlantDatabase().GetPlant(plantID);
         plantHP = plant.foragingHealth;
+        plantMaxHP = plantHP;
         plantHealthText.text = plantHP.ToString();
         
         Transform prefab = Instantiate(plant.foragingPrefab,plantRoot);
@@ -67,6 +73,7 @@ public class ForagingMicroInteraction : MicroInteraction
         tutorialRoot.SetActive(!GameManager.instance.GetPlayerDataHandler().HasCompletedForagingTutorial());
 
         cameraStartPos = microInteractionCamera.transform.localPosition;
+        onPlantLifeUpdate.Invoke(1.0f);
     }
 
     protected override void OnEnd(EndingType type)
@@ -97,44 +104,45 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnToolUse()
     {
-            if(currentObject.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER)
+        if(currentObject.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER)
+        {
+            onCut.Invoke();
+            bool cutFound = false;
+            MicroInteractionPickablePart part = currentObject.GetCurrentMovingPart();
+            RaycastHit2D[] hits = Physics2D.RaycastAll(part.transform.position, part.transform.up, cutForwardLength, mask);
+            foreach (RaycastHit2D hit in hits)
             {
-                onCut.Invoke();
-                bool cutFound = false;
-                MicroInteractionPickablePart part = currentObject.GetCurrentMovingPart();
-                RaycastHit2D[] hits = Physics2D.RaycastAll(part.transform.position, part.transform.up, cutForwardLength, mask);
-                foreach (RaycastHit2D hit in hits)
+                if (hit.rigidbody.gameObject.TryGetComponent<ForagingCutPoint>(out ForagingCutPoint cutPoint))
                 {
-                    if (hit.rigidbody.gameObject.TryGetComponent<ForagingCutPoint>(out ForagingCutPoint cutPoint))
-                    {
-                        onCutGood.Invoke();
-                        cutPoint.Cut();
-                        cutFound = true;
-                        break;
-                    }
-                }
-
-                if (!cutFound && hits.Length > 0)
-                {
-                    // Unless you can interact with a non plant rigidbody (the dropped flower for instance), everything will be fine ?
-                    onCutBad.Invoke();
-                    plantHP--;
-                    plantHealthText.text = plantHP.ToString();
-                    currentShake = shakeAmount;
-                    if(plantHP <= 0)
-                    {
-                        if (currentObject)
-                        {
-                            currentObject.Drop();
-                            currentObject = null;
-                        }
-                        foreach (Joint2D joint in plantJoints) {
-                            if(joint) joint.enabled = false;
-                        }
-                        EndInteraction(EndingType.FAILURE);
-                    }
+                    onCutGood.Invoke();
+                    cutPoint.Cut();
+                    cutFound = true;
+                    break;
                 }
             }
+
+            if (!cutFound && hits.Length > 0)
+            {
+                // Unless you can interact with a non plant rigidbody (the dropped flower for instance), everything will be fine ?
+                onCutBad.Invoke();
+                plantHP--;
+                plantHealthText.text = plantHP.ToString();
+                currentShake = shakeAmount;
+                onPlantLifeUpdate.Invoke((float)plantHP/plantMaxHP);
+                if(plantHP <= 0)
+                {
+                    if (currentObject)
+                    {
+                        currentObject.Drop();
+                        currentObject = null;
+                    }
+                    foreach (Joint2D joint in plantJoints) {
+                        if(joint) joint.enabled = false;
+                    }
+                    EndInteraction(EndingType.FAILURE);
+                }
+            }
+        }
     }
 
     /// <summary>

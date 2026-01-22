@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using XNode;
 
 /// <summary>
@@ -10,6 +11,12 @@ using XNode;
 /// </summary>
 public class CutsceneManager : MonoBehaviour
 {
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onStartCustscene;
+    [SerializeField] private UnityEvent onEndCustscene;
+
+
     public static CutsceneManager instance;
     private Coroutine processingCutscene = null;
     public bool inCutscene {get{return processingCutscene != null;}}
@@ -117,6 +124,9 @@ public class CutsceneManager : MonoBehaviour
         HerbariumNode currentNode = graph.GetStartNode();
         int result = 0;
         NodePort port;
+
+        onStartCustscene.Invoke();
+
         while(currentNode != null){
             
             yield return Run<int>(currentNode.Apply(), (output) => result = output);
@@ -132,6 +142,7 @@ public class CutsceneManager : MonoBehaviour
         }
         
         Player.instance.ResetCameraTarget();
+        onEndCustscene.Invoke();
 
         processingCutscene = null;
         yield return null;

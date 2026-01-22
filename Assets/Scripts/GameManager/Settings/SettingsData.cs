@@ -25,8 +25,6 @@ public class SettingsData : ScriptableObject
 	[HideInInspector] public int screenWidth;
 	[HideInInspector] public bool fullscreen;
 	public bool hideHUD;
-	public int placementHUD;
-	public int sizeHUD;
 	public bool outlinePlayer;
 	public float outlinePlayerStrength;
 	public Color outlinePlayerColor;
@@ -79,11 +77,8 @@ public class SettingsData : ScriptableObject
 		playerCompass = copy.playerCompass;
 		gravity = copy.gravity;
 		hideHUD = copy.hideHUD;
-		placementHUD = copy.placementHUD;
-		sizeHUD = copy.sizeHUD;
 		outlinePlayerStrength = copy.outlinePlayerStrength;
 		outlinePlayerColor = copy.outlinePlayerColor;
-		outlineObjects = copy.outlineObjects;
 		outlineObjectsStrength = copy.outlineObjectsStrength;
 		outlineObjectsColor = copy.outlineObjectsColor;
 		negativeColorFilter = copy.negativeColorFilter;

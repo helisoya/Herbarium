@@ -35,5 +35,6 @@ public struct RadialMenuEntryData
 public enum RadialMenuID{
         CLOSED,
         BACKPACK,
-        INVENTORY
+        INVENTORY,
+        GIVE
 }

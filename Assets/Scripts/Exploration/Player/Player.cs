@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
 
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
 
-        if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             if (value.isPressed)
             {
@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
     {
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
 
-        if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             if (value.isPressed)
             {
@@ -209,7 +209,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
+        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             GameGUI.instance.CloseRadialMenu();
             return;

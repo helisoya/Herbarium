@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] private GameObject root;
+    [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private string mainMenuScene;
 
     [Header("Dialog Logs")]
@@ -33,9 +34,16 @@ public class PauseMenu : MonoBehaviour
     public void Close()
     {
         root.SetActive(false);
+        optionsMenu.Close();
         ClearDialogLogs();
     }
 
+    /// <summary>
+    /// (Deprecated?) Counts the number of visible characters in a text
+    /// Deprecated since apparently TMP decided to 
+    /// </summary>
+    /// <param name="text">The text</param>
+    /// <returns>The number of visible characters</returns>
     private int CountVisibleCharacters(TMP_Text text)
     {
         int count = 0;
@@ -43,7 +51,6 @@ public class PauseMenu : MonoBehaviour
         {
             count += line.visibleCharacterCount + line.visibleSpaceCount;
         }
-        print(count);
         return count;
     }
 
@@ -57,28 +64,13 @@ public class PauseMenu : MonoBehaviour
         DialogLog[] logs = GameManager.instance.GetPlayerDataHandler().GetLog();
         LocalizedText instance;
 
-        float totalSize = 0;
-        float tmpSize;
         foreach(DialogLog log in logs)
         {
             instance = Instantiate(dialogLogPrefab,dialogLogsRoot);
             instance.SetInjectors(new object[]{Locals.GetLocal(log.speakerId), Locals.GetLocal(log.dialogId)},false);
             instance.SetNewKey("Pause_DialogLog");
             instance.GetText().ForceMeshUpdate(true,true);
-
-            tmpSize = Mathf.Ceil(instance.GetText().textInfo.characterCount / 20f) * 30f;
-            print(instance.GetText().textInfo.characterCount);
-            instance.GetComponent<RectTransform>().sizeDelta = new Vector2(
-                instance.GetComponent<RectTransform>().sizeDelta.x,
-                tmpSize
-            );
-            totalSize += tmpSize;
         }
-
-        dialogLogsRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
-            dialogLogsRoot.GetComponent<RectTransform>().sizeDelta.x,
-            totalSize + dialogLogsRoot.GetComponent<VerticalLayoutGroup>().spacing * logs.Length
-        );
     }
 
     /// <summary>
@@ -105,7 +97,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickOptions()
     {
-        
+        optionsMenu.Open();
     }
 
     /// <summary>

@@ -9,10 +9,17 @@ using XNode;
 public class DialogNode : HerbariumNode {
 
     [Input(connectionType = ConnectionType.Multiple)] public bool entry;
+
+    [Header("General")]
     [SerializeField] private string dialogID;
     [SerializeField] private string nameID;
     [SerializeField] private string titleID;
     [SerializeField] private string targetID;
+
+    [Header("Audio")]
+    [SerializeField] private string speakerAudio;
+    [SerializeField] private string emotionAudio;
+    
     [Output(connectionType = ConnectionType.Override)] public bool exit;
 
 	// Use this for initialization
@@ -26,7 +33,7 @@ public class DialogNode : HerbariumNode {
         if(obj) Player.instance.SetCameraTarget(obj.transform);
 
         GameManager.instance.GetPlayerDataHandler().AddDialogLog(dialogID,nameID);
-        GameGUI.instance.ShowDialog(dialogID,nameID,titleID);
+        GameGUI.instance.ShowDialog(dialogID,nameID,titleID,speakerAudio,emotionAudio);
 
         // Dialog appears
         while(GameGUI.instance.showingDialog){
