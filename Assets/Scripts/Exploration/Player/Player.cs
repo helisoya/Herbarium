@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
 
         if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
-        bool shouldHold = Settings.instance.IsHoldModeEnabled();
+        bool shouldHold = Settings.instance.IsToggleMoveEnabled();
 
         if (!shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
         else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
@@ -201,7 +201,13 @@ public class Player : MonoBehaviour
 
     void OnPause(InputValue value)
     {
-        if(GameGUI.instance.showingDialog || inMicroInteraction) return;
+        if(inMicroInteraction)
+        { 
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.Pause,value);
+            return;
+        }
+
+        if(GameGUI.instance.showingDialog) return;
 
         if (GameGUI.instance.inHerbarium)
         {

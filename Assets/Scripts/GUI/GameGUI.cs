@@ -170,7 +170,6 @@ public class GameGUI : MonoBehaviour
     public void OpenPause()
     {
         DisableHud();
-        Time.timeScale = 0f;
         pauseMenu.Open();
     }
 
@@ -180,7 +179,6 @@ public class GameGUI : MonoBehaviour
     public void ClosePause()
     {
         EnableHudIfPossible();
-        Time.timeScale = 1f;
         pauseMenu.Close();
     }
 
