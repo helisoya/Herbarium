@@ -8,8 +8,8 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.PlayEvent2D(EventID.Enviro2DMusic);
-        AudioManager.Instance.PlayEvent2D(EventID.Amb);
+        AudioManager.Instance.PlayEvent2D(AmbEvent);
+        AudioManager.Instance.PlayEvent2D(ExploMusicEvent);
     }
 
     // Update is called once per frame
