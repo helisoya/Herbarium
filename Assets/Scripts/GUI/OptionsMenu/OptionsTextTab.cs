@@ -40,8 +40,9 @@ public class OptionsTextTab : OptionsTab
         List<string> languagesOptions = new List<string>();
         for(int i = 0; i < Locals.GetLanguages().Length; i++)
         {
+            print(Locals.current + " " +Locals.GetLanguages()[i]);
             languagesOptions.Add(Locals.GetLocal(Locals.GetLocal("Language_"+Locals.GetLanguages()[i])));
-            if(i == 0 && Locals.current.Equals(Locals.GetLanguages()[i])) currentLanguage = i;
+            if(currentLanguage == 0 && Locals.current.Equals(Locals.GetLanguages()[i])) currentLanguage = i;
         }
         languageDropdown.ClearOptions();
         languageDropdown.AddOptions(languagesOptions);
@@ -103,6 +104,15 @@ public class OptionsTextTab : OptionsTab
     public void ChangeLanguage(int languageIndex)
     {
         Settings.instance.ChangeLanguage(Locals.GetLanguages()[languageIndex]);
+
+        List<string> languagesOptions = new List<string>();
+        for(int i = 0; i < Locals.GetLanguages().Length; i++)
+        {
+            languagesOptions.Add(Locals.GetLocal(Locals.GetLocal("Language_"+Locals.GetLanguages()[i])));
+        }
+        languageDropdown.ClearOptions();
+        languageDropdown.AddOptions(languagesOptions);
+        languageDropdown.SetValueWithoutNotify(languageIndex);
     }
 
     /// <summary>
