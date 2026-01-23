@@ -2,16 +2,22 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioData audioData;
+
+    [SerializeField] private string masterVolume;
+    [SerializeField] private string SFXVolume;
+    [SerializeField] private string MusicVolume;
 
     private static AudioManager instance;
     public static AudioManager Instance => instance;
 
     private Dictionary<EventInstance, GameObject> tracked3DEvents = new();
 
+    private bool ignoreseekspeed = false;
     private void Awake()
     {
         if (instance == null)
@@ -88,4 +94,18 @@ public class AudioManager : MonoBehaviour
         instance.release();
     }
 
+    public void SetMasterVolume(float volume)
+    {
+        RuntimeManager.StudioSystem.setParameterByName(masterVolume, volume, ignoreseekspeed);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        RuntimeManager.StudioSystem.setParameterByName(SFXVolume, volume, ignoreseekspeed);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        RuntimeManager.StudioSystem.setParameterByName(MusicVolume, volume, ignoreseekspeed);
+    }
 }

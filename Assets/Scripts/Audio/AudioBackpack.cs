@@ -17,7 +17,9 @@ public class AudioBackpack : MonoBehaviour
     [SerializeField] private EventID pageTurnNext;
     [SerializeField] private EventID pageHover;
     [SerializeField] private EventID plantsIndex;
+    [SerializeField] private EventID plantsIndexHover;
     [SerializeField] private EventID questsIndex;
+    [SerializeField] private EventID questsIndexHover;
     [SerializeField] private EventID pinQuestOn;
     [SerializeField] private EventID pinQuestOff;
     [SerializeField] private EventID linkHover;
@@ -100,9 +102,19 @@ public class AudioBackpack : MonoBehaviour
         AudioManager.Instance.PlayOneShot2D(plantsIndex);
     }
 
+    public void PostPlantsIndexHover()
+    {
+        AudioManager.Instance.PlayOneShot2D(plantsIndexHover);
+    }
+
     public void PostQuestsIndex()
     {
         AudioManager.Instance.PlayOneShot2D(questsIndex);
+    }
+
+    public void PostQuestsIndexHover()
+    {
+        AudioManager.Instance.PlayOneShot2D(questsIndexHover);
     }
 
     public void PostPinQuest(bool pin)

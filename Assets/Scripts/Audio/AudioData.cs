@@ -27,5 +27,6 @@ public enum EventID
 
 public enum ParamID
 {
-    HerbariumEntries, 
+    HerbariumEntries,
+    MasterVolume, SFXVolume, MusicVolume,
 }
