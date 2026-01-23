@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private string currentMicroInteractionScene;
     public static Player instance;
 
+    public Vector3 position{get{return controller.GetBody().position;}}
     public bool inMicroInteraction{get; private set;}
     public MicroInteraction.EndingType lastMicroInteractionEnding {get; private set;}
 
