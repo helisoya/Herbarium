@@ -701,6 +701,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86ae23118f6aea40a6c5344eb4cbd13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneManager
+  onStartCustscene:
+    m_PersistentCalls:
+      m_Calls: []
+  onEndCustscene:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &377763224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2006,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2721566300185396850, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -171.10004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152394986644694844, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.199997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118429368646511158, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.199997
+      objectReference: {fileID: 0}
     - target: {fileID: 4605637071651156812, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.393658
@@ -2040,6 +2058,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5882650211230439679, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 102.60004
+      objectReference: {fileID: 0}
     - target: {fileID: 6877544432471583547, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2055,6 +2077,18 @@ PrefabInstance:
     - target: {fileID: 6877544432471583547, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220076511503966010, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 69.099976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468215079156169289, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140883150219220520, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -155.69135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3407,6 +3441,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onPlantLifeUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onChangePlantID:
+    m_PersistentCalls:
+      m_Calls: []
   shakeAmount: 1
   shakeDecay: 4
   debugAutoPlay: 1
@@ -3685,7 +3725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 35.755432, y: 21.899994}
+  m_AnchoredPosition: {x: 35.755432, y: 21.900024}
   m_SizeDelta: {x: 61.3109, y: 34.2142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481199203
@@ -5427,7 +5467,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5118780838485740677, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: waitingTime
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6953767973617601706, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5527,7 +5567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopPlantStress
+      value: StopPlantStressEvent
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
