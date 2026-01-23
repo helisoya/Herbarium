@@ -160,7 +160,7 @@ public class Settings
     public void SetGamma(float gamma)
     {
         data.gamma = gamma;
-        //GameManager.instance.UpdateVolume();
+        GameManager.instance.UpdateVolume();
         Save();
     }
 
@@ -306,6 +306,7 @@ public class Settings
     public void EnableNegativeColorFilter(bool active)
     {
         data.negativeColorFilter = active;
+        GameManager.instance.UpdateVolume();
         Save();
     }
 
@@ -618,6 +619,8 @@ public class Settings
         data.negativeColorFilter = defaultData.negativeColorFilter;
         data.hideHUD = defaultData.hideHUD;
         data.gamma = defaultData.gamma;
+
+        GameManager.instance.UpdateVolume();
 
         Save();
     }
