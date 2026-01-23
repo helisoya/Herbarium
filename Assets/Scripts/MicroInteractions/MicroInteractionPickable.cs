@@ -26,11 +26,11 @@ public class MicroInteractionPickable : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private UnityEvent<Transform> onTouchedGround;
-    [SerializeField] private UnityEvent onStartTouchPlant;
-    [SerializeField] private UnityEvent onStopTouchPlant;
-    private bool shouldInvokeOnTouchGround = false;
-    private bool shouldInvokeOnStartPlant = false;
-    private bool shouldInvokeOnEndPlant = false;
+    [SerializeField] private UnityEvent<Transform> onStartTouchPlant;
+    [SerializeField] private UnityEvent<Transform> onStopTouchPlant;
+    private Transform invokeOnTouchGround = null;
+    private Transform invokeOnStartPlant = null;
+    private Transform invokeOnEndPlant = null;
 
     private MicroInteractionPickablePart currentMovablePart;
 
@@ -78,25 +78,28 @@ public class MicroInteractionPickable : MonoBehaviour
     /// <summary>
     /// Invokes the on touched ground event
     /// </summary>
-    public void InvokeOnTouchGround()
+    /// <param name="part">The part that collided</param>
+    public void InvokeOnTouchGround(Transform part)
     {
-        shouldInvokeOnTouchGround = true;
+        invokeOnTouchGround = part;
     }
 
     /// <summary>
     /// Invokes the on start touched plant event
     /// </summary>
-    public void InvokeOnStartTouchPlant()
+    /// <param name="part">The part that collided</param>
+    public void InvokeOnStartTouchPlant(Transform part)
     {
-        shouldInvokeOnStartPlant = true;
+        invokeOnStartPlant = part;
     }
 
     /// <summary>
     /// Invokes the on end touched plant event
     /// </summary>
-    public void InvokeOnEndTouchPlant()
+    /// <param name="part">The part that collided</param>
+    public void InvokeOnEndTouchPlant(Transform part)
     {
-        shouldInvokeOnEndPlant = true;
+        invokeOnEndPlant = part;
     }
 
     /// <summary>
@@ -151,22 +154,22 @@ public class MicroInteractionPickable : MonoBehaviour
 
     void Update()
     {
-        if (shouldInvokeOnTouchGround)
+        if (invokeOnTouchGround)
         {
-            shouldInvokeOnTouchGround = false;
-            onTouchedGround.Invoke(transform);
+            onTouchedGround.Invoke(invokeOnTouchGround);
+            invokeOnTouchGround = null;
         }
 
-        if (shouldInvokeOnStartPlant)
+        if (invokeOnStartPlant)
         {
-            shouldInvokeOnStartPlant = false;
-            onStartTouchPlant.Invoke();
+            onStartTouchPlant.Invoke(invokeOnStartPlant);
+            invokeOnStartPlant = null;
         }
 
-        if (shouldInvokeOnEndPlant)
+        if (invokeOnEndPlant)
         {
-            shouldInvokeOnEndPlant = false;
-            onStopTouchPlant.Invoke();
+            onStopTouchPlant.Invoke(invokeOnEndPlant);
+            invokeOnEndPlant = null;
         }
     }
 

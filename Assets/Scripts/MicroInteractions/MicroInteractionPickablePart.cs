@@ -16,6 +16,8 @@ public class MicroInteractionPickablePart : MonoBehaviour
     private bool waiting;
     private float currentwaitingTime;
     private bool exited;
+    private Vector2 lastPosition;
+    public float velocity { get; private set; }
 
     void Awake()
     {
@@ -39,7 +41,7 @@ public class MicroInteractionPickablePart : MonoBehaviour
 
         if (collision.transform.tag == "Ground")
         {
-            parent.InvokeOnTouchGround();
+            parent.InvokeOnTouchGround(rb.transform);
             waiting = true;
             currentwaitingTime = waitingTime;
             exited = false;
@@ -47,7 +49,7 @@ public class MicroInteractionPickablePart : MonoBehaviour
 
         }else if(collision.transform.tag == "Plant")
         {
-            parent.InvokeOnStartTouchPlant();
+            parent.InvokeOnStartTouchPlant(rb.transform);
             waiting = true;
             currentwaitingTime = waitingTime;
             exited = false;
@@ -64,19 +66,22 @@ public class MicroInteractionPickablePart : MonoBehaviour
             if (waiting) exited = true;
 
             else 
-                parent.InvokeOnEndTouchPlant();
+                parent.InvokeOnEndTouchPlant(rb.transform);
         }
     }
 
     private void Update()
     {
+        velocity = Vector2.Distance(rb.position, lastPosition);
+        lastPosition = rb.position;
+
         if (waiting)
         {
             currentwaitingTime -= Time.deltaTime;
             if (currentwaitingTime <= 0)
             {
                 waiting = false;
-                if (exited) parent.InvokeOnEndTouchPlant();
+                if (exited) parent.InvokeOnEndTouchPlant(rb.transform);
             }
         }
     }
