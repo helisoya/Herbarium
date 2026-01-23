@@ -24,6 +24,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Open()
     {
+        Time.timeScale = 0;
         root.SetActive(true);
         ReloadDialogLogs(); 
     }
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Close()
     {
+        Time.timeScale = 1;
         root.SetActive(false);
         optionsMenu.Close();
         ClearDialogLogs();
@@ -89,7 +91,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickResume()
     {
-        GameGUI.instance.ClosePause();
+        Close();
     }
 
     /// <summary>
@@ -105,7 +107,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickMainMenu()
     {
-
+        Time.timeScale = 1;
         SceneManager.LoadScene(mainMenuScene);
     }
 

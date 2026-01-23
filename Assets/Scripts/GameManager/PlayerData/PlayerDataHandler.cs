@@ -173,8 +173,8 @@ public class PlayerDataHandler : MonoBehaviour
     /// <param name="speakerId">The speaker's ID</param>
     public void AddDialogLog(string dialogId, string speakerId)
     {
-        if (data.dialogLog.Count == dialogLogMaxSize) data.dialogLog.RemoveFirst();
-        data.dialogLog.AddLast(new DialogLog(){dialogId = dialogId, speakerId = speakerId});
+        if (data.dialogLog.Count == dialogLogMaxSize) data.dialogLog.RemoveAt(0);
+        data.dialogLog.Add(new DialogLog(){dialogId = dialogId, speakerId = speakerId});
     }
 
     /// <summary>
@@ -436,7 +436,7 @@ public class PlayerDataHandler : MonoBehaviour
     {
         data = new PlayerData();
         data.inventory = new string[inventorySize];
-        data.dialogLog = new LinkedList<DialogLog>();
+        data.dialogLog = new List<DialogLog>();
         data.herbarium = new List<string>();
         data.regrowthData = new List<RegrowthPlantData>();
         data.pinnedQuests = new List<string>();
@@ -482,6 +482,14 @@ public class PlayerDataHandler : MonoBehaviour
         }
 
         data.variables = finalData;
+        for(int i = 0; i < data.inventory.Length; i++)
+        {
+            if (string.IsNullOrEmpty(data.inventory[i]))
+            {
+                data.inventory[i] = null;
+            }
+        }
+
 
         this.data = data;
     }
@@ -491,6 +499,10 @@ public class PlayerDataHandler : MonoBehaviour
 	/// </summary>
     public void SaveData()
     {
+        if (!GameManager.instance.inMainMenu)
+        {
+            data.mapPosition = Player.instance.position;
+        }
         FileManager.SaveJSON(filePath, data);
     }
 

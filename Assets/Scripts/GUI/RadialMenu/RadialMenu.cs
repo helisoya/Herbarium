@@ -302,7 +302,7 @@ public class RadialMenu : MonoBehaviour
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
-            key = "Close",
+            key = "RadialMenu_Close",
             sprite = backSprite,
             rotation = 0,
             callback = CloseInventory,
@@ -347,7 +347,7 @@ public class RadialMenu : MonoBehaviour
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
-            key = "Close",
+            key = "RadialMenu_Close",
             sprite = backSprite,
             rotation = 0,
             callback = () => {onCancelGive.Invoke();Close(false);},

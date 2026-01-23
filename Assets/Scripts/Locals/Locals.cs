@@ -165,7 +165,7 @@ public class Locals
 	/// </summary>
 	/// <param name="channel">The channel</param>
 	/// <returns>Its font color</returns>
-    public static Color GeColor(Locals.Channel channel)
+    public static Color GetColor(Locals.Channel channel)
     {
         if (Locals.self == null) Init();
         return self.channels[(int)channel].data.color;
@@ -184,6 +184,8 @@ public class Locals
         self.locals.Clear();
         self.LoadContent(newOne + "_system");
         self.LoadContent(newOne + "_story");
+
+        self.onChangeLocal.Invoke();
     }
 
     /// <summary>

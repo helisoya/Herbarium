@@ -12,7 +12,8 @@ public abstract class MicroInteraction : MonoBehaviour
     {
         MousePosition,
         MouseLeftClick,
-        MouseRightClick
+        MouseRightClick,
+        Pause
     }
 
     public enum EndingType
@@ -32,6 +33,7 @@ public abstract class MicroInteraction : MonoBehaviour
     [SerializeField] protected float itemSpeed = 5f;
     [SerializeField] protected float rotateSpeed = 15f;
     [SerializeField] protected Camera microInteractionCamera;
+    [SerializeField] protected PauseMenu pauseMenu;
 
     [Header("Tutorial")]
     [SerializeField] protected GameObject grabTutorial;
@@ -107,7 +109,7 @@ public abstract class MicroInteraction : MonoBehaviour
     /// <param name="inputValue">The input value</param>
     public void ForwardInput(InputType type, InputValue inputValue)
     {
-        if(!inMicroInteraction) return;
+        if(!inMicroInteraction || pauseMenu.isOpen) return;
 
         switch (type)
         {
@@ -122,7 +124,7 @@ public abstract class MicroInteraction : MonoBehaviour
                 break;
 
             case InputType.MouseLeftClick:
-                if ((!Settings.instance.IsHoldModeEnabled() && !inputValue.isPressed) || (Settings.instance.IsHoldModeEnabled() && inputValue.isPressed && currentObject) ) 
+                if ((!Settings.instance.IsToggleGrabEnabled() && !inputValue.isPressed) || (Settings.instance.IsToggleGrabEnabled() && inputValue.isPressed && currentObject) ) 
                 {
                     if (currentObject)
                     {
@@ -153,12 +155,16 @@ public abstract class MicroInteraction : MonoBehaviour
                     }
                 }
                 break;
+            case InputType.Pause:
+                if(pauseMenu.isOpen) pauseMenu.Close();
+                else pauseMenu.Open();
+                break;
         }
     }
 
     void Update()
     {
-        if(!inMicroInteraction) return;
+        if(!inMicroInteraction || pauseMenu.isOpen) return;
 
         if (currentObject)
         {

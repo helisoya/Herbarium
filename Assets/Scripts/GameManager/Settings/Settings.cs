@@ -56,24 +56,6 @@ public class Settings
 
     #region Gameplay
 
-    /// <summary>
-    /// Enables or disables the zoom
-    /// </summary>
-    /// <param name="active">True if enabled</param>
-    public void EnableZoom(bool active)
-    {
-        data.zoom = active;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets if the zoom is enabled
-    /// </summary>
-    /// <returns>True if enabled</returns>
-    public bool IsZoomEnabled()
-    {
-        return data.zoom;
-    }
 
     /// <summary>
     /// Enables or disables the auto completion of interactions
@@ -95,44 +77,6 @@ public class Settings
     }
 
     /// <summary>
-    /// Enables or disables the sound guidance
-    /// </summary>
-    /// <param name="active">True if enabled</param>
-    public void EnableSoundGuidance(bool active)
-    {
-        data.soundGuidance = active;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets if the sound guidance is enabled
-    /// </summary>
-    /// <returns>True if enabled</returns>
-    public bool IsSoundGuidanceEnabled()
-    {
-        return data.soundGuidance;
-    }
-
-    /// <summary>
-    /// Enables or disables the audio description
-    /// </summary>
-    /// <param name="active">True if enabled</param>
-    public void EnableAudioDescription(bool active)
-    {
-        data.audioDescription = active;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets if the audio description is enabled
-    /// </summary>
-    /// <returns>True if enabled</returns>
-    public bool IsAudioDescriptionEnabled()
-    {
-        return data.audioDescription;
-    }
-
-    /// <summary>
     /// Sets the screenshake strength
     /// </summary>
     /// <param name="value">The strength value</param>
@@ -149,44 +93,6 @@ public class Settings
     public float GetScreenshakeStrength()
     {
         return data.screenShakeStrength;
-    }
-
-    /// <summary>
-    /// Sets the vibration strength
-    /// </summary>
-    /// <param name="value">The strength value</param>
-    public void SetVibrationStrength(float value)
-    {
-        data.vibrationStrength = value;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets the vibration strength
-    /// </summary>
-    /// <returns>The strength value</returns>
-    public float GetVibrationStrength()
-    {
-        return data.vibrationStrength;
-    }
-
-    /// <summary>
-    /// Enables or disables the player compass
-    /// </summary>
-    /// <param name="active">True if enabled</param>
-    public void EnablePlayerCompass(bool active)
-    {
-        data.playerCompass = active;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets if the player compass is enabled
-    /// </summary>
-    /// <returns>True if enabled</returns>
-    public bool IsPlayerCompassEnabled()
-    {
-        return data.playerCompass;
     }
 
     /// <summary>
@@ -254,7 +160,7 @@ public class Settings
     public void SetGamma(float gamma)
     {
         data.gamma = gamma;
-        //GameManager.instance.UpdateVolume();
+        GameManager.instance.UpdateVolume();
         Save();
     }
 
@@ -400,6 +306,7 @@ public class Settings
     public void EnableNegativeColorFilter(bool active)
     {
         data.negativeColorFilter = active;
+        GameManager.instance.UpdateVolume();
         Save();
     }
 
@@ -528,22 +435,41 @@ public class Settings
     }
 
     /// <summary>
-    /// Changes if the "hold mode" is active or not
+    /// Changes if the "toggle mode" is active or not for micro interactions
     /// </summary>
     /// <param name="active">True if active</param>
-    public void EnableHoldMode(bool active)
+    public void EnableToggleGrab(bool active)
     {
-        data.holdButtonEnabled = active;
+        data.toggleGrabEnabled = active;
         Save();
     }
 
     /// <summary>
-    /// Gets if the "hold mode" is active or not
+    /// Gets if the "toggle mode" is active or not for micro interactions
     /// </summary>
-    /// <returns>True if the "hold mode" is active</returns>
-    public bool IsHoldModeEnabled()
+    /// <returns>True if the "toggle mode" is active</returns>
+    public bool IsToggleGrabEnabled()
     {
-        return data.holdButtonEnabled;
+        return data.toggleGrabEnabled;
+    }
+
+    /// <summary>
+    /// Changes if the "toggle mode" is active or not for moving
+    /// </summary>
+    /// <param name="active">True if active</param>
+    public void EnableToggleMove(bool active)
+    {
+        data.toggleMoveEnabled = active;
+        Save();
+    }
+
+    /// <summary>
+    /// Gets if the "toggle mode" is active or not for moving
+    /// </summary>
+    /// <returns>True if the "toggle mode" is active</returns>
+    public bool IsToggleMoveEnabled()
+    {
+        return data.toggleMoveEnabled;
     }
 
 
@@ -628,25 +554,6 @@ public class Settings
     }
 
     /// <summary>
-    /// Changes if the subtitles are active or not
-    /// </summary>
-    /// <param name="active">True if active</param>
-    public void EnableSubtitles(bool active)
-    {
-        data.subtitles = active;
-        Save();
-    }
-
-    /// <summary>
-    /// Gets if the subtitles are active or not
-    /// </summary>
-    /// <returns>True if the "hold mode" is active</returns>
-    public bool IsSubtitlesEnabled()
-    {
-        return data.subtitles;
-    }
-
-    /// <summary>
     /// Sets the text color of a text channel
     /// </summary>
     /// <param name="channel">The text channel</param>
@@ -713,27 +620,74 @@ public class Settings
         data.hideHUD = defaultData.hideHUD;
         data.gamma = defaultData.gamma;
 
+        GameManager.instance.UpdateVolume();
+
         Save();
     }
 
+    /// <summary>
+    /// Resets the gameplay settings
+    /// </summary>
     public void ResetGameplay()
     {
-        
+        data.autoCompleteInteraction = defaultData.autoCompleteInteraction;
+        data.screenShakeStrength = defaultData.screenShakeStrength;
+        data.gravity = defaultData.gravity;
     }
 
+    /// <summary>
+    /// Resets the sound settings
+    /// </summary>
     public void ResetSound()
     {
-        
+        data.volumeMaster = defaultData.volumeMaster;
+        data.volumeMusic = defaultData.volumeMusic;
+        data.volumeSfx = defaultData.volumeSfx;
+        data.muteAll = defaultData.muteAll;
     }
 
     public void ResetInput()
     {
-        
+        data.toggleGrabEnabled = defaultData.toggleGrabEnabled;
+        data.toggleMoveEnabled  = defaultData.toggleMoveEnabled;
     }
 
     public void ResetText()
     {
-        
+        if(data.language != defaultData.language)
+        {
+            data.language = defaultData.language;
+            Locals.ChangeLanguage(data.language);
+        }
+
+
+        for (int i = 0; i < data.textChannelsDatas.Length; i++)
+        {
+            Locals.Channel channel = (Locals.Channel)i;
+
+            if(data.textChannelsDatas[i].color != defaultData.textChannelsDatas[i].color)
+            {
+                data.textChannelsDatas[i].color = defaultData.textChannelsDatas[i].color;
+                Locals.ChangeColor(channel, data.textChannelsDatas[i].color);
+                
+            }
+            
+            if(data.textChannelsDatas[i].fontIndex != defaultData.textChannelsDatas[i].fontIndex)
+            {
+                data.textChannelsDatas[i].fontIndex = defaultData.textChannelsDatas[i].fontIndex;
+                Locals.ChangeFont(channel, data.textChannelsDatas[i].fontIndex);
+            }
+
+            if(data.textChannelsDatas[i].sizeIndex != defaultData.textChannelsDatas[i].sizeIndex)
+            {
+                data.textChannelsDatas[i].sizeIndex = defaultData.textChannelsDatas[i].sizeIndex;
+                Locals.ChangeSize(channel, data.textChannelsDatas[i].sizeIndex);
+            }
+
+            
+            
+            
+        }
     }
 
     /// <summary>

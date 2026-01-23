@@ -63,6 +63,8 @@ public class CutsceneManager : MonoBehaviour
     /// <returns>The object</returns>
     public GameObject GetObject(string id)
     {
+        if(string.IsNullOrEmpty(id)) return null;
+        
         if(id.Equals("THIS") && currentObject != null)
         {
            return currentObject;

@@ -1,6 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Represents a map
@@ -36,7 +37,7 @@ public class Map : MonoBehaviour
         else
         {
             FindPlayerSpawnPoint();
-            GameManager.instance.GetPlayerDataHandler().SetCurrentMap(ID);
+            GameManager.instance.GetPlayerDataHandler().SetCurrentMap(SceneManager.GetActiveScene().name);
         }
 
         isUpdatingCamera = true;

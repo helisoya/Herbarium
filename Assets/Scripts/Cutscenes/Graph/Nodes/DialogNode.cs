@@ -15,6 +15,7 @@ public class DialogNode : HerbariumNode {
     [SerializeField] private string nameID;
     [SerializeField] private string titleID;
     [SerializeField] private string targetID;
+    [SerializeField] private bool addToLog = true;
 
     [Header("Audio")]
     [SerializeField] private string speakerAudio;
@@ -32,7 +33,7 @@ public class DialogNode : HerbariumNode {
         GameObject obj = CutsceneManager.instance.GetObject(targetID);
         if(obj) Player.instance.SetCameraTarget(obj.transform);
 
-        GameManager.instance.GetPlayerDataHandler().AddDialogLog(dialogID,nameID);
+        if(addToLog) GameManager.instance.GetPlayerDataHandler().AddDialogLog(dialogID,nameID);
         GameGUI.instance.ShowDialog(dialogID,nameID,titleID,speakerAudio,emotionAudio);
 
         // Dialog appears

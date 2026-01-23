@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private string currentMicroInteractionScene;
     public static Player instance;
 
+    public Vector3 position{get{return controller.GetBody().position;}}
     public bool inMicroInteraction{get; private set;}
     public MicroInteraction.EndingType lastMicroInteractionEnding {get; private set;}
 
@@ -134,7 +135,7 @@ public class Player : MonoBehaviour
 
         if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
-        bool shouldHold = Settings.instance.IsHoldModeEnabled();
+        bool shouldHold = Settings.instance.IsToggleMoveEnabled();
 
         if (!shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
         else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
@@ -201,7 +202,13 @@ public class Player : MonoBehaviour
 
     void OnPause(InputValue value)
     {
-        if(GameGUI.instance.showingDialog || inMicroInteraction) return;
+        if(inMicroInteraction)
+        { 
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.Pause,value);
+            return;
+        }
+
+        if(GameGUI.instance.showingDialog) return;
 
         if (GameGUI.instance.inHerbarium)
         {
