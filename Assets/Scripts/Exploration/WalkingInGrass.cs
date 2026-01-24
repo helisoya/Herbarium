@@ -13,6 +13,7 @@ public class WalkingInGrass : MonoBehaviour
     private Vector3 _currentValue;
     private Vector3 _targetValue;
     private Vector3 _velocity;
+    private bool _isAnimating;
 
     private void Awake()
     {
@@ -23,11 +24,12 @@ public class WalkingInGrass : MonoBehaviour
         _targetValue = _stillAmplitude;
 
         _material.SetVector(_propertyName, _currentValue);
+        _isAnimating = false;
     }
 
     private void Update()
     {
-        if (_currentValue == _targetValue)
+        if (!_isAnimating)
             return;
 
         _currentValue = Vector3.SmoothDamp(
@@ -38,6 +40,14 @@ public class WalkingInGrass : MonoBehaviour
         );
 
         _material.SetVector(_propertyName, _currentValue);
+        
+        if (Vector3.SqrMagnitude(_currentValue - _targetValue) < 0.0001f)
+        {
+            _currentValue = _targetValue;
+            _material.SetVector(_propertyName, _currentValue);
+            _isAnimating = false;
+            _velocity = Vector3.zero;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,5 +59,6 @@ public class WalkingInGrass : MonoBehaviour
         _material.SetVector(_propertyName, _currentValue);
 
         _targetValue = _stillAmplitude;
+        _isAnimating = true;
     }
 }
