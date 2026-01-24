@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactionMask;
     [SerializeField] private float interactionDistance = 2f;
     [SerializeField] private Transform playerBody;
+    [SerializeField] private Animator playerAnimator;
     private Vector2 mousePosition;
     private InteractableObject currentObject;
 
@@ -99,7 +100,7 @@ public class PlayerInteraction : MonoBehaviour
 
 
             currentObject.SetActive(false); 
-            
+            playerAnimator.SetTrigger(currentObject.GetAnimationTrigger()); //isBending for plants, isSpeaking for NPCs, isAction for everything else
             currentObject.Interract();
 
             currentObject = null;
