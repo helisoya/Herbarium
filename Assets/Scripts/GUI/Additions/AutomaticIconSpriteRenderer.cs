@@ -39,7 +39,7 @@ public class AutomaticIconSpriteRenderer : MonoBehaviour
         string controlPath = action.action.bindings[correctIdx].overridePath;
         if (string.IsNullOrEmpty(controlPath)) controlPath = action.action.bindings[correctIdx].path;
         controlPath = controlPath.Split('/')[1];
-        print(newDevice + " - " + controlPath);
+        //print(newDevice + " - " + controlPath);
         iconImg.sprite = InputIcons.instance.GetIcon(newDevice, controlPath);
     }
 }

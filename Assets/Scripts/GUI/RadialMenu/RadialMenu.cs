@@ -31,8 +31,12 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private UnityEvent onCloseBackpack;
     [SerializeField] private UnityEvent onOpenInventory;
     [SerializeField] private UnityEvent onCloseInventory;
+    [SerializeField] private UnityEvent onOpenGive;
+    [SerializeField] private UnityEvent onCloseGive;
+    [SerializeField] private UnityEvent onCancelGive;
     [SerializeField] private UnityEvent onRadialMenuHover;
     [SerializeField] private UnityEvent onRadialMenuClick;
+
 
     private const float SIZE = 75f;
 
@@ -149,6 +153,12 @@ public class RadialMenu : MonoBehaviour
         if (currentRadialMenu != RadialMenuID.CLOSED && entries != null)
         {
             Vector2 mouseDir = (position - new Vector2(Screen.width / 2, Screen.height / 2)).normalized;
+
+            Vector2 correctPos = new Vector2(position.x / Screen.width, position.y / Screen.height);
+            Vector2 distToWidth = new Vector2(Mathf.Abs(correctPos.x-0.5f), Mathf.Abs(correctPos.y-0.5f));
+
+            //print(distToWidth+ " "+ SIZE*2f/800f + " "+ SIZE*2f/Screen.height);
+
             float mouseAngle = Mathf.Atan2(-mouseDir.x, -mouseDir.y);
             if (mouseAngle < 0) mouseAngle += 2 * Mathf.PI;
 
@@ -158,7 +168,7 @@ public class RadialMenu : MonoBehaviour
 
             if (value % 1 >= 0.5f) correctBox = (correctBox + 1) % entries.Length;
 
-            if(57000f <= (position.x - Screen.width/2f)*(position.x - Screen.width/2) + (position.y - Screen.height/2f) * (position.y - Screen.height/2f)) correctBox = -1;
+            if(distToWidth.x > 0.18f || distToWidth.y > 0.34f) correctBox = -1;
 
             if (currentEntryIdx != correctBox)
             {
@@ -292,7 +302,7 @@ public class RadialMenu : MonoBehaviour
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
-            key = "Close",
+            key = "RadialMenu_Close",
             sprite = backSprite,
             rotation = 0,
             callback = CloseInventory,
@@ -333,14 +343,14 @@ public class RadialMenu : MonoBehaviour
     {
         RadialMenuData testData = new RadialMenuData();
         testData.radius = SIZE;
-        testData.id = RadialMenuID.INVENTORY;
+        testData.id = RadialMenuID.GIVE;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
-            key = "Close",
+            key = "RadialMenu_Close",
             sprite = backSprite,
             rotation = 0,
-            callback = () => {Close(true);},
+            callback = () => {onCancelGive.Invoke();Close(false);},
             interactable = true,
             inputAction = closeInput.action,
             inputIndex = closeInput.index,
@@ -358,14 +368,14 @@ public class RadialMenu : MonoBehaviour
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
                 sprite = backSprite,
                 rotation = -90*(i+1),
-                callback = () => {Close(true);},
+                callback = () => {onCloseGive.Invoke();Close(false);},
                 interactable = item != null,
                 inputAction = null,
                 inputIndex = 0
             };
         }
 
-        if(openSound) onOpenInventory.Invoke();
+        if(openSound) onOpenGive.Invoke();
 
         Open(testData);
     }

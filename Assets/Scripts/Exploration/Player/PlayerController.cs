@@ -20,6 +20,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 mousePosition;
     private Vector2 moveVector;
 
+    /// <summary>
+    /// Gets the player body
+    /// </summary>
+    /// <returns></returns>
+    public Rigidbody GetBody()
+    {
+        return rb;
+    }
+
 
     /// <summary>
     /// Sets the move vector (keyboard/gamepad)
@@ -56,6 +65,14 @@ public class PlayerController : MonoBehaviour
         shouldTryToMoveUsingCursor = value;
     }
 
+    /// <summary>
+    /// Sets the position of the controller
+    /// </summary>
+    /// <param name="position">The new position</param>
+    public void SetPosition(Vector3 position)
+    {
+        rb.position = position;
+    }
 
 
     void Update()

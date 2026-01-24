@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using XNode;
 
 /// <summary>
@@ -10,6 +11,12 @@ using XNode;
 /// </summary>
 public class CutsceneManager : MonoBehaviour
 {
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onStartCustscene;
+    [SerializeField] private UnityEvent onEndCustscene;
+
+
     public static CutsceneManager instance;
     private Coroutine processingCutscene = null;
     public bool inCutscene {get{return processingCutscene != null;}}
@@ -50,24 +57,26 @@ public class CutsceneManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Changes if an object is active or not
+    /// Gets a registered object in the cutscene system
     /// </summary>
-    /// <param name="id">Its id</param>
-    /// <param name="value">True if it should be active</param>
-    public void SetObjectActive(string id, bool value)
+    /// <param name="id">The object's id. "THIS" represents the object that launched the interaction.</param>
+    /// <returns>The object</returns>
+    public GameObject GetObject(string id)
     {
+        if(string.IsNullOrEmpty(id)) return null;
+        
         if(id.Equals("THIS") && currentObject != null)
         {
-           currentObject.SetActive(value); 
+           return currentObject;
         } 
         else
         {
             if (objects.TryGetValue(id, out GameObject obj))
             {
-                obj.SetActive(value);
+                return obj;
             }
         }
-
+        return null;
     }
 
     void Awake()
@@ -117,6 +126,9 @@ public class CutsceneManager : MonoBehaviour
         HerbariumNode currentNode = graph.GetStartNode();
         int result = 0;
         NodePort port;
+
+        onStartCustscene.Invoke();
+
         while(currentNode != null){
             
             yield return Run<int>(currentNode.Apply(), (output) => result = output);
@@ -130,7 +142,9 @@ public class CutsceneManager : MonoBehaviour
                 currentNode = null;
             }
         }
-
+        
+        Player.instance.ResetCameraTarget();
+        onEndCustscene.Invoke();
 
         processingCutscene = null;
         yield return null;

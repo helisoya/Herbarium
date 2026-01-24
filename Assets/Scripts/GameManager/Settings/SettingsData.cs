@@ -8,13 +8,8 @@ using UnityEngine.UI;
 public class SettingsData : ScriptableObject
 {
 	[Header("Gameplay")]
-	public bool zoom;
 	public bool autoCompleteInteraction;
-	public bool soundGuidance;
-	public bool audioDescription;
 	public float screenShakeStrength;
-	public float vibrationStrength;
-	public bool playerCompass;
 	public float gravity;
 
 	[Header("Interface")]
@@ -25,8 +20,6 @@ public class SettingsData : ScriptableObject
 	[HideInInspector] public int screenWidth;
 	[HideInInspector] public bool fullscreen;
 	public bool hideHUD;
-	public int placementHUD;
-	public int sizeHUD;
 	public bool outlinePlayer;
 	public float outlinePlayerStrength;
 	public Color outlinePlayerColor;
@@ -45,12 +38,12 @@ public class SettingsData : ScriptableObject
 
 	[Header("Input")]
 	public string remaping;
-	public bool holdButtonEnabled;
+	public bool toggleGrabEnabled;
+	public bool toggleMoveEnabled;
 
 
 	[Header("Text")]
 	public string language;
-	public bool subtitles;
 	public float subtitlesBackgroundOpacity;
 	public LocalChannelData[] textChannelsDatas;
 
@@ -70,27 +63,18 @@ public class SettingsData : ScriptableObject
 		gamma = copy.gamma;
 		outlinePlayer = copy.outlinePlayer;
 		outlineObjects = copy.outlineObjects;
-		zoom = copy.zoom;
 		autoCompleteInteraction = copy.autoCompleteInteraction;
-		soundGuidance = copy.soundGuidance;
-		audioDescription = copy.audioDescription;
-		screenShakeStrength = copy.screenShakeStrength;
-		vibrationStrength = copy.vibrationStrength;
-		playerCompass = copy.playerCompass;
 		gravity = copy.gravity;
 		hideHUD = copy.hideHUD;
-		placementHUD = copy.placementHUD;
-		sizeHUD = copy.sizeHUD;
 		outlinePlayerStrength = copy.outlinePlayerStrength;
 		outlinePlayerColor = copy.outlinePlayerColor;
-		outlineObjects = copy.outlineObjects;
 		outlineObjectsStrength = copy.outlineObjectsStrength;
 		outlineObjectsColor = copy.outlineObjectsColor;
 		negativeColorFilter = copy.negativeColorFilter;
 		muteAll = copy.muteAll;
 		outputDevice = copy.outputDevice;
-		holdButtonEnabled = copy.holdButtonEnabled;
-		subtitles = copy.subtitles;
+		toggleGrabEnabled = copy.toggleGrabEnabled;
 		subtitlesBackgroundOpacity = copy.subtitlesBackgroundOpacity;
+		toggleMoveEnabled = copy.toggleMoveEnabled;
 	}
 }

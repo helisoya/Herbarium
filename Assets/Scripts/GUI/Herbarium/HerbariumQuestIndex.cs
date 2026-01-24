@@ -47,7 +47,10 @@ public class HerbariumQuestIndex : HerbariumPage
 
         if(knownQuests.Length == 0 || localPageIndex == pagesCount - 1)
         {
-            gui.SetQuest(0);
+            if(knownQuests.Length > 0)
+            {
+                gui.SetQuest(0);
+            }
         }
         else
         {

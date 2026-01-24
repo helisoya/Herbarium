@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -10,8 +11,8 @@ using UnityEngine.UI;
 public class GameGUI : MonoBehaviour
 {
     [Header("Pause")]
-    //[SerializeField] private PauseMenu pauseMenu;
-    //public bool isPauseOpen { get { return pauseMenu.isOpen; } }
+    [SerializeField] private PauseMenu pauseMenu;
+    public bool isPauseOpen { get { return pauseMenu.isOpen; } }
 
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
@@ -25,10 +26,23 @@ public class GameGUI : MonoBehaviour
     [Header("HUD")]
     [SerializeField] private GameObject hudRoot;
 
+    [Header("Popup")]
+    [SerializeField] private CanvasGroup popupGroup;
+    [SerializeField] private LocalizedText popupText;
+    [SerializeField] private float popupFadeTime = 0.5f;
+    [SerializeField] private float popupIdleTime = 2.0f;
+    private Coroutine routinePopup;
+    public bool showingPopup{get{return routinePopup != null;}}
+
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
     [SerializeField] private Image dialogBg;
+    [SerializeField] private GameObject dialogContinueRoot;
     [SerializeField] private LocalizedText dialogText;
+    [SerializeField] private LocalizedText dialogNameText;
+    [SerializeField] private LocalizedText dialogTitleText;
+    [SerializeField] private GameObject dialogNameRoot;
+    [SerializeField] private GameObject dialogTitleRoot;
     private Coroutine routineDialog;
     private bool skipDialog = false;
     public bool showingDialog { get { return routineDialog != null; } }
@@ -37,6 +51,14 @@ public class GameGUI : MonoBehaviour
     [Header("Fading")]
     [SerializeField] private Fade fade;
     public bool fading { get { return fade.fading; } }
+
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent<string,string> onChangeDialogSpeaker;
+    [SerializeField] private UnityEvent onStartTypingDialog;
+    [SerializeField] private UnityEvent onStopTypingDialog;
+    [SerializeField] private UnityEvent onOpenDialogWindow;
+    [SerializeField] private UnityEvent onCloseDialogWindow;
 
 
     /*
@@ -60,6 +82,8 @@ public class GameGUI : MonoBehaviour
         fade.FadeTo(0);
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
     }
+
+    #region Links
 
     /*
     /// <summary>
@@ -146,8 +170,7 @@ public class GameGUI : MonoBehaviour
     public void OpenPause()
     {
         DisableHud();
-        Time.timeScale = 0f;
-        //pauseMenu.Open();
+        pauseMenu.Open();
     }
 
     /// <summary>
@@ -156,8 +179,7 @@ public class GameGUI : MonoBehaviour
     public void ClosePause()
     {
         EnableHudIfPossible();
-        Time.timeScale = 1f;
-        //pauseMenu.Close();
+        pauseMenu.Close();
     }
 
     /// <summary>
@@ -268,25 +290,42 @@ public class GameGUI : MonoBehaviour
         radialMenu.ActivateCurrentlySelected();
     }
 
+    #endregion
+
+    #region Dialog
+
     /// <summary>
     /// Sets if the dialog panel is active or not
     /// </summary>
     /// <param name="value">True if it is active</param>
-    public void SetDialogOpen(bool value)
+    public void SetDialogOpen(bool value, bool playSound = false)
     {
         if(value) DisableHud();
         else EnableHudIfPossible();
         dialogRoot.SetActive(value);
+
+        if (playSound)
+        {
+            if(value) onOpenDialogWindow.Invoke();
+            else onCloseDialogWindow.Invoke();
+        }
     }
 
     /// <summary>
     /// Shows a dialog on screen
     /// </summary>
     /// <param name="dialogID">The dialog's ID</param>
-    public void ShowDialog(string dialogID)
+    /// <param name="characterName">The character's name ID</param>
+    /// <param name="characterTitle">The character's title ID</param>
+    /// <param name="speakerAudio">The speaker's Audio ID</param>
+    /// <param name="emotionAudio">The emotions's Audio ID</param>
+    public void ShowDialog(string dialogID, string characterName, string characterTitle, string speakerAudio = null,string emotionAudio = null)
     {
         if (routineDialog != null) StopCoroutine(routineDialog);
-        routineDialog = StartCoroutine(Routine_Dialog(dialogID));
+
+        onChangeDialogSpeaker.Invoke(speakerAudio,emotionAudio);
+
+        routineDialog = StartCoroutine(Routine_Dialog(dialogID,characterName,characterTitle));
     }
 
 
@@ -295,8 +334,10 @@ public class GameGUI : MonoBehaviour
     /// Routine for showing a dialog
     /// </summary>
     /// <param name="dialogID">The dialog's ID</param>
+    /// <param name="characterName">The character's name ID</param>
+    /// <param name="characterTitle">The character's title ID</param>
     /// <returns>IEnumerator</returns>
-    private IEnumerator Routine_Dialog(string dialogID)
+    private IEnumerator Routine_Dialog(string dialogID, string characterName, string characterTitle)
     {
         int charactersPerFrame = 1;
         float speed = 5f;
@@ -305,6 +346,28 @@ public class GameGUI : MonoBehaviour
 
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         SetDialogOpen(true);
+        dialogContinueRoot.SetActive(false);
+
+        if (string.IsNullOrEmpty(characterName))
+        {
+            dialogNameRoot.SetActive(false);
+        }
+        else
+        {
+            dialogNameRoot.SetActive(true);
+            dialogNameText.SetNewKey(characterName);
+        }
+
+        if (string.IsNullOrEmpty(characterTitle))
+        {
+            dialogTitleRoot.SetActive(false);
+        }
+        else
+        {
+            dialogTitleRoot.SetActive(true);
+            dialogTitleText.SetNewKey(characterTitle);
+        }
+
         dialogText.SetNewKey(dialogID);
         TMP_Text txt = dialogText.GetText();
 
@@ -315,6 +378,8 @@ public class GameGUI : MonoBehaviour
         int vis = 0;
         int max = inf.characterCount;
         int cpf = charactersPerFrame;
+
+        onStartTypingDialog.Invoke();
 
         List<char> punctuation = new List<char>(new char[] { '.', ',', ';', '!', '?' });
 
@@ -345,16 +410,76 @@ public class GameGUI : MonoBehaviour
             yield return new WaitForSeconds(0.01f * speed);
         }
 
+        onStopTypingDialog.Invoke();
+
+        dialogContinueRoot.SetActive(true);
         skipDialog = false;
         routineDialog = null;
     }
 
+    #endregion
 
+    #region Popup
 
+    /// <summary>
+    /// Shows a new popup
+    /// </summary>
+    /// <param name="key">The text key</param>
+    /// <param name="injectors">The text injectors</param>
+    public void ShowPopup(string key, object[] injectors)
+    {
+        if(routinePopup != null) StopCoroutine(routinePopup);
+        routinePopup = StartCoroutine(Routine_Popup(key,injectors));
+    }
 
+    /// <summary>
+    /// Shows a new popup (Routine)
+    /// </summary>
+    /// <param name="key">The text key</param>
+    /// <param name="injectors">The text injectors</param>
+    private IEnumerator Routine_Popup(string key, object[] injectors)
+    {
+        if(popupGroup.alpha > 0.0001f)
+        {
+            // Fade in the text before doing anything else
+            yield return Routine_PopupFade(popupGroup.alpha,0.0f,popupFadeTime/popupGroup.alpha);
+        }
+        popupGroup.alpha = 0.0f;
 
+        popupText.SetInjectors(injectors);
+        popupText.SetNewKey(key);
 
+        yield return Routine_PopupFade(popupGroup.alpha,1.0f,popupFadeTime);
+        popupGroup.alpha = 1.0f;
 
+        yield return new WaitForSeconds(popupIdleTime);
+
+        yield return Routine_PopupFade(popupGroup.alpha,0.0f,popupFadeTime);
+        popupGroup.alpha = 0.0f;
+
+        routinePopup = null;
+    }
+
+    /// <summary>
+    /// Internal routine for fading the popup
+    /// </summary>
+    /// <param name="start">The start opacity</param>
+    /// <param name="end">The end opacity</param>
+    /// <param name="duration">The opacity duration</param>
+    private IEnumerator Routine_PopupFade(float start, float end, float duration)
+    {
+        for (float t = 0f; t <= duration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / duration;
+            popupGroup.alpha = Mathf.Lerp(start,end,normalizedTime);
+
+            yield return null;
+        }
+    }
+
+    #endregion
+
+    #region Click events
 
     /* ------------------------------------------------------- Click events ------------------------------------------------------- */
 
@@ -375,4 +500,6 @@ public class GameGUI : MonoBehaviour
         Player.instance.StopPlayerMovements();
         OpenBackpack();
     }
+
+    #endregion
 }

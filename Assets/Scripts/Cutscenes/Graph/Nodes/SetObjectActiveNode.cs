@@ -19,7 +19,8 @@ public class SetObjectActiveNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
-        CutsceneManager.instance.SetObjectActive(objectID, objectActive);
+        GameObject obj = CutsceneManager.instance.GetObject(objectID);
+        if(obj) obj.SetActive(objectActive);
         yield return 0;
     }
 }

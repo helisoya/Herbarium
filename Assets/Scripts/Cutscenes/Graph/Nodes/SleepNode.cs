@@ -22,6 +22,9 @@ public class SleepNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
+        GameGUI.instance.ShowPopup("Popup_Sleep",null);
+
+        yield return new WaitForSeconds(1.0f);
 
         GameGUI.instance.FadeTo(1);
         yield return new WaitForEndOfFrame();
@@ -32,8 +35,11 @@ public class SleepNode : HerbariumNode
 
         if (refreshRegrowthSystem)
         {
-            // Refresh the regrowth system
+            GameManager.instance.GetPlayerDataHandler().IncrementRegrowthSystem();
+            Map.instance.TriggerOnRegrowthSystemRefresh();
         }
+
+        GameManager.instance.GetPlayerDataHandler().SaveData();
 
         yield return new WaitForSeconds(sleepTime);
 
