@@ -112,7 +112,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4339225572228332138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &49389739744091138
@@ -639,7 +639,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7648285114969745358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &601491479207806694
@@ -767,8 +767,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4587929987466870989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &602333874784392222
@@ -1407,7 +1407,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2143427793710717214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &1500733544587500972
@@ -1526,6 +1526,7 @@ GameObject:
   - component: {fileID: 1394689983765755775}
   - component: {fileID: 8621173787949823297}
   - component: {fileID: 4826614799438480779}
+  - component: {fileID: 5351643339169832701}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (5)
   m_TagString: Untagged
@@ -1626,7 +1627,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: -0.00000011920929, z: 0}
 --- !u!114 &4826614799438480779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1640,7 +1641,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
+--- !u!114 &5351643339169832701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858878314939214360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2177038842509978065
@@ -1755,7 +1772,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3587964118764363828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,7 +1786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2312260562216808117
@@ -1884,7 +1901,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!114 &1402674475101983450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,7 +1915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2398389240565273145
@@ -2047,8 +2064,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0.0000009536743}
 --- !u!114 &2570441578386871260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2062,7 +2079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &2992187827170803812
@@ -2484,8 +2501,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &91923754724577753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2499,7 +2516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &3231324841983034773
@@ -2614,7 +2631,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0.0000009536743, z: 0.00000047683716}
 --- !u!114 &3719566811293610146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2628,7 +2645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &3309380277771678350
@@ -3109,8 +3126,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.89, y: 0.6300002, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0.0000009536743}
 --- !u!114 &5006686476009489298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3124,7 +3141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &3618843212168012892
@@ -4154,8 +4171,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6265087349464528745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4169,7 +4186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &4757250293357062228
@@ -4283,8 +4300,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.89, y: 0.63, z: 0.2}
+  m_Center: {x: 0, y: 0.00000011920929, z: 0.00000023841858}
 --- !u!114 &5026963908117215319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4298,7 +4315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &4855465019837842773
@@ -4666,8 +4683,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8764598180149692527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4681,7 +4698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &5169824379388500430
@@ -4696,6 +4713,7 @@ GameObject:
   - component: {fileID: 1094035727067899632}
   - component: {fileID: 2221206838351534982}
   - component: {fileID: 1623775857368663692}
+  - component: {fileID: 4850979122015885167}
   m_Layer: 0
   m_Name: T_PLACEHOLDER_Bush (18)
   m_TagString: Untagged
@@ -4795,8 +4813,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1623775857368663692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4810,7 +4828,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
+--- !u!114 &4850979122015885167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169824379388500430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 30, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &5293737713019317580
@@ -5568,8 +5602,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3199921447389064028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5583,7 +5617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &6505633525502375357
@@ -5787,8 +5821,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.63, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &259995838495068861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5802,7 +5836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &6683709468993193278
@@ -6486,8 +6520,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.8899999, y: 0.6300002, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7189086609181192226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6501,7 +6535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &7072692652039369405
@@ -6587,7 +6621,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1202479123783105039}
@@ -6839,8 +6873,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.89, y: 0.63, z: 0.2}
+  m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!114 &8078217142941622116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6854,7 +6888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &7418881758946195253
@@ -7823,7 +7857,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0, z: 0.00000047683716}
 --- !u!114 &4361985947390011104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7837,7 +7871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &8378484879457771334
@@ -7952,7 +7986,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2822938516906510115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7966,7 +8000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &8721930866249703329
@@ -8208,8 +8242,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.89, y: 0.63, z: 0.20000005}
-  m_Center: {x: 0, y: -0.000000014901161, z: -0.000000007450581}
+  m_Size: {x: 0.89, y: 0.63000005, z: 0.20000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5786982071524346631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8223,7 +8257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
   _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
 --- !u!1 &8797554335732623893
@@ -8728,6 +8762,14 @@ PrefabInstance:
     - target: {fileID: 1093920672586841865, guid: b3dc4c581481acf4f8d3f73a2e9a3c8d, type: 3}
       propertyPath: m_Name
       value: T_PLACEHOLDER_Bush
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990878850458539784, guid: b3dc4c581481acf4f8d3f73a2e9a3c8d, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990878850458539784, guid: b3dc4c581481acf4f8d3f73a2e9a3c8d, type: 3}
+      propertyPath: m_Center.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3736360822091467343, guid: b3dc4c581481acf4f8d3f73a2e9a3c8d, type: 3}
       propertyPath: m_LocalPosition.x
