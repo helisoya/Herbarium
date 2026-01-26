@@ -81,7 +81,6 @@ public class AudioForaging : MonoBehaviour
         Debug.Log("je stresse la plante");
         plantStressInstance = AudioManager.Instance.PlayEvent3D(plantStress, currentMovingObject);
         //AudioManager.Instance.PlayOneShot3D(plantImpact, currentMovingObject);
-
     }
 
     public void StopPlantStress()
