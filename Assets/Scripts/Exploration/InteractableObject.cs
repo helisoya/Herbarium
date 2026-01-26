@@ -11,6 +11,7 @@ public class InteractableObject : MonoBehaviour
     public bool stopPlayerOnInterract = true;
     [SerializeField] protected DialogGraph linkedGraph;
     [SerializeField] protected GameObject interactionIcon;
+    [SerializeField] protected string animationTrigger;
     private bool playerCouldInteract = false;
 
     /// <summary>
@@ -21,6 +22,15 @@ public class InteractableObject : MonoBehaviour
     {
         playerCouldInteract = value;
         interactionIcon.SetActive(value);
+    }
+    
+    /// <summary>
+    /// Gets the animation trigger linked to the interaction
+    /// </summary>
+    /// <returns>The animation trigger</returns>
+    public string GetAnimationTrigger()
+    {
+        return animationTrigger;
     }
 
     /// <summary>
