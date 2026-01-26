@@ -8745,6 +8745,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 427448736710524766, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 620109712019595202, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.600006
+      objectReference: {fileID: 0}
     - target: {fileID: 1650793614618298047, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8769,6 +8777,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 48.61255
       objectReference: {fileID: 0}
+    - target: {fileID: 2813142933741900596, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996130704088132426, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: onClickPlantLink.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2000960715}
+    - target: {fileID: 2996130704088132426, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: onClickQuestLink.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2000960715}
+    - target: {fileID: 2996130704088132426, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: onHoverPlantMarker.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2000960715}
+    - target: {fileID: 2996130704088132426, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: onHoverQuestMarker.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2000960715}
     - target: {fileID: 3152394986644694844, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -27.199997
@@ -16483,6 +16511,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2000960715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4039686757439051541, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+  m_PrefabInstance: {fileID: 1157955729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49da2eff454ce0744bd0df05f88b5b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &2002416574
 GameObject:
   m_ObjectHideFlags: 0

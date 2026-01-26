@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private string SFXVolume;
     [SerializeField] private string MusicVolume;
 
+
     private static AudioManager instance;
     public static AudioManager Instance => instance;
 
@@ -94,18 +95,34 @@ public class AudioManager : MonoBehaviour
         instance.release();
     }
 
+
     public void SetMasterVolume(float volume)
     {
-        RuntimeManager.StudioSystem.setParameterByName(masterVolume, volume, ignoreseekspeed);
+        string masterBusString = "Bus:/";
+        Bus masterBus;
+
+        masterBus = RuntimeManager.GetBus(masterBusString);
+        masterBus.setVolume(volume);
+        Debug.Log(volume);
     }
 
     public void SetSFXVolume(float volume)
     {
-        RuntimeManager.StudioSystem.setParameterByName(SFXVolume, volume, ignoreseekspeed);
+        string sfxBusString = "Bus:/GlobalSFX";
+        Bus sfxBus;
+
+        sfxBus = RuntimeManager.GetBus(sfxBusString);
+        sfxBus.setVolume(volume);
+        Debug.Log(volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        RuntimeManager.StudioSystem.setParameterByName(MusicVolume, volume, ignoreseekspeed);
+        string musicBusString = "Bus:/Music";
+        Bus musicBus;
+
+        musicBus = RuntimeManager.GetBus(musicBusString);
+        musicBus.setVolume(volume);
+        Debug.Log(volume);
     }
 }

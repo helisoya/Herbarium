@@ -332,6 +332,7 @@ public class Settings
     public void SetVolumeMaster(float value)
     {
         data.volumeMaster = value;
+        AudioManager.Instance.SetMasterVolume(value);
         Save();
     }
 
@@ -351,6 +352,7 @@ public class Settings
     public void SetVolumeMusic(float value)
     {
         data.volumeMusic = value;
+        AudioManager.Instance.SetMusicVolume(value);
         Save();
     }
 
@@ -370,6 +372,7 @@ public class Settings
     public void SetVolumeSFX(float value)
     {
         data.volumeSfx = value;
+        AudioManager.Instance.SetSFXVolume(value);
         Save();
     }
 
@@ -602,6 +605,10 @@ public class Settings
             Locals.ChangeSize(channel, defaultData.textChannelsDatas[i].sizeIndex);
             Locals.ChangeColor(channel, defaultData.textChannelsDatas[i].color);
         }
+
+        AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
+        AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
+        AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
     }
 
     /// <summary>
@@ -645,6 +652,10 @@ public class Settings
         data.volumeMusic = defaultData.volumeMusic;
         data.volumeSfx = defaultData.volumeSfx;
         data.muteAll = defaultData.muteAll;
+
+        AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
+        AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
+        AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
     }
 
     public void ResetInput()
@@ -723,7 +734,12 @@ public class Settings
         Locals.ChangeLanguage(data.language);
         Screen.fullScreen = data.fullscreen;
         //GameManager.instance.GetInputs().LoadBindingOverridesFromJson(data.remaping);
-        //GameManager.instance.UpdateVolume();
+        
+        GameManager.instance.UpdateVolume();
+
+        AudioManager.Instance.SetMasterVolume(data.volumeMaster);
+        AudioManager.Instance.SetMusicVolume(data.volumeMusic);
+        AudioManager.Instance.SetSFXVolume(data.volumeSfx);
 
         for (int i = 0; i < data.textChannelsDatas.Length; i++)
         {
