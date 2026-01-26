@@ -245,7 +245,8 @@ public class RadialMenu : MonoBehaviour
             interactable = true,
             inputAction = closeInput.action,
             inputIndex = closeInput.index,
-            inputPosition = inputPositions[0]
+            inputPosition = inputPositions[0],
+            itemSprite = null
         };
         testData.entries[2] = new RadialMenuEntryData()
         {
@@ -256,7 +257,8 @@ public class RadialMenu : MonoBehaviour
             interactable = true,
             inputAction = herbariumInput.action,
             inputIndex = herbariumInput.index,
-            inputPosition = inputPositions[2]
+            inputPosition = inputPositions[2],
+            itemSprite = null
         };
 
         testData.entries[1] = new RadialMenuEntryData()
@@ -268,7 +270,8 @@ public class RadialMenu : MonoBehaviour
             interactable = false,
             inputAction = mapInput.action,
             inputIndex = mapInput.index,
-            inputPosition = inputPositions[1]
+            inputPosition = inputPositions[1],
+            itemSprite = null
         };
         testData.entries[3] = new RadialMenuEntryData()
         {
@@ -282,7 +285,8 @@ public class RadialMenu : MonoBehaviour
             interactable = true,
             inputAction = inventoryInput.action,
             inputIndex = inventoryInput.index,
-            inputPosition = inputPositions[3]
+            inputPosition = inputPositions[3],
+            itemSprite = null
         };
 
         if(openSound) onOpenBackpack.Invoke();
@@ -309,7 +313,8 @@ public class RadialMenu : MonoBehaviour
             interactable = true,
             inputAction = closeInput.action,
             inputIndex = closeInput.index,
-            inputPosition = inputPositions[0]
+            inputPosition = inputPositions[0],
+            itemSprite = null
         };
 
         PlayerDataHandler dataHandler = GameManager.instance.GetPlayerDataHandler();
@@ -326,7 +331,8 @@ public class RadialMenu : MonoBehaviour
                 callback = null,
                 interactable = false,
                 inputAction = null,
-                inputIndex = 0
+                inputIndex = 0,
+                itemSprite = item == null ? null : GameManager.instance.GetPlantDatabase().GetPlant(item).radialMenuSprite
             };
         }
 
@@ -354,7 +360,8 @@ public class RadialMenu : MonoBehaviour
             interactable = true,
             inputAction = closeInput.action,
             inputIndex = closeInput.index,
-            inputPosition = inputPositions[0]
+            inputPosition = inputPositions[0],
+            itemSprite = null
         };
 
         PlayerDataHandler dataHandler = GameManager.instance.GetPlayerDataHandler();
@@ -363,6 +370,7 @@ public class RadialMenu : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             item = dataHandler.GetInventoryItem(i);
+            
             testData.entries[1 + i] = new RadialMenuEntryData()
             {
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
@@ -371,7 +379,8 @@ public class RadialMenu : MonoBehaviour
                 callback = () => {onCloseGive.Invoke();Close(false);},
                 interactable = item != null,
                 inputAction = null,
-                inputIndex = 0
+                inputIndex = 0,
+                itemSprite = item == null ? null : GameManager.instance.GetPlantDatabase().GetPlant(item).radialMenuSprite
             };
         }
 

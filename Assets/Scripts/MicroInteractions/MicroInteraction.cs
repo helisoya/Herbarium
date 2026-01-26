@@ -109,7 +109,7 @@ public abstract class MicroInteraction : MonoBehaviour
     /// <param name="inputValue">The input value</param>
     public void ForwardInput(InputType type, InputValue inputValue)
     {
-        if(!inMicroInteraction || pauseMenu.isOpen) return;
+        if(!inMicroInteraction) return;
 
         switch (type)
         {
@@ -117,13 +117,14 @@ public abstract class MicroInteraction : MonoBehaviour
                 mousePosition = inputValue.Get<Vector2>();
                 break;
             case InputType.MouseRightClick:
-                if(currentObject && inputValue.isPressed)
+                if(!pauseMenu.isOpen && currentObject && inputValue.isPressed)
                 {
                     OnToolUse();
                 }
                 break;
 
             case InputType.MouseLeftClick:
+                if(pauseMenu.isOpen) break;
                 if ((!Settings.instance.IsToggleGrabEnabled() && !inputValue.isPressed) || (Settings.instance.IsToggleGrabEnabled() && inputValue.isPressed && currentObject) ) 
                 {
                     if (currentObject)
