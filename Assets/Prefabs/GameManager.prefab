@@ -32,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 1.17265, y: -1.38484, z: 3.34621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8190964851565938679}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3667257177803278283
@@ -50,6 +51,7 @@ MonoBehaviour:
   playerDataHandler: {fileID: 5939968071471153341}
   plantDatabase: {fileID: 1692928887586753417}
   audioManager: {fileID: 4813398855494717131, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
+  accessVolume: {fileID: 5555196750402621019}
 --- !u!114 &5939968071471153341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +163,52 @@ MonoBehaviour:
     - Key: n
       Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
   defaultIcon: {fileID: -759406481, guid: 69a667c7448ad944a94365a382d4ebf0, type: 3}
+--- !u!1 &5076236186223519916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8190964851565938679}
+  - component: {fileID: 5555196750402621019}
+  m_Layer: 0
+  m_Name: Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8190964851565938679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5076236186223519916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4952751422044168475}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5555196750402621019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5076236186223519916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3e72ebb6d2a5cf64ea9758efbe395d2d, type: 2}

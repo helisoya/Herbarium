@@ -25,7 +25,7 @@ public class IfNode : HerbariumNode
         bool tempValue = false;
         int variableValue = 0;
         foreach(Check check in checks){
-            //variableValue = GameManager.instance.GetSaveManager().GetVariable(check.variableID);
+            variableValue = GameManager.instance.GetPlayerDataHandler().GetVariable(check.variableID);
             switch(check.check){
                 case CheckType.EQUALS:
                     tempValue = variableValue == check.value;

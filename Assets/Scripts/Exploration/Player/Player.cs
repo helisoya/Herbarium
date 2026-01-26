@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,10 +13,14 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerController controller;
     [SerializeField] private PlayerInteraction interaction;
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private CinemachineCamera cinemachineCamera;
+
+
     private MicroInteraction currentMicroInteraction;
     private string currentMicroInteractionScene;
     public static Player instance;
 
+    public Vector3 position{get{return controller.GetBody().position;}}
     public bool inMicroInteraction{get; private set;}
     public MicroInteraction.EndingType lastMicroInteractionEnding {get; private set;}
 
@@ -26,11 +31,30 @@ public class Player : MonoBehaviour
         currentMicroInteractionScene = null;
         lastMicroInteractionEnding = MicroInteraction.EndingType.CANCEL;
     }
+
+    /// <summary>
+    /// Sets the camera's target
+    /// </summary>
+    /// <param name="target">The new target</param>
+    public void SetCameraTarget(Transform target)
+    {
+        cinemachineCamera.Target.TrackingTarget = target;
+        cinemachineCamera.Target.LookAtTarget = target;
+    }
+
+    /// <summary>
+    /// Resets the camera's target to the player body
+    /// </summary>
+    public void ResetCameraTarget()
+    {
+        cinemachineCamera.Target.TrackingTarget = controller.GetBody().transform;
+        cinemachineCamera.Target.LookAtTarget = controller.GetBody().transform;
+    }
     
 
     void OnMove(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
 
         Vector2 vec = value.Get<Vector2>();
 
@@ -64,6 +88,8 @@ public class Player : MonoBehaviour
 
     void OnMousePosition(InputValue value)
     {
+        if(GameGUI.instance.isPauseOpen) return;
+
         if(inMicroInteraction){
             if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MousePosition,value);
             return;
@@ -87,6 +113,8 @@ public class Player : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
+        if(GameGUI.instance.isPauseOpen) return;
+        
         if(inMicroInteraction)
         { 
             if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseLeftClick,value);
@@ -107,7 +135,7 @@ public class Player : MonoBehaviour
 
         if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
-        bool shouldHold = Settings.instance.IsHoldModeEnabled();
+        bool shouldHold = Settings.instance.IsToggleMoveEnabled();
 
         if (!shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
         else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
@@ -117,6 +145,8 @@ public class Player : MonoBehaviour
 
     void OnBackpack(InputValue value)
     {
+        if(GameGUI.instance.isPauseOpen) return;
+
         if (inMicroInteraction)
         {
             if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseRightClick,value);
@@ -125,7 +155,7 @@ public class Player : MonoBehaviour
 
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
 
-        if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             if (value.isPressed)
             {
@@ -139,9 +169,9 @@ public class Player : MonoBehaviour
 
     void OnInventory(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
 
-        if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             if (value.isPressed)
             {
@@ -155,7 +185,7 @@ public class Player : MonoBehaviour
 
     void OnHerbarium(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
 
         if (!GameGUI.instance.inHerbarium)
         {
@@ -172,7 +202,13 @@ public class Player : MonoBehaviour
 
     void OnPause(InputValue value)
     {
-        if(GameGUI.instance.showingDialog || inMicroInteraction) return;
+        if(inMicroInteraction)
+        { 
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.Pause,value);
+            return;
+        }
+
+        if(GameGUI.instance.showingDialog) return;
 
         if (GameGUI.instance.inHerbarium)
         {
@@ -180,13 +216,22 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
+        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             GameGUI.instance.CloseRadialMenu();
             return;
         }
 
         if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) return;
+
+        if (GameGUI.instance.isPauseOpen)
+        {
+            GameGUI.instance.ClosePause();
+        }
+        else
+        {
+            GameGUI.instance.OpenPause();
+        }
 
     }
 

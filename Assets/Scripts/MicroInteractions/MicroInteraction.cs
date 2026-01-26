@@ -12,7 +12,8 @@ public abstract class MicroInteraction : MonoBehaviour
     {
         MousePosition,
         MouseLeftClick,
-        MouseRightClick
+        MouseRightClick,
+        Pause
     }
 
     public enum EndingType
@@ -32,6 +33,7 @@ public abstract class MicroInteraction : MonoBehaviour
     [SerializeField] protected float itemSpeed = 5f;
     [SerializeField] protected float rotateSpeed = 15f;
     [SerializeField] protected Camera microInteractionCamera;
+    [SerializeField] protected PauseMenu pauseMenu;
 
     [Header("Tutorial")]
     [SerializeField] protected GameObject grabTutorial;
@@ -96,6 +98,14 @@ public abstract class MicroInteraction : MonoBehaviour
     {
         inMicroInteraction = false;
         onEndMicroInteraction.Invoke(type);
+
+        if (currentObject)
+        {
+            currentObject.Drop();
+            currentObject = null;
+        }
+        
+
         OnEnd(type);
         Player.instance.StopMicroInteraction(type);
     }
@@ -115,14 +125,15 @@ public abstract class MicroInteraction : MonoBehaviour
                 mousePosition = inputValue.Get<Vector2>();
                 break;
             case InputType.MouseRightClick:
-                if(currentObject && inputValue.isPressed)
+                if(!pauseMenu.isOpen && currentObject && inputValue.isPressed)
                 {
                     OnToolUse();
                 }
                 break;
 
             case InputType.MouseLeftClick:
-                if ((!Settings.instance.IsHoldModeEnabled() && !inputValue.isPressed) || (Settings.instance.IsHoldModeEnabled() && inputValue.isPressed && currentObject) ) 
+                if(pauseMenu.isOpen) break;
+                if ((!Settings.instance.IsToggleGrabEnabled() && !inputValue.isPressed) || (Settings.instance.IsToggleGrabEnabled() && inputValue.isPressed && currentObject) ) 
                 {
                     if (currentObject)
                     {
@@ -153,12 +164,16 @@ public abstract class MicroInteraction : MonoBehaviour
                     }
                 }
                 break;
+            case InputType.Pause:
+                if(pauseMenu.isOpen) pauseMenu.Close();
+                else pauseMenu.Open();
+                break;
         }
     }
 
     void Update()
     {
-        if(!inMicroInteraction) return;
+        if(!inMicroInteraction || pauseMenu.isOpen) return;
 
         if (currentObject)
         {

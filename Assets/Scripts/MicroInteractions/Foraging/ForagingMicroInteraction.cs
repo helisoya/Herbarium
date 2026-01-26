@@ -11,6 +11,7 @@ public class ForagingMicroInteraction : MicroInteraction
     [Header("Foraging")]
     [SerializeField] private float cutForwardLength = 1f;
     [SerializeField] private LayerMask mask;
+    [SerializeField] private Animator shearsAnimator;
 
     [Header("Plant")]
     [SerializeField] private Transform plantRoot;
@@ -96,6 +97,7 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnToolUse()
     {
+        shearsAnimator.SetTrigger("Cutting");
             if(currentObject.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER)
             {
                 onCut.Invoke();

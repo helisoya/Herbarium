@@ -59,7 +59,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0.819
+    - _AlphaCutout: 0.922
+    - _IntensityAmbiant: 0
+    - _IntensityUV1: 0
+    - _IntensityUV2: 0
+    - _IntensityUV3: 0
     - _IsShadow: 0
     - _Lighting: 0
     - _NeedDither: 1
@@ -77,8 +81,8 @@ Material:
     - _ColorUV1: {r: 1, g: 1, b: 1, a: 1}
     - _ColorUV2: {r: 1, g: 1, b: 1, a: 1}
     - _ColorUV3: {r: 1, g: 1, b: 1, a: 1}
-    - _WindAmplitude: {r: 0, g: 0, b: 0, a: 0}
-    - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _WindAmplitude: {r: 0.95, g: 1.6, b: 1.96, a: 0}
+    - _WindDirection: {r: 3.17, g: 1.45, b: 1.66, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3565951917347145181

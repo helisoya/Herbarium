@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Represents a node that can show / hide the player
 /// </summary>
-[CreateNodeMenu("Event/Hide player")]
+[CreateNodeMenu("Event/Hide player(Deprecated)")]
 public class HidePlayerNode : HerbariumNode
 {
     [Input(connectionType = ConnectionType.Multiple)] public bool entry;

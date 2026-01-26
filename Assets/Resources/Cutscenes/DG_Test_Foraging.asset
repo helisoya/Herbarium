@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 184, y: 72}
+  position: {x: 184, y: 296}
   ports:
     keys:
     - entry
@@ -42,6 +42,11 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   dialogID: CANCEL
+  nameID: 
+  titleID: 
+  targetID: 
+  speakerAudio: 
+  emotionAudio: 
   exit: 0
 --- !u!114 &-8821579129801633403
 MonoBehaviour:
@@ -144,7 +149,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 184, y: -56}
+  position: {x: 184, y: 8}
   ports:
     keys:
     - entry
@@ -173,6 +178,11 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   dialogID: NOSPACE
+  nameID: 
+  titleID: 
+  targetID: 
+  speakerAudio: 
+  emotionAudio: 
   exit: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -238,7 +248,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 184, y: -200}
+  position: {x: 184, y: -280}
   ports:
     keys:
     - entry
@@ -267,6 +277,11 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   dialogID: FAIL
+  nameID: 
+  titleID: 
+  targetID: 
+  speakerAudio: 
+  emotionAudio: 
   exit: 0
 --- !u!114 &4750909523231131791
 MonoBehaviour:
@@ -281,7 +296,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 184, y: -344}
+  position: {x: 184, y: -568}
   ports:
     keys:
     - entry
@@ -310,4 +325,9 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   dialogID: GOOD
+  nameID: 
+  titleID: 
+  targetID: 
+  speakerAudio: 
+  emotionAudio: 
   exit: 0

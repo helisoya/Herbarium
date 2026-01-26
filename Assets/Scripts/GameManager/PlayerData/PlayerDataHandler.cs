@@ -169,11 +169,12 @@ public class PlayerDataHandler : MonoBehaviour
     /// <summary>
 	/// Adds a new dialog to the log
 	/// </summary>
-	/// <param name="logID">The dialog local's ID</param>
-    public void AddDialogLog(string logID)
+	/// <param name="dialogId">The dialog's ID</param>
+    /// <param name="speakerId">The speaker's ID</param>
+    public void AddDialogLog(string dialogId, string speakerId)
     {
-        if (data.dialogLog.Count == dialogLogMaxSize) data.dialogLog.RemoveFirst();
-        data.dialogLog.AddLast(logID);
+        if (data.dialogLog.Count == dialogLogMaxSize) data.dialogLog.RemoveAt(0);
+        data.dialogLog.Add(new DialogLog(){dialogId = dialogId, speakerId = speakerId});
     }
 
     /// <summary>
@@ -188,7 +189,7 @@ public class PlayerDataHandler : MonoBehaviour
 	/// Returns the dialog logs
 	/// </summary>
 	/// <returns>The dialog logs</returns>
-    public string[] GetLog()
+    public DialogLog[] GetLog()
     {
         return data.dialogLog.ToArray(); ;
     }
@@ -435,7 +436,7 @@ public class PlayerDataHandler : MonoBehaviour
     {
         data = new PlayerData();
         data.inventory = new string[inventorySize];
-        data.dialogLog = new LinkedList<string>();
+        data.dialogLog = new List<DialogLog>();
         data.herbarium = new List<string>();
         data.regrowthData = new List<RegrowthPlantData>();
         data.pinnedQuests = new List<string>();
@@ -481,6 +482,14 @@ public class PlayerDataHandler : MonoBehaviour
         }
 
         data.variables = finalData;
+        for(int i = 0; i < data.inventory.Length; i++)
+        {
+            if (string.IsNullOrEmpty(data.inventory[i]))
+            {
+                data.inventory[i] = null;
+            }
+        }
+
 
         this.data = data;
     }
@@ -490,6 +499,10 @@ public class PlayerDataHandler : MonoBehaviour
 	/// </summary>
     public void SaveData()
     {
+        if (!GameManager.instance.inMainMenu)
+        {
+            data.mapPosition = Player.instance.position;
+        }
         FileManager.SaveJSON(filePath, data);
     }
 

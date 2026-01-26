@@ -45,6 +45,9 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   dialogID: NPC_Test_1
+  nameID: Gnome_Name
+  titleID: Gnome_Chaos_Title
+  targetID: THIS
   exit: 0
 --- !u!114 &-5774111261613604636
 MonoBehaviour:
@@ -59,7 +62,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 232, y: -184}
+  position: {x: 248, y: -184}
   ports:
     keys:
     - entry
@@ -122,6 +125,9 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   dialogID: NPC_Test_2
+  nameID: Gnome_Name
+  titleID: Gnome_Chaos_Title
+  targetID: THIS
   exit: 0
 --- !u!114 &11400000
 MonoBehaviour:

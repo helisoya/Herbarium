@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerData
 {
     public string[] inventory;
-    public LinkedList<string> dialogLog;
+    public List<DialogLog> dialogLog;
     public PlayerVariable[] variables;
     public List<string> herbarium;
     public List<string> pinnedQuests;
@@ -29,4 +29,14 @@ public class PlayerData
 public class RegrowthPlantData{
     public string entityId;
     public int regrowthTime;
+}
+
+/// <summary>
+/// Represent a dialog log
+/// </summary>
+[System.Serializable]
+public class DialogLog
+{
+    public string speakerId;
+    public string dialogId;
 }
