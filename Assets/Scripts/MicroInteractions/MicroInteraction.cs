@@ -98,6 +98,14 @@ public abstract class MicroInteraction : MonoBehaviour
     {
         inMicroInteraction = false;
         onEndMicroInteraction.Invoke(type);
+
+        if (currentObject)
+        {
+            currentObject.Drop();
+            currentObject = null;
+        }
+        
+
         OnEnd(type);
         Player.instance.StopMicroInteraction(type);
     }

@@ -121,7 +121,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 4845128256286033786}
   m_Father: {fileID: 6953767973617601706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1919170779773020094
@@ -421,7 +422,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1811810607637034267}
-  - {fileID: 4845128256286033786}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8870376368917973648
@@ -439,6 +439,7 @@ MonoBehaviour:
   canBePickedUp: 1
   type: 1
   canRotate: 1
+  individualMassOnDrop: 1
   moveRb: {fileID: 5833339774332460342}
   rbs:
   - {fileID: 5833339774332460342}
@@ -479,13 +480,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.9214618, w: 0.3884689}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5058827420069511466}
   - {fileID: 7080969063306191956}
   - {fileID: 4531670284392342732}
-  m_Father: {fileID: 6953767973617601706}
+  m_Father: {fileID: 1811810607637034267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 134.281}
 --- !u!95 &1740815891148133818
 Animator:

@@ -100,7 +100,8 @@ public class PlayerInteraction : MonoBehaviour
 
 
             currentObject.SetActive(false); 
-            playerAnimator.SetTrigger(currentObject.GetAnimationTrigger()); //isBending for plants, isSpeaking for NPCs, isAction for everything else
+            string trigger = currentObject.GetAnimationTrigger();
+            if(!string.IsNullOrEmpty(trigger)) playerAnimator.SetTrigger(trigger); //isBending for plants, isSpeaking for NPCs, isAction for everything else
             currentObject.Interract();
 
             currentObject = null;
