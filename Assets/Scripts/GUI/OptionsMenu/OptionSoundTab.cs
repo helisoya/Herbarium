@@ -23,10 +23,15 @@ public class OptionsSoundTab : OptionsTab
 
     protected override void OnOpen()
     {
+        bool allMuted = Settings.instance.IsSoundsMuted();
         masterSlider.SetValueWithoutNotify(Settings.instance.GetVolumeMaster());
         musicSlider.SetValueWithoutNotify(Settings.instance.GetVolumeMusic());
         sfxSlider.SetValueWithoutNotify(Settings.instance.GetVolumeSFX());
-        muteAllSlider.SetIsOnWithoutNotify(Settings.instance.IsSoundsMuted());
+        muteAllSlider.SetIsOnWithoutNotify(allMuted);
+
+        masterSlider.interactable = !allMuted;
+        sfxSlider.interactable = !allMuted;
+        musicSlider.interactable = !allMuted;
 
         deviceDropdown.ClearOptions();
     }
@@ -65,6 +70,7 @@ public class OptionsSoundTab : OptionsTab
     public void ChangeSoundsMuted(bool muted)
     {
         Settings.instance.MuteAllSounds(muted);
+        OnOpen();
     }
 
     /// <summary>

@@ -8,10 +8,6 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioData audioData;
 
-    [SerializeField] private string masterVolume;
-    [SerializeField] private string SFXVolume;
-    [SerializeField] private string MusicVolume;
-
 
     private static AudioManager instance;
     public static AudioManager Instance => instance;
@@ -24,6 +20,9 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            sfxBus = RuntimeManager.GetBus(sfxBusString);
+            masterBus = RuntimeManager.GetBus(masterBusString);
+            musicBus = RuntimeManager.GetBus(musicBusString);
         }
         else
         {
@@ -95,34 +94,39 @@ public class AudioManager : MonoBehaviour
         instance.release();
     }
 
+    string masterBusString = "Bus:/";
+    Bus masterBus;
+
+    string sfxBusString = "Bus:/GlobalSFX";
+    Bus sfxBus;
+
+    string musicBusString = "Bus:/Music";
+    Bus musicBus;
 
     public void SetMasterVolume(float volume)
     {
-        string masterBusString = "Bus:/";
-        Bus masterBus;
-
-        masterBus = RuntimeManager.GetBus(masterBusString);
+        
         masterBus.setVolume(volume);
         Debug.Log(volume);
     }
-
+    
     public void SetSFXVolume(float volume)
     {
-        string sfxBusString = "Bus:/GlobalSFX";
-        Bus sfxBus;
-
-        sfxBus = RuntimeManager.GetBus(sfxBusString);
+        
         sfxBus.setVolume(volume);
         Debug.Log(volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        string musicBusString = "Bus:/Music";
-        Bus musicBus;
-
-        musicBus = RuntimeManager.GetBus(musicBusString);
+        
         musicBus.setVolume(volume);
         Debug.Log(volume);
     }
+
+    public void MuteAll()
+    {
+        masterBus.setVolume(0);
+    }
+
 }

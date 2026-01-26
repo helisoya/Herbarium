@@ -392,7 +392,12 @@ public class Settings
     public void MuteAllSounds(bool active)
     {
         data.muteAll = active;
-        Save();
+        if (active) AudioManager.Instance.MuteAll();
+        else
+        {
+            AudioManager.Instance.SetMasterVolume(data.volumeMaster);
+        }
+            Save();
     }
 
     /// <summary>
@@ -653,7 +658,9 @@ public class Settings
         data.volumeSfx = defaultData.volumeSfx;
         data.muteAll = defaultData.muteAll;
 
-        AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
+        if (data.muteAll) AudioManager.Instance.MuteAll();
+        else AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
+
         AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
         AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
     }
@@ -737,7 +744,8 @@ public class Settings
         
         GameManager.instance.UpdateVolume();
 
-        AudioManager.Instance.SetMasterVolume(data.volumeMaster);
+        if (data.muteAll) AudioManager.Instance.MuteAll();
+        else AudioManager.Instance.SetMasterVolume(data.volumeMaster);
         AudioManager.Instance.SetMusicVolume(data.volumeMusic);
         AudioManager.Instance.SetSFXVolume(data.volumeSfx);
 
