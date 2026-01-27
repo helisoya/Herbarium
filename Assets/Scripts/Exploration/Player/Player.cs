@@ -157,12 +157,12 @@ public class Player : MonoBehaviour
 
         if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
-        bool shouldHold = Settings.instance.IsToggleMoveEnabled();
+        if(value.isPressed && interaction.TryInterract()) return;
 
-        if (!shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
-        else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
+        bool toggleEnabled = Settings.instance.IsToggleMoveEnabled();
 
-        if (value.isPressed) interaction.TryInterract();
+        if (!toggleEnabled) controller.SetUpdateTargetWithMouse(value.isPressed);
+        else if (value.isPressed) controller.ToggleUpdateTargetWithMouse();
     }
 
     void OnBackpack(InputValue value)
@@ -352,6 +352,6 @@ public class Player : MonoBehaviour
     public void StopPlayerMovements()
     {
         controller.SetMoveVector(Vector2.zero);
-        controller.SetTryToMoveUsingCursor(false);
+        controller.SetUpdateTargetWithMouse(false);
     }
 }

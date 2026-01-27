@@ -1517,6 +1517,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -27.199997
       objectReference: {fileID: 0}
+    - target: {fileID: 3807188146340823443, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: accelSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4118429368646511158, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -27.199997
@@ -3606,6 +3610,7 @@ MonoBehaviour:
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: 43500df974712064995c8c341d64d5b5, type: 2}
   interactionIcon: {fileID: 1942755163}
+  playCutscenesEvents: 1
   animationTrigger: 
 --- !u!114 &1609695168
 MonoBehaviour:

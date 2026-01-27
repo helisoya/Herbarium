@@ -7,17 +7,21 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] private float playerSpeed;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform target;
     [SerializeField] private LayerMask mask;
+    [SerializeField] private PlayerInteraction interaction;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private Transform graphicToFlip;
 
-    private bool shouldTryToMoveUsingCursor;
+    private bool canUpdateTargetWithMouse;
+    private bool moveToTarget;
     private Vector2 mousePosition;
+    private Vector3 targetPosition;
     private Vector2 moveVector;
 
     /// <summary>
@@ -29,6 +33,23 @@ public class PlayerController : MonoBehaviour
         return rb;
     }
 
+    /// <summary>
+    /// Updates the target position
+    /// </summary>
+    /// <param name="mousePosition">The mouse position</param>
+    /// <returns>True if succeded</returns>
+    public bool UpdateTargetPosition(Vector2 mousePosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, mask))
+        {
+            targetPosition = hitInfo.point;
+            targetPosition.y = rb.position.y;
+            return true;
+        }
+        return false;
+    }
 
     /// <summary>
     /// Sets the move vector (keyboard/gamepad)
@@ -36,6 +57,8 @@ public class PlayerController : MonoBehaviour
     /// <param name="moveVector">The move vector</param>
     public void SetMoveVector(Vector2 moveVector)
     {
+        moveToTarget = false;
+        interaction.DisableClosingInTag();
         this.moveVector = moveVector;
     }
 
@@ -49,20 +72,42 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Toggle if the controller should try to move the player using the mouse position
+    /// Toggle if the controller should try to update the target with the mouse postion
     /// </summary>
-    public void ToggleTryToMoveUsingCursor()
+    public void ToggleUpdateTargetWithMouse()
     {
-        shouldTryToMoveUsingCursor = !shouldTryToMoveUsingCursor;
+        canUpdateTargetWithMouse = !canUpdateTargetWithMouse;
+        if (canUpdateTargetWithMouse)
+        {
+            moveToTarget = true;
+            interaction.DisableClosingInTag();
+        } 
+        
     }
 
     /// <summary>
-    /// Sets if the controller should try to move the player using the mouse position
+    /// Sets if the controller should try to update the target with the mouse postion
     /// </summary>
     /// <param name="value">True if the controller should move using the mouse</param>
-    public void SetTryToMoveUsingCursor(bool value)
+    public void SetUpdateTargetWithMouse(bool value)
     {
-        shouldTryToMoveUsingCursor = value;
+        canUpdateTargetWithMouse = value;
+        if (canUpdateTargetWithMouse)
+        {
+            interaction.DisableClosingInTag();
+            moveToTarget = true;
+        }
+        
+    }
+
+    /// <summary>
+    /// Sets the target position manually
+    /// </summary>
+    /// <param name="targetPosition">The new target position</param>
+    public void SetTargetPosition(Vector3 targetPosition)
+    {
+        moveToTarget = true;
+        this.targetPosition = targetPosition;
     }
 
     /// <summary>
@@ -77,24 +122,23 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (shouldTryToMoveUsingCursor && moveVector == Vector2.zero)
+        if (moveToTarget)
         {
-            // Get exact location of click
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
-
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, mask))
+            if (canUpdateTargetWithMouse)
             {
-                Vector3 place = hitInfo.point;
-                place.y = rb.position.y;
+                UpdateTargetPosition(mousePosition);
+                target.position = targetPosition;
+            }
 
-                target.position = place;
+            Vector3 direction = targetPosition - rb.position;
 
-                Vector3 direction = place - rb.position;
-
-                if (direction.magnitude > 0.5f)
-                {
-                    rb.linearVelocity = direction.normalized * playerSpeed;
-                }
+            if (direction.magnitude > 0.5f)
+            {
+                rb.linearVelocity = direction.normalized * playerSpeed;
+            }
+            else
+            {
+                moveToTarget = false;
             }
         }
         else
