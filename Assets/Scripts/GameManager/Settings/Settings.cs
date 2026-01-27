@@ -1,3 +1,4 @@
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -194,6 +195,10 @@ public class Settings
     {
         data.outlinePlayerColor = color;
         Save();
+        if (!GameManager.instance.inMainMenu)
+        {
+            Player.instance.SetHighlight(data.outlinePlayer ? data.outlinePlayerStrength : 0.0f, color);
+        }
     }
 
     /// <summary>
@@ -213,6 +218,10 @@ public class Settings
     {
         data.outlinePlayerStrength = strength;
         Save();
+        if (!GameManager.instance.inMainMenu)
+        {
+            Player.instance.SetHighlight(data.outlinePlayer ? strength : 0.0f, data.outlinePlayerColor);
+        }
     }
 
     /// <summary>
@@ -232,6 +241,10 @@ public class Settings
     {
         data.outlineObjectsColor = color;
         Save();
+        if (!GameManager.instance.inMainMenu)
+        {
+            Map.instance.TriggerOnChangeHighlight(data.outlineObjects ? data.outlineObjectsStrength : 0.0f, color);
+        }
     }
 
     /// <summary>
@@ -251,6 +264,10 @@ public class Settings
     {
         data.outlineObjectsStrength = strength;
         Save();
+        if (!GameManager.instance.inMainMenu)
+        {
+            Map.instance.TriggerOnChangeHighlight(data.outlineObjects ? strength : 0.0f, data.outlineObjectsColor);
+        }
     }
 
     /// <summary>
@@ -270,6 +287,10 @@ public class Settings
     {
         data.outlinePlayer = active;
         Save();
+        if (!GameManager.instance.inMainMenu)
+        {
+            Player.instance.SetHighlight(active ? data.outlinePlayerStrength : 0.0f, data.outlinePlayerColor);
+        }
     }
 
     /// <summary>
@@ -288,6 +309,10 @@ public class Settings
     public void SetObjectOutlineActive(bool active)
     {
         data.outlineObjects = active;
+        if (!GameManager.instance.inMainMenu)
+        {
+            Map.instance.TriggerOnChangeHighlight(active ? data.outlineObjectsStrength : 0.0f, data.outlineObjectsColor);
+        }
         Save();
     }
 
@@ -614,6 +639,11 @@ public class Settings
         AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
         AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
         AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
+        if (!GameManager.instance.inMainMenu)
+        {
+            if(Map.instance) Map.instance.TriggerOnChangeHighlight(data.outlineObjects ? data.outlineObjectsStrength : 0.0f, data.outlineObjectsColor);
+            if(Player.instance) Player.instance.SetHighlight(data.outlinePlayer ? data.outlinePlayerStrength : 0.0f, data.outlinePlayerColor);
+        }
     }
 
     /// <summary>
@@ -635,6 +665,12 @@ public class Settings
 
         GameManager.instance.UpdateVolume();
 
+        if (!GameManager.instance.inMainMenu)
+        {
+            Map.instance.TriggerOnChangeHighlight(data.outlineObjects ? data.outlineObjectsStrength : 0.0f, data.outlineObjectsColor);
+            Player.instance.SetHighlight(data.outlinePlayer ? data.outlinePlayerStrength : 0.0f, data.outlinePlayerColor);
+        }
+
         Save();
     }
 
@@ -646,6 +682,7 @@ public class Settings
         data.autoCompleteInteraction = defaultData.autoCompleteInteraction;
         data.screenShakeStrength = defaultData.screenShakeStrength;
         data.gravity = defaultData.gravity;
+        Save();
     }
 
     /// <summary>
@@ -663,12 +700,14 @@ public class Settings
 
         AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
         AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
+        Save();
     }
 
     public void ResetInput()
     {
         data.toggleGrabEnabled = defaultData.toggleGrabEnabled;
         data.toggleMoveEnabled  = defaultData.toggleMoveEnabled;
+        Save();
     }
 
     public void ResetText()
@@ -702,11 +741,8 @@ public class Settings
                 data.textChannelsDatas[i].sizeIndex = defaultData.textChannelsDatas[i].sizeIndex;
                 Locals.ChangeSize(channel, data.textChannelsDatas[i].sizeIndex);
             }
-
-            
-            
-            
         }
+        Save();
     }
 
     /// <summary>
@@ -756,6 +792,12 @@ public class Settings
             Locals.ChangeFont(channel, data.textChannelsDatas[i].fontIndex);
             Locals.ChangeSize(channel, data.textChannelsDatas[i].sizeIndex);
             Locals.ChangeColor(channel, data.textChannelsDatas[i].color);
+        }
+
+        if (!GameManager.instance.inMainMenu)
+        {
+            if(Map.instance) Map.instance.TriggerOnChangeHighlight(data.outlineObjects ? data.outlineObjectsStrength : 0.0f, data.outlineObjectsColor);
+            if(Player.instance) Player.instance.SetHighlight(data.outlinePlayer ? data.outlinePlayerStrength : 0.0f, data.outlinePlayerColor);
         }
     }
 

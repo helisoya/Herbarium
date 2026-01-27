@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -34,6 +35,7 @@ public abstract class MicroInteraction : MonoBehaviour
     [SerializeField] protected float rotateSpeed = 15f;
     [SerializeField] protected Camera microInteractionCamera;
     [SerializeField] protected PauseMenu pauseMenu;
+    [SerializeField] protected Fade fade;
 
     [Header("Tutorial")]
     [SerializeField] protected GameObject grabTutorial;
@@ -87,6 +89,9 @@ public abstract class MicroInteraction : MonoBehaviour
         grabTutorial.SetActive(true);
         cutTutorial.SetActive(false);
 
+        fade.ForceAlphaTo(1);
+        fade.FadeTo(0);
+
         OnStart(plantId);
     }
 
@@ -98,7 +103,29 @@ public abstract class MicroInteraction : MonoBehaviour
     {
         inMicroInteraction = false;
         onEndMicroInteraction.Invoke(type);
+
+        if (currentObject)
+        {
+            currentObject.Drop();
+            currentObject = null;
+        }
+
         OnEnd(type);
+        StartCoroutine(RoutineEnd(type));
+    }
+
+    /// <summary>
+    /// Routine for the end of the game
+    /// </summary>
+    /// <param name="type">The ending type</param>
+    private IEnumerator RoutineEnd(EndingType type)
+    {
+        fade.FadeTo(1);
+        yield return new WaitForEndOfFrame();
+        while (fade.fading)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         Player.instance.StopMicroInteraction(type);
     }
 
@@ -109,7 +136,7 @@ public abstract class MicroInteraction : MonoBehaviour
     /// <param name="inputValue">The input value</param>
     public void ForwardInput(InputType type, InputValue inputValue)
     {
-        if(!inMicroInteraction || pauseMenu.isOpen) return;
+        if(!inMicroInteraction) return;
 
         switch (type)
         {
@@ -117,13 +144,14 @@ public abstract class MicroInteraction : MonoBehaviour
                 mousePosition = inputValue.Get<Vector2>();
                 break;
             case InputType.MouseRightClick:
-                if(currentObject && inputValue.isPressed)
+                if(!pauseMenu.isOpen && currentObject && inputValue.isPressed)
                 {
                     OnToolUse();
                 }
                 break;
 
             case InputType.MouseLeftClick:
+                if(pauseMenu.isOpen) break;
                 if ((!Settings.instance.IsToggleGrabEnabled() && !inputValue.isPressed) || (Settings.instance.IsToggleGrabEnabled() && inputValue.isPressed && currentObject) ) 
                 {
                     if (currentObject)

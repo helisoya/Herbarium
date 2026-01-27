@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class RadialMenuEntry : MonoBehaviour
 {
     [SerializeField] private Image image;
+    [SerializeField] private Image itemSprite;
     [SerializeField] private LocalizedText label;
     [SerializeField] private RectTransform labelRectTransform;
     [SerializeField] private bool canBeInteractedWith;
@@ -40,6 +41,12 @@ public class RadialMenuEntry : MonoBehaviour
     /// <param name="data">The entry's data</param>
     public void Init(RadialMenuEntryData data)
     {
+        itemSprite.sprite = data.itemSprite;
+        if(data.itemSprite == null)
+        {
+            itemSprite.gameObject.SetActive(false);
+        }
+        
         image.sprite = data.sprite;
         image.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0,0,data.rotation);
         label.SetInjectors(data.injectors, false);

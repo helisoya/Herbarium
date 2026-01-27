@@ -11,9 +11,14 @@ public class Plant : ScriptableObject
 	[Header("General")]
 	public string id;
 	public string categoryID;
+	public bool isSecret = false;
+
+	[Header("Radial Menu")]
+	public Sprite radialMenuSprite;
 
 	[Header("Herbarium")]
-	public Sprite herbariumSprite;
+	public Sprite driedSprite;
+	public Sprite shadowSprite;
 	public string Category {get{return "Category_"+categoryID;}}
 
 	[Header("Foraging")]

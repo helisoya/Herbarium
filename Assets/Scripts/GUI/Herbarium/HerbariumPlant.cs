@@ -145,7 +145,7 @@ public class HerbariumPlant : HerbariumPage
         textSpecifics.SetNoText(!wasPlantFound);
 
         Plant plantData = GameManager.instance.GetPlantDatabase().GetPlant(plantId);
-        imagePlant.sprite = plantData.herbariumSprite;
+        imagePlant.sprite = wasPlantFound ? plantData.driedSprite : plantData.shadowSprite;
 
         if (wasPlantFound)
         {
@@ -155,7 +155,6 @@ public class HerbariumPlant : HerbariumPage
             textInformations.SetNewKey(Plant.GetLore(plantId));
             textSpecifics.SetNewKey(Plant.GetSpecifics(plantId));
             textCategory.SetNewKey(plantData.Category);
-            imagePlant.color = Color.white;
             
 
             textLog.SetInjectors(new string[]{"Swamp","25/12"},false);
@@ -165,7 +164,6 @@ public class HerbariumPlant : HerbariumPage
         {
             textName.SetNewKey("Herbarium_PlantsIndex_Unknown");
             textCategory.SetNewKey("Herbarium_PlantsIndex_Unknown");
-            imagePlant.color = Color.black;
         }
 
     }

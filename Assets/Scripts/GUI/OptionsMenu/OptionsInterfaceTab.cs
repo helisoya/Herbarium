@@ -61,10 +61,14 @@ public class OptionsInterfaceTab : OptionsTab
         playerHighlightToggle.SetIsOnWithoutNotify(Settings.instance.GetPlayerOutlineActive());
         playerHighlightStrengthSlider.SetValueWithoutNotify(Settings.instance.GetPlayerOutlineStrength());
         playerHighlightColorImage.color = Settings.instance.GetPlayerOutlineColor();
+        playerHighlightStrengthSlider.interactable = playerHighlightToggle.isOn;
+        playerHighlightColorImage.GetComponent<Button>().interactable = playerHighlightToggle.isOn;
         
         interactableHighlightToggle.SetIsOnWithoutNotify(Settings.instance.GetObjectOutlineActive());
         interactableHighlightStrengthSlider.SetValueWithoutNotify(Settings.instance.GetObjectsOutlineStrength());
         interactableHighlightColorImage.color = Settings.instance.GetObjectsOutlineColor();
+        interactableHighlightStrengthSlider.interactable = interactableHighlightToggle.isOn;
+        interactableHighlightColorImage.GetComponent<Button>().interactable = interactableHighlightToggle.isOn;
     }
 
     /// <summary>
@@ -119,6 +123,8 @@ public class OptionsInterfaceTab : OptionsTab
     public void ChangePlayerHighlightEnabled(bool enabled)
     {
         Settings.instance.SetPlayerOutlineActive(enabled);
+        playerHighlightStrengthSlider.interactable = enabled;
+        playerHighlightColorImage.GetComponent<Button>().interactable = enabled;
     }
 
     /// <summary>
@@ -155,6 +161,8 @@ public class OptionsInterfaceTab : OptionsTab
     public void ChangeObjectsHighlightEnabled(bool enabled)
     {
         Settings.instance.SetObjectOutlineActive(enabled);
+        interactableHighlightStrengthSlider.interactable = enabled;
+        interactableHighlightColorImage.GetComponent<Button>().interactable = enabled;
     }
 
     /// <summary>

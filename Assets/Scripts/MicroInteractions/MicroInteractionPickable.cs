@@ -18,6 +18,7 @@ public class MicroInteractionPickable : MonoBehaviour
     [SerializeField] private bool canBePickedUp;
     [SerializeField] private PickableType type;
     [SerializeField] private bool canRotate;
+    [SerializeField] private float individualMassOnDrop = 1.0f;
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D moveRb;
@@ -117,6 +118,8 @@ public class MicroInteractionPickable : MonoBehaviour
             rbs[i].bodyType = RigidbodyType2D.Dynamic;
             rbs[i].excludeLayers = new LayerMask();
             rbs[i].excludeLayers = mask;
+            rbs[i].constraints = RigidbodyConstraints2D.None;
+            rbs[i].mass = individualMassOnDrop;
             
             for(int j = i+1; j < rbs.Length; j++)
             {
