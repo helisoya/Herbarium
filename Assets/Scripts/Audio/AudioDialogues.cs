@@ -2,15 +2,29 @@ using UnityEngine;
 
 public class AudioDialogues : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private EventID DialogueIn;
+    [SerializeField] private EventID DialogueOut;
+    [SerializeField] private EventID DialogueNext;
+    [SerializeField] private EventID Speak;
+
+
+    public void PostDialogueIn()
     {
-        
+        AudioManager.Instance.PlayOneShot2D(DialogueIn);
+    }
+    public void PostDialogueOut()
+    {
+        AudioManager.Instance.PlayOneShot2D(DialogueOut);
+    }
+    public void PostDialogueNext()
+    {
+        AudioManager.Instance.PlayOneShot2D(DialogueNext);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PostSpeak()
     {
-        
+        AudioManager.Instance.PlayOneShot2D(Speak);
     }
+
 }
+
