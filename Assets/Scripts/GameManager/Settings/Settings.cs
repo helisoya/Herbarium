@@ -670,6 +670,7 @@ public class Settings
         data.autoCompleteInteraction = defaultData.autoCompleteInteraction;
         data.screenShakeStrength = defaultData.screenShakeStrength;
         data.gravity = defaultData.gravity;
+        Save();
     }
 
     /// <summary>
@@ -681,12 +682,14 @@ public class Settings
         data.volumeMusic = defaultData.volumeMusic;
         data.volumeSfx = defaultData.volumeSfx;
         data.muteAll = defaultData.muteAll;
+        Save();
     }
 
     public void ResetInput()
     {
         data.toggleGrabEnabled = defaultData.toggleGrabEnabled;
         data.toggleMoveEnabled  = defaultData.toggleMoveEnabled;
+        Save();
     }
 
     public void ResetText()
@@ -720,11 +723,8 @@ public class Settings
                 data.textChannelsDatas[i].sizeIndex = defaultData.textChannelsDatas[i].sizeIndex;
                 Locals.ChangeSize(channel, data.textChannelsDatas[i].sizeIndex);
             }
-
-            
-            
-            
         }
+        Save();
     }
 
     /// <summary>
