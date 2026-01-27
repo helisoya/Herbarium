@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private string newGameScene;
     [SerializeField] private OptionsMenu optionsMenu;
+    [SerializeField] private Fade fade;
+    private bool exitingMainMenu = false;
 
     void Start()
     {
@@ -27,9 +30,12 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void ResumeGame()
     {
+        if(exitingMainMenu) return;
+
         GameManager.instance.loadingSave = true;
         GameManager.instance.GetPlayerDataHandler().LoadData();
-        SceneManager.LoadScene(GameManager.instance.GetPlayerDataHandler().GetCurrentMap());
+        exitingMainMenu = true;
+        StartCoroutine(RoutineTransitionToNextScene(GameManager.instance.GetPlayerDataHandler().GetCurrentMap()));
     }
 
     /// <summary>
@@ -37,16 +43,37 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void NewGame()
     {
+        if(exitingMainMenu) return;
+
         GameManager.instance.loadingSave = false;
         GameManager.instance.GetPlayerDataHandler().ResetData();
-        SceneManager.LoadScene(newGameScene);
+        exitingMainMenu = true;
+        StartCoroutine(RoutineTransitionToNextScene(newGameScene));
     }
+
+    /// <summary>
+    /// Routine for changing scenes
+    /// </summary>
+    /// <param name="nextScene">The next scene</param>
+    private IEnumerator RoutineTransitionToNextScene(string nextScene)
+    {
+        fade.FadeTo(1);
+        yield return new WaitForEndOfFrame();
+        while (fade.fading)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        SceneManager.LoadScene(nextScene);
+    }
+
 
     /// <summary>
     /// Opens the credits
     /// </summary>
     public void OpenCredits()
     {
+        if(exitingMainMenu) return;
+
         generalRoot.SetActive(false);
         creditsRoot.SetActive(true);
     }
@@ -65,6 +92,8 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void OpenOptions()
     {
+        if(exitingMainMenu) return;
+
         optionsMenu.Open();
     }
     
@@ -73,6 +102,8 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void QuitGame()
     {
+        if(exitingMainMenu) return;
+
         Application.Quit();
     }
 
