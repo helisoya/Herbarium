@@ -48,7 +48,7 @@ public class DryingNode : HerbariumNode
             string[] secretPlants = GameManager.instance.GetPlantDatabase().GetExistingSecretPlants();
             foreach(string secret in secretPlants)
             {
-                if (selectedPlant.Equals(selectedPlant))
+                if (selectedPlant.Equals(secret))
                 {
                     isSecret = true;
                     break;

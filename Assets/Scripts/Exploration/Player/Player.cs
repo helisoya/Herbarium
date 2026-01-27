@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
         currentMicroInteractionScene = null;
         lastMicroInteractionEnding = MicroInteraction.EndingType.CANCEL;
         renderers = GetComponentsInChildren<Renderer>();
+    }
+
+    void Start()
+    {
         SetHighlight(Settings.instance.GetPlayerOutlineActive() ? Settings.instance.GetPlayerOutlineStrength() : 0.0f, Settings.instance.GetPlayerOutlineColor());
     }
 
