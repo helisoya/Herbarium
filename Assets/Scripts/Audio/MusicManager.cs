@@ -4,7 +4,6 @@ public class MusicManager : MonoBehaviour
 {
     [SerializeField] private EventID AmbEvent;
     [SerializeField] private EventID ExploMusicEvent;
-    [SerializeField] private ParamID HerbariumEntries;
 
     void Start()
     {

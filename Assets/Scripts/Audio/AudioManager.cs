@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<EventInstance, GameObject> tracked3DEvents = new();
 
-    private bool ignoreseekspeed = false;
+    
     private void Awake()
     {
         if (instance == null)
