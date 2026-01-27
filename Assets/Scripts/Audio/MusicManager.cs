@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
@@ -11,9 +12,6 @@ public class MusicManager : MonoBehaviour
         AudioManager.Instance.PlayEvent2D(ExploMusicEvent);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 }

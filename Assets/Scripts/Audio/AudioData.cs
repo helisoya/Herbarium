@@ -24,6 +24,7 @@ public enum EventID
     MusExploration2D, MusExploration3DCresson, MusExploration3DCapillaire, MusExploration3DMenthe,
     StopPlantStress,
     DialogueIn, DialogueOut, DialogueNext, Speak, StartTyping, StopTyping,
+    MusForaging,
 }
 
 public enum ParamID
