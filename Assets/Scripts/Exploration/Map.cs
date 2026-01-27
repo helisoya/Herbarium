@@ -14,6 +14,7 @@ public class Map : MonoBehaviour
     [SerializeField] private DialogGraph startupGraph;
     private bool isUpdatingCamera;
     private UnityEvent onRegrowthSystemRefresh;
+    private UnityEvent<float,Color> onChangeHighlightInteractables;
     public bool started { get; private set; }
 
     public static Map instance { get; private set; }
@@ -24,6 +25,7 @@ public class Map : MonoBehaviour
         instance = this;
 
         onRegrowthSystemRefresh = new UnityEvent();
+        onChangeHighlightInteractables = new UnityEvent<float,Color>();
     }
 
     void Start()
@@ -110,5 +112,33 @@ public class Map : MonoBehaviour
     public void UnRegisterRegrowthEntity(RegrowthEntity entity)
     {
         onRegrowthSystemRefresh.RemoveListener(entity.RefreshEntity);
+    }
+
+    /// <summary>
+    /// Registers an interactable object
+    /// </summary>
+    /// <param name="obj">The object</param>
+    public void RegisterInteractableObject(InteractableObject obj)
+    {
+        onChangeHighlightInteractables.AddListener(obj.SetHighlight);
+    }
+
+    /// <summary>
+    /// Unregister an interactable object
+    /// </summary>
+    /// <param name="obj">The object</param>
+    public void UnRegisterInteractableObject(InteractableObject obj)
+    {
+        onChangeHighlightInteractables.RemoveListener(obj.SetHighlight);
+    }
+
+    /// <summary>
+    /// Triggers the on Change Highlight event
+    /// </summary>
+    /// <param name="strength">The highlight strength</param>
+    /// <param name="color">The highlight color</param>
+    public void TriggerOnChangeHighlight(float strength, Color color)
+    {
+        onChangeHighlightInteractables.Invoke(strength,color);
     }
 }
