@@ -295,6 +295,7 @@ RectTransform:
   - {fileID: 1598835131}
   - {fileID: 670757327}
   - {fileID: 685682400}
+  - {fileID: 2044799598}
   m_Father: {fileID: 1385409252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2071,6 +2072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5882650211230439679, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 102.60004
+      objectReference: {fileID: 0}
     - target: {fileID: 6877544432471583547, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3574,6 +3579,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5383453317986311372, guid: 8fe2d309d05cdba4082f9b422ab432d4, type: 3}
+      propertyPath: linkedFade
+      value: 
+      objectReference: {fileID: 2044799602}
     - target: {fileID: 5436001124120308064, guid: 8fe2d309d05cdba4082f9b422ab432d4, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -4932,6 +4941,7 @@ MonoBehaviour:
   rotateSpeed: 180
   microInteractionCamera: {fileID: 1303389495}
   pauseMenu: {fileID: 685682401}
+  fade: {fileID: 2044799602}
   grabTutorial: {fileID: 1730822208}
   cutTutorial: {fileID: 1473741561}
   onStartMicroInteraction:
@@ -5057,7 +5067,7 @@ MonoBehaviour:
   shakeAmount: 1
   shakeDecay: 4
   debugAutoPlay: 1
-  debugPlantId: TestPlant1
+  debugPlantId: Herb_01
   debugPlayer: {fileID: 715114764}
 --- !u!4 &1388873298 stripped
 Transform:
@@ -6681,6 +6691,109 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000980767}
   m_CullTransparentMesh: 1
+--- !u!1 &2044799597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044799598}
+  - component: {fileID: 2044799601}
+  - component: {fileID: 2044799600}
+  - component: {fileID: 2044799599}
+  - component: {fileID: 2044799602}
+  m_Layer: 9
+  m_Name: Fade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2044799598
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044799597}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 122148978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &2044799599
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044799597}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &2044799600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044799597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2044799601
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044799597}
+  m_CullTransparentMesh: 1
+--- !u!114 &2044799602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044799597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2974d620fd6df5849926475cfeba1db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fade
+  canvaGroup: {fileID: 2044799599}
+  fadeImg: {fileID: 2044799600}
 --- !u!1 &2058536280
 GameObject:
   m_ObjectHideFlags: 0
@@ -7072,6 +7185,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1385409252}
     m_Modifications:
+    - target: {fileID: 5118780838485740677, guid: 7127d78abed40454bacf806776e92658, type: 3}
+      propertyPath: waitingTime
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6953767973617601706, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.57
@@ -7130,7 +7247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onTouchedGround.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -7170,7 +7287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopPlantStress
+      value: StopPlantStressEvent
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

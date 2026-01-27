@@ -2,21 +2,27 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioData audioData;
+
 
     private static AudioManager instance;
     public static AudioManager Instance => instance;
 
     private Dictionary<EventInstance, GameObject> tracked3DEvents = new();
 
+    private bool ignoreseekspeed = false;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            sfxBus = RuntimeManager.GetBus(sfxBusString);
+            masterBus = RuntimeManager.GetBus(masterBusString);
+            musicBus = RuntimeManager.GetBus(musicBusString);
         }
         else
         {
@@ -86,6 +92,41 @@ public class AudioManager : MonoBehaviour
 
         instance.stop(mode);
         instance.release();
+    }
+
+    string masterBusString = "Bus:/";
+    Bus masterBus;
+
+    string sfxBusString = "Bus:/GlobalSFX";
+    Bus sfxBus;
+
+    string musicBusString = "Bus:/Music";
+    Bus musicBus;
+
+    public void SetMasterVolume(float volume)
+    {
+        
+        masterBus.setVolume(volume);
+        Debug.Log(volume);
+    }
+    
+    public void SetSFXVolume(float volume)
+    {
+        
+        sfxBus.setVolume(volume);
+        Debug.Log(volume);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        
+        musicBus.setVolume(volume);
+        Debug.Log(volume);
+    }
+
+    public void MuteAll()
+    {
+        masterBus.setVolume(0);
     }
 
 }

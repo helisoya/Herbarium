@@ -11,19 +11,32 @@ public class PlantDatabase : MonoBehaviour
 {
     private Dictionary<string, Plant> plants;
     private string[] availablePlants;
+    private string[] availableSecretPlants;
 
     public void Init()
     {
         plants = new Dictionary<string, Plant>();
         
-        Plant[] allPlants = Resources.LoadAll<Plant>("Plants");
-        availablePlants = new string[allPlants.Length];
+        List<string> normalPlants = new List<string>();
+        List<string> secretPlants = new List<string>();
 
-        for(int i = 0;i < availablePlants.Length; i++)
+        Plant[] allPlants = Resources.LoadAll<Plant>("Plants");
+
+        for(int i = 0;i < allPlants.Length; i++)
         {
-            availablePlants[i] = allPlants[i].id;
+            if (allPlants[i].isSecret)
+            {
+                secretPlants.Add(allPlants[i].id);
+            }
+            else
+            {
+                normalPlants.Add(allPlants[i].id);
+            }
             Resources.UnloadAsset(allPlants[i]);
         }
+
+        availablePlants = normalPlants.ToArray();
+        availableSecretPlants = secretPlants.ToArray();
     }
 
     /// <summary>
@@ -52,9 +65,16 @@ public class PlantDatabase : MonoBehaviour
     /// <returns>The plant's index</returns>
     public int PlantIDToIndex(string plantId)
     {
-        for(int i = 0; i < availablePlants.Length; i++)
+        int i = 0;
+        while(i < availablePlants.Length)
         {
             if(availablePlants[i].Equals(plantId)) return i;
+            i++;
+        }
+        while(i < availableSecretPlants.Length)
+        {
+            if(availableSecretPlants[i].Equals(plantId)) return i;
+            i++;
         }
 
         return 0;
@@ -67,6 +87,15 @@ public class PlantDatabase : MonoBehaviour
     public string[] GetExistingPlants()
     {
         return availablePlants;
+    }
+
+    /// <summary>
+    /// Gets all the secret plants that exists in game
+    /// </summary>
+    /// <returns>The secret plants</returns>
+    public string[] GetExistingSecretPlants()
+    {
+        return availableSecretPlants;
     }
 
     /// <summary>

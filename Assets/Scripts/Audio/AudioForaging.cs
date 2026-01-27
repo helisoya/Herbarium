@@ -17,6 +17,7 @@ public class AudioForaging : MonoBehaviour
     [SerializeField] private EventID plantStop;
     [SerializeField] private EventID plantImpact;
     [SerializeField] private EventID plantStress;
+    [SerializeField] private EventID stopPlantStress;
     [SerializeField] private EventID inBag;
 
     private GameObject currentMovingObject;
@@ -37,9 +38,14 @@ public class AudioForaging : MonoBehaviour
         AudioManager.Instance.PlayOneShot3D(cutBad, currentMovingObject);
     }
 
-    public void PostToolImpact()
+    public void PostToolImpact(Transform obj)
     {
-        AudioManager.Instance.PlayOneShot3D(toolImpact, currentMovingObject);
+        AudioManager.Instance.PlayOneShot3D(toolImpact, obj.gameObject);
+    }
+
+    public void PostPlantImpact(Transform obj)
+    {
+        AudioManager.Instance.PlayOneShot3D(plantImpact, obj.gameObject);
     }
 
     public void PostPickUp(MicroInteraction.PickupAudioData data)
@@ -74,7 +80,7 @@ public class AudioForaging : MonoBehaviour
     {
         Debug.Log("je stresse la plante");
         plantStressInstance = AudioManager.Instance.PlayEvent3D(plantStress, currentMovingObject);
-
+        //AudioManager.Instance.PlayOneShot3D(plantImpact, currentMovingObject);
     }
 
     public void StopPlantStress()
@@ -83,6 +89,11 @@ public class AudioForaging : MonoBehaviour
         AudioManager.Instance.Stop(plantStressInstance, FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
+    public void StopPlantStressEvent()
+    {
+        Debug.Log("ok d'accord j'arr�te de stresser la plante event");
+        AudioManager.Instance.PlayOneShot2D(stopPlantStress);
+    }
     public void PostInBag()
     {
         AudioManager.Instance.PlayOneShot2D(inBag);

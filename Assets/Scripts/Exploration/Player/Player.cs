@@ -24,12 +24,34 @@ public class Player : MonoBehaviour
     public bool inMicroInteraction{get; private set;}
     public MicroInteraction.EndingType lastMicroInteractionEnding {get; private set;}
 
+    private Renderer[] renderers;
+
     void Awake()
     {
         instance = this;
         currentMicroInteraction = null;
         currentMicroInteractionScene = null;
         lastMicroInteractionEnding = MicroInteraction.EndingType.CANCEL;
+        renderers = GetComponentsInChildren<Renderer>();
+    }
+
+    void Start()
+    {
+        SetHighlight(Settings.instance.GetPlayerOutlineActive() ? Settings.instance.GetPlayerOutlineStrength() : 0.0f, Settings.instance.GetPlayerOutlineColor());
+    }
+
+    /// <summary>
+    /// Sets the highlight for an interactable
+    /// </summary>
+    /// <param name="strength">The highlight's strength</param>
+    /// <param name="color">The highlight's color</param>
+    public void SetHighlight(float strength, Color color)
+    {
+        foreach(Renderer renderer in renderers)
+        {
+            renderer.material.SetFloat("_HighlightStrength",strength);
+            renderer.material.SetColor("_HighlightColor",color);
+        }
     }
 
     /// <summary>

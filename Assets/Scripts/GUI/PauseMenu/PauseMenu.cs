@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,12 +13,14 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject root;
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private string mainMenuScene;
+    [SerializeField] private Fade linkedFade;
 
     [Header("Dialog Logs")]
     [SerializeField] private Transform dialogLogsRoot;
     [SerializeField] private LocalizedText dialogLogPrefab;
 
     public bool isOpen{get{return root.activeInHierarchy;}}
+    private bool exitingToMainMenu;
 
     /// <summary>
     /// Opens the pause menu
@@ -91,6 +94,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickResume()
     {
+        if(exitingToMainMenu) return;
         Close();
     }
 
@@ -99,6 +103,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickOptions()
     {
+        if(exitingToMainMenu) return;
         optionsMenu.Open();
     }
 
@@ -107,7 +112,27 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickMainMenu()
     {
+        if(exitingToMainMenu) return;
+
+        exitingToMainMenu = true;
+        StartCoroutine(RoutineMainMenu());
+    }
+
+    /// <summary>
+    /// Routine for exiting to the main menu
+    /// </summary>
+    /// <returns>IEnumerator</returns>
+    private IEnumerator RoutineMainMenu()
+    {
         Time.timeScale = 1;
+
+        linkedFade.FadeTo(1);
+        yield return new WaitForEndOfFrame();
+        while (linkedFade.fading)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
         SceneManager.LoadScene(mainMenuScene);
     }
 
@@ -116,6 +141,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickQuit()
     {
+        if(exitingToMainMenu) return;
         Application.Quit();
     }
 }
