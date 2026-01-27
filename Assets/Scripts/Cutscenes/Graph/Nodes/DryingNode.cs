@@ -42,7 +42,20 @@ public class DryingNode : HerbariumNode
         {
             string selectedPlant = GameManager.instance.GetPlayerDataHandler().GetInventoryItem(selected);
 
-            if (GameManager.instance.GetPlayerDataHandler().IsUnlockedInHerbarium(selectedPlant))
+            // Temp fix for herbarium & secret plants
+            // Nothing to see here, I swear
+            bool isSecret = false;
+            string[] secretPlants = GameManager.instance.GetPlantDatabase().GetExistingSecretPlants();
+            foreach(string secret in secretPlants)
+            {
+                if (selectedPlant.Equals(selectedPlant))
+                {
+                    isSecret = true;
+                    break;
+                }
+            }
+
+            if (isSecret || GameManager.instance.GetPlayerDataHandler().IsUnlockedInHerbarium(selectedPlant))
             {
                 yield return 1;
             }

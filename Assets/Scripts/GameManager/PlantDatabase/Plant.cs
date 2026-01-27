@@ -11,6 +11,7 @@ public class Plant : ScriptableObject
 	[Header("General")]
 	public string id;
 	public string categoryID;
+	public bool isSecret = false;
 
 	[Header("Radial Menu")]
 	public Sprite radialMenuSprite;
