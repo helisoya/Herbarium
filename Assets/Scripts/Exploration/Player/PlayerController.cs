@@ -124,6 +124,8 @@ public class PlayerController : MonoBehaviour
     {
         // Walking animation
 
+        float yVelocity = rb.linearVelocity.y;
+
         bool isWalking = rb.linearVelocity.magnitude > 0.1f;
 
         animator.SetBool("isWalking", isWalking);
@@ -156,7 +158,9 @@ public class PlayerController : MonoBehaviour
             if (direction.magnitude > 0.5f)
             {
                 target.position = targetPosition;
-                rb.linearVelocity = direction.normalized * playerSpeed;
+                direction = direction.normalized * playerSpeed;
+                direction.y = yVelocity;
+                rb.linearVelocity = direction;
             }else if (!canUpdateTargetWithMouse)
             {
                 target.position = new Vector3(0, -50, 0);
@@ -168,7 +172,7 @@ public class PlayerController : MonoBehaviour
 
             if (moveVector != Vector2.zero)
             {
-                rb.linearVelocity = new Vector3(moveVector.x, 0, moveVector.y) * playerSpeed;
+                rb.linearVelocity = new Vector3(moveVector.x, yVelocity, moveVector.y) * playerSpeed;
             }
         }
     }
