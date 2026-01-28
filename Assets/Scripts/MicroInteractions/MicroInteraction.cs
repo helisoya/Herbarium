@@ -48,6 +48,7 @@ public abstract class MicroInteraction : MonoBehaviour
 
     [Header("General Audio")]
     [SerializeField] private UnityEvent onStartMicroInteraction;
+    [SerializeField] private UnityEvent<string> onChangePlant;
     [SerializeField] private UnityEvent<EndingType> onEndMicroInteraction;
     [SerializeField] private UnityEvent<PickupAudioData> onPickUpObject;
     [SerializeField] private UnityEvent<PickupAudioData> onDropObject;
@@ -85,6 +86,7 @@ public abstract class MicroInteraction : MonoBehaviour
         currentPlantId = plantId;
         inMicroInteraction = true;
         onStartMicroInteraction.Invoke();
+        onChangePlant.Invoke(plantId);
 
         grabTutorial.SetActive(true);
         cutTutorial.SetActive(false);

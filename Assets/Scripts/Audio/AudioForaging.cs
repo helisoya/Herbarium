@@ -6,6 +6,7 @@ public class AudioForaging : MonoBehaviour
     [SerializeField] private EventID startForaging;
     [SerializeField] private EventID stopForagingGood;
     [SerializeField] private EventID stopForagingBad;
+    [SerializeField] private EventID stopForagingCancel;
     [SerializeField] private EventID cut;
     [SerializeField] private EventID cutGood;
     [SerializeField] private EventID cutBad;
@@ -27,15 +28,56 @@ public class AudioForaging : MonoBehaviour
     private GameObject currentMovingObject;
     private EventInstance plantStressInstance;
 
+    /// <summary>
+    /// PARAMETERS
+    /// </summary>
+    /// <param name="value"></param>
+    public void OnChangePlant(string plant)
+    {
+        switch (plant)
+        {
+            case "Fern_01":
+                AudioManager.Instance.SetGlobalParameterByName("Plant", 0);
+                Debug.Log("C'est la capillaire");
+                break;
+            case "Herb_01":
+                AudioManager.Instance.SetGlobalParameterByName("Plant", 2);
+                Debug.Log("C'est le cresson");
+                break;
+            case "Herb_02":
+                AudioManager.Instance.SetGlobalParameterByName("Plant", 1);
+                Debug.Log("C'est la menthe");
+                break;
+
+        }
+        ;
+    }
+
+
+
     public void PostStartForaging()
     {
         AudioManager.Instance.PlayOneShot2D(startForaging);
+        Debug.Log("ça va trancher");
     }
 
-    public void PostCancelForaging()
+    public void PostStopForaging(MicroInteraction.EndingType endingType)
     {
-        AudioManager.Instance.PlayOneShot2D(startForaging);
+        switch (endingType)
+        {
+            case MicroInteraction.EndingType.SUCCESS:
+                AudioManager.Instance.PlayOneShot2D(stopForagingGood);
+                break;
+            case MicroInteraction.EndingType.FAILURE:
+                AudioManager.Instance.PlayOneShot2D(stopForagingBad);
+                break;
+            case MicroInteraction.EndingType.CANCEL:
+                AudioManager.Instance.PlayOneShot2D(stopForagingCancel);
+                break;
+
+        }
     }
+
     public void PostCut()
     {
         AudioManager.Instance.PlayOneShot3D(cut, currentMovingObject);

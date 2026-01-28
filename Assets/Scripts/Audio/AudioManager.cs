@@ -3,6 +3,7 @@ using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEngine.Playables;
 
 public class AudioManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+    
 
     void Update()
     {
@@ -77,9 +80,7 @@ public class AudioManager : MonoBehaviour
         EventInstance instance = RuntimeManager.CreateInstance(audioData.events[id]);
         instance.set3DAttributes(RuntimeUtils.To3DAttributes(eventSource));
         instance.start();
-
         tracked3DEvents.Add(instance, eventSource);
-
         return instance;
     }
 
@@ -93,6 +94,18 @@ public class AudioManager : MonoBehaviour
         instance.stop(mode);
         instance.release();
     }
+
+    public void SetGlobalParameterByName(string name, int value)
+    {
+        RuntimeManager.StudioSystem.setParameterByName(name, value);
+        Debug.Log(name + value);
+    }
+
+
+    /// <summary>
+    /// AUDIO OPTIONS
+    /// </summary>
+    /// 
 
     string masterBusString = "Bus:/";
     Bus masterBus;

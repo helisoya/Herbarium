@@ -41,26 +41,26 @@ MonoBehaviour:
     - Key: 3
       Value:
         Guid:
-          Data1: -885777252
-          Data2: 1184120393
-          Data3: -434112084
-          Data4: -1779298068
-        Path: event:/Enviro/WaterStreams/River
-    - Key: 5
-      Value:
-        Guid:
           Data1: -1058518020
           Data2: 1173878232
           Data3: -262715235
           Data4: 287586015
+        Path: event:/Enviro/WaterStreams/River
+    - Key: 5
+      Value:
+        Guid:
+          Data1: -1298928352
+          Data2: 1260485099
+          Data3: 751477384
+          Data4: -1465907326
         Path: event:/Enviro/Animals/BirdB
     - Key: 4
       Value:
         Guid:
-          Data1: -655086729
-          Data2: 1128514749
-          Data3: -807855972
-          Data4: -1666243746
+          Data1: -885777252
+          Data2: 1184120393
+          Data3: -434112084
+          Data4: -1779298068
         Path: event:/Enviro/Animals/BirdA
     - Key: 6
       Value:
@@ -193,11 +193,11 @@ MonoBehaviour:
     - Key: 29
       Value:
         Guid:
-          Data1: -94227442
-          Data2: 1178791434
-          Data3: 1608250028
-          Data4: 1980735421
-        Path: event:/Backpack/BackpackClose
+          Data1: -641168340
+          Data2: 1269011271
+          Data3: 943345071
+          Data4: -1861687253
+        Path: event:/Backpack/InventoryClose
     - Key: 30
       Value:
         Guid:
@@ -209,10 +209,10 @@ MonoBehaviour:
     - Key: 31
       Value:
         Guid:
-          Data1: 1924343505
-          Data2: 1213097947
-          Data3: 723619222
-          Data4: -92833490
+          Data1: -2004310563
+          Data2: 1267727318
+          Data3: 194767775
+          Data4: -1846652933
         Path: event:/Backpack/BackpackClick
     - Key: 32
       Value:
@@ -313,19 +313,19 @@ MonoBehaviour:
     - Key: 55
       Value:
         Guid:
-          Data1: -1729080200
-          Data2: 1274938705
-          Data3: -2066254449
-          Data4: -1209897726
-        Path: event:/Herbarium/LinkHover
-    - Key: 47
-      Value:
-        Guid:
           Data1: 1668387115
           Data2: 1155659706
           Data3: -1134555505
           Data4: -2046391313
         Path: event:/Herbarium/HintHover
+    - Key: 47
+      Value:
+        Guid:
+          Data1: -1729080200
+          Data2: 1274938705
+          Data3: -2066254449
+          Data4: -1209897726
+        Path: event:/Herbarium/LinkHover
     - Key: 48
       Value:
         Guid:
@@ -381,7 +381,7 @@ MonoBehaviour:
           Data2: 1103713744
           Data3: 1983132293
           Data4: -147631320
-        Path: event:/Herbarium/PageAquaMint
+        Path: event:/Herbarium/PageMenthe
     - Key: 53
       Value:
         Guid:
@@ -389,7 +389,7 @@ MonoBehaviour:
           Data2: 1316445871
           Data3: -1944942419
           Data4: -410257525
-        Path: event:/Herbarium/PageMurailles
+        Path: event:/Herbarium/PageCapillaire
     - Key: 58
       Value:
         Guid:
@@ -409,10 +409,10 @@ MonoBehaviour:
     - Key: 60
       Value:
         Guid:
-          Data1: 873836251
-          Data2: 1187550182
-          Data3: 846832303
-          Data4: -642617776
+          Data1: 1432237815
+          Data2: 1234595079
+          Data3: -117211489
+          Data4: 1071561956
         Path: event:/Foraging/ToolCutBad
     - Key: 61
       Value:
@@ -494,6 +494,38 @@ MonoBehaviour:
           Data3: 1208081339
           Data4: 39222286
         Path: event:/Foraging/MusForaging
+    - Key: 81
+      Value:
+        Guid:
+          Data1: -1391706277
+          Data2: 1183444588
+          Data3: -43580268
+          Data4: 248710475
+        Path: event:/Foraging/StartForaging
+    - Key: 85
+      Value:
+        Guid:
+          Data1: -1892171895
+          Data2: 1134308675
+          Data3: -2038585184
+          Data4: -1805068338
+        Path: event:/Foraging/ForagingQuit
+    - Key: 83
+      Value:
+        Guid:
+          Data1: -1834645353
+          Data2: 1087011135
+          Data3: 1113813655
+          Data4: -1099029169
+        Path: event:/Foraging/ForagingGood
+    - Key: 84
+      Value:
+        Guid:
+          Data1: 657951521
+          Data2: 1255576054
+          Data3: 1602195647
+          Data4: -1537716295
+        Path: event:/Foraging/ForagingBad
     - Key: 69
       Value:
         Guid:
@@ -574,21 +606,19 @@ MonoBehaviour:
           Data3: 1362151312
           Data4: -176486155
         Path: event:/Dialogues/Speak
-  parameters:
-    _serializedList:
-    - Key: 0
+    - Key: 86
       Value:
-        Name: HerbariumEntries
-        Value: 2
-    - Key: 1
+        Guid:
+          Data1: -2008040059
+          Data2: 1075570377
+          Data3: 1011248278
+          Data4: 9949770
+        Path: event:/Music/MusNour
+    - Key: 87
       Value:
-        Name: MasterVolume
-        Value: 1
-    - Key: 2
-      Value:
-        Name: SFXVolume
-        Value: 1
-    - Key: 3
-      Value:
-        Name: MusicVolume
-        Value: 1
+        Guid:
+          Data1: 796641288
+          Data2: 1185709990
+          Data3: -1878214783
+          Data4: 939166719
+        Path: event:/Music/MusBarbrook

@@ -5,7 +5,6 @@ using AYellowpaper.SerializedCollections;
 public class AudioData : ScriptableObject
 {
     public SerializedDictionary<EventID, FMODUnity.EventReference> events = new();
-    public SerializedDictionary<ParamID, FMODUnity.ParamRef> parameters = new();
 }
 
 public enum EventID
@@ -24,11 +23,8 @@ public enum EventID
     MusExploration2D, MusExploration3DCresson, MusExploration3DCapillaire, MusExploration3DMenthe,
     StopPlantStress,
     DialogueIn, DialogueOut, DialogueNext, Speak, StartTyping, StopTyping,
-    MusForaging,
+    MusForaging, StartForaging, StopForaging, StopForagingGood, StopForagingBad, StopForagingCancel,
+    MusNour, MusBarbrook,
 }
 
-public enum ParamID
-{
-    HerbariumEntries,
-    MasterVolume, SFXVolume, MusicVolume,
-}
+
