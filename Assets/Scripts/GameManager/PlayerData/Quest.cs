@@ -6,7 +6,7 @@ using UnityEngine;
 /// Represents a quest
 /// </summary>
 [System.Serializable]
-public struct Quest
+public class Quest
 {
     public string id;
     public string linkedVariable;

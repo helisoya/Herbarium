@@ -71,6 +71,9 @@ public class HerbariumQuest : HerbariumPage
         bool isPinned = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id);
         imagePin.color = isPinned ? Color.white : Color.black;
 
+        if(isPinned) GameGUI.instance.AddPin(currentQuest.id);
+        else GameGUI.instance.RemovePin(currentQuest.id);
+
         gui.InvokeOnPinQuest(isPinned);
     }
 
