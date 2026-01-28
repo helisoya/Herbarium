@@ -238,6 +238,14 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void ResetAll()
     {
+        parent.GetConfirmPopup().Open(CallbackResetAll);
+    }
+
+    /// <summary>
+    /// Callback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
+    {
         Settings.instance.ResetText();
         OnOpen();
     }

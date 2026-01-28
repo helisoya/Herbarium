@@ -47,6 +47,14 @@ public class OptionsControlsTab : OptionsTab
     /// </summary>
     public void ResetAll()
     {
+        parent.GetConfirmPopup().Open(CallbackResetAll);
+    }
+
+    /// <summary>
+    /// Callback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
+    {
         Settings.instance.ResetInput();
         OnOpen();
     }
