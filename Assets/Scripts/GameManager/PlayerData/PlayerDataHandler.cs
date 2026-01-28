@@ -92,6 +92,22 @@ public class PlayerDataHandler : MonoBehaviour
         return result.ToArray();
     }
 
+    /// <summary>
+    /// Gets the index of a known quest given its ID
+    /// </summary>
+    /// <param name="questID">The quest's ID</param>
+    /// <returns>Its index in the known quests array</returns>
+    public int KnownQuestIDToIndex(string questID)
+    {
+        Quest[] quests = GetKnownQuests();
+
+        for(int i = 0; i < quests.Length; i++)
+        {
+            if(quests[i].id.Equals(questID)) return i;
+        }
+
+        return 0;
+    }
 
     /// <summary>
     /// Pin a quest

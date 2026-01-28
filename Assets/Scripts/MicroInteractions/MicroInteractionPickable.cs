@@ -34,6 +34,7 @@ public class MicroInteractionPickable : MonoBehaviour
     private Transform invokeOnEndPlant = null;
 
     private MicroInteractionPickablePart currentMovablePart;
+    private float totalSize;
 
     void Start()
     {
@@ -110,7 +111,8 @@ public class MicroInteractionPickable : MonoBehaviour
     {
         foreach (Joint2D joint in joints) Destroy(joint);
         joints = null;
-
+        
+        totalSize = rbs.Length * individualMassOnDrop;
         LayerMask mask = LayerMask.NameToLayer("Default");
         for(int i = 0; i < rbs.Length;i++)
         {
@@ -210,7 +212,7 @@ public class MicroInteractionPickable : MonoBehaviour
     /// <param name="speed">The speed</param>
     public void MoveTowards(Vector2 position, float speed)
     {
-        currentMovablePart.MoveTowards(position, speed);
+        currentMovablePart.MoveTowards(position, speed * rbs.Length / totalSize);
     }
 
     /// <summary>

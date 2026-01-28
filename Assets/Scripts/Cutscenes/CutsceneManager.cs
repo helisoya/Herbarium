@@ -102,7 +102,8 @@ public class CutsceneManager : MonoBehaviour
     /// <param name="graph">The cutscene's graph</param>
     /// <param name="initiatorObject">The initiator object</param>
     /// <param name="overridePreviousCutscene">True if the previous cutscene should be overriden</param>
-    public void ProcessCutscene(DialogGraph graph,GameObject initiatorObject, bool overridePreviousCutscene = true){
+    /// <param name="playCutscenesEvents">True if the cutscenes audio event should be played</param>
+    public void ProcessCutscene(DialogGraph graph,GameObject initiatorObject, bool overridePreviousCutscene = true, bool playCutscenesEvents = true){
         if (processingCutscene != null && !overridePreviousCutscene) return;
 
         currentObject = initiatorObject;
@@ -111,7 +112,7 @@ public class CutsceneManager : MonoBehaviour
         {
             StopCoroutine(processingCutscene);
         }
-        processingCutscene = StartCoroutine(Routine_ProcessingCutscene(graph));
+        processingCutscene = StartCoroutine(Routine_ProcessingCutscene(graph,playCutscenesEvents));
     }
 
 
@@ -119,15 +120,16 @@ public class CutsceneManager : MonoBehaviour
     /// Routine for processing a dialog graph
     /// </summary>
     /// <param name="graph">The graph</param>
+    /// <param name="playCutscenesEvents">True if the cutscenes audio event should be played</param>
     /// <returns>IEnumerator</returns>
-    private IEnumerator Routine_ProcessingCutscene(DialogGraph graph){
+    private IEnumerator Routine_ProcessingCutscene(DialogGraph graph,bool playCutscenesEvents){
         yield return new WaitForEndOfFrame();
         currentCutsceneIsParrallel = graph.parrallelCutscene;
         HerbariumNode currentNode = graph.GetStartNode();
         int result = 0;
         NodePort port;
 
-        onStartCustscene.Invoke();
+        if(playCutscenesEvents)onStartCustscene.Invoke();
 
         while(currentNode != null){
             
@@ -144,7 +146,7 @@ public class CutsceneManager : MonoBehaviour
         }
         
         Player.instance.ResetCameraTarget();
-        onEndCustscene.Invoke();
+        if(playCutscenesEvents) onEndCustscene.Invoke();
 
         processingCutscene = null;
         yield return null;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5939968071471153341}
   - component: {fileID: 1692928887586753417}
   - component: {fileID: 2167863542178012100}
+  - component: {fileID: 2106022266134805341}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   plantDatabase: {fileID: 1692928887586753417}
   audioManager: {fileID: 4813398855494717131, guid: 070ef5546eeabfa45a68f03b4fbf60b2, type: 3}
   accessVolume: {fileID: 5555196750402621019}
+  cursor: {fileID: 2106022266134805341}
 --- !u!114 &5939968071471153341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +165,28 @@ MonoBehaviour:
     - Key: n
       Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
   defaultIcon: {fileID: -759406481, guid: 69a667c7448ad944a94365a382d4ebf0, type: 3}
+--- !u!114 &2106022266134805341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683757519770943646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1578cc7775fac94eab03574e62ded76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HerbariumCursor
+  textures:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 2800000, guid: 1b66d0e7b093858489596177e9f4207b, type: 3}
+    - Key: 1
+      Value: {fileID: 2800000, guid: 4cf3df1c7ad60cc4f80aca5af8c5ece7, type: 3}
+    - Key: 2
+      Value: {fileID: 2800000, guid: 9707d0fd49f1ad147be971eec9957918, type: 3}
+    - Key: 3
+      Value: {fileID: 2800000, guid: 0324f008e3a2d4641b76208f7c33a7dd, type: 3}
 --- !u!1 &5076236186223519916
 GameObject:
   m_ObjectHideFlags: 0

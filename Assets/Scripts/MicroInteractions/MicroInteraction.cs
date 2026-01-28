@@ -94,6 +94,8 @@ public abstract class MicroInteraction : MonoBehaviour
         fade.ForceAlphaTo(1);
         fade.FadeTo(0);
 
+        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.FORAGENORMAL);
+
         OnStart(plantId);
     }
 
@@ -128,6 +130,7 @@ public abstract class MicroInteraction : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
+        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.NORMAL);
         Player.instance.StopMicroInteraction(type);
     }
 
@@ -158,6 +161,7 @@ public abstract class MicroInteraction : MonoBehaviour
                 {
                     if (currentObject)
                     {
+                        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.FORAGENORMAL);
                         cutTutorial.SetActive(false);
                         onDropObject.Invoke(new PickupAudioData() {movingObject = currentObject.GetCurrentMovingPart().gameObject, type = currentObject.GetPickableType()});
                         currentObject.Drop();
@@ -175,6 +179,7 @@ public abstract class MicroInteraction : MonoBehaviour
                             MicroInteractionPickable parent = obj.GetParent();
                             if (parent.CanBePickedUp())
                             {
+                                GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.FORAGEHOLD);
                                 cutTutorial.SetActive(parent.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER);
                                 parent.Pickup(obj);
                                 onPickUpObject.Invoke(new PickupAudioData() {movingObject = parent.GetCurrentMovingPart().gameObject, type = parent.GetPickableType()});

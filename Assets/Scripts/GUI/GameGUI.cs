@@ -14,6 +14,11 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private PauseMenu pauseMenu;
     public bool isPauseOpen { get { return pauseMenu.isOpen; } }
 
+    [Header("Quest pins")]
+    [SerializeField] private QuestPin questPinPrefab;
+    [SerializeField] private Transform questPinRoot;
+    private List<QuestPin> questPins;
+
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
     public RadialMenuID currentRadialMenu {get{return radialMenu.currentRadialMenu;}}
@@ -74,6 +79,8 @@ public class GameGUI : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        questPins = new List<QuestPin>();
     }
 
     void Start()
@@ -81,6 +88,7 @@ public class GameGUI : MonoBehaviour
         fade.ForceAlphaTo(1);
         fade.FadeTo(0);
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
+        AddAllQuestsPin();
     }
 
     #region Links
@@ -253,6 +261,15 @@ public class GameGUI : MonoBehaviour
     public void HerbariumShowPlantPage(int pageIndex)
     {
         herbariumGUI.SetPlant(pageIndex);
+    }
+
+    /// <summary>
+    /// Show a quest page in the herbarium
+    /// </summary>
+    /// <param name="pageIndex">The quest index</param>
+    public void HerbariumShowQuestPage(int questIndex)
+    {
+        herbariumGUI.SetQuest(questIndex);
     }
 
     /// <summary>
@@ -475,6 +492,100 @@ public class GameGUI : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    #endregion
+
+    #region Quest Pins
+
+    /// <summary>
+    /// Adds all known pints
+    /// </summary>
+    public void AddAllQuestsPin()
+    {
+        Quest[] knownQuests = GameManager.instance.GetPlayerDataHandler().GetKnownQuests();
+        QuestPin pin;
+
+        foreach(Transform child in questPinRoot)
+        {
+            Destroy(child.gameObject);
+        }
+
+        questPins.Clear();
+
+        foreach(Quest quest in knownQuests)
+        {
+            if (GameManager.instance.GetPlayerDataHandler().IsPinned(quest.id))
+            {
+                pin = Instantiate(questPinPrefab,questPinRoot);
+                pin.Init(quest);
+                questPins.Add(pin);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Refreshs all quest pins
+    /// </summary>
+    public void RefreshAllQuestsPins()
+    {
+        foreach(QuestPin pin in questPins)
+        {
+            pin.Refresh();
+        }
+    }
+
+    /// <summary>
+    /// Refreshs a specific pin
+    /// </summary>
+    /// <param name="questID">The pin's quest</param>
+    public void RefreshQuestPin(string questID)
+    {
+        foreach(QuestPin pin in questPins)
+        {
+            if (pin.GetLinkedID().Equals(questID))
+            {
+                pin.Refresh();
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Removes a specific quest pin
+    /// </summary>
+    /// <param name="questID">The pin's quest</param>
+    public void RemovePin(string questID)
+    {
+        for(int i = 0; i < questPins.Count;i++)
+        {
+            if (questPins[i].GetLinkedID().Equals(questID))
+            {
+                Destroy(questPins[i].gameObject);
+                questPins.RemoveAt(i);
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Adds a quest pin
+    /// </summary>
+    /// <param name="questID">The pin's quest</param>
+    public void AddPin(string questID)
+    {
+        for(int i = 0; i < questPins.Count;i++)
+        {
+            if (questPins[i].GetLinkedID().Equals(questID))
+            {
+                return;
+            }
+        }
+
+        Quest quest = GameManager.instance.GetPlayerDataHandler().GetQuest(questID);
+        QuestPin pin = Instantiate(questPinPrefab,questPinRoot);
+        pin.Init(quest);
+        questPins.Add(pin);
     }
 
     #endregion

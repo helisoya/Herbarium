@@ -29,7 +29,8 @@ public class SetVariableNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
-        int newValue = GameManager.instance.GetPlayerDataHandler().GetVariable(variableID);
+        PlayerDataHandler handler = GameManager.instance.GetPlayerDataHandler();
+        int newValue = handler.GetVariable(variableID);
 
         switch (type)
         {
@@ -41,7 +42,21 @@ public class SetVariableNode : HerbariumNode
                 break;
         }
 
-        GameManager.instance.GetPlayerDataHandler().SetVariable(variableID,newValue);
+        handler.SetVariable(variableID,newValue);
+
+        Quest quest = handler.GetQuestFromVariable(variableID);
+        if(quest != null && handler.IsPinned(variableID))
+        {
+            if(newValue == -1 || newValue == 100)
+            {
+                handler.UnpinQuest(quest.id);
+                GameGUI.instance.RemovePin(quest.id);
+            }
+            else
+            {
+                GameGUI.instance.RefreshQuestPin(quest.id);
+            }
+        }
     
         yield return 0;
     }

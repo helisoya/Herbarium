@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string newGameScene;
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private Fade fade;
+    [SerializeField] private ConfirmPopup confirmPopup;
     private bool exitingMainMenu = false;
 
     void Start()
@@ -104,7 +106,26 @@ public class MainMenuManager : MonoBehaviour
     {
         if(exitingMainMenu) return;
 
+        confirmPopup.Open(CallbackQuit);
+    }
+
+    /// <summary>
+    /// Callback for quiting the game
+    /// </summary>
+    public void CallbackQuit()
+    {
         Application.Quit();
+    }
+
+
+    void OnPause(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if(optionsMenu.isOpen) optionsMenu.Close();
+            else if(creditsRoot.activeInHierarchy) CloseCredits();
+        }
+
     }
 
 }
