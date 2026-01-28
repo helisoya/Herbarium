@@ -270,6 +270,14 @@ MonoBehaviour:
           Data3: -1737303128
           Data4: -1619933153
         Path: event:/Herbarium/PlantsIndex
+    - Key: 56
+      Value:
+        Guid:
+          Data1: -2004310563
+          Data2: 1267727318
+          Data3: 194767775
+          Data4: -1846652933
+        Path: event:/Herbarium/PlantsIndexHover
     - Key: 43
       Value:
         Guid:
@@ -278,6 +286,14 @@ MonoBehaviour:
           Data3: -2126332032
           Data4: 144649729
         Path: event:/Herbarium/QuestsIndex
+    - Key: 57
+      Value:
+        Guid:
+          Data1: -2044027311
+          Data2: 1186194745
+          Data3: 1174043578
+          Data4: 1710773193
+        Path: event:/Herbarium/QuestIndexHover
     - Key: 44
       Value:
         Guid:
@@ -433,11 +449,11 @@ MonoBehaviour:
     - Key: 65
       Value:
         Guid:
-          Data1: -450063602
-          Data2: 1330128220
-          Data3: -1484447324
-          Data4: 618182184
-        Path: event:/Foraging/PlantDrop
+          Data1: -1821744757
+          Data2: 1186412329
+          Data3: -1606569323
+          Data4: 2006236752
+        Path: event:/Foraging/ToolImpact
     - Key: 66
       Value:
         Guid:
@@ -454,6 +470,14 @@ MonoBehaviour:
           Data3: -164370558
           Data4: 134605275
         Path: event:/Foraging/PlantStress
+    - Key: 73
+      Value:
+        Guid:
+          Data1: -677372952
+          Data2: 1195826568
+          Data3: 104841609
+          Data4: -753860466
+        Path: event:/Foraging/StopPlantStress
     - Key: 68
       Value:
         Guid:
@@ -462,9 +486,109 @@ MonoBehaviour:
           Data3: -1822618692
           Data4: 1450517288
         Path: event:/Foraging/InBag
+    - Key: 80
+      Value:
+        Guid:
+          Data1: 947403358
+          Data2: 1092701408
+          Data3: 1208081339
+          Data4: 39222286
+        Path: event:/Foraging/MusForaging
+    - Key: 69
+      Value:
+        Guid:
+          Data1: 1067830092
+          Data2: 1330972021
+          Data3: 1603665040
+          Data4: -1489828681
+        Path: event:/Music/MusExploration2D
+    - Key: 70
+      Value:
+        Guid:
+          Data1: -766236562
+          Data2: 1132876444
+          Data3: 387710611
+          Data4: 396095646
+        Path: event:/Music/MusExplorationCresson
+    - Key: 71
+      Value:
+        Guid:
+          Data1: 1374967287
+          Data2: 1262865678
+          Data3: 1972438937
+          Data4: 111984578
+        Path: event:/Music/MusExplorationCapillaire
+    - Key: 72
+      Value:
+        Guid:
+          Data1: -521227545
+          Data2: 1257475418
+          Data3: 1034088616
+          Data4: 462391477
+        Path: event:/Music/MusExplorationMenthe
+    - Key: 74
+      Value:
+        Guid:
+          Data1: 1268001710
+          Data2: 1162529344
+          Data3: -1798947707
+          Data4: -940417867
+        Path: event:/Dialogues/DialogueIn
+    - Key: 75
+      Value:
+        Guid:
+          Data1: -1255384568
+          Data2: 1105346234
+          Data3: 386164645
+          Data4: -386622216
+        Path: event:/Dialogues/DialogueOut
+    - Key: 76
+      Value:
+        Guid:
+          Data1: -979819798
+          Data2: 1277114368
+          Data3: 114518948
+          Data4: 1205206830
+        Path: event:/Dialogues/DialogueNext
+    - Key: 78
+      Value:
+        Guid:
+          Data1: -1722066562
+          Data2: 1186394883
+          Data3: -1938716499
+          Data4: 1938481711
+        Path: event:/Dialogues/StartTyping
+    - Key: 79
+      Value:
+        Guid:
+          Data1: 583755533
+          Data2: 1206251597
+          Data3: -2030025306
+          Data4: 952823535
+        Path: event:/Dialogues/StopTyping
+    - Key: 77
+      Value:
+        Guid:
+          Data1: 604168423
+          Data2: 1268004889
+          Data3: 1362151312
+          Data4: -176486155
+        Path: event:/Dialogues/Speak
   parameters:
     _serializedList:
     - Key: 0
       Value:
         Name: HerbariumEntries
         Value: 2
+    - Key: 1
+      Value:
+        Name: MasterVolume
+        Value: 1
+    - Key: 2
+      Value:
+        Name: SFXVolume
+        Value: 1
+    - Key: 3
+      Value:
+        Name: MusicVolume
+        Value: 1

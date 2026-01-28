@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &357126804746966125
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +647,19 @@ MonoBehaviour:
   - {fileID: 1487956950941429922}
   onTouchedGround:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostPlantImpact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onStartTouchPlant:
     m_PersistentCalls:
       m_Calls: []
@@ -866,6 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &2266321905036117160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &3052641051220078497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &3380833252137371416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &4804059713009149854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +1996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &4823550807376113323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,6 +2307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &4913244809478129988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,6 +2455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &5063319047764876897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +2776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &6198517068272045804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,6 +2924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &6324091784431416152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,6 +3199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &7618146608331977300
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,6 +3347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05
 --- !u!1 &8513761414996665482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,3 +3784,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 7023162710001920459}
+  waitingTime: 0.05

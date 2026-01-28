@@ -21,9 +21,14 @@ public enum EventID
     PinQuestOff, HintButtonHover, PlantsIndexHover, QuestsIndexHover,
     ToolCut, ToolCutGood, ToolCutBad, ToolPickUp, ToolDrop, PlantPickUp, PlantDrop,
     ToolImpact, PlantImpact, PlantStress, InBag,
+    MusExploration2D, MusExploration3DCresson, MusExploration3DCapillaire, MusExploration3DMenthe,
+    StopPlantStress,
+    DialogueIn, DialogueOut, DialogueNext, Speak, StartTyping, StopTyping,
+    MusForaging,
 }
 
 public enum ParamID
 {
-    HerbariumEntries, 
+    HerbariumEntries,
+    MasterVolume, SFXVolume, MusicVolume,
 }

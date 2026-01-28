@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   audioData: {fileID: 11400000, guid: 8509e65f8f8bdc04c96cec4062394fc6, type: 2}
+  masterVolume: MasterVolume
+  SFXVolume: SFXVolume
+  MusicVolume: MusicVolume
 --- !u!114 &728792749827765943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   AmbEvent: 0
-  ExploMusicEvent: 13
+  ExploMusicEvent: 69
   HerbariumEntries: 0
 --- !u!114 &4961862396395387733
 MonoBehaviour:

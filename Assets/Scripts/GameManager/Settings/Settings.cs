@@ -1,5 +1,6 @@
 using System.Data.Common;
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Handles the settings of the game
@@ -356,6 +357,7 @@ public class Settings
     public void SetVolumeMaster(float value)
     {
         data.volumeMaster = value;
+        AudioManager.Instance.SetMasterVolume(value);
         Save();
     }
 
@@ -375,6 +377,7 @@ public class Settings
     public void SetVolumeMusic(float value)
     {
         data.volumeMusic = value;
+        AudioManager.Instance.SetMusicVolume(value);
         Save();
     }
 
@@ -394,6 +397,7 @@ public class Settings
     public void SetVolumeSFX(float value)
     {
         data.volumeSfx = value;
+        AudioManager.Instance.SetSFXVolume(value);
         Save();
     }
 
@@ -413,7 +417,12 @@ public class Settings
     public void MuteAllSounds(bool active)
     {
         data.muteAll = active;
-        Save();
+        if (active) AudioManager.Instance.MuteAll();
+        else
+        {
+            AudioManager.Instance.SetMasterVolume(data.volumeMaster);
+        }
+            Save();
     }
 
     /// <summary>
@@ -627,6 +636,9 @@ public class Settings
             Locals.ChangeColor(channel, defaultData.textChannelsDatas[i].color);
         }
 
+        AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
+        AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
+        AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
         if (!GameManager.instance.inMainMenu)
         {
             if(Map.instance) Map.instance.TriggerOnChangeHighlight(data.outlineObjects ? data.outlineObjectsStrength : 0.0f, data.outlineObjectsColor);
@@ -682,6 +694,12 @@ public class Settings
         data.volumeMusic = defaultData.volumeMusic;
         data.volumeSfx = defaultData.volumeSfx;
         data.muteAll = defaultData.muteAll;
+
+        if (data.muteAll) AudioManager.Instance.MuteAll();
+        else AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
+
+        AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
+        AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
         Save();
     }
 
@@ -759,7 +777,13 @@ public class Settings
         Locals.ChangeLanguage(data.language);
         Screen.fullScreen = data.fullscreen;
         //GameManager.instance.GetInputs().LoadBindingOverridesFromJson(data.remaping);
-        //GameManager.instance.UpdateVolume();
+        
+        GameManager.instance.UpdateVolume();
+
+        if (data.muteAll) AudioManager.Instance.MuteAll();
+        else AudioManager.Instance.SetMasterVolume(data.volumeMaster);
+        AudioManager.Instance.SetMusicVolume(data.volumeMusic);
+        AudioManager.Instance.SetSFXVolume(data.volumeSfx);
 
         for (int i = 0; i < data.textChannelsDatas.Length; i++)
         {

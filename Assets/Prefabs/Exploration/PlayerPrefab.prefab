@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5776578234280235538, guid: f401dd267a1020d48bab4ec992344955, type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 3544857580070100301}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -623,6 +627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+--- !u!1 &3544857580070100301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4850754040988452435, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}
+  m_PrefabInstance: {fileID: 8241739229311638302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7504402679728940057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1892765646425308935, guid: f6ab23f08008ad64bbe9dd6500a11f2a, type: 3}

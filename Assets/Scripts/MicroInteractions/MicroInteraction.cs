@@ -213,7 +213,7 @@ public abstract class MicroInteraction : MonoBehaviour
             }
 
             currentObject.MoveTowards(mousePosInWorld, itemSpeed);
-            onMoveObject.Invoke(distance);
+            onMoveObject.Invoke(currentObject.GetCurrentMovingPart().velocity);
         }
 
         OnUpdate();

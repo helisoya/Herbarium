@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5693104dc4c6a145a46aa5bd0138810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioForaging
+  startForaging: 80
+  stopForagingGood: 0
+  stopForagingBad: 0
   cut: 58
   cutGood: 59
   cutBad: 60
@@ -56,6 +59,7 @@ MonoBehaviour:
   plantDrop: 64
   plantMove: 0
   plantStop: 0
-  plantImpact: 0
+  plantImpact: 66
   plantStress: 67
+  stopPlantStress: 73
   inBag: 68
