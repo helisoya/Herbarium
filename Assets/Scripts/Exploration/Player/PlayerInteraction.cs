@@ -25,6 +25,8 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        if(!Player.instance.canComponentsUpdate) return;
+
         if(closingIn)
         {
             if (Vector3.Distance(playerBody.position, willInteractWith.transform.position) <= interactionDistance)
@@ -49,8 +51,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             if(currentObject) currentObject.SetActive(false);
             currentObject = selected;
-            if(currentObject)currentObject.SetActive(true);
+            if(currentObject) currentObject.SetActive(true);
             closingIn = false;
+
+            if(currentObject) GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.MOVING);
+            else GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.NORMAL);
         }
     }
 
@@ -103,6 +108,8 @@ public class PlayerInteraction : MonoBehaviour
     private void Interact()
     {
         if(!willInteractWith) return;
+
+        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.NORMAL);
 
         if (willInteractWith.stopPlayerOnInterract)
         {

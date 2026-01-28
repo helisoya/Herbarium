@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             moveToTarget = true;
             interaction.DisableClosingInTag();
-        } 
+        }
         
     }
 
@@ -122,35 +122,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (moveToTarget)
-        {
-            if (canUpdateTargetWithMouse)
-            {
-                UpdateTargetPosition(mousePosition);
-                target.position = targetPosition;
-            }
-
-            Vector3 direction = targetPosition - rb.position;
-
-            if (direction.magnitude > 0.5f)
-            {
-                rb.linearVelocity = direction.normalized * playerSpeed;
-            }
-            else
-            {
-                moveToTarget = false;
-            }
-        }
-        else
-        {
-            target.position = new Vector3(0, -50, 0);
-
-            if (moveVector != Vector2.zero)
-            {
-                rb.linearVelocity = new Vector3(moveVector.x, 0, moveVector.y) * playerSpeed;
-            }
-        }
-
         // Walking animation
 
         bool isWalking = rb.linearVelocity.magnitude > 0.1f;
@@ -166,6 +137,39 @@ public class PlayerController : MonoBehaviour
             Vector3 s = graphicToFlip.localScale;
             s.x = Mathf.Abs(s.x) * -Mathf.Sign(velocity.x);
             graphicToFlip.localScale = s;
+        }
+
+        if(!Player.instance.canComponentsUpdate){
+            target.position = new Vector3(0, -50, 0);
+            return;
+        }
+
+        if (moveToTarget)
+        {
+            if (canUpdateTargetWithMouse)
+            {
+                UpdateTargetPosition(mousePosition);
+            }
+
+            Vector3 direction = targetPosition - rb.position;
+
+            if (direction.magnitude > 0.5f)
+            {
+                target.position = targetPosition;
+                rb.linearVelocity = direction.normalized * playerSpeed;
+            }else if (!canUpdateTargetWithMouse)
+            {
+                target.position = new Vector3(0, -50, 0);
+            }
+        }
+        else
+        {
+            target.position = new Vector3(0, -50, 0);
+
+            if (moveVector != Vector2.zero)
+            {
+                rb.linearVelocity = new Vector3(moveVector.x, 0, moveVector.y) * playerSpeed;
+            }
         }
     }
 }
