@@ -29,6 +29,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _LightMapUV1:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -65,10 +69,10 @@ Material:
     m_Floats:
     - _AlphaCutout: 0.819
     - _HighlightStrength: 0
-    - _IntensityAmbiant: 1
-    - _IntensityUV1: 1
-    - _IntensityUV2: 1
-    - _IntensityUV3: 1
+    - _IntensityAmbiant: 0
+    - _IntensityUV1: 0
+    - _IntensityUV2: 0
+    - _IntensityUV3: 0
     - _IsShadow: 1
     - _Lighting: 0
     - _NeedDither: 0
