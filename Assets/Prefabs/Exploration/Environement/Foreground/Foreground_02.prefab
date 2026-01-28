@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5850458939809689478}
   - component: {fileID: 8512053771523187006}
-  m_Layer: 0
+  - component: {fileID: 7756607232917549250}
+  m_Layer: 8
   m_Name: BigTree_2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +91,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7756607232917549250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994488400186588087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e9a2c5e6d3ac941a795371adbcc954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeObstacle
+  fadedAlpha: 0.2
+  fadeDuration: 0.25
 --- !u!1 &6660751138654129285
 GameObject:
   m_ObjectHideFlags: 0

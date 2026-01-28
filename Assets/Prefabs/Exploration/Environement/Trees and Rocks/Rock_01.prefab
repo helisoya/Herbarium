@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8585830355526916601}
   - component: {fileID: 7831994779214709681}
-  - component: {fileID: 5283015900952428410}
   m_Layer: 0
   m_Name: Rock_01
   m_TagString: Untagged
@@ -90,7 +89,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44fee55f8c007d141b97a75724b1196f, type: 2}
+  - {fileID: 2100000, guid: 15a3335de8624d148967f76368bd9357, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,16 +122,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5283015900952428410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939581579815215286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05e8ab71ec4bae4ca4d6cdfa73244f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Billboard
-  cam: {fileID: 0}

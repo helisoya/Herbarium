@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_Sprite_Dither
+  m_Name: MAT_World_NoDither
   m_Shader: {fileID: -6465566751694194690, guid: aa178b94743239b4aa6096c3f5058447, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -26,6 +26,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AmbiantLightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -63,7 +67,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutout: 0.922
+    - _AlphaCutout: 0.5
     - _HighlightStrength: 0
     - _IntensityAmbiant: 0
     - _IntensityUV1: 0
@@ -71,7 +75,7 @@ Material:
     - _IntensityUV3: 0
     - _IsShadow: 0
     - _Lighting: 0
-    - _NeedDither: 1
+    - _NeedDither: 0
     - _NeedHighlight: 1
     - _NeedWind: 0
     - _QueueControl: 0
@@ -88,8 +92,8 @@ Material:
     - _ColorUV2: {r: 1, g: 1, b: 1, a: 1}
     - _ColorUV3: {r: 1, g: 1, b: 1, a: 1}
     - _HighlightColor: {r: 0.1903257, g: 0.8041911, b: 0.8584906, a: 1}
-    - _WindAmplitude: {r: 0.95, g: 1.6, b: 1.96, a: 0}
-    - _WindDirection: {r: 3.17, g: 1.45, b: 1.66, a: 0}
+    - _WindAmplitude: {r: 0, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &3565951917347145181
