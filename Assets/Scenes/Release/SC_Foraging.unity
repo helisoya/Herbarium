@@ -2920,16 +2920,64 @@ MonoBehaviour:
   cutTutorial: {fileID: 1284164535}
   onStartMicroInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostStartForaging
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onEndMicroInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPickUpObject:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDropObject:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMoveObject:
     m_PersistentCalls:
       m_Calls: []
@@ -2944,16 +2992,64 @@ MonoBehaviour:
   backpackTopCollider: {fileID: 1506964947}
   onCut:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostCut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onCutGood:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostCutGood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onCutBad:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostCutBad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPlantInBag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7165327965951804724, guid: 41391b2e9118de246aee3a9f38959f51, type: 3}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostInBag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   shakeAmount: 1
   shakeDecay: 4
   debugAutoPlay: 1

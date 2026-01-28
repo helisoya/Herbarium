@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
     [SerializeField] private EventID AmbEvent;
     [SerializeField] private EventID ExploMusicEvent;
-    [SerializeField] private ParamID HerbariumEntries;
 
     void Start()
     {
@@ -12,9 +12,6 @@ public class MusicManager : MonoBehaviour
         AudioManager.Instance.PlayEvent2D(ExploMusicEvent);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 }

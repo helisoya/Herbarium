@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class AudioForaging : MonoBehaviour
 {
+    [SerializeField] private EventID startForaging;
+    [SerializeField] private EventID stopForagingGood;
+    [SerializeField] private EventID stopForagingBad;
     [SerializeField] private EventID cut;
     [SerializeField] private EventID cutGood;
     [SerializeField] private EventID cutBad;
@@ -19,10 +22,20 @@ public class AudioForaging : MonoBehaviour
     [SerializeField] private EventID plantStress;
     [SerializeField] private EventID stopPlantStress;
     [SerializeField] private EventID inBag;
+    
 
     private GameObject currentMovingObject;
     private EventInstance plantStressInstance;
 
+    public void PostStartForaging()
+    {
+        AudioManager.Instance.PlayOneShot2D(startForaging);
+    }
+
+    public void PostCancelForaging()
+    {
+        AudioManager.Instance.PlayOneShot2D(startForaging);
+    }
     public void PostCut()
     {
         AudioManager.Instance.PlayOneShot3D(cut, currentMovingObject);

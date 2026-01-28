@@ -6,6 +6,8 @@ public class AudioDialogues : MonoBehaviour
     [SerializeField] private EventID DialogueOut;
     [SerializeField] private EventID DialogueNext;
     [SerializeField] private EventID Speak;
+    [SerializeField] private EventID StartTyping;
+    [SerializeField] private EventID StopTyping;
 
 
     public void PostDialogueIn()
@@ -24,6 +26,11 @@ public class AudioDialogues : MonoBehaviour
     public void PostSpeak()
     {
         AudioManager.Instance.PlayOneShot2D(Speak);
+    }
+
+    public void PostStartTyping()
+    {
+        AudioManager.Instance.PlayEvent2D(StartTyping);
     }
 
 }
