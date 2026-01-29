@@ -41,6 +41,8 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.BarbrookPartA:
+                AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
+                AudioManager.Instance.SetGlobalParameterByName("Barbrook", 1);
                 AudioManager.Instance.PlayEvent2D(EventID.MusBarbrook);
                 break;
 
@@ -53,6 +55,7 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.Drying:
+                AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
                 break;
 
             case CutSceneID.Plant:
@@ -76,6 +79,7 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.BarbrookPartA:
+                AudioManager.Instance.SetGlobalParameterByName("Barbrook", 0);
                 AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
                 break;
 
@@ -88,7 +92,6 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.Drying:
-                AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
                 break;
 
             case CutSceneID.Plant:
