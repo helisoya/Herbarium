@@ -45,7 +45,7 @@ public class Map : MonoBehaviour
         isUpdatingCamera = true;
         CinemachineCore.UniformDeltaTimeOverride = 500;
 
-        if (startupGraph != null) CutsceneManager.instance.ProcessCutscene(startupGraph,gameObject);
+        if (startupGraph != null) CutsceneManager.instance.ProcessCutscene(startupGraph,MusicManager.CutSceneID.Empty,gameObject);
         started = true;
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private string mainMenuScene;
     [SerializeField] private Fade linkedFade;
+    [SerializeField] private ConfirmPopup popup;
 
     [Header("Dialog Logs")]
     [SerializeField] private Transform dialogLogsRoot;
@@ -41,22 +43,8 @@ public class PauseMenu : MonoBehaviour
         root.SetActive(false);
         optionsMenu.Close();
         ClearDialogLogs();
-    }
 
-    /// <summary>
-    /// (Deprecated?) Counts the number of visible characters in a text
-    /// Deprecated since apparently TMP decided to 
-    /// </summary>
-    /// <param name="text">The text</param>
-    /// <returns>The number of visible characters</returns>
-    private int CountVisibleCharacters(TMP_Text text)
-    {
-        int count = 0;
-        foreach(TMP_LineInfo line in text.textInfo.lineInfo)
-        {
-            count += line.visibleCharacterCount + line.visibleSpaceCount;
-        }
-        return count;
+        if(!Player.instance.inMicroInteraction) GameGUI.instance.EnableHudIfPossible();
     }
 
     /// <summary>
@@ -113,9 +101,7 @@ public class PauseMenu : MonoBehaviour
     public void ClickMainMenu()
     {
         if(exitingToMainMenu) return;
-
-        exitingToMainMenu = true;
-        StartCoroutine(RoutineMainMenu());
+        popup.Open(CallbackMainMenu);
     }
 
     /// <summary>
@@ -142,6 +128,24 @@ public class PauseMenu : MonoBehaviour
     public void ClickQuit()
     {
         if(exitingToMainMenu) return;
+        popup.Open(CallbackQuit);
+    }
+
+    /// <summary>
+    /// Callback on confirming the exit to main menu
+    /// </summary>
+    public void CallbackMainMenu()
+    {
+        exitingToMainMenu = true;
+        StartCoroutine(RoutineMainMenu());
+    }
+
+
+    /// <summary>
+    /// Callback on confirming the exit to desktop
+    /// </summary>
+    public void CallbackQuit()
+    {
         Application.Quit();
     }
 }

@@ -10,8 +10,11 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionDistance = 2f;
     [SerializeField] private Transform playerBody;
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private PlayerController controller;
     private Vector2 mousePosition;
     private InteractableObject currentObject;
+    private InteractableObject willInteractWith;
+    private bool closingIn;
 
 
     void OnDrawGizmosSelected()
@@ -22,53 +25,46 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        if(!Player.instance.canComponentsUpdate) return;
+
+        if(closingIn)
+        {
+            if (Vector3.Distance(playerBody.position, willInteractWith.transform.position) <= interactionDistance)
+            {
+                Interact();
+                willInteractWith = null;
+                closingIn = false;
+            }
+        }
+
         InteractableObject selected = null;
-        float distTemp;
 
         // Check at mouse
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
 
         if(Physics.Raycast(ray, out RaycastHit hitInfo,100f,interactionMask))
         {
-            distTemp = Vector3.Distance(hitInfo.collider.bounds.center, playerBody.position);
-
-            if(distTemp < interactionDistance)
-            {
-                selected = hitInfo.collider.GetComponent<InteractableObject>();
-            }
+            selected = hitInfo.collider.GetComponent<InteractableObject>();
         }
-
-        /*
-        // Check by distance
-        if (!selected)
-        {
-            Collider[] colliders = Physics.OverlapSphere(playerBody.position,interactionDistance,interactionMask);
-            float minDistance = 999f;
-            
-            foreach(Collider collider in colliders)
-            {
-                distTemp = Vector3.Distance(collider.bounds.center, playerBody.position);
-                if(distTemp < minDistance)
-                {
-                    minDistance = distTemp;
-                    selected = collider.GetComponent<InteractableObject>();
-                }
-            }
-        }
-        */
 
         if(selected != currentObject)
         {
             if(currentObject) currentObject.SetActive(false);
             currentObject = selected;
-        }
+            if(currentObject) currentObject.SetActive(true);
+            closingIn = false;
 
-        // Update if the interactionIcon should be shown
-        if (currentObject)
-        {
-            float distance = Vector3.Distance(playerBody.position,currentObject.transform.position);
-            currentObject.SetActive(distance <= interactionDistance);
+            if(currentObject) GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.MOVING);
+            else GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.NORMAL);
         }
+    }
+
+    /// <summary>
+    /// Disables the closing in tag
+    /// </summary>
+    public void DisableClosingInTag()
+    {
+        closingIn = false;
     }
 
     /// <summary>
@@ -80,31 +76,52 @@ public class PlayerInteraction : MonoBehaviour
         this.mousePosition = mousePosition;
     }
 
-
-
     /// <summary>
     /// Starts an interaction with the currently selected interractable object
     /// </summary>
-    public void TryInterract()
+    /// <returns>True if an interaction hapenned</returns>
+    public bool TryInterract()
     {
-
         if (currentObject != null)
         {
             float distance = Vector3.Distance(playerBody.position,currentObject.transform.position);
-            if(distance > interactionDistance) return;
-
-            if (currentObject.stopPlayerOnInterract)
+            willInteractWith = currentObject;
+            
+            if(distance > interactionDistance){
+                closingIn = true;
+                controller.SetTargetPosition(currentObject.transform.position);
+            }
+            else
             {
-                Player.instance.StopPlayerMovements();
+                closingIn = false;
+                Interact();    
             }
 
-
-            currentObject.SetActive(false); 
-            string trigger = currentObject.GetAnimationTrigger();
-            if(!string.IsNullOrEmpty(trigger)) playerAnimator.SetTrigger(trigger); //isBending for plants, isSpeaking for NPCs, isAction for everything else
-            currentObject.Interract();
-
-            currentObject = null;
+            return true;
         }
+        return false;
+    }
+
+    /// <summary>
+    /// Starts the current interaction
+    /// </summary>
+    private void Interact()
+    {
+        if(!willInteractWith) return;
+
+        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.NORMAL);
+
+        if (willInteractWith.stopPlayerOnInterract)
+        {
+            Player.instance.StopPlayerMovements();
+        }
+
+        willInteractWith.SetActive(false); 
+        string trigger = willInteractWith.GetAnimationTrigger();
+        if(!string.IsNullOrEmpty(trigger)) playerAnimator.SetTrigger(trigger); //isBending for plants, isSpeaking for NPCs, isAction for everything else
+        willInteractWith.Interract();
+
+        willInteractWith = null;
+        currentObject = null;
     }
 }

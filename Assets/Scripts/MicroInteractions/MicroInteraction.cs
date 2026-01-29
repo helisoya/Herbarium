@@ -48,6 +48,7 @@ public abstract class MicroInteraction : MonoBehaviour
 
     [Header("General Audio")]
     [SerializeField] private UnityEvent onStartMicroInteraction;
+    [SerializeField] private UnityEvent<string> onChangePlant;
     [SerializeField] private UnityEvent<EndingType> onEndMicroInteraction;
     [SerializeField] private UnityEvent<PickupAudioData> onPickUpObject;
     [SerializeField] private UnityEvent<PickupAudioData> onDropObject;
@@ -85,12 +86,15 @@ public abstract class MicroInteraction : MonoBehaviour
         currentPlantId = plantId;
         inMicroInteraction = true;
         onStartMicroInteraction.Invoke();
+        onChangePlant.Invoke(plantId);
 
         grabTutorial.SetActive(true);
         cutTutorial.SetActive(false);
 
         fade.ForceAlphaTo(1);
         fade.FadeTo(0);
+
+        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.FORAGENORMAL);
 
         OnStart(plantId);
     }
@@ -126,6 +130,7 @@ public abstract class MicroInteraction : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
+        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.NORMAL);
         Player.instance.StopMicroInteraction(type);
     }
 
@@ -156,6 +161,7 @@ public abstract class MicroInteraction : MonoBehaviour
                 {
                     if (currentObject)
                     {
+                        GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.FORAGENORMAL);
                         cutTutorial.SetActive(false);
                         onDropObject.Invoke(new PickupAudioData() {movingObject = currentObject.GetCurrentMovingPart().gameObject, type = currentObject.GetPickableType()});
                         currentObject.Drop();
@@ -173,6 +179,7 @@ public abstract class MicroInteraction : MonoBehaviour
                             MicroInteractionPickable parent = obj.GetParent();
                             if (parent.CanBePickedUp())
                             {
+                                GameManager.instance.GetCursor().ChangeCursor(HerbariumCursor.CursorType.FORAGEHOLD);
                                 cutTutorial.SetActive(parent.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER);
                                 parent.Pickup(obj);
                                 onPickUpObject.Invoke(new PickupAudioData() {movingObject = parent.GetCurrentMovingPart().gameObject, type = parent.GetPickableType()});

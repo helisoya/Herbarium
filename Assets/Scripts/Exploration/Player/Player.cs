@@ -26,6 +26,15 @@ public class Player : MonoBehaviour
 
     private Renderer[] renderers;
 
+    public bool canComponentsUpdate
+    {
+        get
+        {
+            return !GameGUI.instance.isPauseOpen && !inMicroInteraction && (!CutsceneManager.instance.inCutscene || CutsceneManager.instance.inParrallelCutscene) &&
+            GameGUI.instance.currentRadialMenu == RadialMenuID.CLOSED && !GameGUI.instance.inHerbarium && !GameGUI.instance.isPauseOpen;
+        }
+    }
+
     void Awake()
     {
         instance = this;
@@ -151,18 +160,18 @@ public class Player : MonoBehaviour
 
         if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
         {
-            CutsceneManager.instance.UserSubmit();
+            if(value.isPressed) CutsceneManager.instance.UserSubmit();
             return;
         }
 
         if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
-        bool shouldHold = Settings.instance.IsToggleMoveEnabled();
+        if(value.isPressed && interaction.TryInterract()) return;
 
-        if (!shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
-        else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
+        bool toggleEnabled = Settings.instance.IsToggleMoveEnabled();
 
-        if (value.isPressed) interaction.TryInterract();
+        if (!toggleEnabled) controller.SetUpdateTargetWithMouse(value.isPressed);
+        else if (value.isPressed) controller.ToggleUpdateTargetWithMouse();
     }
 
     void OnBackpack(InputValue value)
@@ -173,9 +182,15 @@ public class Player : MonoBehaviour
         {
             if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseRightClick,value);
             return;
-        } 
+        }
 
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+
+        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED && value.isPressed)
+        {
+            GameGUI.instance.CloseRadialMenu();
+            return;
+        }
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
@@ -195,7 +210,7 @@ public class Player : MonoBehaviour
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
-            if (value.isPressed)
+            if (value.isPressed && GameGUI.instance.currentRadialMenu == RadialMenuID.CLOSED)
             {
                 StopPlayerMovements();
                 if(GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
@@ -352,6 +367,6 @@ public class Player : MonoBehaviour
     public void StopPlayerMovements()
     {
         controller.SetMoveVector(Vector2.zero);
-        controller.SetTryToMoveUsingCursor(false);
+        controller.SetUpdateTargetWithMouse(false);
     }
 }

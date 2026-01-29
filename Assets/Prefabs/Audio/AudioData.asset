@@ -101,7 +101,7 @@ MonoBehaviour:
           Data2: 1298101746
           Data3: -1417898603
           Data4: -1885305986
-        Path: event:/Music/Enviro2DMusicA
+        Path: event:/Zarchives/Enviro2DMusicA
     - Key: 14
       Value:
         Guid:
@@ -109,7 +109,7 @@ MonoBehaviour:
           Data2: 1119854668
           Data3: -1488861055
           Data4: 1398650092
-        Path: event:/Music/Plant1Music3DA
+        Path: event:/Zarchives/Plant1Music3DA
     - Key: 15
       Value:
         Guid:
@@ -117,7 +117,7 @@ MonoBehaviour:
           Data2: 1256568988
           Data3: -271094642
           Data4: 1078125191
-        Path: event:/Music/Plant2Music3DA
+        Path: event:/Zarchives/Plant2Music3DA
     - Key: 16
       Value:
         Guid:
@@ -125,7 +125,7 @@ MonoBehaviour:
           Data2: 1092233566
           Data3: -1276406858
           Data4: 1436739522
-        Path: event:/Music/Plant3Music3DA
+        Path: event:/Zarchives/Plant3Music3DA
     - Key: 22
       Value:
         Guid:
@@ -313,19 +313,19 @@ MonoBehaviour:
     - Key: 55
       Value:
         Guid:
-          Data1: -1729080200
-          Data2: 1274938705
-          Data3: -2066254449
-          Data4: -1209897726
-        Path: event:/Herbarium/LinkHover
-    - Key: 47
-      Value:
-        Guid:
           Data1: 1668387115
           Data2: 1155659706
           Data3: -1134555505
           Data4: -2046391313
         Path: event:/Herbarium/HintHover
+    - Key: 47
+      Value:
+        Guid:
+          Data1: -1729080200
+          Data2: 1274938705
+          Data3: -2066254449
+          Data4: -1209897726
+        Path: event:/Herbarium/LinkHover
     - Key: 48
       Value:
         Guid:
@@ -381,7 +381,7 @@ MonoBehaviour:
           Data2: 1103713744
           Data3: 1983132293
           Data4: -147631320
-        Path: event:/Herbarium/PageAquaMint
+        Path: event:/Herbarium/PageMenthe
     - Key: 53
       Value:
         Guid:
@@ -389,7 +389,7 @@ MonoBehaviour:
           Data2: 1316445871
           Data3: -1944942419
           Data4: -410257525
-        Path: event:/Herbarium/PageMurailles
+        Path: event:/Herbarium/PageCapillaire
     - Key: 58
       Value:
         Guid:
@@ -414,6 +414,14 @@ MonoBehaviour:
           Data3: 846832303
           Data4: -642617776
         Path: event:/Foraging/ToolCutBad
+    - Key: 94
+      Value:
+        Guid:
+          Data1: 168046096
+          Data2: 1251706358
+          Data3: 34935995
+          Data4: -2051973089
+        Path: event:/Foraging/PlantDamage
     - Key: 61
       Value:
         Guid:
@@ -494,6 +502,38 @@ MonoBehaviour:
           Data3: 1208081339
           Data4: 39222286
         Path: event:/Foraging/MusForaging
+    - Key: 81
+      Value:
+        Guid:
+          Data1: -1391706277
+          Data2: 1183444588
+          Data3: -43580268
+          Data4: 248710475
+        Path: event:/Foraging/StartForaging
+    - Key: 85
+      Value:
+        Guid:
+          Data1: -1892171895
+          Data2: 1134308675
+          Data3: -2038585184
+          Data4: -1805068338
+        Path: event:/Foraging/ForagingQuit
+    - Key: 83
+      Value:
+        Guid:
+          Data1: -1834645353
+          Data2: 1087011135
+          Data3: 1113813655
+          Data4: -1099029169
+        Path: event:/Foraging/ForagingGood
+    - Key: 84
+      Value:
+        Guid:
+          Data1: 657951521
+          Data2: 1255576054
+          Data3: 1602195647
+          Data4: -1537716295
+        Path: event:/Foraging/ForagingBad
     - Key: 69
       Value:
         Guid:
@@ -574,21 +614,67 @@ MonoBehaviour:
           Data3: 1362151312
           Data4: -176486155
         Path: event:/Dialogues/Speak
-  parameters:
-    _serializedList:
-    - Key: 0
+    - Key: 86
       Value:
-        Name: HerbariumEntries
-        Value: 2
-    - Key: 1
+        Guid:
+          Data1: -2008040059
+          Data2: 1075570377
+          Data3: 1011248278
+          Data4: 9949770
+        Path: event:/Music/MusNourPartA
+    - Key: 88
       Value:
-        Name: MasterVolume
-        Value: 1
-    - Key: 2
+        Guid:
+          Data1: 1742531754
+          Data2: 1091474063
+          Data3: 1237999025
+          Data4: -846138089
+        Path: event:/Music/MusNourPartB
+    - Key: 87
       Value:
-        Name: SFXVolume
-        Value: 1
-    - Key: 3
+        Guid:
+          Data1: 796641288
+          Data2: 1185709990
+          Data3: -1878214783
+          Data4: 939166719
+        Path: event:/Music/MusBarbrook
+    - Key: 89
       Value:
-        Name: MusicVolume
-        Value: 1
+        Guid:
+          Data1: 796641288
+          Data2: 1185709990
+          Data3: -1878214783
+          Data4: 939166719
+        Path: event:/Music/MusBarbrook
+    - Key: 90
+      Value:
+        Guid:
+          Data1: 1554727129
+          Data2: 1329737585
+          Data3: -245700452
+          Data4: -359503909
+        Path: event:/Music/GoodNight
+    - Key: 91
+      Value:
+        Guid:
+          Data1: 1737669194
+          Data2: 1319400337
+          Data3: 1696715156
+          Data4: 928092914
+        Path: event:/Music/GoodMorning
+    - Key: 92
+      Value:
+        Guid:
+          Data1: -1298560170
+          Data2: 1223359162
+          Data3: 1503838128
+          Data4: 1074599256
+        Path: event:/Music/MusSpawn
+    - Key: 93
+      Value:
+        Guid:
+          Data1: -975458927
+          Data2: 1094555286
+          Data3: 1129153711
+          Data4: -1585433899
+        Path: event:/Home/DryPlant

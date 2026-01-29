@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlantDatabase plantDatabase;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private Volume accessVolume;
+    [SerializeField] private HerbariumCursor cursor;
     public static GameManager instance;
 
     public bool inMainMenu {get; set;}
@@ -84,10 +85,19 @@ public class GameManager : MonoBehaviour
     /// <summary>
 	/// Gets the plant database
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>The plant database</returns>
     public PlantDatabase GetPlantDatabase()
     {
         return plantDatabase;
+    }
+
+    /// <summary>
+    /// Gets the cursor handler
+    /// </summary>
+    /// <returns>The cursor handler</returns>
+    public HerbariumCursor GetCursor()
+    {
+        return cursor;
     }
 
     void Update()

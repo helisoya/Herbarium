@@ -15,6 +15,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private ColorPicker colorPicker;
     [SerializeField] private RectTransform tipRoot;
     [SerializeField] private LocalizedText tipText;
+    [SerializeField] private ConfirmPopup confirmPopup;
     private OptionsTab currentTab = null;
     private int currentTabIdx = 0;
     
@@ -27,6 +28,15 @@ public class OptionsMenu : MonoBehaviour
     public ColorPicker GetColorPicker()
     {
         return colorPicker;
+    }
+
+    /// <summary>
+    /// Gets the confirm popup
+    /// </summary>
+    /// <returns>The popup</returns>
+    public ConfirmPopup GetConfirmPopup()
+    {
+        return confirmPopup;
     }
 
     /// <summary>
@@ -52,8 +62,7 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     public void ResetAllSettings()
     {
-        Settings.instance.ResetAll();
-        SetCurrentTab(currentTabIdx);
+        confirmPopup.Open(CallbackResetAll);
     }
 
     /// <summary>
@@ -103,5 +112,14 @@ public class OptionsMenu : MonoBehaviour
     {
         tipText.SetNewKey(tipID);
         tipRoot.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Callaback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
+    {
+        Settings.instance.ResetAll();
+        SetCurrentTab(currentTabIdx);
     }
 }

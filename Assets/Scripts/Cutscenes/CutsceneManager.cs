@@ -13,8 +13,8 @@ public class CutsceneManager : MonoBehaviour
 {
 
     [Header("Audio")]
-    [SerializeField] private UnityEvent onStartCustscene;
-    [SerializeField] private UnityEvent onEndCustscene;
+    [SerializeField] private UnityEvent<MusicManager.CutSceneID> onStartCustscene;
+    [SerializeField] private UnityEvent<MusicManager.CutSceneID> onEndCustscene;
 
 
     public static CutsceneManager instance;
@@ -27,6 +27,7 @@ public class CutsceneManager : MonoBehaviour
 
     private Dictionary<string, GameObject> objects;
     private GameObject currentObject;
+    private MusicManager.CutSceneID currentCutsceneID;
 
     /// <summary>
     /// Sets the user submit tag
@@ -100,18 +101,21 @@ public class CutsceneManager : MonoBehaviour
     /// Start processing a cutscene
     /// </summary>
     /// <param name="graph">The cutscene's graph</param>
+    /// <param name="cutsceneID">The audio cutscene ID</param>
     /// <param name="initiatorObject">The initiator object</param>
     /// <param name="overridePreviousCutscene">True if the previous cutscene should be overriden</param>
-    public void ProcessCutscene(DialogGraph graph,GameObject initiatorObject, bool overridePreviousCutscene = true){
+    /// <param name="playCutscenesEvents">True if the cutscenes audio event should be played</param>
+    public void ProcessCutscene(DialogGraph graph,MusicManager.CutSceneID cutsceneID, GameObject initiatorObject, bool overridePreviousCutscene = true, bool playCutscenesEvents = true){
         if (processingCutscene != null && !overridePreviousCutscene) return;
 
-        currentObject = initiatorObject;
+        if(initiatorObject) currentObject = initiatorObject;
 
         if (processingCutscene != null)
         {
+            onEndCustscene.Invoke(currentCutsceneID);
             StopCoroutine(processingCutscene);
         }
-        processingCutscene = StartCoroutine(Routine_ProcessingCutscene(graph));
+        processingCutscene = StartCoroutine(Routine_ProcessingCutscene(graph,cutsceneID,playCutscenesEvents));
     }
 
 
@@ -119,15 +123,18 @@ public class CutsceneManager : MonoBehaviour
     /// Routine for processing a dialog graph
     /// </summary>
     /// <param name="graph">The graph</param>
+    /// <param name="cutsceneID">The audio cutscene ID</param>
+    /// <param name="playCutscenesEvents">True if the cutscenes audio event should be played</param>
     /// <returns>IEnumerator</returns>
-    private IEnumerator Routine_ProcessingCutscene(DialogGraph graph){
+    private IEnumerator Routine_ProcessingCutscene(DialogGraph graph, MusicManager.CutSceneID cutsceneID, bool playCutscenesEvents){
         yield return new WaitForEndOfFrame();
         currentCutsceneIsParrallel = graph.parrallelCutscene;
         HerbariumNode currentNode = graph.GetStartNode();
         int result = 0;
         NodePort port;
+        currentCutsceneID = cutsceneID;
 
-        onStartCustscene.Invoke();
+        if(playCutscenesEvents)onStartCustscene.Invoke(cutsceneID);
 
         while(currentNode != null){
             
@@ -144,7 +151,7 @@ public class CutsceneManager : MonoBehaviour
         }
         
         Player.instance.ResetCameraTarget();
-        onEndCustscene.Invoke();
+        if(playCutscenesEvents) onEndCustscene.Invoke(cutsceneID);
 
         processingCutscene = null;
         yield return null;
