@@ -89,6 +89,7 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.Bed:
+                AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
                 AudioManager.Instance.PlayEvent2D(EventID.MusGoodMorning);
                 break;
 

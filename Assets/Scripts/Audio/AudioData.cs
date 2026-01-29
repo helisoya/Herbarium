@@ -26,7 +26,7 @@ public enum EventID
     MusForaging, StartForaging, StopForaging, StopForagingGood, StopForagingBad, StopForagingCancel,
     MusNour, MusBarbrook, MusNourPartB, MusBarbrookPicnic,
     MusGoodNight, MusGoodMorning, MusSpawn,
-    DryPlant,
+    DryPlant, PlantDamage,
 }
 
 

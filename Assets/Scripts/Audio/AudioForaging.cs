@@ -10,6 +10,7 @@ public class AudioForaging : MonoBehaviour
     [SerializeField] private EventID cut;
     [SerializeField] private EventID cutGood;
     [SerializeField] private EventID cutBad;
+    [SerializeField] private EventID damagePlant;
     [SerializeField] private EventID toolPickUp;
     [SerializeField] private EventID toolDrop;
     [SerializeField] private EventID toolMove;
@@ -91,6 +92,11 @@ public class AudioForaging : MonoBehaviour
     public void PostCutBad()
     {
         AudioManager.Instance.PlayOneShot3D(cutBad, currentMovingObject);
+    }
+
+    public void PostDamagePlant()
+    {
+        AudioManager.Instance.PlayOneShot2D(damagePlant);
     }
 
     public void PostToolImpact(Transform obj)
