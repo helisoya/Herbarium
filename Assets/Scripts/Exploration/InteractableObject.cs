@@ -31,6 +31,24 @@ public class InteractableObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets the linked dialog graph for this interaction
+    /// </summary>
+    /// <param name="graph">The dialog graph</param>
+    public void SetDialogGraph(DialogGraph graph)
+    {
+        linkedGraph = graph;
+    }
+
+    /// <summary>
+    /// Sets the audio cutscene id of the interaction
+    /// </summary>
+    /// <param name="id">The new id</param>
+    public void SetAudioCutsceneId(MusicManager.CutSceneID id)
+    {
+        audioCutsceneId = id;
+    }
+
+    /// <summary>
     /// Sets the highlight for an interactable
     /// </summary>
     /// <param name="strength">The highlight's strength</param>

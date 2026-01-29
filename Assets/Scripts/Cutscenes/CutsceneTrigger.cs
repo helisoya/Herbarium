@@ -6,10 +6,17 @@ using UnityEngine.Events;
 /// </summary>
 public class CutsceneTrigger : MonoBehaviour
 {  
+    [Header("Graph")]
     [SerializeField] private DialogGraph dialogGraph;
+    [SerializeField] private MusicManager.CutSceneID audioCutsceneId;
+    [SerializeField] private bool canOverrideCutscenes;
+
+    [Header("Trigger")]
     [SerializeField] private bool executeOnEnter;
     [SerializeField] private bool executeOnExit;
-    [SerializeField] private bool canOverrideCutscenes;
+    [SerializeField] private bool executeOnlyOnce;
+    private bool active = true;
+
 
     [Header("Audio")]
     [SerializeField] private UnityEvent onEnter;
@@ -37,7 +44,7 @@ public class CutsceneTrigger : MonoBehaviour
 
     void Update()
     {
-        if(CutsceneManager.instance.inCutscene && !canOverrideCutscenes) return;
+        if((CutsceneManager.instance.inCutscene && !canOverrideCutscenes) || !active) return;
 
         if (enterTag)
         {
@@ -45,8 +52,10 @@ public class CutsceneTrigger : MonoBehaviour
 
             if (executeOnEnter)
             {
-                CutsceneManager.instance.ProcessCutscene(dialogGraph,gameObject);
+                CutsceneManager.instance.ProcessCutscene(dialogGraph,audioCutsceneId,gameObject);
                 onEnter.Invoke();
+
+                if(executeOnlyOnce) active = false;
             }
         }
 
@@ -56,8 +65,10 @@ public class CutsceneTrigger : MonoBehaviour
 
             if (executeOnExit)
             {
-                CutsceneManager.instance.ProcessCutscene(dialogGraph,gameObject);
+                CutsceneManager.instance.ProcessCutscene(dialogGraph,audioCutsceneId,gameObject);
                 onExit.Invoke();
+
+                if(executeOnlyOnce) active = false;
             }   
         }
     }

@@ -27,6 +27,7 @@ public class CutsceneManager : MonoBehaviour
 
     private Dictionary<string, GameObject> objects;
     private GameObject currentObject;
+    private MusicManager.CutSceneID currentCutsceneID;
 
     /// <summary>
     /// Sets the user submit tag
@@ -107,10 +108,11 @@ public class CutsceneManager : MonoBehaviour
     public void ProcessCutscene(DialogGraph graph,MusicManager.CutSceneID cutsceneID, GameObject initiatorObject, bool overridePreviousCutscene = true, bool playCutscenesEvents = true){
         if (processingCutscene != null && !overridePreviousCutscene) return;
 
-        currentObject = initiatorObject;
+        if(initiatorObject) currentObject = initiatorObject;
 
         if (processingCutscene != null)
         {
+            onEndCustscene.Invoke(currentCutsceneID);
             StopCoroutine(processingCutscene);
         }
         processingCutscene = StartCoroutine(Routine_ProcessingCutscene(graph,cutsceneID,playCutscenesEvents));
@@ -130,6 +132,7 @@ public class CutsceneManager : MonoBehaviour
         HerbariumNode currentNode = graph.GetStartNode();
         int result = 0;
         NodePort port;
+        currentCutsceneID = cutsceneID;
 
         if(playCutscenesEvents)onStartCustscene.Invoke(cutsceneID);
 
