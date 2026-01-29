@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6863470316187988402}
   - component: {fileID: 4337533464245172391}
   - component: {fileID: 6071943450689389326}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ProximityTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,8 +320,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4254508, y: 0.48146844, z: 0.33456945}
-  m_Center: {x: 0.020728827, y: 0.25926578, z: -0.10068059}
+  m_Size: {x: 0.4254508, y: 0.48146844, z: 0.5076966}
+  m_Center: {x: 0.020728827, y: 0.25926578, z: -0.0141170025}
 --- !u!114 &4657750344742182141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: b5eda6cff311c034ca87a4f889504f37, type: 2}
   interactionIcon: {fileID: 3158699289437336562}
+  playCutscenesEvents: 1
   animationTrigger: 
 --- !u!114 &5856223363883900804
 MonoBehaviour:
