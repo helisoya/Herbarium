@@ -14,12 +14,13 @@ public class HerbariumCursor : MonoBehaviour
         FORAGEHOLD
     }
     [SerializeField] private SerializedDictionary<CursorType,Texture2D> textures;
+    [SerializeField] private Vector2 hotspot;
     private CursorType currentCursor;
 
     void Awake()
     {
         currentCursor = CursorType.NORMAL;
-        Cursor.SetCursor(textures[CursorType.NORMAL],Vector2.zero,CursorMode.Auto);
+        Cursor.SetCursor(textures[CursorType.NORMAL],hotspot,CursorMode.Auto);
     }
 
     /// <summary>
@@ -31,7 +32,7 @@ public class HerbariumCursor : MonoBehaviour
         if(currentCursor != newCursor)
         {
             currentCursor = newCursor;
-            Cursor.SetCursor(textures[currentCursor],Vector2.zero,CursorMode.Auto);
+            Cursor.SetCursor(textures[currentCursor],hotspot,CursorMode.Auto);
         }
     }
 }

@@ -43,6 +43,8 @@ public class PauseMenu : MonoBehaviour
         root.SetActive(false);
         optionsMenu.Close();
         ClearDialogLogs();
+
+        if(!Player.instance.inMicroInteraction) GameGUI.instance.EnableHudIfPossible();
     }
 
     /// <summary>

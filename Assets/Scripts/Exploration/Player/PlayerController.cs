@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask mask;
     [SerializeField] private PlayerInteraction interaction;
 
+    [Header("Ground Detection")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float hoverDistance = 0.01f;
+    [SerializeField] private float groundCheckDistance = 0.05f;
+    
+
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private Transform graphicToFlip;
@@ -23,6 +29,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 mousePosition;
     private Vector3 targetPosition;
     private Vector2 moveVector;
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(rb.position,rb.position + Vector3.down*groundCheckDistance);     
+    }
 
     /// <summary>
     /// Gets the player body
@@ -122,9 +134,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Walking animation
+        // Ground check
 
-        float yVelocity = rb.linearVelocity.y;
+        if(Physics.Raycast(rb.position,Vector3.down,out RaycastHit hit, groundCheckDistance, groundLayer))
+        {
+            rb.position = new Vector3(rb.position.x,hit.point.y+hoverDistance,rb.position.z);
+        }
+
+
+        // Walking animation
 
         bool isWalking = rb.linearVelocity.magnitude > 0.1f;
 
@@ -159,7 +177,7 @@ public class PlayerController : MonoBehaviour
             {
                 target.position = targetPosition;
                 direction = direction.normalized * playerSpeed;
-                direction.y = yVelocity;
+                direction.y = 0;
                 rb.linearVelocity = direction;
             }else if (!canUpdateTargetWithMouse)
             {
@@ -172,7 +190,7 @@ public class PlayerController : MonoBehaviour
 
             if (moveVector != Vector2.zero)
             {
-                rb.linearVelocity = new Vector3(moveVector.x, yVelocity, moveVector.y) * playerSpeed;
+                rb.linearVelocity = new Vector3(moveVector.x, 0, moveVector.y) * playerSpeed;
             }
         }
     }

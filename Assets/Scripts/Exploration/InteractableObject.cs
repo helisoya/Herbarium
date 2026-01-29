@@ -10,7 +10,6 @@ public class InteractableObject : MonoBehaviour
     [Header("Interaction")]
     public bool stopPlayerOnInterract = true;
     [SerializeField] protected DialogGraph linkedGraph;
-    [SerializeField] protected GameObject interactionIcon;
     [SerializeField] protected bool playCutscenesEvents = true;
     [SerializeField] protected MusicManager.CutSceneID audioCutsceneId = MusicManager.CutSceneID.Empty;
     [SerializeField] protected string animationTrigger;
@@ -29,6 +28,24 @@ public class InteractableObject : MonoBehaviour
     void OnDestroy()
     {
         Map.instance.UnRegisterInteractableObject(this);        
+    }
+
+    /// <summary>
+    /// Sets the linked dialog graph for this interaction
+    /// </summary>
+    /// <param name="graph">The dialog graph</param>
+    public void SetDialogGraph(DialogGraph graph)
+    {
+        linkedGraph = graph;
+    }
+
+    /// <summary>
+    /// Sets the audio cutscene id of the interaction
+    /// </summary>
+    /// <param name="id">The new id</param>
+    public void SetAudioCutsceneId(MusicManager.CutSceneID id)
+    {
+        audioCutsceneId = id;
     }
 
     /// <summary>
@@ -52,7 +69,6 @@ public class InteractableObject : MonoBehaviour
     public void SetActive(bool value)
     {
         playerCouldInteract = value;
-        interactionIcon.SetActive(value);
     }
     
     /// <summary>
