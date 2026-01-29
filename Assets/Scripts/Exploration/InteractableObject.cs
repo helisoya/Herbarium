@@ -10,7 +10,6 @@ public class InteractableObject : MonoBehaviour
     [Header("Interaction")]
     public bool stopPlayerOnInterract = true;
     [SerializeField] protected DialogGraph linkedGraph;
-    [SerializeField] protected GameObject interactionIcon;
     [SerializeField] protected bool playCutscenesEvents = true;
     [SerializeField] protected string animationTrigger;
     
@@ -51,7 +50,6 @@ public class InteractableObject : MonoBehaviour
     public void SetActive(bool value)
     {
         playerCouldInteract = value;
-        interactionIcon.SetActive(value);
     }
     
     /// <summary>
