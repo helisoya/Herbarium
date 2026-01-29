@@ -24,7 +24,9 @@ public enum EventID
     StopPlantStress,
     DialogueIn, DialogueOut, DialogueNext, Speak, StartTyping, StopTyping,
     MusForaging, StartForaging, StopForaging, StopForagingGood, StopForagingBad, StopForagingCancel,
-    MusNour, MusBarbrook,
+    MusNour, MusBarbrook, MusNourPartB, MusBarbrookPicnic,
+    MusGoodNight, MusGoodMorning, MusSpawn,
+    DryPlant,
 }
 
 
