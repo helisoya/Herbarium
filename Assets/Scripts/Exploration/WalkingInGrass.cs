@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class WalkingInGrass : MonoBehaviour
 {
+    [SerializeField] private Renderer _renderer;
     [SerializeField] private string _propertyName = "_WindAmplitude";
     [SerializeField] private Vector3 _movingAmplitude = new Vector3(10, 0, 0);
     [SerializeField] private Vector3 _stillAmplitude = new Vector3(5, 0, 0);
     [SerializeField] private float _reactionTime = 0.5f;
 
-    private Renderer _renderer;
+    //private Renderer _renderer;
     private Material _material;
 
     private Vector3 _currentValue;
@@ -17,7 +18,8 @@ public class WalkingInGrass : MonoBehaviour
 
     private void Awake()
     {
-        _renderer = GetComponent<Renderer>();
+        if(_renderer == null)
+            _renderer = GetComponent<Renderer>();
         _material = _renderer.material;
 
         _currentValue = _stillAmplitude;
