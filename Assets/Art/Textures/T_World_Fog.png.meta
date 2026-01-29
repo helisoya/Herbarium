@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: d3451dab9efbd9645b7e52d683d61170
+guid: dc95ebdecf4699644b7bfb3df12bdc72
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4971448559797485857
-    second: TEST CAPE_0
+      213: -6753167730833492461
+    second: T_World_Fog_0
   - first:
-      213: 6003605332967571562
-    second: TEST CAPE_1
+      213: -576550741792668964
+    second: T_World_Fog_1
+  - first:
+      213: 204486856867874299
+    second: T_World_Fog_2
+  - first:
+      213: -2049998646748528419
+    second: T_World_Fog_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,111 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TEST CAPE_0
+      name: T_World_Fog_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 3207
-        width: 689
-        height: 750
-      alignment: 9
-      pivot: {x: 0.827173, y: 0.8389197}
+        x: 11
+        y: 263
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fdeb42eefddd10bb0800000000000000
-      internalID: -4971448559797485857
+      spriteID: 316f9078abde742a0800000000000000
+      internalID: -6753167730833492461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TEST CAPE_1
+      name: T_World_Fog_1
       rect:
         serializedVersion: 2
-        x: 1495
-        y: 3121
-        width: 689
-        height: 805
-      alignment: 9
-      pivot: {x: 0.827173, y: 0.8389197}
+        x: 267
+        y: 263
+        width: 234
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a604c2bed37115350800000000000000
-      internalID: 6003605332967571562
+      spriteID: cd2c570b72eaff7f0800000000000000
+      internalID: -576550741792668964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TEST CAPE_2
+      name: T_World_Fog_2
       rect:
         serializedVersion: 2
-        x: 3246
-        y: 3110
-        width: 689
-        height: 785
-      alignment: 9
-      pivot: {x: 0.827173, y: 0.8389197}
+        x: 7
+        y: 7
+        width: 238
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 708ebac6174807c4aa6d81d6ea428a74
-      internalID: -1057388602
+      spriteID: bf588d086bb76d200800000000000000
+      internalID: 204486856867874299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TEST CAPE_3
+      name: T_World_Fog_3
       rect:
         serializedVersion: 2
-        x: 66
-        y: 2261
-        width: 689
-        height: 850
-      alignment: 9
-      pivot: {x: 0.827173, y: 0.8389197}
+        x: 263
+        y: 11
+        width: 237
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2befdfeb060db774b889ca34a0f18c3b
-      internalID: -2018758561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TEST CAPE_4
-      rect:
-        serializedVersion: 2
-        x: 1395
-        y: 2174
-        width: 689
-        height: 811
-      alignment: 9
-      pivot: {x: 0.827173, y: 0.8389197}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62079595a71133b4389d919c68c778ed
-      internalID: 1695358813
+      spriteID: dd0c5869711fc83e0800000000000000
+      internalID: -2049998646748528419
       vertices: []
       indices: 
       edges: []
@@ -216,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 989773c693834024998412e178e2fd17
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -224,15 +208,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      TEST CAPE_0: -4971448559797485857
-      TEST CAPE_1: 6003605332967571562
-      TEST CAPE_2: -1057388602
-      TEST CAPE_3: -2018758561
-      TEST CAPE_4: 1695358813
+      T_World_Fog_0: -6753167730833492461
+      T_World_Fog_1: -576550741792668964
+      T_World_Fog_2: 204486856867874299
+      T_World_Fog_3: -2049998646748528419
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
