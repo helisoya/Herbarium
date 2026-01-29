@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class AudioProximity : MonoBehaviour
@@ -19,6 +20,7 @@ public class AudioProximity : MonoBehaviour
     [SerializeField] private EventID entry1;
     [SerializeField] private EventID entry2;
     [SerializeField] private EventID entry3;
+    //[SerializeField] private EventID musSpawn;
 
 
     public void PostTreeA(GameObject obj)
@@ -121,5 +123,25 @@ public class AudioProximity : MonoBehaviour
     {
         AudioManager.Instance.PlayOneShot3D(entry3, obj);
         Debug.Log("MUSIQUE ENTRY 2");
+    }
+
+    public void PostMusSpawn()
+    {
+        MusicManager.Instance.PlayMusSpawn();
+    }
+
+    public void StopMusSpawn()
+    {
+        MusicManager.Instance.StopMusSpawn();
+    }
+
+    public void PostMusExploration()
+    {
+        MusicManager.Instance.PlayMusExploration();
+    }
+
+    public void StopMusExploration()
+    {
+        MusicManager.Instance.FadeMusExploration(0);
     }
 }
