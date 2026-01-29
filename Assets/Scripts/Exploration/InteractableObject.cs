@@ -11,6 +11,7 @@ public class InteractableObject : MonoBehaviour
     public bool stopPlayerOnInterract = true;
     [SerializeField] protected DialogGraph linkedGraph;
     [SerializeField] protected bool playCutscenesEvents = true;
+    [SerializeField] protected MusicManager.CutSceneID audioCutsceneId = MusicManager.CutSceneID.Empty;
     [SerializeField] protected string animationTrigger;
     
     protected Renderer[] renderers;
@@ -76,7 +77,7 @@ public class InteractableObject : MonoBehaviour
     protected virtual void OnInterract()
     {
         // Do thing with the graph
-        CutsceneManager.instance.ProcessCutscene(linkedGraph,gameObject,true,playCutscenesEvents);
+        CutsceneManager.instance.ProcessCutscene(linkedGraph, audioCutsceneId, gameObject,true,playCutscenesEvents);
     }
 
 

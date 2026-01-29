@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3071281272184060609}
   - component: {fileID: 8672857525524932446}
-  - component: {fileID: 3288205935359241127}
-  - component: {fileID: 8953579819562344425}
   m_Layer: 0
   m_Name: SmallGrass_01
   m_TagString: Untagged
@@ -92,43 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3288205935359241127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636796321765009683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 60, y: 0, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
---- !u!65 &8953579819562344425
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636796321765009683}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.95, y: 1.5700002, z: 0.2}
-  m_Center: {x: 0.02446717, y: 0.6606467, z: 0}
 --- !u!1 &7738147113182384898
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +99,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6434987335852215258}
+  - component: {fileID: 6084641323175939793}
+  - component: {fileID: 6154133124890523994}
   m_Layer: 0
   m_Name: SmallGrass_01
   m_TagString: Untagged
@@ -161,3 +124,41 @@ Transform:
   - {fileID: 3071281272184060609}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6084641323175939793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738147113182384898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _renderer: {fileID: 8672857525524932446}
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 60, y: 0, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
+--- !u!65 &6154133124890523994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738147113182384898}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.25, z: 0.2419149}
+  m_Center: {x: 0, y: 0.125, z: 0.13541962}
