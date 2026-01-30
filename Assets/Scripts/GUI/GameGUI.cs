@@ -317,8 +317,6 @@ public class GameGUI : MonoBehaviour
     /// <param name="value">True if it is active</param>
     public void SetDialogOpen(bool value, bool playSound = false)
     {
-        if(value) DisableHud();
-        else EnableHudIfPossible();
         dialogRoot.SetActive(value);
 
         if (playSound)

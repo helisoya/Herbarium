@@ -135,6 +135,7 @@ public class CutsceneManager : MonoBehaviour
         currentCutsceneID = cutsceneID;
 
         if(playCutscenesEvents)onStartCustscene.Invoke(cutsceneID);
+        GameGUI.instance.DisableHud();
 
         while(currentNode != null){
             
@@ -152,6 +153,7 @@ public class CutsceneManager : MonoBehaviour
         
         Player.instance.ResetCameraTarget();
         if(playCutscenesEvents) onEndCustscene.Invoke(cutsceneID);
+        GameGUI.instance.EnableHudIfPossible();
 
         processingCutscene = null;
         yield return null;

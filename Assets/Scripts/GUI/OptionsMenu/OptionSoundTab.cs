@@ -42,6 +42,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="volume">The new volume</param>
     public void ChangeMasterVolume(float volume)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetVolumeMaster(volume);
     }
 
@@ -51,6 +52,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="volume">The new volume</param>
     public void ChangeSFXVolume(float volume)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetVolumeSFX(volume);
     }
 
@@ -60,6 +62,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="volume">The new volume</param>
     public void ChangeMusicVolume(float volume)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetVolumeMusic(volume);
     }
 
@@ -69,6 +72,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="muted">True if all sounds are muted</param>
     public void ChangeSoundsMuted(bool muted)
     {
+        parent.InvokeOnCheckboxEvent(muted);
         Settings.instance.MuteAllSounds(muted);
         OnOpen();
     }
@@ -79,6 +83,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="deviceIdx">The device's index</param>
     public void ChangeOutputDevice(int deviceIdx)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetOutputDevice(deviceIdx);
     }
 
@@ -87,6 +92,7 @@ public class OptionsSoundTab : OptionsTab
     /// </summary>
     public void ResetAll()
     {
+        parent.InvokeOnClickEvent();
         parent.GetConfirmPopup().Open(CallbackResetAll);
     }
 
