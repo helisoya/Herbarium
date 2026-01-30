@@ -159,19 +159,19 @@ public class MicroInteractionPickable : MonoBehaviour
 
     void Update()
     {
-        if (invokeOnTouchGround)
+        if (invokeOnTouchGround != null)
         {
             onTouchedGround.Invoke(invokeOnTouchGround);
             invokeOnTouchGround = null;
         }
 
-        if (invokeOnStartPlant)
+        if (invokeOnStartPlant != null)
         {
             onStartTouchPlant.Invoke(invokeOnStartPlant);
             invokeOnStartPlant = null;
         }
 
-        if (invokeOnEndPlant)
+        if (invokeOnEndPlant != null)
         {
             onStopTouchPlant.Invoke(invokeOnEndPlant);
             invokeOnEndPlant = null;

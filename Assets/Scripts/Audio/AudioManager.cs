@@ -99,8 +99,8 @@ public class AudioManager : MonoBehaviour
     {
         RuntimeManager.StudioSystem.setParameterByName(name, value);
         Debug.Log(name + value);
+        
     }
-
 
     /// <summary>
     /// AUDIO OPTIONS

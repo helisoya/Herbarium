@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -307,6 +308,7 @@ public class Player : MonoBehaviour
         GameGUI.instance.DisableHud();
         inMicroInteraction = true;
         playerCamera.enabled = false;
+        playerCamera.GetComponent<StudioListener>().enabled = false;
         currentMicroInteraction = microInteraction;
         microInteraction.StartInteraction(plantId);
     }
@@ -327,6 +329,7 @@ public class Player : MonoBehaviour
                 currentMicroInteraction = null;
                 currentMicroInteractionScene = null;
                 playerCamera.enabled = true;
+                playerCamera.GetComponent<StudioListener>().enabled = true;
                 inMicroInteraction = false;
             };
         }

@@ -17,6 +17,7 @@ public class ForagingMicroInteraction : MicroInteraction
     [SerializeField] private Transform plantRoot;
     private Joint2D[] plantJoints;
     private int plantHP;
+    private int plantMaxHP;
 
     [Header("GUI")]
     [SerializeField] private TextMeshProUGUI plantHealthText;
@@ -31,6 +32,7 @@ public class ForagingMicroInteraction : MicroInteraction
     [SerializeField] private UnityEvent onCutGood;
     [SerializeField] private UnityEvent onCutBad;
     [SerializeField] private UnityEvent onPlantInBag;
+    [SerializeField] private UnityEvent<float> onPlantUpdateLife;
 
 
     [Header("ScreenShake")]
@@ -60,6 +62,7 @@ public class ForagingMicroInteraction : MicroInteraction
     {
         Plant plant = GameManager.instance.GetPlantDatabase().GetPlant(plantID);
         plantHP = plant.foragingHealth;
+        plantMaxHP = plantHP;
         plantHealthText.text = plantHP.ToString();
         
         Transform prefab = Instantiate(plant.foragingPrefab,plantRoot);
@@ -68,6 +71,7 @@ public class ForagingMicroInteraction : MicroInteraction
         tutorialRoot.SetActive(!GameManager.instance.GetPlayerDataHandler().HasCompletedForagingTutorial());
 
         cameraStartPos = microInteractionCamera.transform.localPosition;
+        onPlantUpdateLife.Invoke(1.0f);
     }
 
     protected override void OnEnd(EndingType type)
@@ -122,6 +126,7 @@ public class ForagingMicroInteraction : MicroInteraction
                     plantHP--;
                     plantHealthText.text = plantHP.ToString();
                     currentShake = shakeAmount;
+                onPlantUpdateLife.Invoke(plantHP / (float)plantMaxHP);
                     if(plantHP <= 0)
                     {
                         foreach (Joint2D joint in plantJoints) {

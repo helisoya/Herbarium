@@ -172,77 +172,13 @@ PrefabInstance:
       value: Cutter
       objectReference: {fileID: 0}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onTouchedGround.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onTouchedGround.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1112360518}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1112360518}
     - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
       propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1112360518}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopPlantStressEvent
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PostPlantStress
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioForaging, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioForaging, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onTouchedGround.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onTouchedGround.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStopTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8870376368917973648, guid: 7127d78abed40454bacf806776e92658, type: 3}
-      propertyPath: onStartTouchPlant.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3222,6 +3158,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onPlantUpdateLife:
+    m_PersistentCalls:
+      m_Calls: []
   shakeAmount: 1
   shakeDecay: 4
   debugAutoPlay: 1
@@ -6814,7 +6753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812743761}
   - component: {fileID: 1812743758}
-  - component: {fileID: 1812743760}
+  - component: {fileID: 1812743762}
   - component: {fileID: 1812743759}
   m_Layer: 10
   m_Name: Main Camera
@@ -6918,14 +6857,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1812743760
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812743757}
-  m_Enabled: 1
 --- !u!4 &1812743761
 Transform:
   m_ObjectHideFlags: 0
@@ -6941,6 +6872,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1306570602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812743762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812743757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1890679733
 GameObject:
   m_ObjectHideFlags: 0

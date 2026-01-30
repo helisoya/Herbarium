@@ -1,4 +1,5 @@
 using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 public class AudioForaging : MonoBehaviour
@@ -27,7 +28,7 @@ public class AudioForaging : MonoBehaviour
     
 
     private GameObject currentMovingObject;
-    private EventInstance plantStressInstance;
+    
 
     /// <summary>
     /// PARAMETERS
@@ -79,6 +80,12 @@ public class AudioForaging : MonoBehaviour
         }
     }
 
+    public void SetPlantHP(float hp)
+    {
+        RuntimeManager.StudioSystem.setParameterByName("PlantHP", hp);
+        Debug.Log(hp);
+    }
+
     public void PostCut()
     {
         AudioManager.Instance.PlayOneShot3D(cut, currentMovingObject);
@@ -111,6 +118,8 @@ public class AudioForaging : MonoBehaviour
 
     public void PostPickUp(MicroInteraction.PickupAudioData data)
     {
+        if (data.movingObject == null) return;
+
         currentMovingObject = data.movingObject;
         if (data.type == MicroInteractionPickable.PickableType.CUTTER)
         {
@@ -125,6 +134,8 @@ public class AudioForaging : MonoBehaviour
 
     public void PostDrop(MicroInteraction.PickupAudioData data)
     {
+        if(data.movingObject == null) return;
+
         if (data.type == MicroInteractionPickable.PickableType.CUTTER)
         {
             AudioManager.Instance.PlayOneShot3D(toolDrop, currentMovingObject);
@@ -137,23 +148,16 @@ public class AudioForaging : MonoBehaviour
         currentMovingObject = null;
     }
 
-    public void PostPlantStress()
+    public void PostPlantStress(Transform position)
     {
-        Debug.Log("je stresse la plante");
-        plantStressInstance = AudioManager.Instance.PlayEvent3D(plantStress, currentMovingObject);
-        //AudioManager.Instance.PlayOneShot3D(plantImpact, currentMovingObject);
+        AudioManager.Instance.PlayOneShot3D(plantStress, position.gameObject);
     }
 
-    public void StopPlantStress()
-    {
-        Debug.Log("ok d'accord j'arr�te de stresser la plante");
-        AudioManager.Instance.Stop(plantStressInstance, FMOD.Studio.STOP_MODE.IMMEDIATE);
-    }
 
     public void StopPlantStressEvent()
     {
-        Debug.Log("ok d'accord j'arr�te de stresser la plante event");
-        AudioManager.Instance.PlayOneShot2D(stopPlantStress);
+        //Debug.Log("ok d'accord j'arr�te de stresser la plante event");
+        //AudioManager.Instance.PlayOneShot2D(stopPlantStress);
     }
     public void PostInBag()
     {
