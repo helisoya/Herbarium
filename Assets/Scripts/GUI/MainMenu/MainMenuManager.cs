@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,14 +18,30 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private Fade fade;
     [SerializeField] private ConfirmPopup confirmPopup;
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onEnterMainMenu;
+    [SerializeField] private UnityEvent onExitMainMenu;
+    [SerializeField] private UnityEvent onHover;
+    [SerializeField] private UnityEvent onClick;
     private bool exitingMainMenu = false;
 
     void Start()
     {
+        onEnterMainMenu.Invoke();
         GameManager.instance.inMainMenu = true;
         generalRoot.SetActive(true);
         creditsRoot.SetActive(false);
         continueButton.interactable = GameManager.instance.GetPlayerDataHandler().fileExistsOnDisk;
+    }
+
+
+    /// <summary>
+    /// Invokes On Hover Event
+    /// </summary>
+    public void OnHover()
+    {
+        onHover.Invoke();
     }
 
     /// <summary>
@@ -33,7 +50,7 @@ public class MainMenuManager : MonoBehaviour
     public void ResumeGame()
     {
         if(exitingMainMenu) return;
-
+        onClick.Invoke();
         GameManager.instance.loadingSave = true;
         GameManager.instance.GetPlayerDataHandler().LoadData();
         exitingMainMenu = true;
@@ -46,7 +63,7 @@ public class MainMenuManager : MonoBehaviour
     public void NewGame()
     {
         if(exitingMainMenu) return;
-
+        onClick.Invoke();
         GameManager.instance.loadingSave = false;
         GameManager.instance.GetPlayerDataHandler().ResetData();
         exitingMainMenu = true;
@@ -65,6 +82,7 @@ public class MainMenuManager : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
+        onExitMainMenu.Invoke();
         SceneManager.LoadScene(nextScene);
     }
 
@@ -75,7 +93,7 @@ public class MainMenuManager : MonoBehaviour
     public void OpenCredits()
     {
         if(exitingMainMenu) return;
-
+        onClick.Invoke();
         generalRoot.SetActive(false);
         creditsRoot.SetActive(true);
     }
@@ -85,6 +103,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void CloseCredits()
     {
+        onClick.Invoke();
         generalRoot.SetActive(true);
         creditsRoot.SetActive(false);
     }
@@ -95,7 +114,7 @@ public class MainMenuManager : MonoBehaviour
     public void OpenOptions()
     {
         if(exitingMainMenu) return;
-
+        onClick.Invoke();
         optionsMenu.Open();
     }
     
@@ -105,7 +124,7 @@ public class MainMenuManager : MonoBehaviour
     public void QuitGame()
     {
         if(exitingMainMenu) return;
-
+        onClick.Invoke();
         confirmPopup.Open(CallbackQuit);
     }
 

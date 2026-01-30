@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -21,6 +22,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Transform dialogLogsRoot;
     [SerializeField] private LocalizedText dialogLogPrefab;
 
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onOpen;
+    [SerializeField] private UnityEvent onClose;
+    [SerializeField] private UnityEvent onHover;
+    [SerializeField] private UnityEvent onClick;
+
     public bool isOpen{get{return root.activeInHierarchy;}}
     private bool exitingToMainMenu;
 
@@ -29,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Open()
     {
+        onOpen.Invoke();
         Time.timeScale = 0;
         root.SetActive(true);
         ReloadDialogLogs(); 
@@ -40,11 +48,28 @@ public class PauseMenu : MonoBehaviour
     public void Close()
     {
         Time.timeScale = 1;
-        root.SetActive(false);
-        optionsMenu.Close();
+        if (optionsMenu.isOpen)
+        {
+            optionsMenu.Close();
+        }
+        else
+        {
+            onClose.Invoke();
+            root.SetActive(false);
+        }
+        
+        
         ClearDialogLogs();
 
         if(!Player.instance.inMicroInteraction) GameGUI.instance.EnableHudIfPossible();
+    }
+
+    /// <summary>
+    /// Invokes On Hover Event
+    /// </summary>
+    public void OnHover()
+    {
+        onHover.Invoke();
     }
 
     /// <summary>
@@ -83,6 +108,7 @@ public class PauseMenu : MonoBehaviour
     public void ClickResume()
     {
         if(exitingToMainMenu) return;
+        onClick.Invoke();
         Close();
     }
 
@@ -92,6 +118,7 @@ public class PauseMenu : MonoBehaviour
     public void ClickOptions()
     {
         if(exitingToMainMenu) return;
+        onClick.Invoke();
         optionsMenu.Open();
     }
 
@@ -101,6 +128,7 @@ public class PauseMenu : MonoBehaviour
     public void ClickMainMenu()
     {
         if(exitingToMainMenu) return;
+        onClick.Invoke();
         popup.Open(CallbackMainMenu);
     }
 
@@ -128,6 +156,7 @@ public class PauseMenu : MonoBehaviour
     public void ClickQuit()
     {
         if(exitingToMainMenu) return;
+        onClick.Invoke();
         popup.Open(CallbackQuit);
     }
 

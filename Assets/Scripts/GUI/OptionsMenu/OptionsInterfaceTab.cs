@@ -77,6 +77,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="fullScreen">True if in fullscreen</param>
     public void ChangeFullscreen(bool fullScreen)
     {
+        parent.InvokeOnCheckboxEvent(fullScreen);
         Settings.instance.SetFullScreen(fullScreen);
     }
 
@@ -86,6 +87,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="resolutionIdx">The new resolution's index</param>
     public void ChangeResolution(int resolutionIdx)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetResolution(Screen.resolutions[resolutionIdx]);
     }
 
@@ -95,6 +97,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="brightness">The new brightness</param>
     public void ChangeBrightness(float brightness)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetGamma(brightness);
     }
 
@@ -104,6 +107,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="hidden">True if the HUD is hidden</param>
     public void ChangeHUDVisible(bool hidden)
     {
+        parent.InvokeOnCheckboxEvent(hidden);
         Settings.instance.EnableHUD(!hidden);
     }
 
@@ -113,6 +117,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="enabled">True if it is enabled</param>
     public void ChangeNegativeColorFilterEnabled(bool enabled)
     {
+        parent.InvokeOnCheckboxEvent(enabled);
         Settings.instance.EnableNegativeColorFilter(enabled);
     }
 
@@ -122,6 +127,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="enabled">True if enabled</param>
     public void ChangePlayerHighlightEnabled(bool enabled)
     {
+        parent.InvokeOnCheckboxEvent(enabled);
         Settings.instance.SetPlayerOutlineActive(enabled);
         playerHighlightStrengthSlider.interactable = enabled;
         playerHighlightColorImage.GetComponent<Button>().interactable = enabled;
@@ -133,6 +139,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="strength">The new strength</param>
     public void ChangePlayerHighlightStrength(float strength)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetPlayerOutlineStrength(strength);
     }
 
@@ -141,6 +148,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// </summary>
     public void StartChangingPlayerHighlightColor()
     {
+        parent.InvokeOnClickEvent();
         parent.GetColorPicker().Open(Settings.instance.GetPlayerOutlineColor(),ChangePlayerHightlightColor);
     }
 
@@ -160,6 +168,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="enabled">True if enabled</param>
     public void ChangeObjectsHighlightEnabled(bool enabled)
     {
+        parent.InvokeOnCheckboxEvent(enabled);
         Settings.instance.SetObjectOutlineActive(enabled);
         interactableHighlightStrengthSlider.interactable = enabled;
         interactableHighlightColorImage.GetComponent<Button>().interactable = enabled;
@@ -171,6 +180,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// <param name="strength">The new strength</param>
     public void ChangeObjectsHighlightStrength(float strength)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetObjectsOutlineStrength(strength);
     }
 
@@ -179,6 +189,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// </summary>
     public void StartChangingObjectsHighlightColor()
     {
+        parent.InvokeOnClickEvent();
         parent.GetColorPicker().Open(Settings.instance.GetObjectsOutlineColor(),ChangeObjectsHightlightColor);
     }
 
@@ -197,6 +208,7 @@ public class OptionsInterfaceTab : OptionsTab
     /// </summary>
     public void ResetAll()
     {
+        parent.InvokeOnClickEvent();
         parent.GetConfirmPopup().Open(CallbackResetAll);
     }
 
