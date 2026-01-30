@@ -27,6 +27,7 @@ public enum EventID
     MusNour, MusBarbrook, MusNourPartB, MusBarbrookPicnic,
     MusGoodNight, MusGoodMorning, MusSpawn,
     DryPlant, PlantDamage,
+    PlayerWalk, PlayerWalkStop, PlayerBend, PlayerInteract, PlayerWalkCloatDown, PlayerWalkCloatUp,
 }
 
 
