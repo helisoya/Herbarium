@@ -121,12 +121,12 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.BarbrookPartA:
-                AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
+                //AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
                 PlayMusBarbrook();
                 break;
 
             case CutSceneID.BarbrookPicNic:
-                AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
+                //AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
                 PlayMusBarbrookPicnic();
                 break;
 
@@ -162,9 +162,8 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.BarbrookPartA:
-                AudioManager.Instance.SetGlobalParameterByName("Barbrook", 0);
-                AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
-                AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                musBarbrook.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                //musBarbrook.release();
                 break;
 
             case CutSceneID.BarbrookPicNic:
