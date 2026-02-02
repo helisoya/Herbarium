@@ -122,7 +122,6 @@ public class MusicManager : MonoBehaviour
 
             case CutSceneID.BarbrookPartA:
                 AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
-                AudioManager.Instance.SetGlobalParameterByName("Barbrook", 1);
                 PlayMusBarbrook();
                 break;
 
