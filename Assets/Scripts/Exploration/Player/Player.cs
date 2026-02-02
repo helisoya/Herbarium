@@ -308,7 +308,10 @@ public class Player : MonoBehaviour
         GameGUI.instance.DisableHud();
         inMicroInteraction = true;
         playerCamera.enabled = false;
-        playerCamera.GetComponent<StudioListener>().enabled = false;
+        if (playerCamera.TryGetComponent<StudioListener>(out StudioListener listener))
+        {
+            Destroy(listener);
+        }
         currentMicroInteraction = microInteraction;
         microInteraction.StartInteraction(plantId);
     }
@@ -329,7 +332,10 @@ public class Player : MonoBehaviour
                 currentMicroInteraction = null;
                 currentMicroInteractionScene = null;
                 playerCamera.enabled = true;
-                playerCamera.GetComponent<StudioListener>().enabled = true;
+                if (!playerCamera.GetComponent<StudioListener>())
+                {
+                    playerCamera.gameObject.AddComponent<StudioListener>().AttenuationObject = controller.GetBody().gameObject;
+                }
                 inMicroInteraction = false;
             };
         }
