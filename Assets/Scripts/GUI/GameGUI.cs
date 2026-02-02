@@ -255,6 +255,14 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Switch the tabs of the herbarium
+    /// </summary>
+    public void HerbariumSwitchTabs()
+    {
+        herbariumGUI.SwitchTabs();
+    }
+
+    /// <summary>
     /// Show a plant page in the herbarium
     /// </summary>
     /// <param name="pageIndex">The plant index</param>
@@ -361,7 +369,7 @@ public class GameGUI : MonoBehaviour
 
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         SetDialogOpen(true);
-        dialogContinueRoot.SetActive(false);
+        //dialogContinueRoot.SetActive(false);
 
         if (string.IsNullOrEmpty(characterName))
         {
@@ -375,11 +383,12 @@ public class GameGUI : MonoBehaviour
 
         if (string.IsNullOrEmpty(characterTitle))
         {
-            dialogTitleRoot.SetActive(false);
+            //dialogTitleRoot.SetActive(false);
+            dialogTitleText.SetNewKey("");
         }
         else
         {
-            dialogTitleRoot.SetActive(true);
+            //dialogTitleRoot.SetActive(true);
             dialogTitleText.SetNewKey(characterTitle);
         }
 
@@ -427,7 +436,7 @@ public class GameGUI : MonoBehaviour
 
         onStopTypingDialog.Invoke();
 
-        dialogContinueRoot.SetActive(true);
+        //dialogContinueRoot.SetActive(true);
         skipDialog = false;
         routineDialog = null;
     }
@@ -445,6 +454,15 @@ public class GameGUI : MonoBehaviour
     {
         if(routinePopup != null) StopCoroutine(routinePopup);
         routinePopup = StartCoroutine(Routine_Popup(key,injectors));
+    }
+
+    /// <summary>
+    /// Hides the current popup
+    /// </summary>
+    public void HidePopup()
+    {
+        if(routinePopup != null) StopCoroutine(routinePopup);
+        popupGroup.alpha = 0.0f;
     }
 
     /// <summary>

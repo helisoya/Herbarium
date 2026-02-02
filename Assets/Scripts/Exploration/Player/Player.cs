@@ -272,6 +272,14 @@ public class Player : MonoBehaviour
 
     }
 
+    void OnSwitchHerbarium(InputValue value)
+    {
+        if(value.isPressed && GameGUI.instance.inHerbarium)
+        {
+            GameGUI.instance.HerbariumSwitchTabs();
+        }
+    }
+
     /// <summary>
     /// Starts a micro interaction
     /// </summary>
@@ -358,7 +366,18 @@ public class Player : MonoBehaviour
     /// <param name="position"></param>
     public void SetPosition(Vector3 position)
     {
+        cinemachineCamera.enabled = false;
         controller.SetPosition(position);
+    }
+
+    void LateUpdate()
+    {
+        if (!cinemachineCamera.enabled)
+        {
+            cinemachineCamera.PreviousStateIsValid = false;
+            cinemachineCamera.enabled = true;
+            CinemachineCore.UniformDeltaTimeOverride = -1;
+        }
     }
 
     /// <summary>
