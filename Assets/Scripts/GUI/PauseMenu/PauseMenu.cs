@@ -45,23 +45,24 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// Closes the pause menu
     /// </summary>
-    public void Close()
+    /// <returns>True if it was fully closed</returns>
+    public bool Close()
     {
-        Time.timeScale = 1;
         if (optionsMenu.isOpen)
         {
             optionsMenu.Close();
+            return false;
         }
-        else
-        {
-            onClose.Invoke();
-            root.SetActive(false);
-        }
+
+        Time.timeScale = 1;
+        onClose.Invoke();
+        root.SetActive(false);
         
         
         ClearDialogLogs();
 
         if(!Player.instance.inMicroInteraction) GameGUI.instance.EnableHudIfPossible();
+        return true;
     }
 
     /// <summary>

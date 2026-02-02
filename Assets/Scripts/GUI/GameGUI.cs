@@ -186,7 +186,6 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void ClosePause()
     {
-        EnableHudIfPossible();
         pauseMenu.Close();
     }
 
