@@ -104,7 +104,6 @@ public class AudioProximity : MonoBehaviour
     public void PostGrassCollision(GameObject obj)
     {
         AudioManager.Instance.PlayOneShot3D(grassCollision, obj);
-        Debug.Log("je marche sur l'herbe oui oui");
     }
 
     public void PostEntry1(GameObject obj)
