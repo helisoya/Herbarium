@@ -2,6 +2,7 @@ using System;
 using FMODUnity;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
 
     private MicroInteraction currentMicroInteraction;
     private string currentMicroInteractionScene;
+    private bool pointerOverGUI;
     public static Player instance;
 
     public Vector3 position{get{return controller.GetBody().position;}}
@@ -165,7 +167,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
+        if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog || pointerOverGUI) return;
 
         if(value.isPressed && interaction.TryInterract()) return;
 
@@ -409,6 +411,8 @@ public class Player : MonoBehaviour
             cinemachineCamera.enabled = true;
             CinemachineCore.UniformDeltaTimeOverride = -1;
         }
+
+        pointerOverGUI = EventSystem.current.IsPointerOverGameObject();
     }
 
     /// <summary>
