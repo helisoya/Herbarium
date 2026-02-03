@@ -33,6 +33,8 @@ public class SleepNode : HerbariumNode
             yield return new WaitForEndOfFrame();
         }
 
+        GameGUI.instance.HidePopup();
+
         if (refreshRegrowthSystem)
         {
             GameManager.instance.GetPlayerDataHandler().IncrementRegrowthSystem();

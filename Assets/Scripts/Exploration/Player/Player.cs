@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         Vector2 vec = value.Get<Vector2>();
 
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
 
     void OnMousePosition(InputValue value)
     {
-        if(GameGUI.instance.isPauseOpen) return;
+        if(GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         if(inMicroInteraction){
             if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MousePosition,value);
@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        if(GameGUI.instance.isPauseOpen) return;
+        if(GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
         
         if(inMicroInteraction)
         { 
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
 
     void OnBackpack(InputValue value)
     {
-        if(GameGUI.instance.isPauseOpen) return;
+        if(GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         if (inMicroInteraction)
         {
@@ -207,7 +207,7 @@ public class Player : MonoBehaviour
 
     void OnInventory(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
@@ -223,7 +223,7 @@ public class Player : MonoBehaviour
 
     void OnHerbarium(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         if (!GameGUI.instance.inHerbarium)
         {
@@ -232,6 +232,23 @@ public class Player : MonoBehaviour
                 StopPlayerMovements();
                 if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED) GameGUI.instance.CloseRadialMenu();
                 GameGUI.instance.OpenHerbarium();
+            }
+            return;
+        }
+    }
+
+    void OnMap(InputValue value)
+    {
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+
+        if (!GameGUI.instance.mapOpen && GameManager.instance.GetPlayerDataHandler().IsMapUnlocked())
+        {
+            if (value.isPressed)
+            {
+                StopPlayerMovements();
+                if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED) GameGUI.instance.CloseRadialMenu();
+                if(GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
+                GameGUI.instance.OpenMap();
             }
             return;
         }
@@ -247,6 +264,12 @@ public class Player : MonoBehaviour
         }
 
         if(GameGUI.instance.showingDialog) return;
+
+        if (GameGUI.instance.mapOpen)
+        {
+            GameGUI.instance.CloseHerbarium();
+            return;
+        }
 
         if (GameGUI.instance.inHerbarium)
         {
@@ -270,7 +293,14 @@ public class Player : MonoBehaviour
         {
             GameGUI.instance.OpenPause();
         }
+    }
 
+    void OnSwitchHerbarium(InputValue value)
+    {
+        if(value.isPressed && GameGUI.instance.inHerbarium)
+        {
+            GameGUI.instance.HerbariumSwitchTabs();
+        }
     }
 
     /// <summary>
@@ -367,7 +397,18 @@ public class Player : MonoBehaviour
     /// <param name="position"></param>
     public void SetPosition(Vector3 position)
     {
+        cinemachineCamera.enabled = false;
         controller.SetPosition(position);
+    }
+
+    void LateUpdate()
+    {
+        if (!cinemachineCamera.enabled)
+        {
+            cinemachineCamera.PreviousStateIsValid = false;
+            cinemachineCamera.enabled = true;
+            CinemachineCore.UniformDeltaTimeOverride = -1;
+        }
     }
 
     /// <summary>

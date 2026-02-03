@@ -443,6 +443,28 @@ public class PlayerDataHandler : MonoBehaviour
 
     #endregion
 
+    #region Map
+
+    /// <summary>
+    /// Gets if the map is unlocked
+    /// </summary>
+    /// <returns>True if the map is unlocked</returns>
+    public bool IsMapUnlocked()
+    {
+        return data.mapUnlocked;
+    }
+
+    /// <summary>
+    /// Unlocks the map
+    /// </summary>
+    /// <param name="unlocked">True if the map is now unlocked</param>
+    public void UnlockMap(bool unlocked)
+    {
+        data.mapUnlocked = unlocked;
+    }
+
+    #endregion
+
     #region Save, Load & Control
 
     /// <summary>
@@ -456,6 +478,7 @@ public class PlayerDataHandler : MonoBehaviour
         data.herbarium = new List<string>();
         data.regrowthData = new List<RegrowthPlantData>();
         data.pinnedQuests = new List<string>();
+        data.mapUnlocked = false;
 
         data.variables = new PlayerVariable[variables.variables.Length];
         for (int i = 0; i < variables.variables.Length; i++)
