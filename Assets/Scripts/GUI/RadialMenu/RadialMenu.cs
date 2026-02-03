@@ -223,6 +223,12 @@ public class RadialMenu : MonoBehaviour
         OpenBackpack(false);
     }
 
+    public void OpenMap()
+    {
+        Close(false);
+        GameGUI.instance.OpenMap();
+    }
+
 
     /// <summary>
 	/// Opens the default backpack menu
@@ -266,8 +272,8 @@ public class RadialMenu : MonoBehaviour
             key = "RadialMenu_Map",
             rotation = 270,
             sprite = backSprite,
-            callback = CloseBackpack,
-            interactable = false,
+            callback = OpenMap,
+            interactable = GameManager.instance.GetPlayerDataHandler().IsMapUnlocked(),
             inputAction = mapInput.action,
             inputIndex = mapInput.index,
             inputPosition = inputPositions[1],

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,6 +31,10 @@ public class GameGUI : MonoBehaviour
 
     [Header("HUD")]
     [SerializeField] private GameObject hudRoot;
+
+    [Header("Map")]
+    [SerializeField] private GameObject mapRoot;
+    public bool mapOpen {get; private set;}
 
     [Header("Popup")]
     [SerializeField] private CanvasGroup popupGroup;
@@ -87,6 +92,7 @@ public class GameGUI : MonoBehaviour
     {
         fade.ForceAlphaTo(1);
         fade.FadeTo(0);
+        mapRoot.transform.localScale = Vector3.zero;
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         AddAllQuestsPin();
     }
@@ -507,6 +513,30 @@ public class GameGUI : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    #endregion
+
+    #region Map
+
+    /// <summary>
+    /// Opens the map
+    /// </summary>
+    public void OpenMap()
+    {
+        mapOpen = true;
+        DisableHud();
+        mapRoot.transform.DOScale(Vector3.one,0.3f).SetEase(Ease.InQuad);
+    }
+
+    /// <summary>
+    /// Closes the map
+    /// </summary>
+    public void CloseMap()
+    {
+        mapOpen = false;
+        EnableHudIfPossible();
+        mapRoot.transform.DOScale(Vector3.zero,0.3f).SetEase(Ease.InQuad);
     }
 
     #endregion
