@@ -1,0 +1,364 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8637465672573279233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7485b684b88b5438f87c24e6edc5eb, type: 3}
+  m_Name: Give Plant
+  m_EditorClassIdentifier: Assembly-CSharp::GivePlantNode
+  graph: {fileID: 11400000}
+  position: {x: 1016, y: -136}
+  ports:
+    keys:
+    - entry
+    - exitSuccess
+    - exitPlantNotCorrect
+    - exitCancel
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8637465672573279233}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 7092918144916789132}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitSuccess
+      _node: {fileID: -8637465672573279233}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2442325391673070858}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitPlantNotCorrect
+      _node: {fileID: -8637465672573279233}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitCancel
+      _node: {fileID: -8637465672573279233}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2442325391673070858}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  plantID: 
+  removePlantIfPossible: 1
+  exitSuccess: 0
+  exitPlantNotCorrect: 0
+  exitCancel: 0
+--- !u!114 &-5774111261613604636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57d1747d5b1c384395907c911f10638, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: Assembly-CSharp::EndNode
+  graph: {fileID: 11400000}
+  position: {x: 1912, y: -184}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5774111261613604636}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -3458887110156714964}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+--- !u!114 &-3458887110156714964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc44668c7d297a4181b0ce974722ca8, type: 3}
+  m_Name: Move Object To Object
+  m_EditorClassIdentifier: Assembly-CSharp::MoveObjectToObjectNode
+  graph: {fileID: 11400000}
+  position: {x: 1624, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -3458887110156714964}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 2442325391673070858}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -3458887110156714964}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5774111261613604636}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: 
+  targetID: 
+  speed: 2.5
+  exit: 0
+--- !u!114 &-2847248985318491429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68befad922e81e148867bb4b85d9e655, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
+  graph: {fileID: 11400000}
+  position: {x: 456, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2847248985318491429}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 107968734850196264}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -2847248985318491429}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 7092918144916789132}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  dialogID: Nour_Flavour_Dry_1
+  nameID: Apprentice_Name
+  titleID: Apprentice_Title_1
+  targetID: THIS
+  addToLog: 1
+  speakerAudio: 
+  emotionAudio: 
+  exit: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab69574fb0bf19408772b469095a1ca, type: 3}
+  m_Name: DG_Nour_Flavour_Dry
+  m_EditorClassIdentifier: Assembly-CSharp::DialogGraph
+  nodes:
+  - {fileID: 107968734850196264}
+  - {fileID: -5774111261613604636}
+  - {fileID: 7092918144916789132}
+  - {fileID: -3458887110156714964}
+  - {fileID: -2847248985318491429}
+  - {fileID: -8637465672573279233}
+  - {fileID: 2442325391673070858}
+  parrallelCutscene: 0
+--- !u!114 &107968734850196264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d69f0df49086344d8313e68c183aff9, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: Assembly-CSharp::StartNode
+  graph: {fileID: 11400000}
+  position: {x: 152, y: -184}
+  ports:
+    keys:
+    - exit
+    values:
+    - _fieldName: exit
+      _node: {fileID: 107968734850196264}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -2847248985318491429}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  exit: 0
+--- !u!114 &2442325391673070858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68befad922e81e148867bb4b85d9e655, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
+  graph: {fileID: 11400000}
+  position: {x: 1368, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 2442325391673070858}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exitSuccess
+        node: {fileID: -8637465672573279233}
+        reroutePoints: []
+      - fieldName: exitCancel
+        node: {fileID: -8637465672573279233}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 2442325391673070858}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -3458887110156714964}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  dialogID: Nour_Flavour_Dry_3
+  nameID: Apprentice_Name
+  titleID: Apprentice_Title_1
+  targetID: THIS
+  addToLog: 1
+  speakerAudio: 
+  emotionAudio: 
+  exit: 0
+--- !u!114 &7092918144916789132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68befad922e81e148867bb4b85d9e655, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
+  graph: {fileID: 11400000}
+  position: {x: 712, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7092918144916789132}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2847248985318491429}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 7092918144916789132}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8637465672573279233}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  dialogID: Nour_Flavour_Dry_2
+  nameID: Apprentice_Name
+  titleID: Apprentice_Title_1
+  targetID: THIS
+  addToLog: 1
+  speakerAudio: 
+  emotionAudio: 
+  exit: 0

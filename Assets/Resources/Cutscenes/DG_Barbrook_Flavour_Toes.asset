@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8289446820870782691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57d1747d5b1c384395907c911f10638, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: Assembly-CSharp::EndNode
+  graph: {fileID: 11400000}
+  position: {x: 248, y: -184}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8289446820870782691}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 8247502692945124021}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+--- !u!114 &-8165577652942485098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68befad922e81e148867bb4b85d9e655, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
+  graph: {fileID: 11400000}
+  position: {x: -328, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8165577652942485098}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 107968734850196264}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -8165577652942485098}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 8247502692945124021}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  dialogID: Barbrook_Flavour_Toes_1
+  nameID: Spirit_Flow_Name
+  titleID: Spirit_Flow_Title
+  targetID: THIS
+  addToLog: 1
+  speakerAudio: 
+  emotionAudio: 
+  exit: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab69574fb0bf19408772b469095a1ca, type: 3}
+  m_Name: DG_Barbrook_Flavour_Toes
+  m_EditorClassIdentifier: Assembly-CSharp::DialogGraph
+  nodes:
+  - {fileID: 107968734850196264}
+  - {fileID: -8165577652942485098}
+  - {fileID: 8247502692945124021}
+  - {fileID: -8289446820870782691}
+  parrallelCutscene: 0
+--- !u!114 &107968734850196264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d69f0df49086344d8313e68c183aff9, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: Assembly-CSharp::StartNode
+  graph: {fileID: 11400000}
+  position: {x: -568, y: -184}
+  ports:
+    keys:
+    - exit
+    values:
+    - _fieldName: exit
+      _node: {fileID: 107968734850196264}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8165577652942485098}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  exit: 0
+--- !u!114 &8247502692945124021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3e26b175684544a85002504f4e3377, type: 3}
+  m_Name: Set Interactable Graph
+  m_EditorClassIdentifier: Assembly-CSharp::SetInteractableGraphNode
+  graph: {fileID: 11400000}
+  position: {x: -40, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8247502692945124021}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -8165577652942485098}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 8247502692945124021}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8289446820870782691}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: 
+  nextGraph: {fileID: 0}
+  audioCutSceneID: 0
+  exit: 0
