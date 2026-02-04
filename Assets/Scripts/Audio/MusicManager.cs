@@ -35,6 +35,11 @@ public class MusicManager : MonoBehaviour
         amb.start();
     }
 
+    public void StopAmb()
+    {
+        amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        amb.release();
+    }
     public void PlayMusSpawn()
     {
         musSpawn = RuntimeManager.CreateInstance(MusSpawnEvent);
@@ -88,6 +93,7 @@ public class MusicManager : MonoBehaviour
         musNourPartB = RuntimeManager.CreateInstance(MusNourPartB);
         musNourPartB.start();
     }
+
 
 
     /// <summary>
