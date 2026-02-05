@@ -50,6 +50,7 @@ public class AutomaticIcon : MonoBehaviour
         int correctIdx = newDevice.Equals("Gamepad") ? indexGamepad : indexKeyboard;
         string controlPath = action.action.bindings[correctIdx].overridePath;
         if (string.IsNullOrEmpty(controlPath)) controlPath = action.action.bindings[correctIdx].path;
+        //print(newDevice + " - " + controlPath);
         controlPath = controlPath.Split('/')[1];
         //print(newDevice + " - " + controlPath);
         iconImg.sprite = InputIcons.instance.GetIcon(newDevice, controlPath);

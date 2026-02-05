@@ -90,7 +90,13 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
+        if (inMicroInteraction)
+        {
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MoveKeys,value);
+            return;
+        }
+
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || GameGUI.instance.mapOpen) return;
 
         Vector2 vec = value.Get<Vector2>();
 
@@ -119,7 +125,28 @@ public class Player : MonoBehaviour
             return;
         }
 
+        if (GameGUI.instance.isPauseOpen)
+        {
+            float delta = vec.x >= 0.95f ? 1 : (vec.x <= -0.95f ? -1 : 0);
+            if(delta != 0.0f) GameGUI.instance.OptionsMove(delta);
+        }
+
         controller.SetMoveVector(vec);
+    }
+
+
+    void OnResetAll(InputValue value)
+    {
+        if (inMicroInteraction)
+        {
+            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.ResetAll,value);
+            return;
+        }
+
+        if (GameGUI.instance.isPauseOpen)
+        {
+            GameGUI.instance.OptionsResetAll();
+        }
     }
 
     void OnMousePosition(InputValue value)
