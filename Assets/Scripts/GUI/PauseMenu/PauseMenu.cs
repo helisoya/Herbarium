@@ -66,6 +66,29 @@ public class PauseMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Try to reset the options (if open)
+    /// </summary>
+    public void OptionsResetAll()
+    {
+        if (optionsMenu.isOpen)
+        {
+            optionsMenu.ResetAllSettings();
+        }
+    }
+
+    /// <summary>
+    /// Try to move the options tab (if open)
+    /// </summary>
+    /// <param name="delta">The move delta</param>
+    public void OptionsMove(float delta)
+    {
+        if (optionsMenu.isOpen)
+        {
+            optionsMenu.IncrementTab((int)delta);
+        }
+    }
+
+    /// <summary>
     /// Invokes On Hover Event
     /// </summary>
     public void OnHover()

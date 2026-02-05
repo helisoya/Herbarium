@@ -147,4 +147,23 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
+    void OnResetAll(InputValue value)
+    {
+        if (optionsMenu.isOpen)
+        {
+            optionsMenu.ResetAllSettings();
+        }
+    }
+
+    void OnMove(InputValue value)
+    {
+        Vector2 vec = value.Get<Vector2>();
+
+        if (optionsMenu.isOpen)
+        {
+            float delta = vec.x >= 0.95f ? 1 : (vec.x <= -0.95f ? -1 : 0);
+            if(delta != 0.0f) optionsMenu.IncrementTab((int)delta);
+        }
+    }
+
 }

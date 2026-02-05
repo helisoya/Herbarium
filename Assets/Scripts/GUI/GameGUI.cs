@@ -188,6 +188,29 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Try to start a reset all in the options
+    /// </summary>
+    public void OptionsResetAll()
+    {
+        if (pauseMenu.isOpen)
+        {
+            pauseMenu.OptionsResetAll();
+        }
+    }
+
+    /// <summary>
+    /// Try to move the options tab
+    /// </summary>
+    /// <param name="delta">The move delta</param>
+    public void OptionsMove(float delta)
+    {
+        if (pauseMenu.isOpen)
+        {
+            pauseMenu.OptionsMove(delta);
+        }
+    }
+
+    /// <summary>
     /// Closes the pause menu
     /// </summary>
     public void ClosePause()
