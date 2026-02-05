@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 7022112655736707533}
   - component: {fileID: 4351078338067517657}
   - component: {fileID: 8581000320063934733}
+  - component: {fileID: 5676266492161924895}
   m_Layer: 0
   m_Name: VisualBarbrook
   m_TagString: Untagged
@@ -251,6 +252,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5676266492161924895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3025438932406382767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddffe8c5d8eab854196bd7a5d7e2bb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioBarbrook
+  BarbrookSleeping: 107
+  BarbrookWakeUp: 108
+  BarbrookIdle: 109
+  BarbrookHappy: 110
 --- !u!1 &3651767127547321631
 GameObject:
   m_ObjectHideFlags: 0
