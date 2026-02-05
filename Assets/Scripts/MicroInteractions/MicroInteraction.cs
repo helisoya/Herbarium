@@ -14,7 +14,9 @@ public abstract class MicroInteraction : MonoBehaviour
         MousePosition,
         MouseLeftClick,
         MouseRightClick,
-        Pause
+        Pause,
+        ResetAll,
+        MoveKeys
     }
 
     public enum EndingType
@@ -193,6 +195,17 @@ public abstract class MicroInteraction : MonoBehaviour
             case InputType.Pause:
                 if(pauseMenu.isOpen) pauseMenu.Close();
                 else pauseMenu.Open();
+                break;
+            case InputType.ResetAll:
+                if(pauseMenu.isOpen) pauseMenu.OptionsResetAll();
+                break;
+            case InputType.MoveKeys:
+                if (pauseMenu.isOpen)
+                {
+                    Vector2 vecMove = inputValue.Get<Vector2>();
+                    float delta = vecMove.x >= 0.95f ? 1 : (vecMove.x <= -0.95f ? -1 : 0);
+                    if(delta != 0.0f) pauseMenu.OptionsMove(delta);
+                }
                 break;
         }
     }
