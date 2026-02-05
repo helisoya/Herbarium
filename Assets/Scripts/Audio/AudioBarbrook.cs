@@ -7,23 +7,23 @@ public class AudioBarbrook : MonoBehaviour
     [SerializeField] EventID BarbrookIdle;
     [SerializeField] EventID BarbrookHappy;
 
-    public void PostBarbrookSleeping(GameObject barbrookPos)
+    public void PostBarbrookSleeping()
     {
-        AudioManager.Instance.PlayOneShot3D(BarbrookSleeping, barbrookPos);
+        AudioManager.Instance.PlayOneShot3D(BarbrookSleeping, gameObject);
     }
 
-    public void PostBarbrookWakeUp(GameObject barbrookPos)
+    public void PostBarbrookWakeUp()
     {
-        AudioManager.Instance.PlayOneShot3D(BarbrookWakeUp, barbrookPos);
+        AudioManager.Instance.PlayOneShot3D(BarbrookWakeUp, gameObject);
     }
 
-    public void PostBarbrookIdle(GameObject barbrookPos)
+    public void PostBarbrookIdle()
     {
-        AudioManager.Instance.PlayOneShot3D(BarbrookIdle, barbrookPos);
+        AudioManager.Instance.PlayOneShot3D(BarbrookIdle, gameObject);
     }
 
-    public void PostBarbrookHappy(GameObject barbrookPos)
+    public void PostBarbrookHappy()
     {
-        AudioManager.Instance.PlayOneShot3D(BarbrookHappy, barbrookPos);
+        AudioManager.Instance.PlayOneShot3D(BarbrookHappy, gameObject);
     }
 }

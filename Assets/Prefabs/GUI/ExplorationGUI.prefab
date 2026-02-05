@@ -2248,6 +2248,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1903135103344376318}
+  - {fileID: 8412272976020368459}
   - {fileID: 5374606533167868362}
   - {fileID: 798933622687086441}
   m_Father: {fileID: 0}
@@ -2286,19 +2287,79 @@ MonoBehaviour:
   fade: {fileID: 3646689055961338062}
   onChangeDialogSpeaker:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1257087849876573109}
+        m_TargetAssemblyTypeName: AudioDialogues, Assembly-CSharp
+        m_MethodName: PostSpeak
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onStartTypingDialog:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1257087849876573109}
+        m_TargetAssemblyTypeName: AudioDialogues, Assembly-CSharp
+        m_MethodName: PostStartTyping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onStopTypingDialog:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1257087849876573109}
+        m_TargetAssemblyTypeName: AudioDialogues, Assembly-CSharp
+        m_MethodName: StopTyping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onOpenDialogWindow:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1257087849876573109}
+        m_TargetAssemblyTypeName: AudioDialogues, Assembly-CSharp
+        m_MethodName: PostDialogueIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onCloseDialogWindow:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1257087849876573109}
+        m_TargetAssemblyTypeName: AudioDialogues, Assembly-CSharp
+        m_MethodName: PostDialogueOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7279647366206538861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,6 +3173,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49da2eff454ce0744bd0df05f88b5b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!1001 &5045340700297652789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8573302193750240203}
+    m_Modifications:
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -928.7492
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -153.82559
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.89808
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842693955383402649, guid: 67a318a66585eac42a989cd725842240, type: 3}
+      propertyPath: m_Name
+      value: AudioDialogues
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67a318a66585eac42a989cd725842240, type: 3}
+--- !u!114 &1257087849876573109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6302422775992000896, guid: 67a318a66585eac42a989cd725842240, type: 3}
+  m_PrefabInstance: {fileID: 5045340700297652789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1b26235d456274e89ad4aec68e41ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioDialogues
+--- !u!4 &8412272976020368459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3655448526105609854, guid: 67a318a66585eac42a989cd725842240, type: 3}
+  m_PrefabInstance: {fileID: 5045340700297652789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8513184111603587097
 PrefabInstance:
   m_ObjectHideFlags: 0

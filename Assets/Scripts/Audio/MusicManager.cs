@@ -138,7 +138,6 @@ public class MusicManager : MonoBehaviour
 
             case CutSceneID.Bed:
                 AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
-                AudioManager.Instance.PlayEvent2D(EventID.MusGoodNight);
                 break;
 
             case CutSceneID.Drying:
@@ -178,7 +177,6 @@ public class MusicManager : MonoBehaviour
 
             case CutSceneID.Bed:
                 AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
-                AudioManager.Instance.PlayEvent2D(EventID.MusGoodMorning);
                 break;
 
             case CutSceneID.Drying:

@@ -6,19 +6,19 @@ public class AudioNour : MonoBehaviour
     [SerializeField] EventID NourJump;
     [SerializeField] EventID NourRun;
 
-    public void PostNourIdle(GameObject nourPos)
+    public void PostNourIdle()
     {
-        AudioManager.Instance.PlayOneShot3D(NourIdle, nourPos);
+        AudioManager.Instance.PlayOneShot3D(NourIdle, gameObject);
     }
 
-    public void PostNourJump(GameObject nourPos)
+    public void PostNourJump()
     {
-        AudioManager.Instance.PlayOneShot3D(NourJump, nourPos);
+        AudioManager.Instance.PlayOneShot3D(NourJump, gameObject);
     }
 
-    public void PostNourRun(GameObject nourPos)
+    public void PostNourRun()
     {
-        AudioManager.Instance.PlayOneShot3D(NourRun, nourPos);
+        AudioManager.Instance.PlayOneShot3D(NourRun, gameObject);
     }
 
 }
