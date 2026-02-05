@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,7 +22,9 @@ public class ForagingMicroInteraction : MicroInteraction
     private int plantMaxHP;
 
     [Header("GUI")]
-    [SerializeField] private TextMeshProUGUI plantHealthText;
+    [SerializeField] private RectTransform plantHealthRoot;
+    [SerializeField] private RectTransform plantHealthPrefab;
+    private List<RectTransform> plantHealthParts;
     [SerializeField] private GameObject tutorialRoot;
 
     [Header("Backpack")]
@@ -63,7 +67,6 @@ public class ForagingMicroInteraction : MicroInteraction
         Plant plant = GameManager.instance.GetPlantDatabase().GetPlant(plantID);
         plantHP = plant.foragingHealth;
         plantMaxHP = plantHP;
-        plantHealthText.text = plantHP.ToString();
         
         Transform prefab = Instantiate(plant.foragingPrefab,plantRoot);
         plantJoints = prefab.GetChild(0).GetComponentsInChildren<Joint2D>();
@@ -72,6 +75,25 @@ public class ForagingMicroInteraction : MicroInteraction
 
         cameraStartPos = microInteractionCamera.transform.localPosition;
         onPlantUpdateLife.Invoke(1.0f);
+
+        float radiansSeparation = Mathf.PI * 2 / plant.foragingHealth;
+        RectTransform rectTransform;
+        plantHealthParts = new List<RectTransform>();
+
+        for (int i = 0; i < plant.foragingHealth; i++)
+        {
+            rectTransform = Instantiate(plantHealthPrefab,plantHealthRoot);
+
+            rectTransform.anchoredPosition = new Vector2(
+                Mathf.Sin(Mathf.PI + radiansSeparation * i) * 17.0f,
+                Mathf.Cos(Mathf.PI + radiansSeparation * i) * 17.0f
+            );
+
+            rectTransform.localEulerAngles = new Vector3(0,0,(radiansSeparation*(-i)+Mathf.PI)*Mathf.Rad2Deg);
+
+            plantHealthParts.Add(rectTransform);
+
+        }
     }
 
     protected override void OnEnd(EndingType type)
@@ -125,7 +147,8 @@ public class ForagingMicroInteraction : MicroInteraction
                 // Unless you can interact with a non plant rigidbody (the dropped flower for instance), everything will be fine ?
                 onCutBad.Invoke();
                 plantHP--;
-                plantHealthText.text = plantHP.ToString();
+                plantHealthParts[plantHealthParts.Count-1].DOScale(Vector3.zero,0.3f).SetEase(Ease.OutQuad);
+                plantHealthParts.RemoveAt(plantHealthParts.Count-1);
                 currentShake = shakeAmount;
                 onPlantUpdateLife.Invoke(plantHP / (float)plantMaxHP);
                 if(plantHP <= 0)
