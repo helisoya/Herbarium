@@ -77,6 +77,23 @@ public class HerbariumGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Switch the current tabs
+    /// </summary>
+    public void SwitchTabs()
+    {
+        if(currentPage == quest || currentPage == questIndex)
+        {
+            SetPlantIndex(0);
+            onLeft.Invoke();
+        }
+        else
+        {
+            SetQuestIndex(0);
+            onRight.Invoke();
+        }
+    }
+
+    /// <summary>
     /// Sets the positions of the markers
     /// </summary>
     /// <param name="markerPlantFront">True if the plant marker is up front</param>

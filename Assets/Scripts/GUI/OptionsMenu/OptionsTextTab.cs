@@ -103,6 +103,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="languageIndex">The language index</param>
     public void ChangeLanguage(int languageIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.ChangeLanguage(Locals.GetLanguages()[languageIndex]);
 
         List<string> languagesOptions = new List<string>();
@@ -121,6 +122,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The font index</param>
     public void ChangeTextsFont(int fontIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetTextFont(Locals.Channel.CHANNEL0,fontIndex);
     }
 
@@ -130,6 +132,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The size index</param>
     public void ChangeTextsSize(int sizeIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetTextSize(Locals.Channel.CHANNEL0,sizeIndex);
     }
 
@@ -138,6 +141,7 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void StartChangeTextsColor()
     {
+        parent.InvokeOnClickEvent();
         parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL0),ChangeTextsColor);
     }
 
@@ -157,6 +161,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The font index</param>
     public void ChangeTitlesFont(int fontIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetTextFont(Locals.Channel.CHANNEL1,fontIndex);
     }
 
@@ -166,6 +171,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The size index</param>
     public void ChangeTitlesSize(int sizeIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetTextSize(Locals.Channel.CHANNEL1,sizeIndex);
     }
 
@@ -174,6 +180,7 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void StartChangeTitlesColor()
     {
+        parent.InvokeOnClickEvent();
         parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL1),ChangeTitlesColor);
     }
 
@@ -193,6 +200,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The font index</param>
     public void ChangeDialogsFont(int fontIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetTextFont(Locals.Channel.CHANNEL2,fontIndex);
     }
 
@@ -202,6 +210,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The size index</param>
     public void ChangeDialogsSize(int sizeIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.SetTextSize(Locals.Channel.CHANNEL2,sizeIndex);
     }
 
@@ -210,6 +219,7 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void StartChangeDialogsColor()
     {
+        parent.InvokeOnClickEvent();
         parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL2),ChangeDialogsColor);
     }
 
@@ -229,6 +239,7 @@ public class OptionsTextTab : OptionsTab
     /// <param name="opacity">The new opacity</param>
     public void ChangeDialogsOpacity(float opacity)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetSubtitlesBackgroundOpacity(opacity);
     }
 
@@ -238,6 +249,7 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void ResetAll()
     {
+        parent.InvokeOnClickEvent();
         parent.GetConfirmPopup().Open(CallbackResetAll);
     }
 

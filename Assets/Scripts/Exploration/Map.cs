@@ -12,7 +12,6 @@ public class Map : MonoBehaviour
     [SerializeField] private string ID;
     [SerializeField] private Spawnpoint[] spawnpoints;
     [SerializeField] private DialogGraph startupGraph;
-    private bool isUpdatingCamera;
     private UnityEvent onRegrowthSystemRefresh;
     private UnityEvent<float,Color> onChangeHighlightInteractables;
     public bool started { get; private set; }
@@ -41,9 +40,7 @@ public class Map : MonoBehaviour
             FindPlayerSpawnPoint();
             GameManager.instance.GetPlayerDataHandler().SetCurrentMap(SceneManager.GetActiveScene().name);
         }
-
-        isUpdatingCamera = true;
-        CinemachineCore.UniformDeltaTimeOverride = 500;
+        CinemachineCore.UniformDeltaTimeOverride = 1000;
 
         if (startupGraph != null) CutsceneManager.instance.ProcessCutscene(startupGraph,MusicManager.CutSceneID.Empty,gameObject);
         started = true;
@@ -76,15 +73,6 @@ public class Map : MonoBehaviour
         else
         {
             Debug.LogError("No valid spawnpoint found. Did you forget to add a default ?");
-        }
-    }
-
-    void LateUpdate()
-    {
-        if (isUpdatingCamera)
-        {
-            isUpdatingCamera = false;
-            CinemachineCore.UniformDeltaTimeOverride = -1;
         }
     }
 

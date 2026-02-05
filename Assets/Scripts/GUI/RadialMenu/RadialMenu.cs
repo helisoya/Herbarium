@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private Transform radialParent;
     [SerializeField] private RadialMenuEntry entryPrefab;
     [SerializeField] private Sprite backSprite;
+    [SerializeField] private RectTransform backpackSprite;
     public RadialMenuID currentRadialMenu {get; private set;}
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
@@ -102,6 +104,13 @@ public class RadialMenu : MonoBehaviour
 
             entries[i] = entry;
         }
+
+        if (currentData.showBackpack)
+        {
+            backpackSprite.DOScale(Vector3.one,0.3f).SetEase(Ease.OutQuad);
+            backpackSprite.SetAsLastSibling();
+        }
+
     }
 
 
@@ -140,6 +149,8 @@ public class RadialMenu : MonoBehaviour
             }
             entries = null;
         }
+
+        backpackSprite.DOScale(Vector3.zero,0.3f).SetEase(Ease.OutQuad);
     }
 
 
@@ -223,6 +234,12 @@ public class RadialMenu : MonoBehaviour
         OpenBackpack(false);
     }
 
+    public void OpenMap()
+    {
+        Close(false);
+        GameGUI.instance.OpenMap();
+    }
+
 
     /// <summary>
 	/// Opens the default backpack menu
@@ -235,6 +252,7 @@ public class RadialMenu : MonoBehaviour
         RadialMenuData testData = new RadialMenuData();
         testData.radius = SIZE;
         testData.id = RadialMenuID.BACKPACK;
+        testData.showBackpack = true;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
@@ -266,8 +284,8 @@ public class RadialMenu : MonoBehaviour
             key = "RadialMenu_Map",
             rotation = 270,
             sprite = backSprite,
-            callback = CloseBackpack,
-            interactable = false,
+            callback = OpenMap,
+            interactable = GameManager.instance.GetPlayerDataHandler().IsMapUnlocked(),
             inputAction = mapInput.action,
             inputIndex = mapInput.index,
             inputPosition = inputPositions[1],
@@ -303,6 +321,7 @@ public class RadialMenu : MonoBehaviour
         RadialMenuData testData = new RadialMenuData();
         testData.radius = SIZE;
         testData.id = RadialMenuID.INVENTORY;
+        testData.showBackpack = false;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {
@@ -350,6 +369,7 @@ public class RadialMenu : MonoBehaviour
         RadialMenuData testData = new RadialMenuData();
         testData.radius = SIZE;
         testData.id = RadialMenuID.GIVE;
+        testData.showBackpack = false;
         testData.entries = new RadialMenuEntryData[4];
         testData.entries[0] = new RadialMenuEntryData()
         {

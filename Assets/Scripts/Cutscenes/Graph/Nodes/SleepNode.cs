@@ -22,6 +22,8 @@ public class SleepNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
+        AudioManager.Instance.PlayEvent2D(EventID.MusGoodNight);
+
         GameGUI.instance.ShowPopup("Popup_Sleep",null);
 
         yield return new WaitForSeconds(1.0f);
@@ -32,6 +34,8 @@ public class SleepNode : HerbariumNode
         {
             yield return new WaitForEndOfFrame();
         }
+
+        GameGUI.instance.HidePopup();
 
         if (refreshRegrowthSystem)
         {
@@ -49,6 +53,8 @@ public class SleepNode : HerbariumNode
         {
             yield return new WaitForEndOfFrame();
         }
+
+        AudioManager.Instance.PlayEvent2D(EventID.MusGoodMorning);
 
         yield return 0;
     }

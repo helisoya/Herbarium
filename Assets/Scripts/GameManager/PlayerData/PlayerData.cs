@@ -17,6 +17,7 @@ public class PlayerData
     public List<RegrowthPlantData> regrowthData;
     public string mapName;
     public Vector3 mapPosition;
+    public bool mapUnlocked;
 }
 
 
