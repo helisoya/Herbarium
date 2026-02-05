@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Handles the players data
@@ -15,6 +16,9 @@ public class PlayerDataHandler : MonoBehaviour
     [SerializeField] private DefaultPlayerVariables variables;
     [SerializeField] private PlayerQuests quests;
     [SerializeField] private SerializedDictionary<string,int> defaultPlantRegrowth;
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent<string, float> onUnlockPlant;
 
     public string filePath
     {
@@ -165,7 +169,11 @@ public class PlayerDataHandler : MonoBehaviour
 	/// <param name="plantID">The plant ID</param>
     public void AddHerbariumPage(string plantID)
     {
-        if (!data.herbarium.Contains(plantID)) data.herbarium.Add(plantID);
+        if (!data.herbarium.Contains(plantID))
+        {
+            onUnlockPlant.Invoke(plantID,1);
+            data.herbarium.Add(plantID);
+        } 
     }
 
     /// <summary>
@@ -489,6 +497,11 @@ public class PlayerDataHandler : MonoBehaviour
                 value = variables.variables[i].value
             };
         }
+
+        foreach(string plant in GameManager.instance.GetPlantDatabase().GetExistingPlants())
+        {
+            onUnlockPlant.Invoke(plant,0);
+        }
     }
 
     /// <summary>
@@ -531,6 +544,17 @@ public class PlayerDataHandler : MonoBehaviour
 
 
         this.data = data;
+
+
+        foreach(string plant in GameManager.instance.GetPlantDatabase().GetExistingPlants())
+        {
+            onUnlockPlant.Invoke(plant,0);
+        }
+
+        foreach(string plant in data.herbarium)
+        {
+            onUnlockPlant.Invoke(plant,1);
+        }
     }
 
     /// <summary>
