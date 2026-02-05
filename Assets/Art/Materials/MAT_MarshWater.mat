@@ -55,17 +55,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DephFallOff: 5
-    - _Depth: 5
+    - _DephFallOff: 1
+    - _Depth: 0.5
     - _FoamAmount: 0.8
-    - _FoamShoreWidth: 0.29
-    - _FoamTiling: 1.25
+    - _FoamShoreWidth: 1
+    - _FoamTiling: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FoamSpeed: {r: 0, g: 0.1, b: 0, a: 0}
-    - _MainColor: {r: 0.7830189, g: 0.16192688, b: 0.12927197, a: 1}
-    - _ShoreColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamSpeed: {r: 0, g: -1, b: 0, a: 0}
+    - _MainColor: {r: 0.2770114, g: 0.7830189, b: 0.59045213, a: 1}
+    - _ShoreColor: {r: 0.752047, g: 0.9433962, b: 0.88982356, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
