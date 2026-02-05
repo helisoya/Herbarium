@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Represents the player
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
         currentMicroInteractionScene = null;
         lastMicroInteractionEnding = MicroInteraction.EndingType.CANCEL;
         renderers = GetComponentsInChildren<Renderer>();
+        renderers = Array.FindAll(renderers, r => !(r is VFXRenderer));
     }
 
     void Start()
