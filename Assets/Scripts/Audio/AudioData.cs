@@ -29,6 +29,8 @@ public enum EventID
     DryPlant, PlantDamage,
     PlayerWalk, PlayerWalkStop, PlayerBend, PlayerInteract, PlayerWalkCloatDown, PlayerWalkCloatUp,
     Click, Hover, Back, ToggleOn, ToggleOff,
+    Pause,
+    BarbrookSleeping, BarbrookWakeUp, BarbrookIdle, BarbrookHappy,
 }
 
 

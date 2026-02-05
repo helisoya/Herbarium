@@ -2,35 +2,40 @@ using UnityEngine;
 
 public class AudioDialogues : MonoBehaviour
 {
-    [SerializeField] private EventID DialogueIn;
-    [SerializeField] private EventID DialogueOut;
-    [SerializeField] private EventID DialogueNext;
-    [SerializeField] private EventID Speak;
-    [SerializeField] private EventID StartTyping;
-    [SerializeField] private EventID StopTyping;
+    [SerializeField] private EventID dialogueIn;
+    [SerializeField] private EventID dialogueOut;
+    [SerializeField] private EventID dialogueNext;
+    [SerializeField] private EventID speak;
+    [SerializeField] private EventID startTyping;
+    [SerializeField] private EventID stopTyping;
 
 
     public void PostDialogueIn()
     {
-        AudioManager.Instance.PlayOneShot2D(DialogueIn);
+        AudioManager.Instance.PlayOneShot2D(dialogueIn);
     }
     public void PostDialogueOut()
     {
-        AudioManager.Instance.PlayOneShot2D(DialogueOut);
+        AudioManager.Instance.PlayOneShot2D(dialogueOut);
     }
     public void PostDialogueNext()
     {
-        AudioManager.Instance.PlayOneShot2D(DialogueNext);
+        AudioManager.Instance.PlayOneShot2D(dialogueNext);
     }
 
-    public void PostSpeak()
+    public void PostSpeak(string speaker, string emotion)
     {
-        AudioManager.Instance.PlayOneShot2D(Speak);
+        AudioManager.Instance.PlayOneShot2D(speak);
     }
 
     public void PostStartTyping()
     {
-        AudioManager.Instance.PlayEvent2D(StartTyping);
+        AudioManager.Instance.PlayEvent2D(startTyping);
+    }
+
+    public void StopTyping()
+    {
+        AudioManager.Instance.PlayEvent2D(stopTyping);
     }
 
 }

@@ -35,6 +35,11 @@ public class MusicManager : MonoBehaviour
         amb.start();
     }
 
+    public void StopAmb()
+    {
+        amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        amb.release();
+    }
     public void PlayMusSpawn()
     {
         musSpawn = RuntimeManager.CreateInstance(MusSpawnEvent);
@@ -90,6 +95,7 @@ public class MusicManager : MonoBehaviour
     }
 
 
+
     /// <summary>
     /// CUTSCENES
     /// </summary>
@@ -132,7 +138,6 @@ public class MusicManager : MonoBehaviour
 
             case CutSceneID.Bed:
                 AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
-                AudioManager.Instance.PlayEvent2D(EventID.MusGoodNight);
                 break;
 
             case CutSceneID.Drying:
@@ -172,7 +177,6 @@ public class MusicManager : MonoBehaviour
 
             case CutSceneID.Bed:
                 AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
-                AudioManager.Instance.PlayEvent2D(EventID.MusGoodMorning);
                 break;
 
             case CutSceneID.Drying:

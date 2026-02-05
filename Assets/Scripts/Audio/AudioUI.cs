@@ -1,4 +1,7 @@
 using UnityEngine;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 
 public class AudioUI : MonoBehaviour
 {
@@ -7,6 +10,20 @@ public class AudioUI : MonoBehaviour
     [SerializeField] EventID back;
     [SerializeField] EventID toggleOn;
     [SerializeField] EventID toggleOff;
+    [SerializeField] EventReference pause;
+
+    public static AudioUI Instance;
+
+    EventInstance pauseSnapshot;
+
+    Bus Master;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        Master = RuntimeManager.GetBus("bus:/");
+    }
 
     public void PostClick()
     {
@@ -29,5 +46,25 @@ public class AudioUI : MonoBehaviour
         else AudioManager.Instance.PlayOneShot2D(toggleOff);
     }
 
-    
+    public void PostPauseSnapshot()
+    {
+        pauseSnapshot = RuntimeManager.CreateInstance(pause);
+        pauseSnapshot.start();
+    }
+
+    public void StopPauseSnapshot()
+    {
+        pauseSnapshot.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        pauseSnapshot.release();
+    }
+
+    public void OnMainMenu()
+    {
+        Master.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        MusicManager.Instance.StopMusExploration();
+        MusicManager.Instance.StopAmb();
+    }
+
+   
+
 }
