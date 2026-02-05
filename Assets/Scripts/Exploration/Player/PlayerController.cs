@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Represents the player controller in the exploration phase
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private Transform graphicToFlip;
+    [SerializeField] private VisualEffect vfxWalk;
 
     private bool canUpdateTargetWithMouse;
     private bool moveToTarget;
@@ -147,7 +149,8 @@ public class PlayerController : MonoBehaviour
         bool isWalking = rb.linearVelocity.magnitude > 0.1f;
 
         animator.SetBool("isWalking", isWalking);
-
+        vfxWalk.SetBool("isWalking", isWalking);
+        
         Vector3 velocity = rb.linearVelocity;
 
         // Flip to the right side
