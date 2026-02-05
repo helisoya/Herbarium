@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 815442870779633579}
-  - {fileID: 5543346466642232056}
+  - {fileID: 7301104440470321517}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1612357136342170147
@@ -89,8 +89,8 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 441632577335979017}
-        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
+      - m_Target: {fileID: 888178697488126797}
+        m_TargetAssemblyTypeName: AudioQuenouilleCollision, Assembly-CSharp
         m_MethodName: PostGrassCollision
         m_Mode: 2
         m_Arguments:
@@ -194,7 +194,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &438913533668495778
+--- !u!1001 &8783972556625671115
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -202,68 +202,68 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4245178044443198185}
     m_Modifications:
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01327
+    - target: {fileID: 1247873128854489677, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
+      propertyPath: m_Name
+      value: AudioQuenouilleCollision
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.82627964
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625584107415344172, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: m_Name
-      value: AudioProximity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
---- !u!114 &441632577335979017 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
+--- !u!114 &888178697488126797 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-  m_PrefabInstance: {fileID: 438913533668495778}
+  m_CorrespondingSourceObject: {fileID: 8481827661917364358, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
+  m_PrefabInstance: {fileID: 8783972556625671115}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f6a93e13f2b3b4eaac3515b75807df, type: 3}
+  m_Script: {fileID: 11500000, guid: 48dac3fcadcd2204ba235ae688f83e95, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!4 &5543346466642232056 stripped
+  m_EditorClassIdentifier: Assembly-CSharp::AudioQuenouilleCollision
+--- !u!4 &7301104440470321517 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-  m_PrefabInstance: {fileID: 438913533668495778}
+  m_CorrespondingSourceObject: {fileID: 2068360929131711142, guid: d080d1544e7bf8646b5ae6e52c614a30, type: 3}
+  m_PrefabInstance: {fileID: 8783972556625671115}
   m_PrefabAsset: {fileID: 0}

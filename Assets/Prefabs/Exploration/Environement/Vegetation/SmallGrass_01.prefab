@@ -123,7 +123,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3071281272184060609}
-  - {fileID: 6578271906038165774}
+  - {fileID: 512659598121045249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6084641323175939793
@@ -179,13 +179,13 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1263159858646966271}
-        m_TargetAssemblyTypeName: AudioProximity, Assembly-CSharp
-        m_MethodName: PostGrassCollision
-        m_Mode: 2
+      - m_Target: {fileID: 3316717443963151235}
+        m_TargetAssemblyTypeName: AudioGrassCollision, Assembly-CSharp
+        m_MethodName: PostGrassCollision2D
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 6636796321765009683}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -194,7 +194,7 @@ MonoBehaviour:
   onExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &1274534943969157716
+--- !u!1001 &4704556409682005951
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -202,80 +202,68 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6434987335852215258}
     m_Modifications:
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
+    - target: {fileID: 2462307146088107776, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
+      propertyPath: m_Name
+      value: AudioGrassCollision
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06748
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.37978998
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.38268343
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
+    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5625584107415344172, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-      propertyPath: m_Name
-      value: AudioProximity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
---- !u!114 &1263159858646966271 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
+--- !u!4 &512659598121045249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
+  m_PrefabInstance: {fileID: 4704556409682005951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3316717443963151235 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 15670195430751659, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-  m_PrefabInstance: {fileID: 1274534943969157716}
+  m_CorrespondingSourceObject: {fileID: 8020534704512035900, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
+  m_PrefabInstance: {fileID: 4704556409682005951}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f6a93e13f2b3b4eaac3515b75807df, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b7a99ddcda198241bb2e9eeea3fe4c7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
---- !u!4 &6578271906038165774 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5402834891606627162, guid: 0467c2b9d3da1d04b998e4a67d4e0575, type: 3}
-  m_PrefabInstance: {fileID: 1274534943969157716}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::AudioGrassCollision
