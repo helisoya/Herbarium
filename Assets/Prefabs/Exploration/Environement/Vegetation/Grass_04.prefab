@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8474957052205870395}
   - component: {fileID: 1139976612180094514}
+  - component: {fileID: 7031100593133422664}
   m_Layer: 0
   m_Name: Grass_04
   m_TagString: Untagged
@@ -89,7 +90,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 611354bee7bf37d479dbb0610f6c4051, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,3 +123,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7031100593133422664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303872872145388202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _renderer: {fileID: 1139976612180094514}
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5

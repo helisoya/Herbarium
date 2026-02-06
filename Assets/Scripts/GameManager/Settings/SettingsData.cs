@@ -33,7 +33,7 @@ public class SettingsData : ScriptableObject
 	public float volumeMusic;
 	public float volumeSfx;
 	public bool muteAll;
-	public int outputDevice;
+	public bool isMono;
 
 
 	[Header("Input")]
@@ -72,7 +72,7 @@ public class SettingsData : ScriptableObject
 		outlineObjectsColor = copy.outlineObjectsColor;
 		negativeColorFilter = copy.negativeColorFilter;
 		muteAll = copy.muteAll;
-		outputDevice = copy.outputDevice;
+		isMono = copy.isMono;
 		toggleGrabEnabled = copy.toggleGrabEnabled;
 		subtitlesBackgroundOpacity = copy.subtitlesBackgroundOpacity;
 		toggleMoveEnabled = copy.toggleMoveEnabled;
