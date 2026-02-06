@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &19337209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19337210}
+  - component: {fileID: 19337211}
+  m_Layer: 0
+  m_Name: NearBarbrookBarbrook
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &19337210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19337209}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.968, y: 0, z: 0.248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1516207656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &19337211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19337209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d5811568944524ca214e72dc3dddf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneObject
+  id: NearBarbrook_Barbrook
 --- !u!1001 &30452512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1487,6 +1532,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 212476136522970732, guid: dcf348453262b264ba09da65ee0ec2f3, type: 3}
   m_PrefabInstance: {fileID: 1339372167882230032}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &740249636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 740249637}
+  - component: {fileID: 740249638}
+  m_Layer: 0
+  m_Name: NearBarbrookPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &740249637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740249636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.531, y: 0, z: 0.3539997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1516207656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740249638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740249636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d5811568944524ca214e72dc3dddf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneObject
+  id: NearBarbrook_Player
 --- !u!4 &781309167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2609375721203990076, guid: 197cdf62e4bf6ae47a1abfa6ffcf27af, type: 3}
@@ -2170,6 +2260,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1919866327}
     m_Modifications:
+    - target: {fileID: 916458277005092534, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 916458277005092534, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
+      propertyPath: EventPlayTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 916458277005092534, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916458277005092534, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3380308191725675552, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.211
@@ -2210,9 +2316,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4481193419332055306, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657750344742182141, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5856223363883900804, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
       propertyPath: entityId
       value: Herb_02_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856223363883900804, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8491993146862591694, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
       propertyPath: m_Name
@@ -2228,6 +2346,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3380308191725675552, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
   m_PrefabInstance: {fileID: 987638230}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &993817562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993817563}
+  - component: {fileID: 993817564}
+  m_Layer: 0
+  m_Name: PicnicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &993817563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993817562}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.286, y: 0, z: 4.878}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1516207656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993817564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993817562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d5811568944524ca214e72dc3dddf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneObject
+  id: Picnic_Player
 --- !u!1001 &1002737988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2330,6 +2493,7 @@ Transform:
   - {fileID: 184202227}
   - {fileID: 127460434}
   - {fileID: 45464780}
+  - {fileID: 1516207656}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011423062
@@ -2978,6 +3142,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1919866327}
     m_Modifications:
+    - target: {fileID: 1061632215423916678, guid: e0c9fff4e4a3b7440ab3ce8946784ddb, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2151947251326976083, guid: e0c9fff4e4a3b7440ab3ce8946784ddb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.058
@@ -4090,6 +4258,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1845550307118769363, guid: 6708a52040b714143bcd110cf28dff60, type: 3}
   m_PrefabInstance: {fileID: 3118102291143618438}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1516207655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1516207656}
+  m_Layer: 0
+  m_Name: CutsceneObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1516207656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516207655}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1543874013}
+  - {fileID: 993817563}
+  - {fileID: 19337210}
+  - {fileID: 740249637}
+  m_Father: {fileID: 1004933203}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1530826482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4251,6 +4454,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9185814041012296227, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
   m_PrefabInstance: {fileID: 1530826482}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1543874012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543874013}
+  - component: {fileID: 1543874014}
+  m_Layer: 0
+  m_Name: PicnicBarbrook
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1543874013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543874012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -40.723, y: 0, z: 4.772}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1516207656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1543874014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543874012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d5811568944524ca214e72dc3dddf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneObject
+  id: Picnic_Barbrook
 --- !u!4 &1545854226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4169571285235300876, guid: 09dc0209cc2eb82449a092ba7ddbcd32, type: 3}
@@ -5763,7 +6011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610696753220924830, guid: 3fdba38bb37935d439064f8c70a977c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.28
+      value: -5.14
       objectReference: {fileID: 0}
     - target: {fileID: 3610696753220924830, guid: 3fdba38bb37935d439064f8c70a977c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5771,7 +6019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610696753220924830, guid: 3fdba38bb37935d439064f8c70a977c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.81
+      value: 12.03
       objectReference: {fileID: 0}
     - target: {fileID: 3610696753220924830, guid: 3fdba38bb37935d439064f8c70a977c8, type: 3}
       propertyPath: m_LocalRotation.w

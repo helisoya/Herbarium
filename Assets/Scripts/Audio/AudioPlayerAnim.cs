@@ -3,9 +3,9 @@ using UnityEngine;
 public class AudioPlayerAniù : MonoBehaviour
 {
     [SerializeField] EventID playerWalk;
-    [SerializeField] EventID playerWalkStop;
-    [SerializeField] EventID playerBend;
-    [SerializeField] EventID playerInteract;
+    //[SerializeField] EventID playerWalkStop;
+    //[SerializeField] EventID playerBend;
+    //[SerializeField] EventID playerInteract;
     [SerializeField] EventID playerCloatUp;
     [SerializeField] EventID playerCloatDown;
 

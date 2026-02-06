@@ -61,8 +61,14 @@ public class AudioUI : MonoBehaviour
     public void OnMainMenu()
     {
         Master.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        MusicManager.Instance.StopMusExploration();
-        MusicManager.Instance.StopAmb();
+        MusicManager.Instance.PlayMusMainTitle();
+    }
+
+    public void OnExitMainMenu()
+    {
+        MusicManager.Instance.StopMusMainTitle();
+        MusicManager.Instance.PlayAmb();
+        MusicManager.Instance.PlayMusExploration();
     }
 
    

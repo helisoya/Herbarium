@@ -14,14 +14,16 @@ public class MusicManager : MonoBehaviour
     public EventReference MusBarbrookPicnicEvent;
     public EventReference MusNourPartA;
     public EventReference MusNourPartB;
+    public EventReference MusMainTitleEvent;
 
-    FMOD.Studio.EventInstance amb;
-    FMOD.Studio.EventInstance musSpawn;
-    FMOD.Studio.EventInstance musExploration;
-    FMOD.Studio.EventInstance musBarbrook;
-    FMOD.Studio.EventInstance musBarbrookPicnic;
-    FMOD.Studio.EventInstance musNourPartA;
-    FMOD.Studio.EventInstance musNourPartB;
+    EventInstance amb;
+    EventInstance musSpawn;
+    EventInstance musExploration;
+    EventInstance musBarbrook;
+    EventInstance musBarbrookPicnic;
+    EventInstance musNourPartA;
+    EventInstance musNourPartB;
+    EventInstance musMainTitle;
 
     private void Awake()
     {
@@ -33,13 +35,40 @@ public class MusicManager : MonoBehaviour
     {
         amb = RuntimeManager.CreateInstance(AmbEvent);
         amb.start();
+        PlayMusExploration();
     }
 
+    public void PlayAmb()
+    {
+        if (!amb.isValid())
+        {
+            amb = RuntimeManager.CreateInstance(AmbEvent);
+            amb.start();
+        }
+        else return;
+    }
     public void StopAmb()
     {
-        amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        amb.release();
+        if (musExploration.isValid())
+        {
+            amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            amb.release();
+        }
+        else return;
     }
+
+    public void PlayMusMainTitle()
+    {
+        musMainTitle = RuntimeManager.CreateInstance(MusMainTitleEvent);
+        musMainTitle.start();
+    }
+
+    public void StopMusMainTitle()
+    {
+        musMainTitle.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        musMainTitle.release();
+    }
+
     public void PlayMusSpawn()
     {
         musSpawn = RuntimeManager.CreateInstance(MusSpawnEvent);
@@ -54,9 +83,15 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusExploration()
     {
-        AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
-        musExploration = RuntimeManager.CreateInstance(MusExplorationEvent);
-        musExploration.start();
+        if (!musExploration.isValid())
+        {
+            AudioManager.Instance.SetGlobalParameterByName("Zone", 0);
+            musExploration = RuntimeManager.CreateInstance(MusExplorationEvent);
+            Debug.Log("Je demande à la musique d'exploration de jouer");
+            musExploration.start();
+        }
+        else return;
+        
     }
 
     public void FadeMusExploration(int zone)
@@ -141,7 +176,7 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.Drying:
-                AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
+                //AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
                 break;
 
             case CutSceneID.Plant:
