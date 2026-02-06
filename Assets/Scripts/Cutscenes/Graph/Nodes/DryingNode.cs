@@ -23,7 +23,7 @@ public class DryingNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
-
+        
         GameGUI.instance.OpenInventoryGive();
         yield return new WaitForEndOfFrame();
         while(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
@@ -58,7 +58,7 @@ public class DryingNode : HerbariumNode
             if (isSecret || GameManager.instance.GetPlayerDataHandler().IsUnlockedInHerbarium(selectedPlant))
             {
                 GameGUI.instance.ShowPopup("Popup_Drying_Fail",null);
-
+                
                 yield return new WaitForSeconds(2.0f);
 
                 yield return 1;
@@ -67,6 +67,8 @@ public class DryingNode : HerbariumNode
             {
 
                 GameGUI.instance.ShowPopup("Popup_Drying_Good",null);
+
+                AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
 
                 yield return new WaitForSeconds(2.0f);
 
