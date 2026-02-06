@@ -435,22 +435,22 @@ public class Settings
     }
 
     /// <summary>
-    /// Sets the output device
+    /// Sets if the audio is in mono or not
     /// </summary>
-    /// <param name="index">The output device index</param>
-    public void SetOutputDevice(int index)
+    /// <param name="isMono">True if using mono</param>
+    public void SetIsMono(bool isMono)
     {
-        data.outputDevice = index;
+        data.isMono = isMono;
         Save();
     }
 
     /// <summary>
-    /// Gets the Output device
+    /// Gets if the audio is in mono
     /// </summary>
     /// <returns>The output device index</returns>
-    public int GetOutputDevice()
+    public bool GetIsMono()
     {
-        return data.outputDevice;
+        return data.isMono;
     }
 
     #endregion
@@ -494,6 +494,7 @@ public class Settings
     public void EnableToggleMove(bool active)
     {
         data.toggleMoveEnabled = active;
+        AudioManager.Instance.OnToggleMono(active);
         Save();
     }
 
@@ -694,12 +695,15 @@ public class Settings
         data.volumeMusic = defaultData.volumeMusic;
         data.volumeSfx = defaultData.volumeSfx;
         data.muteAll = defaultData.muteAll;
+        data.isMono = defaultData.isMono;
 
         if (data.muteAll) AudioManager.Instance.MuteAll();
         else AudioManager.Instance.SetMasterVolume(defaultData.volumeMaster);
 
         AudioManager.Instance.SetMusicVolume(defaultData.volumeMusic);
         AudioManager.Instance.SetSFXVolume(defaultData.volumeSfx);
+
+        AudioManager.Instance.OnToggleMono(defaultData.isMono);
         Save();
     }
 
@@ -784,6 +788,7 @@ public class Settings
         else AudioManager.Instance.SetMasterVolume(data.volumeMaster);
         AudioManager.Instance.SetMusicVolume(data.volumeMusic);
         AudioManager.Instance.SetSFXVolume(data.volumeSfx);
+        AudioManager.Instance.OnToggleMono(data.isMono);
 
         for (int i = 0; i < data.textChannelsDatas.Length; i++)
         {
