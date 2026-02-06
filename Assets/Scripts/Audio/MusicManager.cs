@@ -14,14 +14,16 @@ public class MusicManager : MonoBehaviour
     public EventReference MusBarbrookPicnicEvent;
     public EventReference MusNourPartA;
     public EventReference MusNourPartB;
+    public EventReference MusMainTitleEvent;
 
-    FMOD.Studio.EventInstance amb;
-    FMOD.Studio.EventInstance musSpawn;
-    FMOD.Studio.EventInstance musExploration;
-    FMOD.Studio.EventInstance musBarbrook;
-    FMOD.Studio.EventInstance musBarbrookPicnic;
-    FMOD.Studio.EventInstance musNourPartA;
-    FMOD.Studio.EventInstance musNourPartB;
+    EventInstance amb;
+    EventInstance musSpawn;
+    EventInstance musExploration;
+    EventInstance musBarbrook;
+    EventInstance musBarbrookPicnic;
+    EventInstance musNourPartA;
+    EventInstance musNourPartB;
+    EventInstance musMainTitle;
 
     private void Awake()
     {
@@ -35,11 +37,29 @@ public class MusicManager : MonoBehaviour
         amb.start();
     }
 
+    public void PlayAmb()
+    {
+        amb = RuntimeManager.CreateInstance(AmbEvent);
+        amb.start();
+    }
     public void StopAmb()
     {
         amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         amb.release();
     }
+
+    public void PlayMusMainTitle()
+    {
+        musMainTitle = RuntimeManager.CreateInstance(MusMainTitleEvent);
+        musMainTitle.start();
+    }
+
+    public void StopMusMainTitle()
+    {
+        musMainTitle.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        musMainTitle.release();
+    }
+
     public void PlayMusSpawn()
     {
         musSpawn = RuntimeManager.CreateInstance(MusSpawnEvent);
@@ -141,7 +161,7 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.Drying:
-                AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
+                //AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
                 break;
 
             case CutSceneID.Plant:

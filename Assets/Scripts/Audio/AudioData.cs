@@ -31,6 +31,8 @@ public enum EventID
     Click, Hover, Back, ToggleOn, ToggleOff,
     Pause,
     BarbrookSleeping, BarbrookWakeUp, BarbrookIdle, BarbrookHappy,
+    NourIdle, NourRun, NourJump,
+    Lucioles,
 }
 
 
