@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
 
             Locals.Init();
             Settings.Init();
-            playerDataHandler.ResetData();
             plantDatabase.Init();
+            playerDataHandler.ResetData();
 
             DontDestroyOnLoad(gameObject);
 

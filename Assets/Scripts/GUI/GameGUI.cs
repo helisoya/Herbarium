@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -30,6 +31,10 @@ public class GameGUI : MonoBehaviour
 
     [Header("HUD")]
     [SerializeField] private GameObject hudRoot;
+
+    [Header("Map")]
+    [SerializeField] private GameObject mapRoot;
+    public bool mapOpen {get; private set;}
 
     [Header("Popup")]
     [SerializeField] private CanvasGroup popupGroup;
@@ -87,6 +92,7 @@ public class GameGUI : MonoBehaviour
     {
         fade.ForceAlphaTo(1);
         fade.FadeTo(0);
+        mapRoot.transform.localScale = Vector3.zero;
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         AddAllQuestsPin();
     }
@@ -182,11 +188,33 @@ public class GameGUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Try to start a reset all in the options
+    /// </summary>
+    public void OptionsResetAll()
+    {
+        if (pauseMenu.isOpen)
+        {
+            pauseMenu.OptionsResetAll();
+        }
+    }
+
+    /// <summary>
+    /// Try to move the options tab
+    /// </summary>
+    /// <param name="delta">The move delta</param>
+    public void OptionsMove(float delta)
+    {
+        if (pauseMenu.isOpen)
+        {
+            pauseMenu.OptionsMove(delta);
+        }
+    }
+
+    /// <summary>
     /// Closes the pause menu
     /// </summary>
     public void ClosePause()
     {
-        EnableHudIfPossible();
         pauseMenu.Close();
     }
 
@@ -252,6 +280,14 @@ public class GameGUI : MonoBehaviour
     {
         EnableHudIfPossible();
         herbariumGUI.Close();
+    }
+
+    /// <summary>
+    /// Switch the tabs of the herbarium
+    /// </summary>
+    public void HerbariumSwitchTabs()
+    {
+        herbariumGUI.SwitchTabs();
     }
 
     /// <summary>
@@ -361,7 +397,7 @@ public class GameGUI : MonoBehaviour
 
         SetDialogBackgroundAlpha(Settings.instance.GetSubtitlesBackgroundOpacity());
         SetDialogOpen(true);
-        dialogContinueRoot.SetActive(false);
+        //dialogContinueRoot.SetActive(false);
 
         if (string.IsNullOrEmpty(characterName))
         {
@@ -375,11 +411,12 @@ public class GameGUI : MonoBehaviour
 
         if (string.IsNullOrEmpty(characterTitle))
         {
-            dialogTitleRoot.SetActive(false);
+            //dialogTitleRoot.SetActive(false);
+            dialogTitleText.SetNewKey("");
         }
         else
         {
-            dialogTitleRoot.SetActive(true);
+            //dialogTitleRoot.SetActive(true);
             dialogTitleText.SetNewKey(characterTitle);
         }
 
@@ -427,7 +464,7 @@ public class GameGUI : MonoBehaviour
 
         onStopTypingDialog.Invoke();
 
-        dialogContinueRoot.SetActive(true);
+        //dialogContinueRoot.SetActive(true);
         skipDialog = false;
         routineDialog = null;
     }
@@ -445,6 +482,15 @@ public class GameGUI : MonoBehaviour
     {
         if(routinePopup != null) StopCoroutine(routinePopup);
         routinePopup = StartCoroutine(Routine_Popup(key,injectors));
+    }
+
+    /// <summary>
+    /// Hides the current popup
+    /// </summary>
+    public void HidePopup()
+    {
+        if(routinePopup != null) StopCoroutine(routinePopup);
+        popupGroup.alpha = 0.0f;
     }
 
     /// <summary>
@@ -490,6 +536,30 @@ public class GameGUI : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    #endregion
+
+    #region Map
+
+    /// <summary>
+    /// Opens the map
+    /// </summary>
+    public void OpenMap()
+    {
+        mapOpen = true;
+        DisableHud();
+        mapRoot.transform.DOScale(Vector3.one,0.3f).SetEase(Ease.InQuad);
+    }
+
+    /// <summary>
+    /// Closes the map
+    /// </summary>
+    public void CloseMap()
+    {
+        mapOpen = false;
+        EnableHudIfPossible();
+        mapRoot.transform.DOScale(Vector3.zero,0.3f).SetEase(Ease.InQuad);
     }
 
     #endregion

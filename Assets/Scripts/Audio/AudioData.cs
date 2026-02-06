@@ -28,6 +28,9 @@ public enum EventID
     MusGoodNight, MusGoodMorning, MusSpawn,
     DryPlant, PlantDamage,
     PlayerWalk, PlayerWalkStop, PlayerBend, PlayerInteract, PlayerWalkCloatDown, PlayerWalkCloatUp,
+    Click, Hover, Back, ToggleOn, ToggleOff,
+    Pause,
+    BarbrookSleeping, BarbrookWakeUp, BarbrookIdle, BarbrookHappy,
 }
 
 

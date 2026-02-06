@@ -57,15 +57,25 @@ public class DryingNode : HerbariumNode
 
             if (isSecret || GameManager.instance.GetPlayerDataHandler().IsUnlockedInHerbarium(selectedPlant))
             {
+                GameGUI.instance.ShowPopup("Popup_Drying_Fail",null);
+
+                yield return new WaitForSeconds(2.0f);
+
                 yield return 1;
             }
             else
             {
+
+                GameGUI.instance.ShowPopup("Popup_Drying_Good",null);
+
+                yield return new WaitForSeconds(2.0f);
+
                 GameManager.instance.GetPlayerDataHandler().RemoveFromInventoryAt(selected);
                 GameManager.instance.GetPlayerDataHandler().AddHerbariumPage(selectedPlant);
 
                 if (showHerbariumImmediatly)
                 {
+                    GameGUI.instance.HidePopup();
                     GameGUI.instance.OpenHerbarium();
                     GameGUI.instance.HerbariumShowPlantPage(GameManager.instance.GetPlantDatabase().PlantIDToIndex(selectedPlant));
                     yield return new WaitForEndOfFrame();

@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8190964851565938679}
+  - {fileID: 92602065012918766}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3667257177803278283
@@ -78,6 +79,27 @@ MonoBehaviour:
       Value: 1
     - Key: TestPlant3
       Value: 1
+    - Key: Fern_01
+      Value: 1
+    - Key: Herb_01
+      Value: 1
+    - Key: Herb_02
+      Value: 1
+  onUnlockPlant:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1924485578849682695}
+        m_TargetAssemblyTypeName: AudioPlantsParam, Assembly-CSharp
+        m_MethodName: PostUnlockPlant
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1692928887586753417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,11 +133,11 @@ MonoBehaviour:
     - Key: a
       Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
     - Key: z
-      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+      Value: {fileID: 1850944623, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: e
       Value: {fileID: 3790073875821819593, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: r
-      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+      Value: {fileID: 955967668, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: t
       Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
     - Key: y
@@ -129,11 +151,11 @@ MonoBehaviour:
     - Key: p
       Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
     - Key: q
-      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+      Value: {fileID: -1647542198, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: s
-      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+      Value: {fileID: -1483184218, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: d
-      Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
+      Value: {fileID: -2126054710, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: f
       Value: {fileID: 21300000, guid: 7be643fc522949e4d8b07b601dc70b78, type: 3}
     - Key: g
@@ -153,7 +175,7 @@ MonoBehaviour:
     - Key: m
       Value: {fileID: 5083284127558242077, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: w
-      Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
+      Value: {fileID: -717611013, guid: 0138afea692c9b04783fa1e68083277e, type: 3}
     - Key: x
       Value: {fileID: 21300000, guid: af9cdb7e41c148c4faa96dc1e83e70e7, type: 3}
     - Key: c
@@ -237,3 +259,76 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 3e72ebb6d2a5cf64ea9758efbe395d2d, type: 2}
+--- !u!1001 &1531471035742259754
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4952751422044168475}
+    m_Modifications:
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.45203
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00012
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.33248997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035820466724165141, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+      propertyPath: m_Name
+      value: AudioPlantsParam
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+--- !u!4 &92602065012918766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1443436513913701316, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+  m_PrefabInstance: {fileID: 1531471035742259754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1924485578849682695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1150042686737420077, guid: 9f1fd81c49d3f6440a742d9a186c8c2f, type: 3}
+  m_PrefabInstance: {fileID: 1531471035742259754}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34db5c7591334c44fb82e5623a5a78bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioPlantsParam

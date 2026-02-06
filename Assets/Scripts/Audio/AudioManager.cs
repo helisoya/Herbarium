@@ -118,23 +118,17 @@ public class AudioManager : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        
         masterBus.setVolume(volume);
-        Debug.Log(volume);
     }
     
     public void SetSFXVolume(float volume)
     {
-        
         sfxBus.setVolume(volume);
-        Debug.Log(volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        
         musicBus.setVolume(volume);
-        Debug.Log(volume);
     }
 
     public void MuteAll()

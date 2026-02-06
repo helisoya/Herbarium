@@ -10,7 +10,7 @@ public struct RadialMenuData
     public RadialMenuEntryData[] entries;
     public float radius;
     public RadialMenuID id;
-
+    public bool showBackpack;
 }
 
 /// <summary>
