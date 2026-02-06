@@ -25,7 +25,134 @@ public class AudioDialogues : MonoBehaviour
 
     public void PostSpeak(string speaker, string emotion)
     {
-        AudioManager.Instance.PlayOneShot2D(speak);
+        switch (speaker)
+        {
+            case "Nour":
+
+                AudioManager.Instance.SetGlobalParameterByName("Character", 1);
+
+                switch (emotion)
+                {
+                    case "Hi":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 0);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        Debug.Log("Barbrok says hi");
+                        break;
+
+                    case "Excited":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 1);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Question":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 2);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Frustration":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 3);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Impressed":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 4);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Menacing":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 5);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Content":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 6);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Pensive":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 7);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Laugh":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 8);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Goodbye":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 9);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "NoSpeak":
+                        break;
+                }
+
+                break;
+
+            case "Barbrook":
+
+                AudioManager.Instance.SetGlobalParameterByName("Character", 2);
+
+                switch (emotion)
+                {
+                    case "Hi":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 0);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Excited":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 1);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Question":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 2);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Frustration":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 3);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Impressed":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 4);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Menacing":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 5);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Content":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 6);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Pensive":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 7);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Laugh":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 8);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "Goodbye":
+                        AudioManager.Instance.SetGlobalParameterByName("Emotion", 9);
+                        AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "NoSpeak":
+                        break;
+                }
+
+                break;
+
+        }
     }
 
     public void PostStartTyping()
