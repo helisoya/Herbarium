@@ -28,7 +28,8 @@ public class ForagingMicroInteraction : MicroInteraction
     [SerializeField] private GameObject tutorialRoot;
 
     [Header("Backpack")]
-    [SerializeField] private GameObject backpackTopCollider;
+    [SerializeField] private GameObject backpackDone;
+    [SerializeField] private GameObject backpackNotDone;
     private bool plantInBackpack;
 
     [Header("Foraging Audio")]
@@ -53,7 +54,8 @@ public class ForagingMicroInteraction : MicroInteraction
 
     void Start()
     {
-        backpackTopCollider.SetActive(false);
+        backpackNotDone.SetActive(true);
+        backpackDone.SetActive(false);
         plantInBackpack = false;
 
         if (debugAutoPlay && debugPlayer)
@@ -185,7 +187,8 @@ public class ForagingMicroInteraction : MicroInteraction
     public void RaiseFlagPlantInBackpack()
     {
         onPlantInBag.Invoke();
-        backpackTopCollider.SetActive(true);
+        backpackNotDone.SetActive(false);
+        backpackDone.SetActive(true);
         plantInBackpack = true;
         CloseMicroInteraction();
     }
