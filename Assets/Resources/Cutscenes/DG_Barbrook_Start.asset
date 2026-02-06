@@ -52,37 +52,6 @@ MonoBehaviour:
   speakerAudio: 
   emotionAudio: 
   exit: 0
---- !u!114 &-8289446820870782691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a57d1747d5b1c384395907c911f10638, type: 3}
-  m_Name: End
-  m_EditorClassIdentifier: Assembly-CSharp::EndNode
-  graph: {fileID: 11400000}
-  position: {x: 2456, y: -168}
-  ports:
-    keys:
-    - entry
-    values:
-    - _fieldName: entry
-      _node: {fileID: -8289446820870782691}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 8247502692945124021}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
 --- !u!114 &-8257973296361447830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,14 +193,14 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 8247502692945124021}
+        node: {fileID: 4373528751891652558}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  variableID: 
+  variableID: quest_barbrook
   type: 0
   value: 0
   exit: 0
@@ -401,12 +370,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cab69574fb0bf19408772b469095a1ca, type: 3}
-  m_Name: DG_Barbrook_Start 1
+  m_Name: DG_Barbrook_Start
   m_EditorClassIdentifier: Assembly-CSharp::DialogGraph
   nodes:
   - {fileID: 107968734850196264}
   - {fileID: -8165577652942485098}
-  - {fileID: 8247502692945124021}
   - {fileID: -534075603205052522}
   - {fileID: -332855818390778240}
   - {fileID: 8206031102220319021}
@@ -415,7 +383,7 @@ MonoBehaviour:
   - {fileID: -8849828431991546925}
   - {fileID: 8417900229599677854}
   - {fileID: -7598420730656889703}
-  - {fileID: -8289446820870782691}
+  - {fileID: 4373528751891652558}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -448,6 +416,37 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &4373528751891652558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57d1747d5b1c384395907c911f10638, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: Assembly-CSharp::EndNode
+  graph: {fileID: 11400000}
+  position: {x: 2152, y: -88}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4373528751891652558}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7598420730656889703}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
 --- !u!114 &8206031102220319021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,54 +498,6 @@ MonoBehaviour:
   addToLog: 1
   speakerAudio: 
   emotionAudio: 
-  exit: 0
---- !u!114 &8247502692945124021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3e26b175684544a85002504f4e3377, type: 3}
-  m_Name: Set Interactable Graph
-  m_EditorClassIdentifier: Assembly-CSharp::SetInteractableGraphNode
-  graph: {fileID: 11400000}
-  position: {x: 2168, y: -168}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 8247502692945124021}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: -7598420730656889703}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 8247502692945124021}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -8289446820870782691}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  objectID: 
-  nextGraph: {fileID: 11400000, guid: adcbf9f8da3bc63428b0b0d70a4d11da, type: 2}
-  audioCutSceneID: 0
   exit: 0
 --- !u!114 &8417900229599677854
 MonoBehaviour:
