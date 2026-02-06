@@ -81,7 +81,6 @@ public class WalkingInGrass : MonoBehaviour
             if (_grassVFX.isPlaying)
                 _grassVFX.Stop();
         }
-
     }
     
 }
