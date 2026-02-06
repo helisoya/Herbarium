@@ -34,7 +34,7 @@ public class HasPlantInInventoryNode : HerbariumNode
             }
             else if (!checkingForAny)
             {
-                if (item.Equals(plantID))
+                if (item != null && item.Equals(plantID))
                 {
                     skip = true;
                     yield return 0;

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: Set Object Position From Object
   m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
   graph: {fileID: 11400000}
-  position: {x: 72, y: 152}
+  position: {x: 40, y: 280}
   ports:
     keys:
     - entry
@@ -89,15 +89,15 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 7957611990012986962}
+        node: {fileID: -5223827759619093097}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  objectID: 
-  targetID: 
+  objectID: Barbrook
+  targetID: Picnic_Barbrook
   exit: 0
 --- !u!114 &-8289446820870782691
 MonoBehaviour:
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 6840, y: 424}
+  position: {x: 6520, y: 568}
   ports:
     keys:
     - entry
@@ -123,7 +123,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 8247502692945124021}
+        node: {fileID: -3252219147385465687}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 7957611990012986962}
+        node: {fileID: -5223827759619093097}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 5704, y: 344}
+  position: {x: 6024, y: 344}
   ports:
     keys:
     - entry
@@ -259,7 +259,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 2950243632384749151}
+        node: {fileID: -5367107634026116345}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -285,54 +285,6 @@ MonoBehaviour:
   addToLog: 1
   speakerAudio: 
   emotionAudio: 
-  exit: 0
---- !u!114 &-7598420730656889703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace78cd0414e52c43a7013805896aa6a, type: 3}
-  m_Name: Set Variable
-  m_EditorClassIdentifier: Assembly-CSharp::SetVariableNode
-  graph: {fileID: 11400000}
-  position: {x: 6280, y: 424}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: -7598420730656889703}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: -3252219147385465687}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: -7598420730656889703}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 8247502692945124021}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  variableID: 
-  type: 0
-  value: 0
   exit: 0
 --- !u!114 &-7422542783004939244
 MonoBehaviour:
@@ -386,6 +338,100 @@ MonoBehaviour:
   speakerAudio: 
   emotionAudio: 
   exit: 0
+--- !u!114 &-5367107634026116345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090574184a08cc4a8d10000678716b6, type: 3}
+  m_Name: Fade
+  m_EditorClassIdentifier: Assembly-CSharp::FadeNode
+  graph: {fileID: 11400000}
+  position: {x: 5688, y: 472}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5367107634026116345}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 2950243632384749151}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -5367107634026116345}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7899813675771792774}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  target: 0
+  waitForEnd: 1
+  exit: 0
+--- !u!114 &-5223827759619093097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090574184a08cc4a8d10000678716b6, type: 3}
+  m_Name: Fade
+  m_EditorClassIdentifier: Assembly-CSharp::FadeNode
+  graph: {fileID: 11400000}
+  position: {x: 280, y: 280}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5223827759619093097}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -8555531715817217915}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -5223827759619093097}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8165577652942485098}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  target: 0
+  waitForEnd: 1
+  exit: 0
 --- !u!114 &-4572135758249597868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,8 +476,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  objectID: 
-  targetID: 
+  objectID: Player
+  targetID: NearBarbrook_Player
   exit: 0
 --- !u!114 &-4186393157556167384
 MonoBehaviour:
@@ -498,7 +544,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 5960, y: 344}
+  position: {x: 6280, y: 344}
   ports:
     keys:
     - entry
@@ -522,7 +568,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -7598420730656889703}
+        node: {fileID: -8289446820870782691}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -812,7 +858,6 @@ MonoBehaviour:
   nodes:
   - {fileID: 107968734850196264}
   - {fileID: -8165577652942485098}
-  - {fileID: 8247502692945124021}
   - {fileID: -534075603205052522}
   - {fileID: -332855818390778240}
   - {fileID: 8206031102220319021}
@@ -820,12 +865,10 @@ MonoBehaviour:
   - {fileID: -8257973296361447830}
   - {fileID: -8849828431991546925}
   - {fileID: 8417900229599677854}
-  - {fileID: -7598420730656889703}
   - {fileID: -8289446820870782691}
   - {fileID: 4734735286496648850}
   - {fileID: -8555531715817217915}
   - {fileID: 837855842461183717}
-  - {fileID: 7957611990012986962}
   - {fileID: -2901519671266081928}
   - {fileID: 1270669016026705586}
   - {fileID: 7299559196552625026}
@@ -839,6 +882,8 @@ MonoBehaviour:
   - {fileID: 3944138616257799782}
   - {fileID: 2950243632384749151}
   - {fileID: -4572135758249597868}
+  - {fileID: -5223827759619093097}
+  - {fileID: -5367107634026116345}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -853,7 +898,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: Assembly-CSharp::StartNode
   graph: {fileID: 11400000}
-  position: {x: -680, y: 168}
+  position: {x: -712, y: 296}
   ports:
     keys:
     - exit
@@ -884,7 +929,7 @@ MonoBehaviour:
   m_Name: Set Object Position From Object
   m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
   graph: {fileID: 11400000}
-  position: {x: -184, y: 152}
+  position: {x: -216, y: 280}
   ports:
     keys:
     - entry
@@ -915,8 +960,8 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  objectID: 
-  targetID: 
+  objectID: Player
+  targetID: Picnic_Player
   exit: 0
 --- !u!114 &1270669016026705586
 MonoBehaviour:
@@ -1059,15 +1104,15 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -7899813675771792774}
+        node: {fileID: -5367107634026116345}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  objectID: 
-  targetID: 
+  objectID: Barbrook
+  targetID: NearBarbrook_Barbrook
   exit: 0
 --- !u!114 &3944138616257799782
 MonoBehaviour:
@@ -1114,7 +1159,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   target: 1
-  waitForEnd: 0
+  waitForEnd: 1
   exit: 0
 --- !u!114 &4734735286496648850
 MonoBehaviour:
@@ -1129,7 +1174,7 @@ MonoBehaviour:
   m_Name: Fade
   m_EditorClassIdentifier: Assembly-CSharp::FadeNode
   graph: {fileID: 11400000}
-  position: {x: -424, y: 152}
+  position: {x: -456, y: 280}
   ports:
     keys:
     - entry
@@ -1161,7 +1206,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   target: 1
-  waitForEnd: 0
+  waitForEnd: 1
   exit: 0
 --- !u!114 &7299559196552625026
 MonoBehaviour:
@@ -1267,52 +1312,6 @@ MonoBehaviour:
   speakerAudio: 
   emotionAudio: 
   exit: 0
---- !u!114 &7957611990012986962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f0a8b07dc87b4f43ab9c6efc1399cef, type: 3}
-  m_Name: Wait
-  m_EditorClassIdentifier: Assembly-CSharp::WaitNode
-  graph: {fileID: 11400000}
-  position: {x: 312, y: 168}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 7957611990012986962}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: -8555531715817217915}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 7957611990012986962}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -8165577652942485098}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  waitTime: 0.5
-  exit: 0
 --- !u!114 &8206031102220319021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,54 +1363,6 @@ MonoBehaviour:
   addToLog: 1
   speakerAudio: 
   emotionAudio: 
-  exit: 0
---- !u!114 &8247502692945124021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3e26b175684544a85002504f4e3377, type: 3}
-  m_Name: Set Interactable Graph
-  m_EditorClassIdentifier: Assembly-CSharp::SetInteractableGraphNode
-  graph: {fileID: 11400000}
-  position: {x: 6552, y: 424}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 8247502692945124021}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: -7598420730656889703}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 8247502692945124021}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -8289446820870782691}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  objectID: 
-  nextGraph: {fileID: 11400000, guid: 6829407932609ab4992a934423700085, type: 2}
-  audioCutSceneID: 0
   exit: 0
 --- !u!114 &8417900229599677854
 MonoBehaviour:

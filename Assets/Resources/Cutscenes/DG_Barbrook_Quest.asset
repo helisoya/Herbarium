@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1560, y: -392}
+  position: {x: 2568, y: -216}
   ports:
     keys:
     - entry
@@ -52,6 +52,81 @@ MonoBehaviour:
   speakerAudio: 
   emotionAudio: 
   exit: 0
+--- !u!114 &-8290803766932297254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7485b684b88b5438f87c24e6edc5eb, type: 3}
+  m_Name: Give Plant
+  m_EditorClassIdentifier: Assembly-CSharp::GivePlantNode
+  graph: {fileID: 11400000}
+  position: {x: 600, y: -200}
+  ports:
+    keys:
+    - entry
+    - exitSuccess
+    - exitPlantNotCorrect
+    - exitCancel
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8290803766932297254}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 5410936050869054041}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitSuccess
+      _node: {fileID: -8290803766932297254}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1891817401991705801}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitPlantNotCorrect
+      _node: {fileID: -8290803766932297254}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2924919380192334086}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitCancel
+      _node: {fileID: -8290803766932297254}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2924919380192334086}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  plantID: Herb_01
+  removePlantIfPossible: 1
+  exitSuccess: 0
+  exitPlantNotCorrect: 0
+  exitCancel: 0
 --- !u!114 &-8165577652942485098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +244,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 2136.2551, y: -225.6814}
+  position: {x: 3144, y: -56}
   ports:
     keys:
     - entry
@@ -200,7 +275,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1416, y: 392}
+  position: {x: 2616, y: 568}
   ports:
     keys:
     - entry
@@ -211,8 +286,8 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: checkFalse
-        node: {fileID: 8069170888378642438}
+      - fieldName: exit
+        node: {fileID: 1244945246328630499}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -252,7 +327,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1832, y: -392}
+  position: {x: 2840, y: -216}
   ports:
     keys:
     - entry
@@ -291,6 +366,54 @@ MonoBehaviour:
   speakerAudio: 
   emotionAudio: 
   exit: 0
+--- !u!114 &-1891817401991705801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace78cd0414e52c43a7013805896aa6a, type: 3}
+  m_Name: Set Variable
+  m_EditorClassIdentifier: Assembly-CSharp::SetVariableNode
+  graph: {fileID: 11400000}
+  position: {x: 840, y: -296}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1891817401991705801}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exitSuccess
+        node: {fileID: -8290803766932297254}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1891817401991705801}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2924919380192334086}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  variableID: quest_barbrook
+  type: 1
+  value: 1
+  exit: 0
 --- !u!114 &-1777629896304116983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +427,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1032, y: -392}
+  position: {x: 2040, y: -216}
   ports:
     keys:
     - entry
@@ -376,6 +499,9 @@ MonoBehaviour:
   - {fileID: 1019340905682611253}
   - {fileID: 5857480316110653471}
   - {fileID: 2465509189949659473}
+  - {fileID: -8290803766932297254}
+  - {fileID: -1891817401991705801}
+  - {fileID: 1244945246328630499}
   parrallelCutscene: 0
 --- !u!114 &18268592222152862
 MonoBehaviour:
@@ -390,7 +516,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1688, y: -24}
+  position: {x: 2568, y: 152}
   ports:
     keys:
     - entry
@@ -517,7 +643,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  plantID: 
+  plantID: Herb_01
   exitPlantInInventory: 0
   exitPlantNotInInventory: 0
 --- !u!114 &1019340905682611253
@@ -533,7 +659,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 2008, y: 392}
+  position: {x: 3208, y: 568}
   ports:
     keys:
     - entry
@@ -572,6 +698,54 @@ MonoBehaviour:
   speakerAudio: 
   emotionAudio: 
   exit: 0
+--- !u!114 &1244945246328630499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace78cd0414e52c43a7013805896aa6a, type: 3}
+  m_Name: Set Variable
+  m_EditorClassIdentifier: Assembly-CSharp::SetVariableNode
+  graph: {fileID: 11400000}
+  position: {x: 2296, y: 568}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 1244945246328630499}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: checkFalse
+        node: {fileID: 8069170888378642438}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 1244945246328630499}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -2821261358698073547}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  variableID: quest_barbrook
+  type: 0
+  value: 100
+  exit: 0
 --- !u!114 &2161071516970672811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +759,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1960, y: -24}
+  position: {x: 2840, y: 152}
   ports:
     keys:
     - entry
@@ -637,7 +811,7 @@ MonoBehaviour:
   m_Name: Change Graph
   m_EditorClassIdentifier: Assembly-CSharp::ChangeGraphNode
   graph: {fileID: 11400000}
-  position: {x: 2328, y: 536}
+  position: {x: 3528, y: 712}
   ports:
     keys:
     - entry
@@ -656,7 +830,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   nextGraph: {fileID: 11400000, guid: 8c98ce2172c282f4285e45eaa4c53930, type: 2}
-  audioCutSceneID: 0
+  audioCutSceneID: 4
 --- !u!114 &2924919380192334086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +844,7 @@ MonoBehaviour:
   m_Name: If
   m_EditorClassIdentifier: Assembly-CSharp::IfNode
   graph: {fileID: 11400000}
-  position: {x: 664, y: -152}
+  position: {x: 1448, y: -40}
   ports:
     keys:
     - entry
@@ -683,10 +857,16 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 5410936050869054041}
+        node: {fileID: -6384904999146936831}
         reroutePoints: []
       - fieldName: exit
-        node: {fileID: -6384904999146936831}
+        node: {fileID: -1891817401991705801}
+        reroutePoints: []
+      - fieldName: exitPlantNotCorrect
+        node: {fileID: -8290803766932297254}
+        reroutePoints: []
+      - fieldName: exitCancel
+        node: {fileID: -8290803766932297254}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -719,7 +899,7 @@ MonoBehaviour:
   entry: 0
   type: 0
   checks:
-  - variableID: 
+  - variableID: quest_barbrook
     check: 0
     value: 0
   checkTrue: 0
@@ -761,7 +941,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2924919380192334086}
+        node: {fileID: -8290803766932297254}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -789,7 +969,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1704, y: 392}
+  position: {x: 2904, y: 568}
   ports:
     keys:
     - entry
@@ -841,7 +1021,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1288, y: -392}
+  position: {x: 2296, y: -216}
   ports:
     keys:
     - entry
@@ -893,7 +1073,7 @@ MonoBehaviour:
   m_Name: If
   m_EditorClassIdentifier: Assembly-CSharp::IfNode
   graph: {fileID: 11400000}
-  position: {x: 968, y: 72}
+  position: {x: 1848, y: 248}
   ports:
     keys:
     - entry
@@ -930,7 +1110,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -2821261358698073547}
+        node: {fileID: 1244945246328630499}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -939,9 +1119,9 @@ MonoBehaviour:
   entry: 0
   type: 0
   checks:
-  - variableID: 
+  - variableID: quest_barbrook
     check: 0
-    value: 0
+    value: 1
   checkTrue: 0
   checkFalse: 0
 --- !u!114 &8326424159414373778
@@ -957,7 +1137,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 2248, y: 72}
+  position: {x: 3128, y: 248}
   ports:
     keys:
     - entry
@@ -988,7 +1168,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1416, y: -24}
+  position: {x: 2296, y: 152}
   ports:
     keys:
     - entry

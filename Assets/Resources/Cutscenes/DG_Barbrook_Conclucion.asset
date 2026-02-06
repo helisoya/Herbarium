@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 840, y: -184}
+  position: {x: 872, y: 40}
   ports:
     keys:
     - entry
@@ -24,7 +24,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 8247502692945124021}
+        node: {fileID: 4651901162035219032}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 8247502692945124021}
+        node: {fileID: 4651901162035219032}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -202,10 +202,10 @@ MonoBehaviour:
   nodes:
   - {fileID: 107968734850196264}
   - {fileID: -8165577652942485098}
-  - {fileID: 8247502692945124021}
   - {fileID: -534075603205052522}
   - {fileID: -332855818390778240}
   - {fileID: -8289446820870782691}
+  - {fileID: 4651901162035219032}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -238,7 +238,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
---- !u!114 &8247502692945124021
+--- !u!114 &4651901162035219032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,18 +247,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3e26b175684544a85002504f4e3377, type: 3}
-  m_Name: Set Interactable Graph
-  m_EditorClassIdentifier: Assembly-CSharp::SetInteractableGraphNode
+  m_Script: {fileID: 11500000, guid: ace78cd0414e52c43a7013805896aa6a, type: 3}
+  m_Name: Set Variable
+  m_EditorClassIdentifier: Assembly-CSharp::SetVariableNode
   graph: {fileID: 11400000}
-  position: {x: 552, y: -184}
+  position: {x: 627.72577, y: -34.82676}
   ports:
     keys:
     - entry
     - exit
     values:
     - _fieldName: entry
-      _node: {fileID: 8247502692945124021}
+      _node: {fileID: 4651901162035219032}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -270,7 +270,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
-      _node: {fileID: 8247502692945124021}
+      _node: {fileID: 4651901162035219032}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -282,7 +282,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
-  objectID: 
-  nextGraph: {fileID: 11400000, guid: 3842e062184c9e044a210004d1241430, type: 2}
-  audioCutSceneID: 0
+  variableID: variable_barbrook_end
+  type: 0
+  value: 1
   exit: 0
