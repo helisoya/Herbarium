@@ -7,6 +7,7 @@ public class WalkingInGrass : MonoBehaviour
     [SerializeField] private Vector3 _movingAmplitude = new Vector3(10, 0, 0);
     [SerializeField] private Vector3 _stillAmplitude = new Vector3(5, 0, 0);
     [SerializeField] private float _reactionTime = 0.5f;
+    [SerializeField] private ParticleSystem _grassVFX;
     
     //private Renderer _renderer;
     private Material _material;
@@ -62,5 +63,22 @@ public class WalkingInGrass : MonoBehaviour
 
         _targetValue = _stillAmplitude;
         _isAnimating = true;
+        _grassVFX.Play();
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+            return;
+
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb != null && rb.linearVelocity.magnitude > 0.1f)
+        {
+            _grassVFX.Play();
+        }
+        else
+        {
+            _grassVFX.Stop();
+        }
+    }
+    
 }

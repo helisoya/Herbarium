@@ -125,11 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 3206721903156647011}
   _propertyName: _WindAmplitude
   _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+  _grassVFX: {fileID: 4485263214127536919}
 --- !u!1 &8642684530748558287
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +160,122 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 7975440089479082274}
   - {fileID: 1974598596366523442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5111486169918729175
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9156763210225752966}
+    m_Modifications:
+    - target: {fileID: 183984352671474775, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 183984352671474775, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 183984352671474775, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.246
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078545751917584772, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078545751917584772, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078545751917584772, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355328896106539849, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_Name
+      value: PS_Grass_Flatten_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327061287798665525, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327061287798665525, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327061287798665525, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+--- !u!198 &4485263214127536919 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8705878882926014656, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+  m_PrefabInstance: {fileID: 5111486169918729175}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7975440089479082274 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+  m_PrefabInstance: {fileID: 5111486169918729175}
+  m_PrefabAsset: {fileID: 0}

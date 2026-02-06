@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4836066150163226659}
   - {fileID: 815442870779633579}
   - {fileID: 7301104440470321517}
   m_Father: {fileID: 0}
@@ -53,6 +54,7 @@ MonoBehaviour:
   _movingAmplitude: {x: 60, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+  _grassVFX: {fileID: 0}
 --- !u!65 &3428956625628107443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -213,6 +215,7 @@ MonoBehaviour:
   _movingAmplitude: {x: 10, y: 0, z: 0}
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
+  _grassVFX: {fileID: 1408930873167350294}
 --- !u!65 &6375904758254463559
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -234,6 +237,121 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.66, y: 5.74, z: 0.20000035}
   m_Center: {x: -0.0057091713, y: 2.7805862, z: 0.00000016573586}
+--- !u!1001 &7736332716686818006
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4245178044443198185}
+    m_Modifications:
+    - target: {fileID: 183984352671474775, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 183984352671474775, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 183984352671474775, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.246
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078545751917584772, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078545751917584772, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078545751917584772, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355328896106539849, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_Name
+      value: PS_Grass_Flatten_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327061287798665525, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327061287798665525, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327061287798665525, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+--- !u!198 &1408930873167350294 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8705878882926014656, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+  m_PrefabInstance: {fileID: 7736332716686818006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4836066150163226659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2900829534076836597, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
+  m_PrefabInstance: {fileID: 7736332716686818006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8783972556625671115
 PrefabInstance:
   m_ObjectHideFlags: 0
