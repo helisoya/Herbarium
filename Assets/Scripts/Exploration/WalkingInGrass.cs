@@ -73,12 +73,15 @@ public class WalkingInGrass : MonoBehaviour
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if (rb != null && rb.linearVelocity.magnitude > 0.1f)
         {
-            _grassVFX.Play();
+            if (!_grassVFX.isPlaying)
+                _grassVFX.Play();
         }
         else
         {
-            _grassVFX.Stop();
+            if (_grassVFX.isPlaying)
+                _grassVFX.Stop();
         }
+
     }
     
 }

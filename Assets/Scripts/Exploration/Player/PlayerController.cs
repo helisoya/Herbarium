@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform graphicToFlip;
     [SerializeField] private VisualEffect vfxWalk;
+    [SerializeField] private ParticleSystem vfxClick;
 
     private bool canUpdateTargetWithMouse;
     private bool moveToTarget;
@@ -196,5 +197,17 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocity = new Vector3(moveVector.x, 0, moveVector.y) * playerSpeed;
             }
         }
+    }
+    
+    public void PlayMouseTargetVFX()
+    {
+        if (!canUpdateTargetWithMouse)
+            return;
+
+        if (!UpdateTargetPosition(mousePosition))
+            return;
+
+        vfxClick.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        vfxClick.Play();
     }
 }

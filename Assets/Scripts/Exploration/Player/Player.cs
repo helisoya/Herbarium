@@ -204,6 +204,9 @@ public class Player : MonoBehaviour
 
         if (!toggleEnabled) controller.SetUpdateTargetWithMouse(value.isPressed);
         else if (value.isPressed) controller.ToggleUpdateTargetWithMouse();
+        
+        if (value.isPressed)
+            controller.PlayMouseTargetVFX();
     }
 
     void OnBackpack(InputValue value)
