@@ -1,6 +1,8 @@
 # This is a comment
 # KEY = VALUE
 
+# TEST DIALOGS & HERBARIUM -------------------------------------------------------------------------------------------
+
 test = Welcome to my Herbagnole
 
 NPC_Test_1 = Hello Shrek.
@@ -15,6 +17,15 @@ NPC_Trigger_A_3 = Okay, whatever...
 
 NPC_Trigger_B_1 = What ?
 
+Quest_Test_Name = Dangerous Quest
+Quest_Test_Description = Your apprentice wants some Onion. Gotta find some.
+Quest_Test_Lore = Did you know Onions are very dangerous ? You might die. 
+Quest_Test_0 = Find the plant "Onion" and bring it to the apprentice : 0/1
+Quest_Test_100 = I managed to stay alive !
+
+Gnome_Name = Gnome
+Gnome_Eepy_Title = Gnome of Eepy
+Gnome_Chaos_Title = Gnome of Chaos
 
 TestPlant1_Name = Test Plant
 TestPlant1_LatinName = Testus Plantus
@@ -32,41 +43,141 @@ TestPlant2_Hint_0 = Don't bother.
 TestPlant2_Hint_1 = Really ? Near water.
 TestPlant2_Hint_2 = He's right behind you.
 
-Herb_01_Name = TODO
-Herb_01_LatinName = TODO
-Herb_01_Lore = TODO
-Herb_01_Specifics = TODO
+# HERBARIUM CONTENT --------------------------------------------------------------------------------------------------
+
+Category_Test = Tests
+Category_Herb = Herbaceous plant
+Category_Fern = Fern
+
+Herb_01_Name = Great yellow-cress
+Herb_01_LatinName = Rorippa amphibia
+Herb_01_Specifics = Grows in water. Flowers in the spring. Joins forces with water mint to stabilize banks. 
+Herb_01_Lore = It is very invigorating! It can adapt to many different living conditions, and represents passing, balance between two worlds.
 Herb_01_Hint_0 = TODO
 Herb_01_Hint_1 = TODO
 Herb_01_Hint_2 = TODO
 
-Herb_02_Name = TODO
-Herb_02_LatinName = TODO
-Herb_02_Lore = TODO
-Herb_02_Specifics = TODO
+Herb_02_Name = Water mint
+Herb_02_LatinName = Mentha aquatica
+Herb_02_Specifics = Grows in water. Flowers in the summer. Joins forces with great yellow-cress to stabilize banks, and decontaminates the water. 
+Herb_02_Lore = Its scent is fresh and strong, and it hosts insects, fish, and amphibians. It represents memory and transformation.
 Herb_02_Hint_0 = TODO
 Herb_02_Hint_1 = TODO
 Herb_02_Hint_2 = TODO
 
-Fern_01_Name = TODO
-Fern_01_LatinName = TODO
-Fern_01_Lore = TODO
-Fern_01_Specifics = TODO
+Fern_01_Name = Maidenhair spleenwort
+Fern_01_LatinName = Asplenium trichomanes
+Fern_01_Specifics = Grows in fresh soil, on rocks. Lives all year long. Likes to create micro-habitats by clinging to rocks. 
+Fern_01_Lore = The mushrooms that this fern helps grow make it even more resistant. It represents discretion and longevity.
 Fern_01_Hint_0 = TODO
 Fern_01_Hint_1 = TODO
 Fern_01_Hint_2 = TODO
 
-Category_Test = Tests
-Category_Herb = Herb
-Category_Fern = Fern
+# NOUR DIALOGS -------------------------------------------------------------------------------------------------------
 
+Apprentice_Name = Nour
+Apprentice_Title_1 = Reckless lost child
+Apprentice_Title_2 = Young cartographer
 
-Quest_Test_Name = Dangerous Quest
-Quest_Test_Description = Your apprentice wants some Onion. Gotta find some.
-Quest_Test_Lore = Did you know Onions are very dangerous ? You might die. 
-Quest_Test_0 = Find the plant "Onion" and bring it to the apprentice : 0/1
-Quest_Test_100 = I managed to stay alive !
+Nour_Start_1 = Hi Mousse, are you up already?
+Nour_Start_2 = I'm so excited! You know how yesterday, you said you'd make me an herbarium?
+Nour_Start_3 = I was wondering... Did you offer that because of that time I ran into some nettle and got a really bad rash?
+Nour_Start_4 = That got me thinking. If you're gonna help me, maybe I can help you too!
+Nour_Start_5 = I know how often you get lost, and I though a map would be a fine addition to your backpack.
+Nour_Start_6 = So, while you run around collecting plants, I'll be running around drawing the swamp.
+Nour_Start_7 = When we're both done, my sensitive skin and your poor orientation skills won't bother us anymore!
+Nour_Start_8 = Ok, well, the art of cartography awaits me! See you later!
 
-Gnome_Name = Gnome
-Gnome_Eepy_Title = Gnome of Eepy
-Gnome_Chaos_Title = Gnome of Chaos
+Nour_End_1 = Hey there, I see you've documented quite a few pages already!
+Nour_End_2 = That's so cool, you really wrote all that for me?
+Nour_End_3 = Thank you so much, Mousse. It means a lot.
+Nour_End_4 = I have something for you too, here, look!
+Nour_End_5 = This is my first map, but I'm gonna keep going and get better, you'll see. 
+Nour_End_6 = Speaking of maps, I discovered a new path while exploring!
+Nour_End_7 = <i>Well, if you replace "discovered" by "fell into" and "exploring" by "running into a bush"...</i>
+Nour_End_8 = Anyways, just follow the river and you'll get there! That's where I'm going next.
+Nour_End_9 = See you!
+
+Nour_Path_1 = Mousse? What are you doing here?
+Nour_Path_2 = I was at your camp trying to get a good drawing angle of your hammock...
+Nour_Path_3 = ...but as I stepped backwards, I tumbled my feet in the roots of the trees...
+Nour_Path_4 = I fell, and here I am! 
+Nour_Path_5 = I didn't know you could cross those roots, but turns out you just have to zigzag around them. Crazy!
+Nour_Path_6 = Now I won't have to go all the way around, that's great.
+Nour_Path_7 = Well, gotta go. That hammock won't draw itself. Bye!
+
+Nour_Flavour_Trigo_1 = Stupid triangles, the numbers don't add up!
+Nour_Flavour_Trigo_2 = Oh, hey Mousse, sorry about that... Did you want something?
+Nour_Flavour_Trigo_3 = If you've got any plants that you can't use, don't hesitate to give them to me.
+Nour_Flavour_Trigo_4 = I'll make them into pigments for my map, or maybe just flower crowns for the spirits...
+Nour_Flavour_Trigo_5 = Well, I'll be on my way then! Bye!
+
+Nour_Flavour_Calc_1 = Urgh, distances are so hard to get right...
+Nour_Flavour_Calc_2 = Sorry Mousse, you wanted to tell me something?
+Nour_Flavour_Calc_3 = Or maybe you had some spare plants for me?
+Nour_Flavour_Calc_4 = See you around!
+
+Nour_Flavour_Map_1 = This will be the most beautiful map ever...
+Nour_Flavour_Map_2 = Hey, don't look! It's gonna be a suprise!
+Nour_Flavour_Map_3 = So anyway, do you have plants for me or something?
+Nour_Flavour_Map_4 = Bye then!
+
+Nour_Flavour_Dry_1 = Hey Mousse! Dry many plants lately?
+Nour_Flavour_Dry_2 = Don't hesitate to give me the excess if you picked too many.
+Nour_Flavour_Dry_3 = I'll get going, see you!
+
+# BARBROOK DIALOGS -----------------------------------------------------------------------------------------------------------------
+
+Spirit_Flow_Name = Barbrook
+Spirit_Flow_Title = Embodiment of flow
+
+Barbrook_Start_1 = There's nothing like feeling the river flowing around you...
+Barbrook_Start_2 = Oh! Hey babyroots, doing good?
+Barbrook_Start_3 = You know, I was just starting to feel a bit hungry...
+Barbrook_Start_4 = Would you join me for a picnic?
+Barbrook_Start_5 = I was thinking maybe some sludge... A few pebbles... 
+Barbrook_Start_6 = But since you're here, how about some yellowcress?
+Barbrook_Start_7 = I think there are still some around my old house...
+Barbrook_Start_8 = If you could grab us two flowers... That'd be nice.
+
+Barbrook_Quest_Plant_1 = Hi flowerpie.
+Barbrook_Quest_Plant_2 = You brought some flowers to eat?
+Barbrook_Quest_NoPlant_1 = Hey riverstone, how are things workin' out for you?
+
+Barbrook_Quest_Give0_1 = You didn't forget about the yellowcress I asked you, did you?
+Barbrook_Quest_Give0_2 = I mean, if you're still up for this picnic...
+Barbrook_Quest_Give0_3 = I don't go to my house anymore, but I know there's some cress growing around it.
+Barbrook_Quest_Give0_4 = Come back with snacks, little duckweed!
+
+Barbrook_Quest_Give1_1 = Thanks for the cress, but I'm not gonna eat by myself, you know...
+Barbrook_Quest_Give1_2 = Get us one more flower and we'll be ready to snack.
+Barbrook_Quest_Give1_3 = I'll wait here...
+
+Barbrook_Quest_Give2_1 = Oh thanks sweetpea!
+Barbrook_Quest_Give2_2 = It's perfect... Just what we needed.
+Barbrook_Quest_Give2_3 = Let's get snackin'!
+
+Barbrook_Picnic_1 = Ah yes, that really hits the spot.
+Barbrook_Picnic_2 = <i>Crunch</i>
+Barbrook_Picnic_3 = Sure you don't want muck on your flowers? You're missing out...
+Barbrook_Picnic_4 = Well, your loss.
+Barbrook_Picnic_5 = <i>Munch</i>
+Barbrook_Picnic_6 = You know, the taste of cress brings me back...
+Barbrook_Picnic_7 = Remember a few years ago, when you ran around naked? Of course, you were much smaller at the time...
+Barbrook_Picnic_8 = You kept sneezing, and the only thing that would stop it was yellowcress...
+Barbrook_Picnic_9 = But you didn't like the taste, so I'd have to eat it with you, or else you wouldn't touch the stuff.
+Barbrook_Picnic_10 = It became our little ritual.
+Barbrook_Picnic_11 = <i>Om nom nom</i>
+Barbrook_Picnic_12 = It's funny, but I started to really enjoy yellowcress because of that...
+Barbrook_Picnic_13 = Maybe it reminds me of that funny laugh of yours, back in those days. You were just the cutest little creature.
+Barbrook_Picnic_14 = I mean, you still are, of course...
+Barbrook_Picnic_15 = <i>Chomp</i>
+Barbrook_Picnic_16 = Well, that was nice.
+Barbrook_Picnic_17 = We should do that more often. 
+Barbrook_Picnic_18 = Stay strong, lilypad.
+
+Barbrook_Conclusion_1 = Hey lil' lentil!
+Barbrook_Conclusion_2 = That picnic was really nice.
+Barbrook_Conclusion_3 = Come back some other day, maybe we could do that again...
+
+Barbrook_Flavour_Toes_1 = <i>Hmmm...</i> There's silt between my toes... 
