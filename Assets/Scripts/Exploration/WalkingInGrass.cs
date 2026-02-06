@@ -7,7 +7,7 @@ public class WalkingInGrass : MonoBehaviour
     [SerializeField] private Vector3 _movingAmplitude = new Vector3(10, 0, 0);
     [SerializeField] private Vector3 _stillAmplitude = new Vector3(5, 0, 0);
     [SerializeField] private float _reactionTime = 0.5f;
-
+    
     //private Renderer _renderer;
     private Material _material;
 

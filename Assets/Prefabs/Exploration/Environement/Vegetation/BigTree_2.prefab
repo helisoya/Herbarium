@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 473482570781765659}
   - component: {fileID: 6129987956238081627}
+  - component: {fileID: 3349120917805902096}
   m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
@@ -89,7 +90,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15a3335de8624d148967f76368bd9357, type: 2}
+  - {fileID: 2100000, guid: c70e8a53cb28b9c44a41d0d8b08806c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,3 +123,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3349120917805902096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869977959059327602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e9a2c5e6d3ac941a795371adbcc954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeObstacle
+  fadedAlpha: 0.2
+  fadeDuration: 0.25

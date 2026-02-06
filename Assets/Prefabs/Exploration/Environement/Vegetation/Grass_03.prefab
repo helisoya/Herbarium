@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7231597043423126280}
   - component: {fileID: 8895577348890975738}
+  - component: {fileID: 413187813462950289}
   m_Layer: 0
   m_Name: Grass_03
   m_TagString: Untagged
@@ -122,3 +123,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &413187813462950289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734626054930291377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _renderer: {fileID: 8895577348890975738}
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 10, y: 0, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
