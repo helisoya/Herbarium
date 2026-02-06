@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197965137005507598}
-  - component: {fileID: 1611468547145890062}
   - component: {fileID: 4079510580861617678}
   m_Layer: 0
   m_Name: AudioLuciolesTrigger
@@ -33,27 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 340453106294129552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1611468547145890062
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3436228981360544468}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 8
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4079510580861617678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,11 +53,11 @@ MonoBehaviour:
       Data4: -758434139
     Path: event:/Enviro/Animals/Lucioles
   Event: 
-  EventPlayTrigger: 3
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
-  Preload: 0
+  Preload: 1
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 0

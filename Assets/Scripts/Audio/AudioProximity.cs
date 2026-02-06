@@ -133,7 +133,7 @@ public class AudioProximity : MonoBehaviour
 
     public void PostMusExploration()
     {
-        MusicManager.Instance.PlayMusExploration();
+        AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
     }
 
     public void StopMusExploration()

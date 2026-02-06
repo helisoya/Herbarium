@@ -68,6 +68,7 @@ public class AudioUI : MonoBehaviour
     {
         MusicManager.Instance.StopMusMainTitle();
         MusicManager.Instance.PlayAmb();
+        MusicManager.Instance.PlayMusExploration();
     }
 
    

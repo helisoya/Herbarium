@@ -35,17 +35,26 @@ public class MusicManager : MonoBehaviour
     {
         amb = RuntimeManager.CreateInstance(AmbEvent);
         amb.start();
+        PlayMusExploration();
     }
 
     public void PlayAmb()
     {
-        amb = RuntimeManager.CreateInstance(AmbEvent);
-        amb.start();
+        if (!amb.isValid())
+        {
+            amb = RuntimeManager.CreateInstance(AmbEvent);
+            amb.start();
+        }
+        else return;
     }
     public void StopAmb()
     {
-        amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        amb.release();
+        if (musExploration.isValid())
+        {
+            amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            amb.release();
+        }
+        else return;
     }
 
     public void PlayMusMainTitle()
@@ -74,9 +83,15 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusExploration()
     {
-        AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
-        musExploration = RuntimeManager.CreateInstance(MusExplorationEvent);
-        musExploration.start();
+        if (!musExploration.isValid())
+        {
+            AudioManager.Instance.SetGlobalParameterByName("Zone", 0);
+            musExploration = RuntimeManager.CreateInstance(MusExplorationEvent);
+            Debug.Log("Je demande à la musique d'exploration de jouer");
+            musExploration.start();
+        }
+        else return;
+        
     }
 
     public void FadeMusExploration(int zone)
