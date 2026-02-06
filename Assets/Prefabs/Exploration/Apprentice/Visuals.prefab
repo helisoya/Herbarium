@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7611866803834842165}
   - component: {fileID: 8940302466416446495}
+  - component: {fileID: 2749509571232698779}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -57,6 +58,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2749509571232698779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531667569351893022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4042d1d6fa278174f8cdee1f33db2e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioNour
+  NourIdle: 111
+  NourJump: 113
+  NourRun: 112
 --- !u!1 &612725313359892835
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class OptionsSoundTab : OptionsTab
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Toggle muteAllSlider;
-    [SerializeField] private TMP_Dropdown deviceDropdown;
+    [SerializeField] private Toggle mixToggle;
 
 
     protected override void OnClose()
@@ -33,7 +33,7 @@ public class OptionsSoundTab : OptionsTab
         sfxSlider.interactable = !allMuted;
         musicSlider.interactable = !allMuted;
 
-        deviceDropdown.ClearOptions();
+        mixToggle.SetIsOnWithoutNotify(Settings.instance.GetIsMono());
     }
 
     /// <summary>
@@ -78,13 +78,13 @@ public class OptionsSoundTab : OptionsTab
     }
 
     /// <summary>
-    /// Callback for changing the output device
+    /// Callback for changing if audio is mono or not
     /// </summary>
-    /// <param name="deviceIdx">The device's index</param>
-    public void ChangeOutputDevice(int deviceIdx)
+    /// <param name="isMono">True if the audio is in mono</param>
+    public void ChangeIsMono(bool isMono)
     {
-        parent.InvokeOnClickEvent();
-        Settings.instance.SetOutputDevice(deviceIdx);
+        parent.InvokeOnCheckboxEvent(isMono);
+        Settings.instance.SetIsMono(isMono);
     }
 
     /// <summary>
