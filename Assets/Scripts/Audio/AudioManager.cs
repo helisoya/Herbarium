@@ -136,4 +136,13 @@ public class AudioManager : MonoBehaviour
         masterBus.setVolume(0);
     }
 
+    public void OnToggleMono(bool mono)
+    {
+        if (mono)
+        {
+
+        }
+        else return;
+    }
+
 }
