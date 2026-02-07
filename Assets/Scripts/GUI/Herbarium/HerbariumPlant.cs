@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 /// <summary>
 /// Represents the page in the Herbarium that describes a specific plant
@@ -31,8 +32,17 @@ public class HerbariumPlant : HerbariumPage
     [SerializeField] private UnityEvent onHoverIndividualHint;
     [SerializeField] private UnityEvent onClickIndividualHint;
     [SerializeField] private UnityEvent onHintClosed;
+    
+    [Header("Appear Animation")]
+    [SerializeField] private TMPDilateAppear nameAppear;
+    [SerializeField] private TMPDilateAppear latinNameAppear;
+    [SerializeField] private TMPDilateAppear categoryAppear;
+    [SerializeField] private TMPDilateAppear informationsAppear;
+    [SerializeField] private TMPDilateAppear specificsAppear;
+    [SerializeField] private TMPDilateAppear logAppear;
 
-
+    private static HashSet<string> alreadyPlayedAppear = new HashSet<string>();
+    
     public override void GoLeft()
     {
         CloseHints(false);
@@ -159,12 +169,24 @@ public class HerbariumPlant : HerbariumPage
 
             textLog.SetInjectors(new string[]{"Swamp","25/12"},false);
             textLog.SetNewKey("Herbarium_Plant_Log");
+            
+            //Animation apparitions
+            if (!alreadyPlayedAppear.Contains(plantId))
+            {
+                nameAppear?.PlayAppear();
+                latinNameAppear?.PlayAppear();
+                categoryAppear?.PlayAppear();
+                informationsAppear?.PlayAppear();
+                specificsAppear?.PlayAppear();
+                logAppear?.PlayAppear();
+
+                alreadyPlayedAppear.Add(plantId);
+            }
         }
         else
         {
             textName.SetNewKey("Herbarium_PlantsIndex_Unknown");
             textCategory.SetNewKey("Herbarium_PlantsIndex_Unknown");
         }
-
     }
 }
