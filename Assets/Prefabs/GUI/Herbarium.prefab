@@ -500,9 +500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2160971410454f8f3cf82673dbfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPDilateAppear
-  startDilate: -1
-  endDilate: 0
-  duration: 0.6
   ease: 9
 --- !u!1 &983271317234980135
 GameObject:
@@ -1569,6 +1566,7 @@ GameObject:
   - component: {fileID: 5013346432797646931}
   - component: {fileID: 4057132392820304467}
   - component: {fileID: 4208694745159238708}
+  - component: {fileID: 1446758515824771765}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1633,6 +1631,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1446758515824771765
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994442433013161036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fddb5bc67f629a7459d59eed58d8bae3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2182567498880913417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,9 +2596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2160971410454f8f3cf82673dbfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPDilateAppear
-  startDilate: -1
-  endDilate: 0
-  duration: 0.6
   ease: 9
 --- !u!1 &3226561453686710999
 GameObject:
@@ -3111,9 +3128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2160971410454f8f3cf82673dbfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPDilateAppear
-  startDilate: -1
-  endDilate: 0
-  duration: 0.6
   ease: 9
 --- !u!1 &3703868429834584850
 GameObject:
@@ -4647,9 +4661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2160971410454f8f3cf82673dbfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPDilateAppear
-  startDilate: -1
-  endDilate: 0
-  duration: 0.6
   ease: 9
 --- !u!1 &5526282574187894105
 GameObject:
@@ -4981,9 +4992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2160971410454f8f3cf82673dbfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPDilateAppear
-  startDilate: -1
-  endDilate: 0
-  duration: 0.6
   ease: 9
 --- !u!1 &5751533570366072953
 GameObject:
@@ -5464,9 +5472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae2160971410454f8f3cf82673dbfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TMPDilateAppear
-  startDilate: -1
-  endDilate: 0
-  duration: 0.6
   ease: 9
 --- !u!1 &6149768695537896774
 GameObject:
@@ -5674,9 +5679,11 @@ MonoBehaviour:
   nameAppear: {fileID: 6570554086856570748}
   latinNameAppear: {fileID: 4382627212621824026}
   categoryAppear: {fileID: 6403877387623541663}
+  informationsTitleAppear: {fileID: 6360833104638726644}
   informationsAppear: {fileID: 3620432515518864521}
   specificsAppear: {fileID: 799810363407668974}
   logAppear: {fileID: 4651254861743667639}
+  plantAnimator: {fileID: 1446758515824771765}
 --- !u!1 &6779190982355310251
 GameObject:
   m_ObjectHideFlags: 0
@@ -7770,6 +7777,7 @@ GameObject:
   - component: {fileID: 7747030684341306343}
   - component: {fileID: 5232952602350174845}
   - component: {fileID: 7002414123427925362}
+  - component: {fileID: 6360833104638726644}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -7913,6 +7921,19 @@ MonoBehaviour:
   canResize: 1
   canRecolor: 0
   noText: 0
+--- !u!114 &6360833104638726644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014054342151684052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae2160971410454f8f3cf82673dbfa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TMPDilateAppear
+  ease: 9
 --- !u!1 &9025375982796382438
 GameObject:
   m_ObjectHideFlags: 0

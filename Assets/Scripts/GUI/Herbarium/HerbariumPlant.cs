@@ -37,9 +37,11 @@ public class HerbariumPlant : HerbariumPage
     [SerializeField] private TMPDilateAppear nameAppear;
     [SerializeField] private TMPDilateAppear latinNameAppear;
     [SerializeField] private TMPDilateAppear categoryAppear;
+    [SerializeField] private TMPDilateAppear informationsTitleAppear;
     [SerializeField] private TMPDilateAppear informationsAppear;
     [SerializeField] private TMPDilateAppear specificsAppear;
     [SerializeField] private TMPDilateAppear logAppear;
+    [SerializeField] private Animator plantAnimator;
 
     private static HashSet<string> alreadyPlayedAppear = new HashSet<string>();
     
@@ -173,14 +175,16 @@ public class HerbariumPlant : HerbariumPage
             //Animation apparitions
             if (!alreadyPlayedAppear.Contains(plantId))
             {
+                alreadyPlayedAppear.Add(plantId);
+                
                 nameAppear?.PlayAppear();
                 latinNameAppear?.PlayAppear();
                 categoryAppear?.PlayAppear();
+                informationsTitleAppear?.PlayAppear();
                 informationsAppear?.PlayAppear();
                 specificsAppear?.PlayAppear();
                 logAppear?.PlayAppear();
-
-                alreadyPlayedAppear.Add(plantId);
+                plantAnimator?.SetTrigger("Appear");
             }
         }
         else

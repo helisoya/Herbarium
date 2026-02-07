@@ -6,7 +6,7 @@ public class TMPDilateAppear : MonoBehaviour
 {
     private float startDilate = -1f;
     private float endDilate = 0f;
-    private float duration = 100;
+    private float duration = 3;
     [SerializeField] private Ease ease = Ease.OutCubic;
 
     private TMP_Text tmp;
@@ -15,7 +15,7 @@ public class TMPDilateAppear : MonoBehaviour
 
     private void Awake()
     {
-        
+        tmp = GetComponent<TextMeshProUGUI>();
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,17 +33,26 @@ public class TMPDilateAppear : MonoBehaviour
     public void PlayAppear()
     {
         tween?.Kill();
-        tmp = GetComponent<TextMeshProUGUI>();
-        Material mat = tmp.material;
-        TMP_FontAsset currentFont = tmp.font; 
-        Debug.Log("Font actuelle : " + currentFont.name);
-        mat.SetFloat("_FaceDilate", startDilate);
 
-        tween = DOTween.To(
-            () => mat.GetFloat("_FaceDilate"),
-            x => mat.SetFloat("_FaceDilate", x),
-            endDilate,
-            duration
-        ).SetEase(ease);
+        DOVirtual.DelayedCall(0.02f, () => {
+            if (tmp == null) return;
+
+            Material matInstance = tmp.fontMaterial;
+            tmp.ForceMeshUpdate();
+
+            matInstance.SetFloat(ShaderUtilities.ID_FaceDilate, startDilate);
+
+            tween = DOTween.To(
+                () => matInstance.GetFloat(ShaderUtilities.ID_FaceDilate),
+                x => matInstance.SetFloat(ShaderUtilities.ID_FaceDilate, x),
+                endDilate,
+                duration
+            ).SetEase(ease).SetTarget(this);
+        }).SetTarget(this);
+    }
+    
+    private void OnDestroy()
+    {
+        tween?.Kill();
     }
 }
