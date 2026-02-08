@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4744947290712370491
+--- !u!114 &-3197605176299771004
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_MOSSTEST
-  m_Shader: {fileID: -6465566751694194690, guid: a5e5120ba3142e64fa6fb9b93f0b5683, type: 3}
+  m_Name: MAT_VFX_ClickArrow
+  m_Shader: {fileID: -6465566751694194690, guid: 5c0d7df718ecdfe4aa5e7ba28211df7e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -37,8 +37,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_a4626d93ec4143569f04742a642c5580_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: bd273f59d3be9c6489608b3864a5d6f6, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 652441177ff5e19489de82812e234ff5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,12 +55,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1
-    - _MossAmount: 5
-    - _MossCutout: 0.5
+    - _Alpha: 1
+    - _AlphaClip: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _MossColor: {r: 0, g: 1, b: 0.03675985, a: 1}
+    - _Color: {r: 0.9999999, g: 0.15690285, b: 0, a: 1}
+    - _ScrollSpeed: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
