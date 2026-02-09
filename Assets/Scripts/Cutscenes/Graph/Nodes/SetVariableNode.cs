@@ -45,7 +45,7 @@ public class SetVariableNode : HerbariumNode
         handler.SetVariable(variableID,newValue);
 
         Quest quest = handler.GetQuestFromVariable(variableID);
-        if(quest != null && handler.IsPinned(variableID))
+        if(quest != null && handler.IsPinned(quest.id))
         {
             if(newValue == -1 || newValue == 100)
             {
@@ -59,7 +59,6 @@ public class SetVariableNode : HerbariumNode
         }else if(quest != null && newValue == 0)
         {
             // Quest not pinned and started
-
             handler.PinQuest(quest.id);
             GameGUI.instance.AddPin(quest.id);
         }
