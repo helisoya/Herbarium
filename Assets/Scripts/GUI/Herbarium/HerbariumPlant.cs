@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 /// <summary>
 /// Represents the page in the Herbarium that describes a specific plant
@@ -31,8 +32,17 @@ public class HerbariumPlant : HerbariumPage
     [SerializeField] private UnityEvent onHoverIndividualHint;
     [SerializeField] private UnityEvent onClickIndividualHint;
     [SerializeField] private UnityEvent onHintClosed;
-
-
+    
+    [Header("Appear Animation")]
+    [SerializeField] private TMPDilateAppear nameAppear;
+    [SerializeField] private TMPDilateAppear latinNameAppear;
+    [SerializeField] private TMPDilateAppear categoryAppear;
+    [SerializeField] private TMPDilateAppear informationsTitleAppear;
+    [SerializeField] private TMPDilateAppear informationsAppear;
+    [SerializeField] private TMPDilateAppear specificsAppear;
+    [SerializeField] private TMPDilateAppear logAppear;
+    [SerializeField] private Animator plantAnimator;
+    
     public override void GoLeft()
     {
         CloseHints(false);
@@ -129,6 +139,21 @@ public class HerbariumPlant : HerbariumPage
     }
 
     /// <summary>
+    /// Starts the typewriting effect for this page
+    /// </summary>
+    public void StartTypeWritingEffect()
+    {
+        nameAppear?.PlayAppear();
+        latinNameAppear?.PlayAppear();
+        categoryAppear?.PlayAppear();
+        informationsTitleAppear?.PlayAppear();
+        informationsAppear?.PlayAppear();
+        specificsAppear?.PlayAppear();
+        logAppear?.PlayAppear();
+        plantAnimator?.SetTrigger("Appear");
+    }
+
+    /// <summary>
     /// Refreshs the game's visuals
     /// </summary>
     private void RefreshVisuals()
@@ -165,6 +190,5 @@ public class HerbariumPlant : HerbariumPage
             textName.SetNewKey("Herbarium_PlantsIndex_Unknown");
             textCategory.SetNewKey("Herbarium_PlantsIndex_Unknown");
         }
-
     }
 }

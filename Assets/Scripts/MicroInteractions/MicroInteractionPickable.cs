@@ -196,7 +196,8 @@ public class MicroInteractionPickable : MonoBehaviour
 
         for(int i = 0; i < rbs.Length;i++)
         {
-            rbs[i].mass = 0.1f;
+            rbs[i].mass = individualMassOnDrop/2;
+            rbs[i].gravityScale = 0.5f;
         }
 
         part.Pickup(canRotate);
@@ -212,7 +213,8 @@ public class MicroInteractionPickable : MonoBehaviour
 
         for(int i = 0; i < rbs.Length;i++)
         {
-            rbs[i].mass = individualMassOnDrop;
+            //rbs[i].mass = individualMassOnDrop;
+            rbs[i].gravityScale = 1f;
         }
 
     }
