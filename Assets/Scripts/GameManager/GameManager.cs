@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
                 playerDataHandler.AddInInventory("Herb_01");
                 playerDataHandler.AddHerbariumPage("Fern_01");
                 playerDataHandler.AddHerbariumPage("TestPlant2");
-                playerDataHandler.SetVariable("quest_test",0);
+                //playerDataHandler.SetVariable("quest_test",0);
             }
         }
     }
