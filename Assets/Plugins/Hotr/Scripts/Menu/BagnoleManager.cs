@@ -74,7 +74,13 @@ namespace MyHerbagnole
 
                     for (int i = 0; i < debugSchemes.Length; i++)
                     {
-                        PlayerInput.Instantiate(inputManager.playerPrefab, controlScheme: debugSchemes[i], pairWithDevice: Keyboard.current);
+                        try
+                        {
+                            PlayerInput.Instantiate(inputManager.playerPrefab, controlScheme: debugSchemes[i], pairWithDevice: Keyboard.current);
+                        }catch{
+                            print("Failed to creata a player");
+                        }
+                        
                     }
                 }
 

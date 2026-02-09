@@ -1,58 +1,53 @@
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class TMPDilateAppear : MonoBehaviour
 {
-    private float startDilate = -1f;
-    private float endDilate = 0f;
-    private float duration = 3;
-    [SerializeField] private Ease ease = Ease.OutCubic;
-
     private TMP_Text tmp;
-    private Material mat;
-    private Tween tween;
+
+    private bool isTyping;
+    private int max;
+    [SerializeField] private float duration = 3f;
+    private float startTime;
+
 
     private void Awake()
     {
-        tmp = GetComponent<TextMeshProUGUI>();
+        tmp = GetComponent<TMP_Text>();
     }
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (isTyping)
+        {
+            int newValue = (int)Mathf.Lerp(0,max,(Time.time-startTime)/duration);
+
+            tmp.maxVisibleCharacters = newValue;
+
+            if(newValue == max)
+            {
+                isTyping = false;
+            }
+        }
     }
 
     public void PlayAppear()
     {
-        tween?.Kill();
+        isTyping = true;
+        tmp.maxVisibleCharacters = 0;
 
-        DOVirtual.DelayedCall(0.02f, () => {
-            if (tmp == null) return;
-
-            Material matInstance = tmp.fontMaterial;
-            tmp.ForceMeshUpdate();
-
-            matInstance.SetFloat(ShaderUtilities.ID_FaceDilate, startDilate);
-
-            tween = DOTween.To(
-                () => matInstance.GetFloat(ShaderUtilities.ID_FaceDilate),
-                x => matInstance.SetFloat(ShaderUtilities.ID_FaceDilate, x),
-                endDilate,
-                duration
-            ).SetEase(ease).SetTarget(this);
-        }).SetTarget(this);
+        tmp.ForceMeshUpdate(false);
+        TMP_TextInfo inf = tmp.textInfo;
+        
+        max = inf.characterCount;
+        startTime = Time.time;
     }
     
     private void OnDestroy()
     {
-        tween?.Kill();
+        isTyping = false;
     }
 }

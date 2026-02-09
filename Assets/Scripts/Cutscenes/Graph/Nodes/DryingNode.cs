@@ -79,7 +79,7 @@ public class DryingNode : HerbariumNode
                 {
                     GameGUI.instance.HidePopup();
                     GameGUI.instance.OpenHerbarium();
-                    GameGUI.instance.HerbariumShowPlantPage(GameManager.instance.GetPlantDatabase().PlantIDToIndex(selectedPlant));
+                    GameGUI.instance.HerbariumShowPlantPage(GameManager.instance.GetPlantDatabase().PlantIDToIndex(selectedPlant),true);
                     yield return new WaitForEndOfFrame();
                     while(GameGUI.instance.inHerbarium)
                     {

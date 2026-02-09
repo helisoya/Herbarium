@@ -2,6 +2,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using MyHerbagnole;
 
 /// <summary>
 /// Represents a map
@@ -25,6 +26,8 @@ public class Map : MonoBehaviour
 
         onRegrowthSystemRefresh = new UnityEvent();
         onChangeHighlightInteractables = new UnityEvent<float,Color>();
+
+        gameObject.AddComponent<ThePath>();
     }
 
     void Start()

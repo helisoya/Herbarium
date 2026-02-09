@@ -26,6 +26,11 @@ public class HerbariumQuestIndexEntry : MonoBehaviour
         button.colors = colorBlock;
 
         imagePinned.color = GameManager.instance.GetPlayerDataHandler().IsPinned(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id) ? Color.white : Color.black;
+
+        if(GameManager.instance.GetPlayerDataHandler().GetVariable(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].linkedVariable) == 100)
+        {
+            imagePinned.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>

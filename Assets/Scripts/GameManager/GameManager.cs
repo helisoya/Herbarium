@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
             // Debug build
             if (Debug.isDebugBuild)
             {
-                //playerDataHandler.AddInInventory("TestPlant1");
-                //playerDataHandler.AddHerbariumPage("TestPlant1");
+                playerDataHandler.AddInInventory("Herb_01");
+                playerDataHandler.AddHerbariumPage("Fern_01");
                 playerDataHandler.AddHerbariumPage("TestPlant2");
-                playerDataHandler.SetVariable("quest_test",0);
+                //playerDataHandler.SetVariable("quest_test",0);
             }
         }
     }

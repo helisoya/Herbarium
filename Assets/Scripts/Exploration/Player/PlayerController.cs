@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform graphicToFlip;
     [SerializeField] private VisualEffect vfxWalk;
     [SerializeField] private ParticleSystem vfxClick;
+    [SerializeField] private VisualEffect vfxClickGraph;
+    
+    private bool lastVfxState;
 
     private bool canUpdateTargetWithMouse;
     private bool moveToTarget;
@@ -209,5 +212,8 @@ public class PlayerController : MonoBehaviour
 
         vfxClick.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         vfxClick.Play();
+        
+        vfxClickGraph.Reinit();
+        vfxClickGraph.Play(); 
     }
 }
