@@ -42,8 +42,6 @@ public class HerbariumPlant : HerbariumPage
     [SerializeField] private TMPDilateAppear specificsAppear;
     [SerializeField] private TMPDilateAppear logAppear;
     [SerializeField] private Animator plantAnimator;
-
-    private static HashSet<string> alreadyPlayedAppear = new HashSet<string>();
     
     public override void GoLeft()
     {
@@ -141,6 +139,21 @@ public class HerbariumPlant : HerbariumPage
     }
 
     /// <summary>
+    /// Starts the typewriting effect for this page
+    /// </summary>
+    public void StartTypeWritingEffect()
+    {
+        nameAppear?.PlayAppear();
+        latinNameAppear?.PlayAppear();
+        categoryAppear?.PlayAppear();
+        informationsTitleAppear?.PlayAppear();
+        informationsAppear?.PlayAppear();
+        specificsAppear?.PlayAppear();
+        logAppear?.PlayAppear();
+        plantAnimator?.SetTrigger("Appear");
+    }
+
+    /// <summary>
     /// Refreshs the game's visuals
     /// </summary>
     private void RefreshVisuals()
@@ -171,21 +184,6 @@ public class HerbariumPlant : HerbariumPage
 
             textLog.SetInjectors(new string[]{"Swamp","25/12"},false);
             textLog.SetNewKey("Herbarium_Plant_Log");
-            
-            //Animation apparitions
-            if (!alreadyPlayedAppear.Contains(plantId))
-            {
-                alreadyPlayedAppear.Add(plantId);
-                
-                nameAppear?.PlayAppear();
-                latinNameAppear?.PlayAppear();
-                categoryAppear?.PlayAppear();
-                informationsTitleAppear?.PlayAppear();
-                informationsAppear?.PlayAppear();
-                specificsAppear?.PlayAppear();
-                logAppear?.PlayAppear();
-                plantAnimator?.SetTrigger("Appear");
-            }
         }
         else
         {

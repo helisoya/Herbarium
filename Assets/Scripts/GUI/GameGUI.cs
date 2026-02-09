@@ -294,9 +294,14 @@ public class GameGUI : MonoBehaviour
     /// Show a plant page in the herbarium
     /// </summary>
     /// <param name="pageIndex">The plant index</param>
-    public void HerbariumShowPlantPage(int pageIndex)
+    /// <param name="typewriterEffect">True if the typewriting effect for the page should be enabled</param>
+    public void HerbariumShowPlantPage(int pageIndex, bool typewriterEffect = false)
     {
         herbariumGUI.SetPlant(pageIndex);
+        if (typewriterEffect)
+        {
+            herbariumGUI.StartTypeWritingEffectPlantPage();
+        }
     }
 
     /// <summary>

@@ -56,6 +56,12 @@ public class SetVariableNode : HerbariumNode
             {
                 GameGUI.instance.RefreshQuestPin(quest.id);
             }
+        }else if(quest != null && newValue == 0)
+        {
+            // Quest not pinned and started
+
+            handler.PinQuest(quest.id);
+            GameGUI.instance.AddPin(quest.id);
         }
     
         yield return 0;
