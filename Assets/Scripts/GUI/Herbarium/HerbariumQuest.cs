@@ -98,5 +98,10 @@ public class HerbariumQuest : HerbariumPage
         textLore.SetNewKey(currentQuest.Lore);
         textProgress.SetNewKey(currentQuest.GetState(GameManager.instance.GetPlayerDataHandler().GetVariable(currentQuest.linkedVariable)));
         imageQuest.sprite = currentQuest.questSprite;
+
+        if(GameManager.instance.GetPlayerDataHandler().GetVariable(currentQuest.linkedVariable) == 100)
+        {
+            imagePin.gameObject.SetActive(false);
+        }
     }
 }

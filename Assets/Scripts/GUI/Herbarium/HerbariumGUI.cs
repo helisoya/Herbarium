@@ -277,4 +277,12 @@ public class HerbariumGUI : MonoBehaviour
     {
         SetPage(quest,localIndex);
     }
+
+    /// <summary>
+    /// Starts the typewriting effect for the plant
+    /// </summary>
+    public void StartTypeWritingEffectPlantPage()
+    {
+        plant.StartTypeWritingEffect();
+    }
 }
