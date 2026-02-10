@@ -10,6 +10,14 @@ public class SC_WalkingOnLilypad : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
+        _animator.SetTrigger("Down");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+            return;
+
         _animator.SetTrigger("Squish");
     }
 }
