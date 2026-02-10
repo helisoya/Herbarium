@@ -55,6 +55,15 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets the player body
+    /// </summary>
+    /// <returns>Its rigidbody</returns>
+    public Rigidbody GetBody()
+    {
+        return controller.GetBody();
+    }
+
+    /// <summary>
     /// Sets the highlight for an interactable
     /// </summary>
     /// <param name="strength">The highlight's strength</param>

@@ -8,12 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MAT_Player_BodyVisuals
-  m_Shader: {fileID: -6465566751694194690, guid: aa178b94743239b4aa6096c3f5058447, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 1758037091a36a44dbae358ba2552032, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _EMISSION
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -64,6 +63,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutout: 0.5
+    - _HighlightStrength: 0
     - _IntensityAmbiant: 0
     - _IntensityUV1: 0
     - _IntensityUV2: 0
@@ -88,6 +88,7 @@ Material:
     - _ColorUV1: {r: 1, g: 1, b: 1, a: 1}
     - _ColorUV2: {r: 1, g: 1, b: 1, a: 1}
     - _ColorUV3: {r: 1, g: 1, b: 1, a: 1}
+    - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _WindAmplitude: {r: 0, g: 0, b: 0, a: 0}
     - _WindDirection: {r: 1, g: 0, b: 0, a: 0}
