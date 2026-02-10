@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 3096, y: -184}
+  position: {x: 3432, y: -184}
   ports:
     keys:
     - entry
@@ -232,7 +232,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -3458887110156714964}
+        node: {fileID: -1811667407660796315}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -5774111261613604636}
+        node: {fileID: -1811667407660796315}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -385,6 +385,53 @@ MonoBehaviour:
   addToLog: 1
   speakerAudio: 
   emotionAudio: 
+  exit: 0
+--- !u!114 &-1811667407660796315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788c0d86c1d94a04d8b2191ae66f002e, type: 3}
+  m_Name: Set Object Position From Object
+  m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
+  graph: {fileID: 11400000}
+  position: {x: 3144, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -1811667407660796315}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -3458887110156714964}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -1811667407660796315}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5774111261613604636}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour
+  targetID: Nour_Hidden
   exit: 0
 --- !u!114 &-1146800352714097844
 MonoBehaviour:
@@ -561,6 +608,7 @@ MonoBehaviour:
   - {fileID: -2847248985318491429}
   - {fileID: -6741017368167356764}
   - {fileID: -5457508624858716992}
+  - {fileID: -1811667407660796315}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:

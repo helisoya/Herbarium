@@ -1,5 +1,171 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7411877029445598314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace78cd0414e52c43a7013805896aa6a, type: 3}
+  m_Name: Set Variable
+  m_EditorClassIdentifier: Assembly-CSharp::SetVariableNode
+  graph: {fileID: 11400000}
+  position: {x: 696, y: -136}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7411877029445598314}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exitAllCollected
+        node: {fileID: -6027135046602916344}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7411877029445598314}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 8413821072205320138}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  variableID: Endgame
+  type: 0
+  value: 1
+  exit: 0
+--- !u!114 &-6027135046602916344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed887d1b711e794da034b0ce7ac9848, type: 3}
+  m_Name: Has Collected All Plants
+  m_EditorClassIdentifier: Assembly-CSharp::HasCollectedAllPlantsNode
+  graph: {fileID: 11400000}
+  position: {x: 408, y: -136}
+  ports:
+    keys:
+    - entry
+    - exitAllCollected
+    - exitNotAllCollected
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6027135046602916344}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: checkTrue
+        node: {fileID: -2713159410755557627}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitAllCollected
+      _node: {fileID: -6027135046602916344}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -7411877029445598314}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitNotAllCollected
+      _node: {fileID: -6027135046602916344}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  plantsToCheck: []
+  exitAllCollected: 0
+  exitNotAllCollected: 0
+--- !u!114 &-2713159410755557627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479120ff8be917546bd7d17780fe89cf, type: 3}
+  m_Name: If
+  m_EditorClassIdentifier: Assembly-CSharp::IfNode
+  graph: {fileID: 11400000}
+  position: {x: 88, y: -136}
+  ports:
+    keys:
+    - entry
+    - checkTrue
+    - checkFalse
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2713159410755557627}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exitSuccess
+        node: {fileID: 7311728309542192672}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkTrue
+      _node: {fileID: -2713159410755557627}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -6027135046602916344}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkFalse
+      _node: {fileID: -2713159410755557627}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  type: 0
+  checks:
+  - variableID: Endgame
+    check: 0
+    value: 0
+  checkTrue: 0
+  checkFalse: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,6 +181,10 @@ MonoBehaviour:
   nodes:
   - {fileID: 107968734850196264}
   - {fileID: 7311728309542192672}
+  - {fileID: -6027135046602916344}
+  - {fileID: -2713159410755557627}
+  - {fileID: -7411877029445598314}
+  - {fileID: 8413821072205320138}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -84,7 +254,10 @@ MonoBehaviour:
       _node: {fileID: 7311728309542192672}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: entry
+        node: {fileID: -2713159410755557627}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -112,3 +285,36 @@ MonoBehaviour:
   exitSuccess: 0
   exitAlreadyDone: 0
   exitCancel: 0
+--- !u!114 &8413821072205320138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d877a4bfada0a46ae90abc172926bc, type: 3}
+  m_Name: Change Graph
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeGraphNode
+  graph: {fileID: 11400000}
+  position: {x: 1022.5, y: -100}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8413821072205320138}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7411877029445598314}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  nextGraph: {fileID: 11400000, guid: 33d52132f72f2184eba041677304b19e, type: 2}
+  audioCutSceneID: 0

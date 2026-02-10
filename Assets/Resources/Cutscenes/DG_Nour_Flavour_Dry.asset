@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 2168, y: -184}
+  position: {x: 2360, y: -184}
   ports:
     keys:
     - entry
@@ -96,13 +96,60 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -3458887110156714964}
+        node: {fileID: -4488637535337518340}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   entry: 0
+--- !u!114 &-4488637535337518340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788c0d86c1d94a04d8b2191ae66f002e, type: 3}
+  m_Name: Set Object Position From Object
+  m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
+  graph: {fileID: 11400000}
+  position: {x: 2120, y: -184}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4488637535337518340}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -3458887110156714964}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4488637535337518340}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5774111261613604636}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour
+  targetID: Nour_Hidden
+  exit: 0
 --- !u!114 &-4022703648060657675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +232,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -5774111261613604636}
+        node: {fileID: -4488637535337518340}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -269,6 +316,7 @@ MonoBehaviour:
   - {fileID: -8637465672573279233}
   - {fileID: 2442325391673070858}
   - {fileID: -4022703648060657675}
+  - {fileID: -4488637535337518340}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:

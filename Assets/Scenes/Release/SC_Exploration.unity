@@ -1547,6 +1547,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3380308191725675552, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
   m_PrefabInstance: {fileID: 446983899}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &563250323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563250324}
+  - component: {fileID: 563250325}
+  m_Layer: 0
+  m_Name: Nour_Hidden
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &563250324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563250323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -46.58, y: 0, z: 18.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1516207656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &563250325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563250323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d5811568944524ca214e72dc3dddf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneObject
+  id: Nour_Hidden
 --- !u!4 &568360313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2401102141713116016, guid: d01fab0efe987f8438fba1de374225e8, type: 3}
@@ -4753,6 +4798,7 @@ Transform:
   - {fileID: 1914912352}
   - {fileID: 799106404}
   - {fileID: 697316363}
+  - {fileID: 563250324}
   - {fileID: 1543874013}
   - {fileID: 993817563}
   - {fileID: 19337210}
