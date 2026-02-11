@@ -37,7 +37,7 @@ public class MusicManager : MonoBehaviour
     {
         amb = RuntimeManager.CreateInstance(AmbEvent);
         amb.start();
-        PlayMusExploration();
+        //PlayMusExploration();
     }
 
     public void PlayAmb()
