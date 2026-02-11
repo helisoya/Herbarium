@@ -15,6 +15,7 @@ public class MusicManager : MonoBehaviour
     public EventReference MusNourPartA;
     public EventReference MusNourPartB;
     public EventReference MusMainTitleEvent;
+    public EventReference snapshotDialogues;
 
     EventInstance amb;
     EventInstance musSpawn;
@@ -24,6 +25,7 @@ public class MusicManager : MonoBehaviour
     EventInstance musNourPartA;
     EventInstance musNourPartB;
     EventInstance musMainTitle;
+    EventInstance snapshotDialoguesInstance;
 
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class MusicManager : MonoBehaviour
     }
     public void StopAmb()
     {
-        if (musExploration.isValid())
+        if (amb.isValid())
         {
             amb.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             amb.release();
@@ -85,12 +87,15 @@ public class MusicManager : MonoBehaviour
     {
         if (!musExploration.isValid())
         {
-            AudioManager.Instance.SetGlobalParameterByName("Zone", 0);
+            AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
             musExploration = RuntimeManager.CreateInstance(MusExplorationEvent);
             Debug.Log("Je demande à la musique d'exploration de jouer");
             musExploration.start();
         }
-        else return;
+        else
+        {
+            AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
+        }
         
     }
 
@@ -107,26 +112,41 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusBarbrook()
     {
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
         musBarbrook = RuntimeManager.CreateInstance(MusBarbrookEvent);
         musBarbrook.start();
     }
 
     public void PlayMusBarbrookPicnic()
     {
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
         musBarbrookPicnic = RuntimeManager.CreateInstance(MusBarbrookPicnicEvent);
+        AudioManager.Instance.SetGlobalParameterByName("PicNic", 0);
         musBarbrookPicnic.start();
     }
 
     public void PlayMusNourPartA()
     {
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
         musNourPartA = RuntimeManager.CreateInstance(MusNourPartA);
+        AudioManager.Instance.SetGlobalParameterByName("Map", 0);
         musNourPartA.start();
     }
 
     public void PlayMusNourPartB()
     {
-        musNourPartB = RuntimeManager.CreateInstance(MusNourPartB);
-        musNourPartB.start();
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
+        musNourPartA = RuntimeManager.CreateInstance(MusNourPartA);
+        AudioManager.Instance.SetGlobalParameterByName("Map", 1);
+        musNourPartA.start();
     }
 
 
@@ -152,22 +172,18 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.NourPartA:
-                AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
                 PlayMusNourPartA();
                 break;
 
             case CutSceneID.NourPartB:
-                AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
                 PlayMusNourPartB();
                 break;
 
             case CutSceneID.BarbrookPartA:
-                //AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
                 PlayMusBarbrook();
                 break;
 
             case CutSceneID.BarbrookPicNic:
-                //AudioManager.Instance.SetGlobalParameterByName("Zone", 2);
                 PlayMusBarbrookPicnic();
                 break;
 
@@ -194,24 +210,31 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.NourPartA:
-                AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                musNourPartA.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.NourPartB:
-                AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                musNourPartA.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.BarbrookPartA:
                 musBarbrook.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                //musBarbrook.release();
+                musBarbrook.release();
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.BarbrookPicNic:
-                AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.Bed:
-                AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
+                AudioManager.Instance.SetGlobalParameterByName("Zone", 0);
                 break;
 
             case CutSceneID.Drying:
