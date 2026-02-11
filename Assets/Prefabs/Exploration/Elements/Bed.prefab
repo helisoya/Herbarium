@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8337648201944074702
 Transform:
   m_ObjectHideFlags: 0
@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44fee55f8c007d141b97a75724b1196f, type: 2}
+  - {fileID: 2100000, guid: 15a3335de8624d148967f76368bd9357, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,8 +144,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9885955, y: 0.48146844, z: 0.30644703}
-  m_Center: {x: -0.012652874, y: 0.25926578, z: -0.03355789}
+  m_Size: {x: 0.8404996, y: 0.48146844, z: 0.451334}
+  m_Center: {x: -0.08670083, y: 0.25926578, z: -0.06131363}
 --- !u!54 &6323671216655262610
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,7 +187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
   stopPlayerOnInterract: 1
   linkedGraph: {fileID: 11400000, guid: 656689fb81b8ed44aae40fbafc4d9dfa, type: 2}
-  interactionIcon: {fileID: 2821103572683766931}
   playCutscenesEvents: 1
   audioCutsceneId: 5
-  animationTrigger: 
+  animationTrigger: isAction

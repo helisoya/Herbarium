@@ -279,15 +279,17 @@ public class RadialMenu : MonoBehaviour
             itemSprite = null
         };
 
+        bool isMapUnlocked = GameManager.instance.GetPlayerDataHandler().IsMapUnlocked();
+
         testData.entries[1] = new RadialMenuEntryData()
         {
-            key = "RadialMenu_Map",
+            key = isMapUnlocked ? "RadialMenu_Map" : "Inventory_Nothing",
             rotation = 270,
             sprite = backSprite,
             callback = OpenMap,
-            interactable = GameManager.instance.GetPlayerDataHandler().IsMapUnlocked(),
-            inputAction = mapInput.action,
-            inputIndex = mapInput.index,
+            interactable = isMapUnlocked,
+            inputAction = isMapUnlocked ? mapInput.action : null,
+            inputIndex = isMapUnlocked ? mapInput.index : 0,
             inputPosition = inputPositions[1],
             itemSprite = null
         };

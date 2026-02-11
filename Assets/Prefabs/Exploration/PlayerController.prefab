@@ -81,6 +81,8 @@ MonoBehaviour:
   animator: {fileID: 7820534499587096684}
   graphicToFlip: {fileID: 1904810751189001165}
   vfxWalk: {fileID: 2995899255309391739}
+  vfxClick: {fileID: 1617798841819502942}
+  vfxClickGraph: {fileID: 8652436337593705246}
 --- !u!114 &151810198316290758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,9 +722,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9575e5c68e012cc4eb6283ecfa34b5b3, type: 3}
+--- !u!198 &1617798841819502942 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1263331985324046583, guid: 9575e5c68e012cc4eb6283ecfa34b5b3, type: 3}
+  m_PrefabInstance: {fileID: 575285129259278761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2398556233515729236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2788485635656212733, guid: 9575e5c68e012cc4eb6283ecfa34b5b3, type: 3}
+  m_PrefabInstance: {fileID: 575285129259278761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &8652436337593705246 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 9216743937189085879, guid: 9575e5c68e012cc4eb6283ecfa34b5b3, type: 3}
   m_PrefabInstance: {fileID: 575285129259278761}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3473576287627864998
