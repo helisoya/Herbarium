@@ -2384,6 +2384,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneObject
   id: Nour_End_3
+--- !u!4 &705687693 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6972885815178179839, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+  m_PrefabInstance: {fileID: 1173861382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &740249636
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,6 +3019,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3380308191725675552, guid: b611b8469a5453c4fbc2ff888df7be3f, type: 3}
   m_PrefabInstance: {fileID: 883119579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &905002053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7380258394440688012, guid: 09dc0209cc2eb82449a092ba7ddbcd32, type: 3}
+  m_PrefabInstance: {fileID: 795809597818939166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &905002056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905002053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 964657269
+      Data2: 1310380849
+      Data3: -1609721705
+      Data4: -943993429
+    Path: event:/Home/Campfire
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 8
 --- !u!43 &906280855
 Mesh:
   m_ObjectHideFlags: 0
@@ -5603,7 +5644,7 @@ PrefabInstance:
       objectReference: {fileID: 681686927}
     - target: {fileID: 428103899548528014, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
       propertyPath: m_VersionIndex
-      value: 47153
+      value: 47159
       objectReference: {fileID: 0}
     - target: {fileID: 453965531247219669, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
       propertyPath: m_Mesh
@@ -5619,7 +5660,7 @@ PrefabInstance:
       objectReference: {fileID: 1102355440}
     - target: {fileID: 1727838383024506208, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
       propertyPath: m_VersionIndex
-      value: 13205
+      value: 13211
       objectReference: {fileID: 0}
     - target: {fileID: 4859456464530235131, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
       propertyPath: m_Mesh
@@ -5629,14 +5670,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global_Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 5432877329033139188, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
+      propertyPath: TrackingTarget
+      value: 
+      objectReference: {fileID: 705687693}
+    - target: {fileID: 5889229143293599126, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
+      propertyPath: TrackingTarget
+      value: 
+      objectReference: {fileID: 705687693}
     - target: {fileID: 6159189544422049091, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1381985366}
     - target: {fileID: 6159189544422049091, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
       propertyPath: m_VersionIndex
-      value: 31644
+      value: 31650
       objectReference: {fileID: 0}
+    - target: {fileID: 6287884951316911421, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
+      propertyPath: TrackingTarget
+      value: 
+      objectReference: {fileID: 705687693}
     - target: {fileID: 9185814041012296227, guid: d63c67e31187f0b4a9c48558a6b3a5e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7302,7 +7355,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7380258394440688012, guid: 09dc0209cc2eb82449a092ba7ddbcd32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 905002056}
   m_SourcePrefab: {fileID: 100100000, guid: 09dc0209cc2eb82449a092ba7ddbcd32, type: 3}
 --- !u!1001 &1339372167882230032
 PrefabInstance:
