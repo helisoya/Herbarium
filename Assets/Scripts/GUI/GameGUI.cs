@@ -563,7 +563,7 @@ public class GameGUI : MonoBehaviour
     public void CloseMap()
     {
         mapOpen = false;
-        EnableHudIfPossible();
+        if(!CutsceneManager.instance.inCutscene || CutsceneManager.instance.inParrallelCutscene) EnableHudIfPossible();
         mapRoot.transform.DOScale(Vector3.zero,0.3f).SetEase(Ease.InQuad);
     }
 
