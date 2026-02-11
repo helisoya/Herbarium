@@ -84,6 +84,7 @@ public class AudioDialogues : MonoBehaviour
                         AudioManager.Instance.PlayOneShot2D(speak);
                         break;
 
+
                     case "NoSpeak":
                         break;
                 }
@@ -144,6 +145,22 @@ public class AudioDialogues : MonoBehaviour
                     case "Goodbye":
                         AudioManager.Instance.SetGlobalParameterByName("Emotion", 9);
                         AudioManager.Instance.PlayOneShot2D(speak);
+                        break;
+
+                    case "IntroPicnic":
+                        AudioManager.Instance.SetGlobalParameterByName("PicNic", 0);
+                        break;
+
+                    case "StartPicnic":
+                        AudioManager.Instance.SetGlobalParameterByName("PicNic", 1);
+                        break;
+
+                    case "EnjoyPicnic":
+                        AudioManager.Instance.SetGlobalParameterByName("PicNic", 2);
+                        break;
+
+                    case "EndPicnic":
+                        AudioManager.Instance.SetGlobalParameterByName("PicNic", 3);
                         break;
 
                     case "NoSpeak":

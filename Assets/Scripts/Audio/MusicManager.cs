@@ -85,7 +85,7 @@ public class MusicManager : MonoBehaviour
     {
         if (!musExploration.isValid())
         {
-            AudioManager.Instance.SetGlobalParameterByName("Zone", 0);
+            AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
             musExploration = RuntimeManager.CreateInstance(MusExplorationEvent);
             Debug.Log("Je demande à la musique d'exploration de jouer");
             musExploration.start();
@@ -130,9 +130,9 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusNourPartB()
     {
-        musNourPartB = RuntimeManager.CreateInstance(MusNourPartA);
+        musNourPartA = RuntimeManager.CreateInstance(MusNourPartA);
         AudioManager.Instance.SetGlobalParameterByName("Map", 1);
-        musNourPartB.start();
+        musNourPartA.start();
     }
 
 
@@ -196,11 +196,13 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.NourPartA:
-                AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                musNourPartA.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                //AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
                 break;
 
             case CutSceneID.NourPartB:
-                AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                musNourPartA.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                //AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
                 break;
 
             case CutSceneID.BarbrookPartA:
