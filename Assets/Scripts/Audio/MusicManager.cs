@@ -15,6 +15,7 @@ public class MusicManager : MonoBehaviour
     public EventReference MusNourPartA;
     public EventReference MusNourPartB;
     public EventReference MusMainTitleEvent;
+    public EventReference snapshotDialogues;
 
     EventInstance amb;
     EventInstance musSpawn;
@@ -24,6 +25,7 @@ public class MusicManager : MonoBehaviour
     EventInstance musNourPartA;
     EventInstance musNourPartB;
     EventInstance musMainTitle;
+    EventInstance snapshotDialoguesInstance;
 
     private void Awake()
     {
@@ -110,12 +112,18 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusBarbrook()
     {
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
         musBarbrook = RuntimeManager.CreateInstance(MusBarbrookEvent);
         musBarbrook.start();
     }
 
     public void PlayMusBarbrookPicnic()
     {
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
         musBarbrookPicnic = RuntimeManager.CreateInstance(MusBarbrookPicnicEvent);
         AudioManager.Instance.SetGlobalParameterByName("PicNic", 0);
         musBarbrookPicnic.start();
@@ -123,6 +131,9 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusNourPartA()
     {
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
         musNourPartA = RuntimeManager.CreateInstance(MusNourPartA);
         AudioManager.Instance.SetGlobalParameterByName("Map", 0);
         musNourPartA.start();
@@ -130,6 +141,9 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusNourPartB()
     {
+        snapshotDialoguesInstance = RuntimeManager.CreateInstance(snapshotDialogues);
+        snapshotDialoguesInstance.start();
+
         musNourPartA = RuntimeManager.CreateInstance(MusNourPartA);
         AudioManager.Instance.SetGlobalParameterByName("Map", 1);
         musNourPartA.start();
@@ -197,21 +211,26 @@ public class MusicManager : MonoBehaviour
 
             case CutSceneID.NourPartA:
                 musNourPartA.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                //AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.NourPartB:
                 musNourPartA.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                //AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.BarbrookPartA:
                 musBarbrook.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 musBarbrook.release();
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.BarbrookPicNic:
-                AudioManager.Instance.PlayEvent2D(EventID.MusExploration2D);
+                snapshotDialoguesInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                snapshotDialoguesInstance.release();
                 break;
 
             case CutSceneID.Bed:
