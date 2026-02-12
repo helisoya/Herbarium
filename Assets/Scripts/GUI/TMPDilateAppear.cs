@@ -17,21 +17,27 @@ public class TMPDilateAppear : MonoBehaviour
     {
         tmp = GetComponent<TMP_Text>();
     }
-    
+
 
     void Update()
     {
         if (isTyping)
         {
-            int newValue = (int)Mathf.Lerp(0,max,(Time.time-startTime)/duration);
+            int newValue = (int)Mathf.Lerp(0, max, (Time.time - startTime) / duration);
 
             tmp.maxVisibleCharacters = newValue;
 
-            if(newValue == max)
+            if (newValue == max)
             {
                 isTyping = false;
+                ResetVisibleCharacters();
             }
         }
+    }
+
+    public void ResetVisibleCharacters()
+    {
+        tmp.maxVisibleCharacters = -1;
     }
 
     public void PlayAppear()
@@ -41,11 +47,11 @@ public class TMPDilateAppear : MonoBehaviour
 
         tmp.ForceMeshUpdate(false);
         TMP_TextInfo inf = tmp.textInfo;
-        
+
         max = inf.characterCount;
         startTime = Time.time;
     }
-    
+
     private void OnDestroy()
     {
         isTyping = false;
