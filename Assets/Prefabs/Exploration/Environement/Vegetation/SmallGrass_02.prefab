@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3994475156055107294}
-  - component: {fileID: 5136458148344799763}
   m_Layer: 0
   m_Name: SmallGrass_02
   m_TagString: Untagged
@@ -32,39 +31,8 @@ Transform:
   m_Children:
   - {fileID: 762921348249664136}
   - {fileID: 5729686538202294051}
-  - {fileID: 8077811502068777156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5136458148344799763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6646877533994101308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
-  onEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6413173157639695942}
-        m_TargetAssemblyTypeName: AudioGrassCollision, Assembly-CSharp
-        m_MethodName: PostGrassCollision
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8308270845729018917}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8308270845729018917
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +164,7 @@ MonoBehaviour:
   _stillAmplitude: {x: 5, y: 0, z: 0}
   _reactionTime: 0.5
   _grassVFX: {fileID: 6487117835062874301}
+  grassCollision: 19
 --- !u!1001 &2510653417184501885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310,77 +279,4 @@ Transform:
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8705878882926014656, guid: 3f24b2bf8bf50a44490b26f818231e21, type: 3}
   m_PrefabInstance: {fileID: 2510653417184501885}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &3913208971582685818
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3994475156055107294}
-    m_Modifications:
-    - target: {fileID: 2462307146088107776, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_Name
-      value: AudioGrassCollision
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00336
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.11271
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
---- !u!114 &6413173157639695942 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8020534704512035900, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-  m_PrefabInstance: {fileID: 3913208971582685818}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b7a99ddcda198241bb2e9eeea3fe4c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioGrassCollision
---- !u!4 &8077811502068777156 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5067855872752943806, guid: 8d794e3e8dc7cfc428d082571ffd2137, type: 3}
-  m_PrefabInstance: {fileID: 3913208971582685818}
   m_PrefabAsset: {fileID: 0}

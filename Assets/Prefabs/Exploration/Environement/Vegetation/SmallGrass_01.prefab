@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3071281272184060609}
   - component: {fileID: 8672857525524932446}
   - component: {fileID: 6762307511652435119}
+  - component: {fileID: 2639253702121204008}
   m_Layer: 0
   m_Name: SmallGrass_01
   m_TagString: Untagged
@@ -112,6 +113,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.95, y: 1.5700002, z: 0.20000009}
   m_Center: {x: 0.02446717, y: 0.6606457, z: 0.000000039377554}
+--- !u!114 &2639253702121204008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636796321765009683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3316717443963151235}
+        m_TargetAssemblyTypeName: AudioGrassCollision, Assembly-CSharp
+        m_MethodName: PostGrassCollision
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7738147113182384898
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +152,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6434987335852215258}
-  - component: {fileID: 2862773339634420367}
   m_Layer: 0
   m_Name: SmallGrass_01
   m_TagString: Untagged
@@ -147,36 +177,6 @@ Transform:
   - {fileID: 512659598121045249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2862773339634420367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7738147113182384898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
-  onEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3316717443963151235}
-        m_TargetAssemblyTypeName: AudioGrassCollision, Assembly-CSharp
-        m_MethodName: PostGrassCollision2D
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onExit:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &4704556409682005951
 PrefabInstance:
   m_ObjectHideFlags: 0

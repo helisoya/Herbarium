@@ -262,6 +262,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3383877998010885818}
+  - {fileID: 4901245358920243965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8865789055519443055
@@ -378,6 +379,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3383877998010885818}
+  - component: {fileID: 576461102420266050}
+  - component: {fileID: 3830653300710046755}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -403,3 +406,139 @@ Transform:
   - {fileID: 8712780944402283391}
   m_Father: {fileID: 3282351662556474287}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!135 &576461102420266050
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868747782068933111}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3830653300710046755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868747782068933111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1414383202249648603}
+        m_TargetAssemblyTypeName: AudioTrees, Assembly-CSharp
+        m_MethodName: OnProximityTree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1414383202249648603}
+        m_TargetAssemblyTypeName: AudioTrees, Assembly-CSharp
+        m_MethodName: OnExitTree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &4244098314019322942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3282351662556474287}
+    m_Modifications:
+    - target: {fileID: 5400595064300231774, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_Name
+      value: AudioTrees
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+--- !u!114 &1414383202249648603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2974336086469907941, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+  m_PrefabInstance: {fileID: 4244098314019322942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b485eade60f1ec14db31014ff34bc5e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioTrees
+--- !u!4 &4901245358920243965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9143055193620719299, guid: 34ada6aa8bcea3f4caa874e11ff28c83, type: 3}
+  m_PrefabInstance: {fileID: 4244098314019322942}
+  m_PrefabAsset: {fileID: 0}
