@@ -1,26 +1,42 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class AudioPlayerAniù : MonoBehaviour
 {
-    [SerializeField] EventID playerWalk;
-    //[SerializeField] EventID playerWalkStop;
+    [SerializeField] private EventReference playerWalk;
     //[SerializeField] EventID playerBend;
     //[SerializeField] EventID playerInteract;
-    [SerializeField] EventID playerCloatUp;
-    [SerializeField] EventID playerCloatDown;
+    [SerializeField] EventReference playerCloatUp;
+    [SerializeField] EventReference playerCloatDown;
+    
+    private EventInstance playerWalkInstance;
+    private EventInstance playerCloatUpInstance;
+    private EventInstance playerCloatDownInstance;
 
     public void PostPlayerWalk()
     {
-        AudioManager.Instance.PlayOneShot2D(playerWalk);
+        playerWalkInstance = RuntimeManager.CreateInstance(playerWalk);
+        playerWalkInstance.start();
     }
 
     public void PostPlayerCloatDown()
     {
-        AudioManager.Instance.PlayOneShot2D(playerCloatDown);
+        playerCloatDownInstance = RuntimeManager.CreateInstance(playerCloatDown);
+        playerCloatDownInstance.start();
     }
 
     public void PostPlayerCloatUp()
     {
-        AudioManager.Instance.PlayOneShot2D(playerCloatUp);
+        playerCloatUpInstance = RuntimeManager.CreateInstance(playerCloatUp);
+        playerCloatUpInstance.start();
+    }
+
+    public void PostPlayerIdle()
+    {
+        playerWalkInstance.stop(STOP_MODE.IMMEDIATE);
+        playerCloatUpInstance.stop(STOP_MODE.IMMEDIATE);
+        playerCloatDownInstance.stop(STOP_MODE.IMMEDIATE);
     }
 }

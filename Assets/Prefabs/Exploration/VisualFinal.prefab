@@ -1408,9 +1408,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5eb71001dd3a64e940db4931a84156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::AudioPlayerAni\xF9"
-  playerWalk: 95
-  playerCloatUp: 100
-  playerCloatDown: 99
+  playerWalk:
+    Guid:
+      Data1: -2133423950
+      Data2: 1188802652
+      Data3: -427022968
+      Data4: 151313131
+    Path: event:/Player/PlayerWalk
+  playerCloatUp:
+    Guid:
+      Data1: 1144861969
+      Data2: 1186097849
+      Data3: 414117266
+      Data4: -958432331
+    Path: event:/Player/PlayerWalkCloatUp
+  playerCloatDown:
+    Guid:
+      Data1: -1815741394
+      Data2: 1187116874
+      Data3: -724694376
+      Data4: -1425053862
+    Path: event:/Player/PlayerWalkCloatDown
 --- !u!1 &4822609809677609665
 GameObject:
   m_ObjectHideFlags: 0
