@@ -37,7 +37,8 @@ public class TMPDilateAppear : MonoBehaviour
 
     public void ResetVisibleCharacters()
     {
-        tmp.maxVisibleCharacters = -1;
+        tmp.maxVisibleCharacters = 999999999;
+        isTyping = false;
     }
 
     public void PlayAppear()
