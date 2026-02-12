@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 6936, y: 568}
+  position: {x: 7272, y: 568}
   ports:
     keys:
     - entry
@@ -715,7 +715,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -896318099946828204}
+        node: {fileID: 4505909365690767020}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: 6696, y: 616}
+  position: {x: 7032, y: 616}
   ports:
     keys:
     - entry
@@ -908,7 +908,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -3252219147385465687}
+        node: {fileID: 4505909365690767020}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1137,6 +1137,8 @@ MonoBehaviour:
   - {fileID: 4265243008033403675}
   - {fileID: -896318099946828204}
   - {fileID: -7864089110667066541}
+  - {fileID: 5426748616654660786}
+  - {fileID: 4505909365690767020}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -1151,7 +1153,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: Assembly-CSharp::StartNode
   graph: {fileID: 11400000}
-  position: {x: -1224, y: 376}
+  position: {x: -1448, y: 360}
   ports:
     keys:
     - exit
@@ -1162,7 +1164,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 4734735286496648850}
+        node: {fileID: 5426748616654660786}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -1463,6 +1465,53 @@ MonoBehaviour:
   objectID: Barbrook_Anim
   triggerName: Idle
   exit: 0
+--- !u!114 &4505909365690767020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788c0d86c1d94a04d8b2191ae66f002e, type: 3}
+  m_Name: Set Object Position From Object
+  m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
+  graph: {fileID: 11400000}
+  position: {x: 6728, y: 632}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4505909365690767020}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -3252219147385465687}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4505909365690767020}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -896318099946828204}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Blanket
+  targetID: Blanket_2
+  exit: 0
 --- !u!114 &4734735286496648850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,7 +1537,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 107968734850196264}
+        node: {fileID: 5426748616654660786}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1509,6 +1558,53 @@ MonoBehaviour:
   entry: 0
   target: 1
   waitForEnd: 1
+  exit: 0
+--- !u!114 &5426748616654660786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788c0d86c1d94a04d8b2191ae66f002e, type: 3}
+  m_Name: Set Object Position From Object
+  m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
+  graph: {fileID: 11400000}
+  position: {x: -1224, y: 360}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 5426748616654660786}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 107968734850196264}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 5426748616654660786}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 4734735286496648850}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Blanket
+  targetID: Blanket_1
   exit: 0
 --- !u!114 &6066857882372956241
 MonoBehaviour:
