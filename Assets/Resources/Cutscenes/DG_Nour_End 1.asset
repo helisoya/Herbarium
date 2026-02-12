@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 888, y: -184}
+  position: {x: 904, y: -264}
   ports:
     keys:
     - entry
@@ -77,7 +77,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 6361062967250392606}
+        node: {fileID: 326002197920383408}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -3458887110156714964}
+        node: {fileID: 7355279735957758424}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -156,6 +156,53 @@ MonoBehaviour:
   speakerAudio: Nour
   emotionAudio: Goodbye
   exit: 0
+--- !u!114 &-6241850115786628987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: -696, y: 168}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6241850115786628987}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 107968734850196264}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -6241850115786628987}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1146800352714097844}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Walk
+  exit: 0
 --- !u!114 &-6236837565863261778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +216,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1480, y: -184}
+  position: {x: 1400, y: -184}
   ports:
     keys:
     - entry
@@ -181,7 +228,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -5457508624858716992}
+        node: {fileID: 1235579068115775658}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -193,7 +240,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -1062449669357962953}
+        node: {fileID: 2768437893151740926}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -221,7 +268,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 3432, y: -184}
+  position: {x: 3576, y: -200}
   ports:
     keys:
     - entry
@@ -232,7 +279,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -1811667407660796315}
+        node: {fileID: 4995848525071163317}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -252,7 +299,7 @@ MonoBehaviour:
   m_Name: Unlock Map
   m_EditorClassIdentifier: Assembly-CSharp::UnlockMapNode
   graph: {fileID: 11400000}
-  position: {x: 1176, y: -104}
+  position: {x: 1128, y: 56}
   ports:
     keys:
     - entry
@@ -276,7 +323,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -6236837565863261778}
+        node: {fileID: 1235579068115775658}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -285,6 +332,53 @@ MonoBehaviour:
   entry: 0
   mapIsNowUnlocked: 1
   showMapIfUnlocked: 1
+  exit: 0
+--- !u!114 &-4573122881480413049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 88, y: 344}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4573122881480413049}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2847248985318491429}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4573122881480413049}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 7092918144916789132}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Happy
   exit: 0
 --- !u!114 &-3458887110156714964
 MonoBehaviour:
@@ -311,7 +405,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -6741017368167356764}
+        node: {fileID: 7355279735957758424}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -347,7 +441,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 136, y: -184}
+  position: {x: -8, y: -184}
   ports:
     keys:
     - entry
@@ -359,7 +453,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -686719967471008882}
+        node: {fileID: -2254065070100650426}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -371,7 +465,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 7092918144916789132}
+        node: {fileID: -4573122881480413049}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -385,6 +479,53 @@ MonoBehaviour:
   addToLog: 1
   speakerAudio: Nour
   emotionAudio: Hi
+  exit: 0
+--- !u!114 &-2254065070100650426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: -296, y: 168}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2254065070100650426}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -686719967471008882}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -2254065070100650426}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -2847248985318491429}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Idle
   exit: 0
 --- !u!114 &-1811667407660796315
 MonoBehaviour:
@@ -423,7 +564,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -5774111261613604636}
+        node: {fileID: 4995848525071163317}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -446,7 +587,7 @@ MonoBehaviour:
   m_Name: Set Object Position From Object
   m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
   graph: {fileID: 11400000}
-  position: {x: -328, y: -184}
+  position: {x: -648, y: -216}
   ports:
     keys:
     - entry
@@ -458,7 +599,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 107968734850196264}
+        node: {fileID: -6241850115786628987}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -505,7 +646,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -6236837565863261778}
+        node: {fileID: 2768437893151740926}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -545,7 +686,7 @@ MonoBehaviour:
   m_Name: Move Object To Object
   m_EditorClassIdentifier: Assembly-CSharp::MoveObjectToObjectNode
   graph: {fileID: 11400000}
-  position: {x: -104, y: -184}
+  position: {x: -424, y: -216}
   ports:
     keys:
     - entry
@@ -569,7 +710,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -2847248985318491429}
+        node: {fileID: -2254065070100650426}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -609,6 +750,14 @@ MonoBehaviour:
   - {fileID: -6741017368167356764}
   - {fileID: -5457508624858716992}
   - {fileID: -1811667407660796315}
+  - {fileID: -6241850115786628987}
+  - {fileID: -2254065070100650426}
+  - {fileID: 4995848525071163317}
+  - {fileID: 7355279735957758424}
+  - {fileID: 1235579068115775658}
+  - {fileID: 2768437893151740926}
+  - {fileID: 326002197920383408}
+  - {fileID: -4573122881480413049}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -623,7 +772,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: Assembly-CSharp::StartNode
   graph: {fileID: 11400000}
-  position: {x: -568, y: -184}
+  position: {x: -888, y: -40}
   ports:
     keys:
     - exit
@@ -634,12 +783,106 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -1146800352714097844}
+        node: {fileID: -6241850115786628987}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
+  exit: 0
+--- !u!114 &326002197920383408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 872, y: 296}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 326002197920383408}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 6361062967250392606}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 326002197920383408}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8242193767389294988}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Idle
+  exit: 0
+--- !u!114 &1235579068115775658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 1272, y: 248}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 1235579068115775658}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -5457508624858716992}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 1235579068115775658}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -6236837565863261778}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Happy
   exit: 0
 --- !u!114 &2557767094062992694
 MonoBehaviour:
@@ -693,6 +936,100 @@ MonoBehaviour:
   speakerAudio: Nour
   emotionAudio: Excited
   exit: 0
+--- !u!114 &2768437893151740926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 1608, y: 264}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 2768437893151740926}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -6236837565863261778}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 2768437893151740926}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -1062449669357962953}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Idle
+  exit: 0
+--- !u!114 &4995848525071163317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 3400, y: 104}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 4995848525071163317}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -1811667407660796315}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 4995848525071163317}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5774111261613604636}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Idle
+  exit: 0
 --- !u!114 &6361062967250392606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,7 +1043,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 648, y: -184}
+  position: {x: 616, y: 264}
   ports:
     keys:
     - entry
@@ -730,7 +1067,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -8242193767389294988}
+        node: {fileID: 326002197920383408}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -758,7 +1095,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 392, y: -184}
+  position: {x: 360, y: 264}
   ports:
     keys:
     - entry
@@ -770,7 +1107,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -2847248985318491429}
+        node: {fileID: -4573122881480413049}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -796,4 +1133,51 @@ MonoBehaviour:
   addToLog: 1
   speakerAudio: Nour
   emotionAudio: Impressed
+  exit: 0
+--- !u!114 &7355279735957758424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 2712, y: 200}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7355279735957758424}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -6741017368167356764}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 7355279735957758424}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -3458887110156714964}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Walk
   exit: 0

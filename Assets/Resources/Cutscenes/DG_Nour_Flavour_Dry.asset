@@ -72,6 +72,53 @@ MonoBehaviour:
   exitSuccess: 0
   exitPlantNotCorrect: 0
   exitCancel: 0
+--- !u!114 &-5897210103038066416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 2200, y: 40}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5897210103038066416}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -4488637535337518340}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -5897210103038066416}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5774111261613604636}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Idle
+  exit: 0
 --- !u!114 &-5774111261613604636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +143,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -4488637535337518340}
+        node: {fileID: -5897210103038066416}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -140,7 +187,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -5774111261613604636}
+        node: {fileID: -5897210103038066416}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -187,7 +234,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -3458887110156714964}
+        node: {fileID: 8603267324438278015}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -220,7 +267,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -4022703648060657675}
+        node: {fileID: 8603267324438278015}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -317,6 +364,8 @@ MonoBehaviour:
   - {fileID: 2442325391673070858}
   - {fileID: -4022703648060657675}
   - {fileID: -4488637535337518340}
+  - {fileID: -5897210103038066416}
+  - {fileID: 8603267324438278015}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -455,4 +504,51 @@ MonoBehaviour:
   addToLog: 1
   speakerAudio: Nour
   emotionAudio: Excited
+  exit: 0
+--- !u!114 &8603267324438278015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 1752, y: 88}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 8603267324438278015}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -4022703648060657675}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 8603267324438278015}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -3458887110156714964}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: Walk
   exit: 0
