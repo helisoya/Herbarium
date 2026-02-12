@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8370270939449274390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: 3416, y: 392}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8370270939449274390}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -6741017368167356764}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -8370270939449274390}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 7355279735957758424}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: FaceIdle
+  exit: 0
 --- !u!114 &-8323960140220301616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +60,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1992, y: -184}
+  position: {x: 2744, y: 40}
   ports:
     keys:
     - entry
@@ -117,7 +164,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 2488, y: -184}
+  position: {x: 3240, y: 40}
   ports:
     keys:
     - entry
@@ -141,7 +188,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 7355279735957758424}
+        node: {fileID: -8370270939449274390}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -169,7 +216,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: -696, y: 168}
+  position: {x: -1560, y: 88}
   ports:
     keys:
     - entry
@@ -216,7 +263,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1400, y: -184}
+  position: {x: 1928, y: 24}
   ports:
     keys:
     - entry
@@ -268,7 +315,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: Assembly-CSharp::EndNode
   graph: {fileID: 11400000}
-  position: {x: 3576, y: -200}
+  position: {x: 4328, y: 24}
   ports:
     keys:
     - entry
@@ -346,7 +393,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: 88, y: 344}
+  position: {x: -200, y: -88}
   ports:
     keys:
     - entry
@@ -393,7 +440,7 @@ MonoBehaviour:
   m_Name: Move Object To Object
   m_EditorClassIdentifier: Assembly-CSharp::MoveObjectToObjectNode
   graph: {fileID: 11400000}
-  position: {x: 2840, y: -184}
+  position: {x: 3592, y: 40}
   ports:
     keys:
     - entry
@@ -441,7 +488,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: -8, y: -184}
+  position: {x: -520, y: -248}
   ports:
     keys:
     - entry
@@ -453,7 +500,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -2254065070100650426}
+        node: {fileID: 6905883754731123425}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -493,7 +540,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: -296, y: 168}
+  position: {x: -1032, y: -200}
   ports:
     keys:
     - entry
@@ -517,7 +564,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -2847248985318491429}
+        node: {fileID: 6905883754731123425}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -540,7 +587,7 @@ MonoBehaviour:
   m_Name: Set Object Position From Object
   m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
   graph: {fileID: 11400000}
-  position: {x: 3144, y: -184}
+  position: {x: 3896, y: 40}
   ports:
     keys:
     - entry
@@ -587,7 +634,7 @@ MonoBehaviour:
   m_Name: Set Object Position From Object
   m_EditorClassIdentifier: Assembly-CSharp::SetObjectPositionFromObjectNode
   graph: {fileID: 11400000}
-  position: {x: -648, y: -216}
+  position: {x: -1512, y: -296}
   ports:
     keys:
     - entry
@@ -634,7 +681,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 1736, y: -184}
+  position: {x: 2488, y: 40}
   ports:
     keys:
     - entry
@@ -686,7 +733,7 @@ MonoBehaviour:
   m_Name: Move Object To Object
   m_EditorClassIdentifier: Assembly-CSharp::MoveObjectToObjectNode
   graph: {fileID: 11400000}
-  position: {x: -424, y: -216}
+  position: {x: -1288, y: -296}
   ports:
     keys:
     - entry
@@ -759,6 +806,8 @@ MonoBehaviour:
   - {fileID: 326002197920383408}
   - {fileID: -4573122881480413049}
   - {fileID: 4986602759294499909}
+  - {fileID: 6905883754731123425}
+  - {fileID: -8370270939449274390}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -773,7 +822,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: Assembly-CSharp::StartNode
   graph: {fileID: 11400000}
-  position: {x: -888, y: -40}
+  position: {x: -1752, y: -120}
   ports:
     keys:
     - exit
@@ -804,7 +853,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: 872, y: 296}
+  position: {x: 584, y: -136}
   ports:
     keys:
     - entry
@@ -851,7 +900,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: 1272, y: 248}
+  position: {x: 1416, y: -24}
   ports:
     keys:
     - entry
@@ -898,7 +947,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 2232, y: -184}
+  position: {x: 2984, y: 40}
   ports:
     keys:
     - entry
@@ -950,7 +999,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: 1608, y: 264}
+  position: {x: 2200, y: 40}
   ports:
     keys:
     - entry
@@ -997,7 +1046,7 @@ MonoBehaviour:
   m_Name: Show Popup
   m_EditorClassIdentifier: Assembly-CSharp::ShowPopupNode
   graph: {fileID: 11400000}
-  position: {x: 1320, y: 456}
+  position: {x: 1640, y: 8}
   ports:
     keys:
     - entry
@@ -1044,7 +1093,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: 3400, y: 104}
+  position: {x: 4152, y: 328}
   ports:
     keys:
     - entry
@@ -1091,7 +1140,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 616, y: 264}
+  position: {x: 328, y: -168}
   ports:
     keys:
     - entry
@@ -1130,6 +1179,53 @@ MonoBehaviour:
   speakerAudio: Nour
   emotionAudio: Excited
   exit: 0
+--- !u!114 &6905883754731123425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2429fa572f176de47a767bc1756d798f, type: 3}
+  m_Name: Play Animation
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
+  graph: {fileID: 11400000}
+  position: {x: -776, y: -168}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 6905883754731123425}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2254065070100650426}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 6905883754731123425}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -2847248985318491429}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  objectID: Nour_Anim
+  triggerName: FaceTalk
+  exit: 0
 --- !u!114 &7092918144916789132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1143,7 +1239,7 @@ MonoBehaviour:
   m_Name: Dialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   graph: {fileID: 11400000}
-  position: {x: 360, y: 264}
+  position: {x: 72, y: -168}
   ports:
     keys:
     - entry
@@ -1195,7 +1291,7 @@ MonoBehaviour:
   m_Name: Play Animation
   m_EditorClassIdentifier: Assembly-CSharp::PlayAnimationNode
   graph: {fileID: 11400000}
-  position: {x: 2712, y: 200}
+  position: {x: 3656, y: 344}
   ports:
     keys:
     - entry
@@ -1207,7 +1303,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -6741017368167356764}
+        node: {fileID: -8370270939449274390}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
