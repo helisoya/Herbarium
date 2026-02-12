@@ -39,7 +39,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 2442325391673070858}
+        node: {fileID: 2896031406301705191}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -339,6 +339,7 @@ MonoBehaviour:
   titleID: Apprentice_Title_1
   targetID: THIS
   addToLog: 1
+  closeAfterwards: 1
   speakerAudio: Nour
   emotionAudio: Hi
   exit: 0
@@ -415,6 +416,7 @@ MonoBehaviour:
   - {fileID: 8603267324438278015}
   - {fileID: 4893945538974903091}
   - {fileID: -370158799896890928}
+  - {fileID: 2896031406301705191}
   parrallelCutscene: 0
 --- !u!114 &107968734850196264
 MonoBehaviour:
@@ -471,11 +473,11 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: exitSuccess
-        node: {fileID: -8637465672573279233}
-        reroutePoints: []
       - fieldName: exitCancel
         node: {fileID: -8637465672573279233}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 2896031406301705191}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -499,8 +501,62 @@ MonoBehaviour:
   titleID: Apprentice_Title_1
   targetID: THIS
   addToLog: 1
+  closeAfterwards: 1
   speakerAudio: Nour
   emotionAudio: Goodbye
+  exit: 0
+--- !u!114 &2896031406301705191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68befad922e81e148867bb4b85d9e655, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: -568}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 2896031406301705191}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exitSuccess
+        node: {fileID: -8637465672573279233}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 2896031406301705191}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2442325391673070858}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  dialogID: Nour_Flavour_Thanks_1
+  nameID: Apprentice_Name
+  titleID: Apprentice_Title_1
+  targetID: THIS
+  addToLog: 1
+  closeAfterwards: 1
+  speakerAudio: Nour
+  emotionAudio: NoSpeak
   exit: 0
 --- !u!114 &4893945538974903091
 MonoBehaviour:
@@ -598,6 +654,7 @@ MonoBehaviour:
   titleID: Apprentice_Title_1
   targetID: THIS
   addToLog: 1
+  closeAfterwards: 1
   speakerAudio: Nour
   emotionAudio: Excited
   exit: 0
