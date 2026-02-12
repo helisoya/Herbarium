@@ -32,7 +32,7 @@ public enum EventID
     Pause,
     BarbrookSleeping, BarbrookWakeUp, BarbrookIdle, BarbrookHappy,
     NourIdle, NourRun, NourJump,
-    Lucioles,
+    Lucioles, BigLilyPadEnter, BigLilyPadExit, PtitLilyPadEnter, PtitLilyPadExit,
 }
 
 
