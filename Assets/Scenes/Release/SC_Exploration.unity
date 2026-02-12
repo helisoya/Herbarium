@@ -1510,6 +1510,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0738ec879a6c9d84182b1eb8c16bb5f2, type: 3}
+--- !u!1 &360070578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 286901967169543256, guid: ed5b7d64709e1fd42b9a980219d9844e, type: 3}
+  m_PrefabInstance: {fileID: 2268437527758452994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &377258361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4333,6 +4338,11 @@ Transform:
   - {fileID: 311433660}
   m_Father: {fileID: 1811883854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1020666169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 987121762875902854, guid: 197cdf62e4bf6ae47a1abfa6ffcf27af, type: 3}
+  m_PrefabInstance: {fileID: 4110856220798719978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1070015726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7404710233715479587, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
@@ -4929,6 +4939,14 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1681577089571812861, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: nourGameObject
+      value: 
+      objectReference: {fileID: 360070578}
+    - target: {fileID: 1681577089571812861, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
+      propertyPath: barbrookGameObject
+      value: 
+      objectReference: {fileID: 1020666169}
     - target: {fileID: 3100045027989502629, guid: a1538b63f9ff3454eaa80df20a536e84, type: 3}
       propertyPath: onOpen.m_PersistentCalls.m_Calls.Array.size
       value: 0
