@@ -33,6 +33,7 @@ public enum EventID
     BarbrookSleeping, BarbrookWakeUp, BarbrookIdle, BarbrookHappy,
     NourIdle, NourRun, NourJump,
     Lucioles, BigLilyPadEnter, BigLilyPadExit, PtitLilyPadEnter, PtitLilyPadExit,
+    FrogEnsemble,
 }
 
 
