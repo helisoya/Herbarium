@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
                 s.x = Mathf.Abs(s.x) * -Mathf.Sign(velocity.x);
                 graphicToFlip.localScale = s;
             }
-            else
+            else if (moveVector != Vector2.zero)
             {
                 Vector3 s = graphicToFlip.localScale;
                 s.x = Mathf.Abs(s.x) * -Mathf.Sign(moveVector.x);
