@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float hoverDistance = 0.01f;
     [SerializeField] private float groundCheckDistance = 0.05f;
-    
+
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VisualEffect vfxWalk;
     [SerializeField] private ParticleSystem vfxClick;
     [SerializeField] private VisualEffect vfxClickGraph;
-    
+
     private bool lastVfxState;
 
     private bool canUpdateTargetWithMouse;
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(rb.position,rb.position + Vector3.down*groundCheckDistance);     
+        Gizmos.DrawLine(rb.position, rb.position + Vector3.down * groundCheckDistance);
     }
 
     /// <summary>
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
             moveToTarget = true;
             interaction.DisableClosingInTag();
         }
-        
+
     }
 
     /// <summary>
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
             interaction.DisableClosingInTag();
             moveToTarget = true;
         }
-        
+
     }
 
     /// <summary>
@@ -142,31 +142,42 @@ public class PlayerController : MonoBehaviour
     {
         // Ground check
 
-        if(Physics.Raycast(rb.position,Vector3.down,out RaycastHit hit, groundCheckDistance, groundLayer))
+        if (Physics.Raycast(rb.position, Vector3.down, out RaycastHit hit, groundCheckDistance, groundLayer))
         {
-            rb.position = new Vector3(rb.position.x,hit.point.y+hoverDistance,rb.position.z);
+            rb.position = new Vector3(rb.position.x, hit.point.y + hoverDistance, rb.position.z);
         }
 
 
         // Walking animation
 
-        bool isWalking = rb.linearVelocity.magnitude > 0.1f;
+        bool isWalking = rb.linearVelocity.magnitude > 0.5f;
 
         animator.SetBool("isWalking", isWalking);
         vfxWalk.SetBool("isWalking", isWalking);
-        
-        Vector3 velocity = rb.linearVelocity;
+
 
         // Flip to the right side
 
-        if (Mathf.Abs(velocity.x) > 0.1f)
+        if (isWalking)
         {
-            Vector3 s = graphicToFlip.localScale;
-            s.x = Mathf.Abs(s.x) * -Mathf.Sign(velocity.x);
-            graphicToFlip.localScale = s;
+            if (moveToTarget)
+            {
+
+                Vector3 velocity = (targetPosition - rb.position).normalized;
+                Vector3 s = graphicToFlip.localScale;
+                s.x = Mathf.Abs(s.x) * -Mathf.Sign(velocity.x);
+                graphicToFlip.localScale = s;
+            }
+            else
+            {
+                Vector3 s = graphicToFlip.localScale;
+                s.x = Mathf.Abs(s.x) * -Mathf.Sign(moveVector.x);
+                graphicToFlip.localScale = s;
+            }
         }
 
-        if(!Player.instance.canComponentsUpdate){
+        if (!Player.instance.canComponentsUpdate)
+        {
             target.position = new Vector3(0, -50, 0);
             return;
         }
@@ -186,7 +197,8 @@ public class PlayerController : MonoBehaviour
                 direction = direction.normalized * playerSpeed;
                 direction.y = 0;
                 rb.linearVelocity = direction;
-            }else if (!canUpdateTargetWithMouse)
+            }
+            else if (!canUpdateTargetWithMouse)
             {
                 target.position = new Vector3(0, -50, 0);
             }
@@ -201,7 +213,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
+
     public void PlayMouseTargetVFX()
     {
         if (!canUpdateTargetWithMouse)
@@ -212,8 +224,8 @@ public class PlayerController : MonoBehaviour
 
         vfxClick.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         vfxClick.Play();
-        
+
         vfxClickGraph.Reinit();
-        vfxClickGraph.Play(); 
+        vfxClickGraph.Play();
     }
 }
