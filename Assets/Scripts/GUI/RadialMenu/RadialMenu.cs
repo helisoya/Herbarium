@@ -15,11 +15,11 @@ public class RadialMenu : MonoBehaviour
     [SerializeField] private RadialMenuEntry entryPrefab;
     [SerializeField] private Sprite backSprite;
     [SerializeField] private RectTransform backpackSprite;
-    public RadialMenuID currentRadialMenu {get; private set;}
+    public RadialMenuID currentRadialMenu { get; private set; }
     private RadialMenuEntry[] entries;
     private RadialMenuData currentData;
     private int currentEntryIdx;
-    public int selectedIndex {get; private set;}
+    public int selectedIndex { get; private set; }
 
     [Header("Inputs")]
     [SerializeField] private InputData closeInput;
@@ -42,7 +42,7 @@ public class RadialMenu : MonoBehaviour
 
     private const float SIZE = 75f;
 
-    private readonly Vector3[] inputPositions  =
+    private readonly Vector3[] inputPositions =
     {
       new Vector3(0,-68,0),
       new Vector3(-68,0,0),
@@ -95,7 +95,7 @@ public class RadialMenu : MonoBehaviour
 
             entry.SetScale(Vector3.zero, true);
             entry.SetScale(Vector3.one, false);
-            entry.SetLabelScale(Vector3.one,true);
+            entry.SetLabelScale(Vector3.one, true);
 
             entry.SetPosition(0, 0, true);
             entry.SetPosition(Mathf.Sin(Mathf.PI + radiansSeparation * i) * currentData.radius,
@@ -107,7 +107,7 @@ public class RadialMenu : MonoBehaviour
 
         if (currentData.showBackpack)
         {
-            backpackSprite.DOScale(Vector3.one,0.3f).SetEase(Ease.OutQuad);
+            backpackSprite.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad);
             backpackSprite.SetAsLastSibling();
         }
 
@@ -123,8 +123,8 @@ public class RadialMenu : MonoBehaviour
     {
         if (playSound)
         {
-            if(currentRadialMenu == RadialMenuID.BACKPACK) onCloseBackpack.Invoke();
-            else if (currentRadialMenu == RadialMenuID.INVENTORY) onCloseInventory.Invoke();   
+            if (currentRadialMenu == RadialMenuID.BACKPACK) onCloseBackpack.Invoke();
+            else if (currentRadialMenu == RadialMenuID.INVENTORY) onCloseInventory.Invoke();
         }
 
         Cleanup();
@@ -150,7 +150,7 @@ public class RadialMenu : MonoBehaviour
             entries = null;
         }
 
-        backpackSprite.DOScale(Vector3.zero,0.3f).SetEase(Ease.OutQuad);
+        backpackSprite.DOScale(Vector3.zero, 0.3f).SetEase(Ease.OutQuad);
     }
 
 
@@ -166,7 +166,7 @@ public class RadialMenu : MonoBehaviour
             Vector2 mouseDir = (position - new Vector2(Screen.width / 2, Screen.height / 2)).normalized;
 
             Vector2 correctPos = new Vector2(position.x / Screen.width, position.y / Screen.height);
-            Vector2 distToWidth = new Vector2(Mathf.Abs(correctPos.x-0.5f), Mathf.Abs(correctPos.y-0.5f));
+            Vector2 distToWidth = new Vector2(Mathf.Abs(correctPos.x - 0.5f), Mathf.Abs(correctPos.y - 0.5f));
 
             //print(distToWidth+ " "+ SIZE*2f/800f + " "+ SIZE*2f/Screen.height);
 
@@ -179,14 +179,14 @@ public class RadialMenu : MonoBehaviour
 
             if (value % 1 >= 0.5f) correctBox = (correctBox + 1) % entries.Length;
 
-            if(distToWidth.x > 0.18f || distToWidth.y > 0.34f) correctBox = -1;
+            if (distToWidth.x > 0.18f || distToWidth.y > 0.34f) correctBox = -1;
 
             if (currentEntryIdx != correctBox)
             {
                 if (currentEntryIdx != -1) entries[currentEntryIdx].StopHighlight();
                 currentEntryIdx = correctBox;
 
-                if(correctBox != -1)
+                if (correctBox != -1)
                 {
                     entries[currentEntryIdx].Highlight();
 
@@ -194,7 +194,7 @@ public class RadialMenu : MonoBehaviour
                     {
                         onRadialMenuHover.Invoke();
 
-                        if(forceInteraction) ActivateCurrentlySelected();
+                        if (forceInteraction) ActivateCurrentlySelected();
                     }
                 }
             }
@@ -231,7 +231,7 @@ public class RadialMenu : MonoBehaviour
     private void CloseInventory()
     {
         onCloseInventory.Invoke();
-        OpenBackpack(false);
+        Close(false);
     }
 
     public void OpenMap()
@@ -298,7 +298,7 @@ public class RadialMenu : MonoBehaviour
             key = "RadialMenu_Inventory",
             sprite = backSprite,
             rotation = 90,
-            callback = () =>{ OpenInventory();},
+            callback = () => { OpenInventory(); },
             injectors = new object[] {
                 dataHandler.GetInventorySize() - dataHandler.GetRemainingInventorySpace(),
                 dataHandler.GetInventorySize() },
@@ -309,7 +309,7 @@ public class RadialMenu : MonoBehaviour
             itemSprite = null
         };
 
-        if(openSound) onOpenBackpack.Invoke();
+        if (openSound) onOpenBackpack.Invoke();
 
         Open(testData);
     }
@@ -348,7 +348,7 @@ public class RadialMenu : MonoBehaviour
             {
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
                 sprite = backSprite,
-                rotation = -90*(i+1),
+                rotation = -90 * (i + 1),
                 callback = null,
                 interactable = false,
                 inputAction = null,
@@ -357,7 +357,7 @@ public class RadialMenu : MonoBehaviour
             };
         }
 
-        if(openSound) onOpenInventory.Invoke();
+        if (openSound) onOpenInventory.Invoke();
 
         Open(testData);
     }
@@ -378,7 +378,7 @@ public class RadialMenu : MonoBehaviour
             key = "RadialMenu_Close",
             sprite = backSprite,
             rotation = 0,
-            callback = () => {onCancelGive.Invoke();Close(false);},
+            callback = () => { onCancelGive.Invoke(); Close(false); },
             interactable = true,
             inputAction = closeInput.action,
             inputIndex = closeInput.index,
@@ -392,13 +392,13 @@ public class RadialMenu : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             item = dataHandler.GetInventoryItem(i);
-            
+
             testData.entries[1 + i] = new RadialMenuEntryData()
             {
                 key = item == null ? "Inventory_Nothing" : item + "_Name",
                 sprite = backSprite,
-                rotation = -90*(i+1),
-                callback = () => {onCloseGive.Invoke();Close(false);},
+                rotation = -90 * (i + 1),
+                callback = () => { onCloseGive.Invoke(); Close(false); },
                 interactable = item != null,
                 inputAction = null,
                 inputIndex = 0,
@@ -406,7 +406,7 @@ public class RadialMenu : MonoBehaviour
             };
         }
 
-        if(openSound) onOpenGive.Invoke();
+        if (openSound) onOpenGive.Invoke();
 
         Open(testData);
     }

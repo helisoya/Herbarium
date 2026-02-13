@@ -60,8 +60,8 @@ public class ForagingMicroInteraction : MicroInteraction
 
         if (debugAutoPlay && debugPlayer)
         {
-            debugPlayer.StartMicroInteraction(this,debugPlantId);
-        } 
+            debugPlayer.StartMicroInteraction(this, debugPlantId);
+        }
     }
 
     protected override void OnStart(string plantID)
@@ -69,8 +69,8 @@ public class ForagingMicroInteraction : MicroInteraction
         Plant plant = GameManager.instance.GetPlantDatabase().GetPlant(plantID);
         plantHP = plant.foragingHealth;
         plantMaxHP = plantHP;
-        
-        Transform prefab = Instantiate(plant.foragingPrefab,plantRoot);
+
+        Transform prefab = Instantiate(plant.foragingPrefab, plantRoot);
         plantJoints = prefab.GetChild(0).GetComponentsInChildren<Joint2D>();
 
         tutorialRoot.SetActive(!GameManager.instance.GetPlayerDataHandler().HasCompletedForagingTutorial());
@@ -84,17 +84,16 @@ public class ForagingMicroInteraction : MicroInteraction
 
         for (int i = 0; i < plant.foragingHealth; i++)
         {
-            rectTransform = Instantiate(plantHealthPrefab,plantHealthRoot);
+            rectTransform = Instantiate(plantHealthPrefab, plantHealthRoot);
 
             rectTransform.anchoredPosition = new Vector2(
                 Mathf.Sin(Mathf.PI + radiansSeparation * i) * 17.0f,
                 Mathf.Cos(Mathf.PI + radiansSeparation * i) * 17.0f
             );
 
-            rectTransform.localEulerAngles = new Vector3(0,0,(radiansSeparation*(-i)+Mathf.PI)*Mathf.Rad2Deg);
+            rectTransform.localEulerAngles = new Vector3(0, 0, (radiansSeparation * (-i) + Mathf.PI) * Mathf.Rad2Deg);
 
             plantHealthParts.Add(rectTransform);
-
         }
     }
 
@@ -114,19 +113,22 @@ public class ForagingMicroInteraction : MicroInteraction
 
     protected override void OnUpdate()
     {
-        if (currentShake > 0) {
-            microInteractionCamera.transform.localPosition = cameraStartPos + Random.insideUnitSphere * Settings.instance.GetScreenshakeStrength();            
+        if (currentShake > 0)
+        {
+            microInteractionCamera.transform.localPosition = cameraStartPos + Random.insideUnitSphere * Settings.instance.GetScreenshakeStrength();
             currentShake -= Time.deltaTime * shakeDecay;
 
-        } else {
+        }
+        else
+        {
             microInteractionCamera.transform.localPosition = cameraStartPos;
-        }   
+        }
     }
 
     protected override void OnToolUse()
     {
-        
-        if(currentObject.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER)
+
+        if (currentObject.GetPickableType() == MicroInteractionPickable.PickableType.CUTTER)
         {
             shearsAnimator.SetTrigger("Cutting");
             onCut.Invoke();
@@ -149,14 +151,15 @@ public class ForagingMicroInteraction : MicroInteraction
                 // Unless you can interact with a non plant rigidbody (the dropped flower for instance), everything will be fine ?
                 onCutBad.Invoke();
                 plantHP--;
-                plantHealthParts[plantHealthParts.Count-1].DOScale(Vector3.zero,0.3f).SetEase(Ease.OutQuad);
-                plantHealthParts.RemoveAt(plantHealthParts.Count-1);
+                plantHealthParts[plantHealthParts.Count - 1].DOScale(Vector3.zero, 0.3f).SetEase(Ease.OutQuad);
+                plantHealthParts.RemoveAt(plantHealthParts.Count - 1);
                 currentShake = shakeAmount;
                 onPlantUpdateLife.Invoke(plantHP / (float)plantMaxHP);
-                if(plantHP <= 0)
+                if (plantHP <= 0)
                 {
-                    foreach (Joint2D joint in plantJoints) {
-                        if(joint) joint.enabled = false;
+                    foreach (Joint2D joint in plantJoints)
+                    {
+                        if (joint) joint.enabled = false;
                     }
                     EndInteraction(EndingType.FAILURE);
                 }
