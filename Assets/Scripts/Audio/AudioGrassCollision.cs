@@ -4,9 +4,9 @@ public class AudioGrassCollision : MonoBehaviour
 {
     [SerializeField] EventID grassCollision;
 
-    public void PostGrassCollision()
+    public void PostGrassCollision(GameObject obj)
     {
-        AudioManager.Instance.PlayOneShot3D(grassCollision, gameObject);
+        AudioManager.Instance.PlayOneShot3D(grassCollision, obj);
         Debug.Log("Collision Grass");
     }
 

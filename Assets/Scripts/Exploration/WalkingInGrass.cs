@@ -1,4 +1,3 @@
-using FMODUnity;
 using UnityEngine;
 
 public class WalkingInGrass : MonoBehaviour
@@ -9,7 +8,6 @@ public class WalkingInGrass : MonoBehaviour
     [SerializeField] private Vector3 _stillAmplitude = new Vector3(5, 0, 0);
     [SerializeField] private float _reactionTime = 0.5f;
     [SerializeField] private ParticleSystem _grassVFX;
-    [SerializeField] private EventID grassCollision;
     
     //private Renderer _renderer;
     private Material _material;
@@ -66,7 +64,6 @@ public class WalkingInGrass : MonoBehaviour
         _targetValue = _stillAmplitude;
         _isAnimating = true;
         _grassVFX.Play();
-        AudioManager.Instance.PlayOneShot3D(grassCollision, gameObject);
     }
     private void OnTriggerStay(Collider other)
     {
@@ -78,7 +75,6 @@ public class WalkingInGrass : MonoBehaviour
         {
             if (!_grassVFX.isPlaying)
                 _grassVFX.Play();
-                AudioManager.Instance.PlayOneShot3D(grassCollision, gameObject);
         }
         else
         {
