@@ -95,8 +95,8 @@ public class MusicManager : MonoBehaviour
         else
         {
             AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
-            musExploration.start();
         }
+            
         
     }
 
