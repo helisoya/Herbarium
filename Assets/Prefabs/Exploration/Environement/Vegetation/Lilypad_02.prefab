@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8963497269390987819}
   - component: {fileID: 8097682024538959377}
+  - component: {fileID: 4694019772426770269}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -145,6 +146,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4694019772426770269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272238004565027985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c9697b4a1f80041bb490b91bf039d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioLilyPads
+  lilypadEnter: 117
+  lilypadExit: 118
 --- !u!1 &9138842206060699148
 GameObject:
   m_ObjectHideFlags: 0

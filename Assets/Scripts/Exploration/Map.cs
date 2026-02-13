@@ -72,6 +72,11 @@ public class Map : MonoBehaviour
         if (selected)
         {
             Player.instance.SetPosition(selected.transform.position);
+
+            foreach(GameObject zone in selected.zonesToDisable)
+            {
+                zone.SetActive(false);
+            }
         }
         else
         {

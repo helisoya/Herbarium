@@ -160,7 +160,10 @@ public class RadialMenuEntry : MonoBehaviour
         if (canBeInteractedWith)
         {
             labelRectTransform.DOComplete();
-            labelRectTransform.DOScale(Vector3.one * 1.5f, 0.3f).SetEase(Ease.OutQuad);
+            labelRectTransform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutQuad);
+
+            rectTransform.DOComplete();
+            rectTransform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutQuad);
 
             image.DOComplete();
             image.DOColor(Color.gray8,0.3f).SetEase(Ease.OutQuad);
@@ -177,6 +180,9 @@ public class RadialMenuEntry : MonoBehaviour
         {
             labelRectTransform.DOComplete();
             labelRectTransform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad);
+
+            rectTransform.DOComplete();
+            rectTransform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad);
 
             image.DOComplete();
             image.DOColor(Color.white,0.3f).SetEase(Ease.OutQuad);

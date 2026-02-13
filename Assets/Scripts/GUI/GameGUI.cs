@@ -22,8 +22,8 @@ public class GameGUI : MonoBehaviour
 
     [Header("Radial Menu")]
     [SerializeField] private RadialMenu radialMenu;
-    public RadialMenuID currentRadialMenu {get{return radialMenu.currentRadialMenu;}}
-    public int selectedRadialIndex {get{return radialMenu.selectedIndex;}}
+    public RadialMenuID currentRadialMenu { get { return radialMenu.currentRadialMenu; } }
+    public int selectedRadialIndex { get { return radialMenu.selectedIndex; } }
 
     [Header("Herbarium")]
     [SerializeField] private HerbariumGUI herbariumGUI;
@@ -34,7 +34,7 @@ public class GameGUI : MonoBehaviour
 
     [Header("Map")]
     [SerializeField] private GameObject mapRoot;
-    public bool mapOpen {get; private set;}
+    public bool mapOpen { get; private set; }
 
     [Header("Popup")]
     [SerializeField] private CanvasGroup popupGroup;
@@ -42,7 +42,7 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private float popupFadeTime = 0.5f;
     [SerializeField] private float popupIdleTime = 2.0f;
     private Coroutine routinePopup;
-    public bool showingPopup{get{return routinePopup != null;}}
+    public bool showingPopup { get { return routinePopup != null; } }
 
     [Header("Dialog")]
     [SerializeField] private GameObject dialogRoot;
@@ -64,11 +64,13 @@ public class GameGUI : MonoBehaviour
 
 
     [Header("Audio")]
-    [SerializeField] private UnityEvent<string,string> onChangeDialogSpeaker;
+    [SerializeField] private UnityEvent<string, string> onChangeDialogSpeaker;
     [SerializeField] private UnityEvent onStartTypingDialog;
     [SerializeField] private UnityEvent onStopTypingDialog;
     [SerializeField] private UnityEvent onOpenDialogWindow;
     [SerializeField] private UnityEvent onCloseDialogWindow;
+    [SerializeField] private UnityEvent onOpenMap;
+    [SerializeField] private UnityEvent onCloseMap;
 
 
     /*
@@ -318,7 +320,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void HerbariumGoLeft()
     {
-        if(inHerbarium) herbariumGUI.GoLeft();
+        if (inHerbarium) herbariumGUI.GoLeft();
     }
 
     /// <summary>
@@ -326,7 +328,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void HerbariumGoRight()
     {
-        if(inHerbarium) herbariumGUI.GoRight();
+        if (inHerbarium) herbariumGUI.GoRight();
     }
 
 
@@ -337,7 +339,7 @@ public class GameGUI : MonoBehaviour
     /// <param name="forceInteraction">True if the movement should also be counted as an interaction</param>
     public void UpdateRadial(Vector2 mousePosition, bool forceInteraction = false)
     {
-        radialMenu.UpdateMousePosition(mousePosition,forceInteraction);
+        radialMenu.UpdateMousePosition(mousePosition, forceInteraction);
     }
 
     /// <summary>
@@ -362,7 +364,7 @@ public class GameGUI : MonoBehaviour
 
         if (playSound)
         {
-            if(value) onOpenDialogWindow.Invoke();
+            if (value) onOpenDialogWindow.Invoke();
             else onCloseDialogWindow.Invoke();
         }
     }
@@ -375,13 +377,13 @@ public class GameGUI : MonoBehaviour
     /// <param name="characterTitle">The character's title ID</param>
     /// <param name="speakerAudio">The speaker's Audio ID</param>
     /// <param name="emotionAudio">The emotions's Audio ID</param>
-    public void ShowDialog(string dialogID, string characterName, string characterTitle, string speakerAudio = null,string emotionAudio = null)
+    public void ShowDialog(string dialogID, string characterName, string characterTitle, string speakerAudio = null, string emotionAudio = null)
     {
         if (routineDialog != null) StopCoroutine(routineDialog);
 
-        onChangeDialogSpeaker.Invoke(speakerAudio,emotionAudio);
+        onChangeDialogSpeaker.Invoke(speakerAudio, emotionAudio);
 
-        routineDialog = StartCoroutine(Routine_Dialog(dialogID,characterName,characterTitle));
+        routineDialog = StartCoroutine(Routine_Dialog(dialogID, characterName, characterTitle));
     }
 
 
@@ -485,8 +487,8 @@ public class GameGUI : MonoBehaviour
     /// <param name="injectors">The text injectors</param>
     public void ShowPopup(string key, object[] injectors)
     {
-        if(routinePopup != null) StopCoroutine(routinePopup);
-        routinePopup = StartCoroutine(Routine_Popup(key,injectors));
+        if (routinePopup != null) StopCoroutine(routinePopup);
+        routinePopup = StartCoroutine(Routine_Popup(key, injectors));
     }
 
     /// <summary>
@@ -494,7 +496,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void HidePopup()
     {
-        if(routinePopup != null) StopCoroutine(routinePopup);
+        if (routinePopup != null) StopCoroutine(routinePopup);
         popupGroup.alpha = 0.0f;
     }
 
@@ -505,22 +507,22 @@ public class GameGUI : MonoBehaviour
     /// <param name="injectors">The text injectors</param>
     private IEnumerator Routine_Popup(string key, object[] injectors)
     {
-        if(popupGroup.alpha > 0.0001f)
+        if (popupGroup.alpha > 0.0001f)
         {
             // Fade in the text before doing anything else
-            yield return Routine_PopupFade(popupGroup.alpha,0.0f,popupFadeTime/popupGroup.alpha);
+            yield return Routine_PopupFade(popupGroup.alpha, 0.0f, popupFadeTime / popupGroup.alpha);
         }
         popupGroup.alpha = 0.0f;
 
         popupText.SetInjectors(injectors);
         popupText.SetNewKey(key);
 
-        yield return Routine_PopupFade(popupGroup.alpha,1.0f,popupFadeTime);
+        yield return Routine_PopupFade(popupGroup.alpha, 1.0f, popupFadeTime);
         popupGroup.alpha = 1.0f;
 
         yield return new WaitForSeconds(popupIdleTime);
 
-        yield return Routine_PopupFade(popupGroup.alpha,0.0f,popupFadeTime);
+        yield return Routine_PopupFade(popupGroup.alpha, 0.0f, popupFadeTime);
         popupGroup.alpha = 0.0f;
 
         routinePopup = null;
@@ -537,7 +539,7 @@ public class GameGUI : MonoBehaviour
         for (float t = 0f; t <= duration; t += Time.deltaTime)
         {
             float normalizedTime = t / duration;
-            popupGroup.alpha = Mathf.Lerp(start,end,normalizedTime);
+            popupGroup.alpha = Mathf.Lerp(start, end, normalizedTime);
 
             yield return null;
         }
@@ -553,8 +555,9 @@ public class GameGUI : MonoBehaviour
     public void OpenMap()
     {
         mapOpen = true;
+        onOpenMap.Invoke();
         DisableHud();
-        mapRoot.transform.DOScale(Vector3.one,0.3f).SetEase(Ease.InQuad);
+        mapRoot.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.InQuad);
     }
 
     /// <summary>
@@ -563,8 +566,9 @@ public class GameGUI : MonoBehaviour
     public void CloseMap()
     {
         mapOpen = false;
-        EnableHudIfPossible();
-        mapRoot.transform.DOScale(Vector3.zero,0.3f).SetEase(Ease.InQuad);
+        onCloseMap.Invoke();
+        if (!CutsceneManager.instance.inCutscene || CutsceneManager.instance.inParrallelCutscene) EnableHudIfPossible();
+        mapRoot.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InQuad);
     }
 
     #endregion
@@ -579,18 +583,18 @@ public class GameGUI : MonoBehaviour
         Quest[] knownQuests = GameManager.instance.GetPlayerDataHandler().GetKnownQuests();
         QuestPin pin;
 
-        foreach(Transform child in questPinRoot)
+        foreach (Transform child in questPinRoot)
         {
             Destroy(child.gameObject);
         }
 
         questPins.Clear();
 
-        foreach(Quest quest in knownQuests)
+        foreach (Quest quest in knownQuests)
         {
             if (GameManager.instance.GetPlayerDataHandler().IsPinned(quest.id))
             {
-                pin = Instantiate(questPinPrefab,questPinRoot);
+                pin = Instantiate(questPinPrefab, questPinRoot);
                 pin.Init(quest);
                 questPins.Add(pin);
             }
@@ -602,7 +606,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void RefreshAllQuestsPins()
     {
-        foreach(QuestPin pin in questPins)
+        foreach (QuestPin pin in questPins)
         {
             pin.Refresh();
         }
@@ -614,7 +618,7 @@ public class GameGUI : MonoBehaviour
     /// <param name="questID">The pin's quest</param>
     public void RefreshQuestPin(string questID)
     {
-        foreach(QuestPin pin in questPins)
+        foreach (QuestPin pin in questPins)
         {
             if (pin.GetLinkedID().Equals(questID))
             {
@@ -630,7 +634,7 @@ public class GameGUI : MonoBehaviour
     /// <param name="questID">The pin's quest</param>
     public void RemovePin(string questID)
     {
-        for(int i = 0; i < questPins.Count;i++)
+        for (int i = 0; i < questPins.Count; i++)
         {
             if (questPins[i].GetLinkedID().Equals(questID))
             {
@@ -647,7 +651,7 @@ public class GameGUI : MonoBehaviour
     /// <param name="questID">The pin's quest</param>
     public void AddPin(string questID)
     {
-        for(int i = 0; i < questPins.Count;i++)
+        for (int i = 0; i < questPins.Count; i++)
         {
             if (questPins[i].GetLinkedID().Equals(questID))
             {
@@ -656,7 +660,7 @@ public class GameGUI : MonoBehaviour
         }
 
         Quest quest = GameManager.instance.GetPlayerDataHandler().GetQuest(questID);
-        QuestPin pin = Instantiate(questPinPrefab,questPinRoot);
+        QuestPin pin = Instantiate(questPinPrefab, questPinRoot);
         pin.Init(quest);
         questPins.Add(pin);
     }
@@ -680,7 +684,7 @@ public class GameGUI : MonoBehaviour
     /// </summary>
     public void Event_BackpackButton()
     {
-        if(CutsceneManager.instance.inCutscene || !CutsceneManager.instance.inParrallelCutscene) return;
+        if (CutsceneManager.instance.inCutscene || !CutsceneManager.instance.inParrallelCutscene) return;
         Player.instance.StopPlayerMovements();
         OpenBackpack();
     }

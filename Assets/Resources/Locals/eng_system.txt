@@ -1,4 +1,4 @@
-# This is a comment
+﻿# This is a comment
 # KEY = VALUE
 
 RadialMenu_Close = Close
@@ -8,29 +8,29 @@ RadialMenu_Herbarium = Herbarium
 
 Inventory_Nothing = Nothing
 
-Herbarium_StartText = THis is my book. Get out.
+Herbarium_StartText = This herbarium is a place to gather my knowledge about our wonderful swamp, as a gift to Nour.<br>I hope these pages can help you stay safe.
 Herbarium_Close = Close
 
 Herbarium_PlantsIndex = Plant Index
 Herbarium_PlantsIndex_Unknown = ???
 
 Herbarium_Plant_Information = Information
-Herbarium_Plant_Log = Found at [0] in [1]
+Herbarium_Plant_Log = Found in the swamp on [1]
 Herbarium_Plant_Hint_0 = Reveal small hint
 Herbarium_Plant_Hint_1 = Reveal medium hint
 Herbarium_Plant_Hint_2 = Reveal big hint
 
 Herbarium_QuestsIndex = Quest Index
-Herbarium_QuestsIndex_Nothing_1 = You have no quest in progress
-Herbarium_QuestsIndex_Nothing_2 = Talk to NPCs to gain quests
+Herbarium_QuestsIndex_Nothing_1 = I have no quest in progress
+Herbarium_QuestsIndex_Nothing_2 = If I talk to people around me, I might get quests
 
 Herbarium_Quest_Title = Quest
 Herbarium_Quest_Information = Information
 
 Input_Backpack = To open bag
 Input_Move = To move
-Input_Cut = To Cut
-Input_Grab = To Grab
+Input_Cut = To cut
+Input_Grab = To grab
 Input_Continue = Continue
 Input_Select = Select
 Input_Switch = Switch
@@ -40,16 +40,19 @@ Tutorial_2 = 2
 Tutorial_3 = 3
 Tutorial_Ok = Ok
 
-Tutorial_Foraging_1 = Grab the cutter
+Tutorial_Foraging_1 = Grab the shears
 Tutorial_Foraging_2 = Cut the plant where there is a cross
 Tutorial_Foraging_3 = Put the plant in the bag
 
-Popup_Foraging_Done = [New] [0] put in Inventory
-Popup_Foraging_Fail = /!\ You failed to forage the plant
-Popup_Foraging_Full = /!\ Inventory full, you can't forage
-Popup_Sleep = You fall asleep......
-Popup_Drying_Fail = This plant is already in your Herbarium.
+Popup_Foraging_Done = [0] in the inventory
+Popup_Foraging_Fail = You failed to forage the plant
+Popup_Foraging_Full = Inventory full, you can't forage
+Popup_Sleep = You fall asleep... Game saved
+Popup_Drying_Fail = This plant is already in your Herbarium
 Popup_Drying_Good = You dry the plant...
+Popup_No_Forage = You can't forage this plant yet
+Popup_Map_Added = Map added to your bag
+Popup_Keepsake_Barbrook = This is a keepsake from Barbrook
 
 Dialog_Continue = (Click to continue)
 
@@ -74,6 +77,8 @@ Options_H = H
 Options_S = S
 Options_V = V
 
+Options_ResetIndividual = Reset to default
+
 Options_Interace_Graphics = Graphics
 Options_Interace_InterfaceSize = Interface Size
 Options_Interace_Fullscreen = Fullscreen
@@ -86,7 +91,7 @@ Options_Interace_PlayerHighlightActivate = Activate
 Options_Interace_PlayerHighlightStrength = Strength
 Options_Interace_PlayerHighlightColor = Color
 
-Options_Interace_InteractableHighlight = Interactable Highlight
+Options_Interace_InteractableHighlight = Interactible Highlight
 Options_Interace_InteractableHighlightActivate = Activate
 Options_Interace_InteractableHighlightStrength = Strength
 Options_Interace_InteractableHighlightColor = Color
@@ -110,37 +115,47 @@ Options_Text_Language = Language
 Options_Text_Texts = Texts
 Options_Text_Titles = Titles
 Options_Text_Dialogs = Dialogs
+Options_Text_InputReminders = Input reminders
 Options_Text_TextFont = Font
 Options_Text_TextSize = Size
 Options_Text_TextColor = Color
-Options_Text_Opacity = Bg Opacity
+Options_Text_Opacity = Background Opacity
 
-Tip_InterfaceSize = TODO
-Tip_Fullscreen = TODO
-Tip_Brightness = TODO
-Tip_HideHUD = TODO
-Tip_NegativeColorFilter = TODO
-Tip_PlayerHighlightActivate = TODO
-Tip_PlayerHighlightStrength = TODO
-Tip_PlayerHighlightColor = TODO
-Tip_InteractableHighlightActivate = TODO
-Tip_InteractableHighlightStrength = TODO
-Tip_InteractableHighlightColor = TODO
-Tip_InterfaceResetAll = TODO
-Tip_AutoCompleteMicroInteraction = TODO
-Tip_ScreenshakeStrength = TODO
-Tip_MasterVolume = TODO
-Tip_MusicVolume = TODO
-Tip_SFXVolume = TODO
-Tip_MuteAll = TODO
-Tip_OutputDevice = TODO
-Tip_ToggleGrabMode = TODO
-Tip_ToggleMoveMode = TODO
-Tip_Language = TODO
-Tip_TextFont = TODO
-Tip_TextSize = TODO
-Tip_TextColor = TODO
-Tip_DialogOpacity = TODO
+Tip_InterfaceSize = Changes the resolution of the game to better suit the screen
+Tip_Fullscreen = Switches between Fullscreen or Windowed mode
+Tip_Brightness = Changes the brightness of the game
+Tip_HideHUD = Hides all of the interfaces while ingame
+Tip_NegativeColorFilter = Switches all of the colors to their negative counterpart
+Tip_PlayerHighlightActivate = Toggles the Hightlight feature for the player
+Tip_PlayerHighlightStrength = Changes the opacity level of the chosen color for the player
+Tip_PlayerHighlightColor = Customize the highlight color for the player
+Tip_InteractableHighlightActivate = Toggles the Hightlight feature for the interactibles
+Tip_InteractableHighlightStrength = Changes the opacity level of the chosen color for the interactibles
+Tip_InteractableHighlightColor = Customize the highlight color for the interactibles
+Tip_IndividualResetAll = Resets all of the parameters from this category to default
+Tip_AutoCompleteMicroInteraction = Automatically completes the foraging of plants
+Tip_ScreenshakeStrength = Set the intensity of the screen shaking effects
+Tip_MasterVolume = Changes the general sound volume
+Tip_MusicVolume = Changes the sound volume of the musics
+Tip_SFXVolume = Changes the sound volume of the sound effects
+Tip_MuteAll = Disables all of the sounds
+Tip_OutputDevice = Combines the left and right sound channels into one
+Tip_ToggleGrabMode = Replaces holding the grab input to a single toggle
+Tip_ToggleMoveMode = Replaces holding the move input to a single toggle
+Tip_Language = Changes the language of the game
+Tip_TextFont = Changes the font type for the texts of the game
+Tip_TextSize = Changes the font size for the texts of the game
+Tip_TextColor = Changes the font color for the texts of the game
+Tip_TitleFont = Changes the font type for the titles of the game
+Tip_TitleSize = Changes the font size for the titles of the game
+Tip_TitleColor = Changes the font color for the titles of the game
+Tip_DialogFont = Changes the font type for the dialogs of the game
+Tip_DialogSize = Changes the font size for the dialogs of the game
+Tip_DialogColor = Changes the font color for the dialogs of the game
+Tip_DialogOpacity = Set the opacity of the background for the dialogs
+Tip_InputReminderFont = Changes the font type for the input reminders of the game
+Tip_InputReminderSize = Changes the font size for the input reminders of the game
+Tip_InputReminderColor = Changes the font color for the input reminders of the game
 
 Language_eng = English
 Language_fra = Français
@@ -154,6 +169,19 @@ MainMenu_Options = Options
 MainMenu_Credits = Credits
 MainMenu_QuitGame = Quit Game
 
-Confirm_Title = Are you sure ?
+Confirm_Title = Are you sure?
 Confirm_Yes = Yes
 Confirm_No = No
+
+Credits_Team = Team Composition
+Credits_Feliji = <b>AIRAUD Félix</b> - UX Designer & Game User Researcher
+Credits_Candice = <b>DELORME Candice</b> - Sound Designer & Composer
+Credits_Maia = <b>ESQUERRE Maïa</b> - Game Artist & UI Designer
+Credits_Clothilde = <b>HUGON Clothilde</b> - Character Designer & Game Artist
+Credits_Gensana = <b>MANCEAU Gensana</b> - Producer
+Credits_Clelia = <b>MENARD Clélia</b> - VFX & Tech & Animation Artist
+Credits_Madeleine = <b>MERANGER Madeleine</b> - Game Designer
+Credits_ToddHoward = <b>VON EUW Félix</b> - Game Designer
+Credits_Nobody = <b>OUDOT Julien</b> - Programmer
+Credits_With = With
+Credits_Lily = <b>BEAUHAIRE Lily</b> - UR & UX Consultant

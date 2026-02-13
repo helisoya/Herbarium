@@ -7,4 +7,5 @@ public class Spawnpoint : MonoBehaviour
 {
     public bool isDefaultSpawnpoint = false;
     public string linkedMap;
+    public GameObject[] zonesToDisable;
 }
