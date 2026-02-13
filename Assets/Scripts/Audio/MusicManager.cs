@@ -96,6 +96,7 @@ public class MusicManager : MonoBehaviour
         {
             AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
         }
+            
         
     }
 

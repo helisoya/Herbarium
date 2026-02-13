@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 287088636994420829}
+  - component: {fileID: 3958285432869442883}
+  - component: {fileID: 9021787100753029627}
   m_Layer: 0
   m_Name: Grass_03
   m_TagString: Untagged
@@ -33,6 +35,45 @@ Transform:
   - {fileID: 7231597043423126280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3958285432869442883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175902769475965617}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.43625614, y: 0.287624, z: 0.38926327}
+  m_Center: {x: -0.018128052, y: 0.21137118, z: 0.22564188}
+--- !u!114 &9021787100753029627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175902769475965617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
+  _renderer: {fileID: 8895577348890975738}
+  _propertyName: _WindAmplitude
+  _movingAmplitude: {x: 30, y: 0, z: 0}
+  _stillAmplitude: {x: 5, y: 0, z: 0}
+  _reactionTime: 0.5
+  _grassVFX: {fileID: 6494639318580176008}
 --- !u!1 &2734626054930291377
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,8 +84,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7231597043423126280}
   - component: {fileID: 8895577348890975738}
-  - component: {fileID: 413187813462950289}
-  - component: {fileID: 283312330832063858}
   m_Layer: 0
   m_Name: Grass_03
   m_TagString: Untagged
@@ -125,45 +164,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &413187813462950289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734626054930291377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b13be4a1e14194c8528686889ac098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkingInGrass
-  _renderer: {fileID: 8895577348890975738}
-  _propertyName: _WindAmplitude
-  _movingAmplitude: {x: 10, y: 0, z: 0}
-  _stillAmplitude: {x: 5, y: 0, z: 0}
-  _reactionTime: 0.5
-  _grassVFX: {fileID: 6494639318580176008}
---- !u!65 &283312330832063858
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734626054930291377}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.185556, y: 1.4318604, z: 0.20000024}
-  m_Center: {x: -0.053566296, y: 0.97746915, z: 0.0000017704328}
 --- !u!1001 &2517765883508593736
 PrefabInstance:
   m_ObjectHideFlags: 0

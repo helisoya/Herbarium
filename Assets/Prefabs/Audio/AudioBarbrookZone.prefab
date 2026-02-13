@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7846451509560120465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491007960864284577}
+  - component: {fileID: 6633119724007561266}
+  - component: {fileID: -8878944740175462130}
+  m_Layer: 0
+  m_Name: AudioBarbrookZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491007960864284577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846451509560120465}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.61, y: 0, z: 30.48}
+  m_LocalScale: {x: 11.328349, y: 1, z: 5.1634426}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1574715652864574886}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6633119724007561266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846451509560120465}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8878944740175462130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846451509560120465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6980180252978930902}
+        m_TargetAssemblyTypeName: AudioBarbrookZone, Assembly-CSharp
+        m_MethodName: OnBarbrookZoneEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6980180252978930902}
+        m_TargetAssemblyTypeName: AudioBarbrookZone, Assembly-CSharp
+        m_MethodName: OnBarbrookZoneExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &4829944176562798133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 491007960864284577}
+    m_Modifications:
+    - target: {fileID: 2640126170743402249, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_Name
+      value: AudioBarbrookZoneScript
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005702507
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00379
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8717536
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+--- !u!4 &1574715652864574886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+  m_PrefabInstance: {fileID: 4829944176562798133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6980180252978930902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2583373309449902819, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+  m_PrefabInstance: {fileID: 4829944176562798133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6edb57db6d848643a457b9f2f8920fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioBarbrookZone
