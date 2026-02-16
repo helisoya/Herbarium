@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3940867254719693547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7534487760042230671}
+  - component: {fileID: 8464472664992072533}
+  - component: {fileID: 5784488260147577872}
+  m_Layer: 0
+  m_Name: AudioCenterLakeZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7534487760042230671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940867254719693547}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.61, y: 0, z: 30.48}
+  m_LocalScale: {x: 11.328349, y: 1, z: 5.1634426}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9173506928013099898}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8464472664992072533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940867254719693547}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5784488260147577872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940867254719693547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 741616798414316042}
+        m_TargetAssemblyTypeName: AudioBarbrookZone, Assembly-CSharp
+        m_MethodName: OnBarbrookZoneEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 741616798414316042}
+        m_TargetAssemblyTypeName: AudioBarbrookZone, Assembly-CSharp
+        m_MethodName: OnBarbrookZoneExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &2995805088075626729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7534487760042230671}
+    m_Modifications:
+    - target: {fileID: 2640126170743402249, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_Name
+      value: AudioBarbrookZoneScript
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005702507
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00379
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8717536
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+--- !u!114 &741616798414316042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2583373309449902819, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+  m_PrefabInstance: {fileID: 2995805088075626729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6edb57db6d848643a457b9f2f8920fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioBarbrookZone
+--- !u!4 &9173506928013099898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6259417616155179923, guid: cd650a3365eda2543b1925f289796a6f, type: 3}
+  m_PrefabInstance: {fileID: 2995805088075626729}
+  m_PrefabAsset: {fileID: 0}
