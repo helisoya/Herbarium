@@ -523,7 +523,7 @@ public class PlayerDataHandler : MonoBehaviour
 
         for (int i = 0; i < data.variables.Length; i++)
         {
-            for (int j = 0; j < finalData.Length; i++)
+            for (int j = 0; j < finalData.Length; j++)
             {
                 if (data.variables[i].id.Equals(finalData[j].id))
                 {
