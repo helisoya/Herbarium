@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -15,6 +16,17 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private ColorPicker colorPicker;
     [SerializeField] private RectTransform tipRoot;
     [SerializeField] private LocalizedText tipText;
+    [SerializeField] private ConfirmPopup confirmPopup;
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onOpen;
+    [SerializeField] private UnityEvent onClose;
+    [SerializeField] private UnityEvent onClick;
+    [SerializeField] private UnityEvent<bool> onCheckbox;
+    [SerializeField] private UnityEvent onSlider;
+    [SerializeField] private UnityEvent onHover;
+
+
     private OptionsTab currentTab = null;
     private int currentTabIdx = 0;
     
@@ -30,10 +42,53 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets the confirm popup
+    /// </summary>
+    /// <returns>The popup</returns>
+    public ConfirmPopup GetConfirmPopup()
+    {
+        return confirmPopup;
+    }
+
+    /// <summary>
+    /// Invokes the on click event
+    /// </summary>
+    public void InvokeOnClickEvent()
+    {
+        onClick.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the on slider event
+    /// </summary>
+    public void InvokeOnSliderEvent()
+    {
+        onSlider.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the on Hover event
+    /// </summary>
+    public void InvokeOnHoverEvent()
+    {
+        onHover.Invoke();
+    }
+
+    /// <summary>
+    /// Invokes the On checkbox event
+    /// </summary>
+    /// <param name="isChecked">True if the checkbox is checked</param>
+    public void InvokeOnCheckboxEvent(bool isChecked)
+    {
+        onCheckbox.Invoke(isChecked);
+    }
+
+    /// <summary>
     /// Opens the settings
     /// </summary> 
     public void Open()
     {
+        onOpen.Invoke();
         root.SetActive(true);
         SetCurrentTab(0);
     }
@@ -43,6 +98,7 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     public void Close()
     {
+        onClose.Invoke();
         colorPicker.Close();
         root.SetActive(false);
     }
@@ -52,8 +108,18 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     public void ResetAllSettings()
     {
-        Settings.instance.ResetAll();
-        SetCurrentTab(currentTabIdx);
+        InvokeOnClickEvent();
+        confirmPopup.Open(CallbackResetAll);
+    }
+
+    /// <summary>
+    /// Event for changing the current tab
+    /// </summary>
+    /// <param name="tabIndex">The new tab index</param>
+    public void EventChangeTab(int tabIndex)
+    {
+        InvokeOnClickEvent();
+        SetCurrentTab(tabIndex);
     }
 
     /// <summary>
@@ -103,5 +169,14 @@ public class OptionsMenu : MonoBehaviour
     {
         tipText.SetNewKey(tipID);
         tipRoot.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Callaback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
+    {
+        Settings.instance.ResetAll();
+        SetCurrentTab(currentTabIdx);
     }
 }

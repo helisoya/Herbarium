@@ -26,6 +26,11 @@ public class HerbariumQuestIndexEntry : MonoBehaviour
         button.colors = colorBlock;
 
         imagePinned.color = GameManager.instance.GetPlayerDataHandler().IsPinned(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id) ? Color.white : Color.black;
+
+        if(GameManager.instance.GetPlayerDataHandler().GetVariable(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].linkedVariable) == 100)
+        {
+            imagePinned.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -51,10 +56,14 @@ public class HerbariumQuestIndexEntry : MonoBehaviour
     /// </summary>
     public void SwitchPin()
     {
-        GameManager.instance.GetPlayerDataHandler().SwitchQuestPin(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id);
+        Quest quest = GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage];
+        GameManager.instance.GetPlayerDataHandler().SwitchQuestPin(quest.id);
 
-        bool isPinned = GameManager.instance.GetPlayerDataHandler().IsPinned(GameManager.instance.GetPlayerDataHandler().GetKnownQuests()[linkedPage].id);
+        bool isPinned = GameManager.instance.GetPlayerDataHandler().IsPinned(quest.id);
         imagePinned.color = isPinned ? Color.white : Color.black;
+
+        if(isPinned) GameGUI.instance.AddPin(quest.id);
+        else GameGUI.instance.RemovePin(quest.id);
 
         gui.InvokeOnPinQuest(isPinned);
     }

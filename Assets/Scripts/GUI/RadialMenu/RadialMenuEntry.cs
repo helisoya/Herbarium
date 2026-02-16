@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class RadialMenuEntry : MonoBehaviour
 {
     [SerializeField] private Image image;
+    [SerializeField] private Image itemSprite;
     [SerializeField] private LocalizedText label;
     [SerializeField] private RectTransform labelRectTransform;
     [SerializeField] private bool canBeInteractedWith;
@@ -40,6 +41,12 @@ public class RadialMenuEntry : MonoBehaviour
     /// <param name="data">The entry's data</param>
     public void Init(RadialMenuEntryData data)
     {
+        itemSprite.sprite = data.itemSprite;
+        if(data.itemSprite == null)
+        {
+            itemSprite.gameObject.SetActive(false);
+        }
+        
         image.sprite = data.sprite;
         image.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0,0,data.rotation);
         label.SetInjectors(data.injectors, false);
@@ -153,7 +160,10 @@ public class RadialMenuEntry : MonoBehaviour
         if (canBeInteractedWith)
         {
             labelRectTransform.DOComplete();
-            labelRectTransform.DOScale(Vector3.one * 1.5f, 0.3f).SetEase(Ease.OutQuad);
+            labelRectTransform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutQuad);
+
+            rectTransform.DOComplete();
+            rectTransform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutQuad);
 
             image.DOComplete();
             image.DOColor(Color.gray8,0.3f).SetEase(Ease.OutQuad);
@@ -170,6 +180,9 @@ public class RadialMenuEntry : MonoBehaviour
         {
             labelRectTransform.DOComplete();
             labelRectTransform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad);
+
+            rectTransform.DOComplete();
+            rectTransform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutQuad);
 
             image.DOComplete();
             image.DOColor(Color.white,0.3f).SetEase(Ease.OutQuad);

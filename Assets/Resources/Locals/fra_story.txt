@@ -1,4 +1,4 @@
-# This is a comment
+﻿# This is a comment
 # KEY = VALUE
 
 test = Welcome to my Herbagnole
@@ -8,3 +8,170 @@ NPC_Test_2 = C'est en réalité MON marais.
 
 NPC_Test2_1 = Ne l'écoute pas.
 NPC_Test2_2 = En réalité, c'est un walmart.
+
+TestPlant2_Name = Onion
+TestPlant2_LatinName = Shrek
+TestPlant2_Lore = Une plante dangereuse. Ne pas l'approcher.
+TestPlant2_Specifics = On la trouve dans l'eau.
+TestPlant2_Hint_0 = Ne le fait pas.
+TestPlant2_Hint_1 = Vraiment ?
+TestPlant2_Hint_2 = Trop tard, elle est derrière toi.
+
+Quest_Test_Name = Gloire perdu
+Quest_Test_Description = L'homme veut un onion. Je dois en trouver.
+Quest_Test_Lore = Ma voiture. Ma Pinpin mobile. Je dois la retrouver.
+Quest_Test_0 = Donner un onion à l'homme : 0/1
+Quest_Test_100 = La mort n'est pas un échapatoire.
+
+# HERBARIUM CONTENT --------------------------------------------------------------------------------------------------
+
+Herb_01_Name = Cresson amphibie
+Herb_01_LatinName = Rorippa amphibia
+Herb_01_Specifics = Pousse dans l'eau. Fleurit au printemps. S'associe à la menthe aquatique pour stabiliser les berges. 
+Herb_01_Lore = Il est très revigorant ! Il peut s'adapter à beaucoup de conditions variées, et représente le passage, l'équilibre entre deux mondes.
+Herb_01_Hint_0 = Cette plante est une fleur
+Herb_01_Hint_1 = Cette plante est une fleur jaune
+Herb_01_Hint_2 = Cette plante est une fleur jaune qui pousse au Nord
+
+Herb_02_Name = Menthe aquatique
+Herb_02_LatinName = Mentha aquatica
+Herb_02_Specifics = Pousse dans l'eau. Fleurit en été. S'associe au cresson amphibie pour stabiliser les berges, et dépollue l'eau du marais. 
+Herb_02_Lore = Son parfum est frais et puissant, et elle héberge des insectes, poissons et amphibiens. Elle représente la mémoire et la transformation.
+Herb_02_Hint_0 = Cette plante est une fleur
+Herb_02_Hint_1 = Cette plante est une fleur rose
+Herb_02_Hint_2 = Cette plante est une fleur rose qui pousse à l'Ouest et au Nord
+
+Fern_01_Name = Capillaire des murailles
+Fern_01_LatinName = Asplenium trichomanes
+Fern_01_Specifics = Pousse dans les sols frais, sur les roches. Vit toute l'année. Aime créer des micro-habitats en s'accrochant à des roches. 
+Fern_01_Lore = Les champignons que cette fougère aide à pousser la rendent en retour plus résistante. Elle représente la discrétion et la longévité.
+Fern_01_Hint_0 = Cette plante est verte
+Fern_01_Hint_1 = Cette plante est une fougère verte
+Fern_01_Hint_2 = Cette plante est une fougère verte qui pousse près de votre hamac
+
+Category_Test = Tests
+Category_Herb = Plante herbacée
+Category_Fern = Fougère
+
+# QUESTS CONTENT -----------------------------------------------------------------------------------------------------
+
+Quest_Barbrook_Name = Goûter avec Barbrook
+Quest_Barbrook_Description = Mon vieil ami Barbrook voudrait prendre un goûter de cresson amphibie avec moi.
+Quest_Barbrook_Lore = Je devrais pouvoir trouver du cresson près de son ancienne maison.
+Quest_Barbrook_0 = Donner du cresson amphibie à Barbrook : 0/2
+Quest_Barbrook_1 = Donner du cresson amphibie à Barbrook : 1/2
+Quest_Barbrook_100 = Le goûter était super !
+
+# NOUR DIALOGS -------------------------------------------------------------------------------------------------------
+
+Apprentice_Name = Nour
+Apprentice_Title_1 = Enfant perdue turbulente
+Apprentice_Title_2 = Jeune cartographe
+
+Nour_Start_1 = Salut Mousse, bien dormi ?
+Nour_Start_2 = J'ai trop hâte ! Tu sais comme hier, tu as dit que tu me ferai un herbier ?
+Nour_Start_3 = Je me demandais... Est-ce que tu m'a proposé ça parce que je suis tombée dans les orties l'autre fois, et que j'ai passé les deux jours d'après à me gratter ?
+Nour_Start_4 = J'y ai réfléchi, et je me suis dit que si tu vas m'aider, peut être que je peux t'aider aussi !
+Nour_Start_5 = Je sais à quel point tu te perds souvent, alors j'ai pensé qu'une carte serait un bon ajout à ton sac à dos.
+Nour_Start_6 = Du coup, pendant que tu vas courir partout pour récolter des plantes, moi je vais courir partout pour dessiner le marais.
+Nour_Start_7 = Quand on aura fini, ma peau sensible et ton mauvais sens de l'orientation ne nous embêteront plus !
+Nour_Start_8 = Bon, eh bien, l'art de la cartographie m'appelle! À plus!
+
+Nour_End_1 = Salut, je vois que tu as déjà documenté quelques pages !
+Nour_End_2 = C'est trop cool, tu as vraiment écrit tout ça pour moi ?
+Nour_End_3 = Merci beaucoup, Mousse. Ça me touche.
+Nour_End_4 = J'ai aussi quelque chose pour toi, regarde !
+Nour_End_5 = C'est ma première carte, mais je vais continuer à m'améliorer, tu vas voir.
+Nour_End_6 = En parlant de carte, je suis tombée sur un nouveau passage en explorant !
+Nour_End_7 = <i>Enfin, si tu remplaces "tombée sur" par "tombée dans" et "explorant" par "courant dans un buisson"...</i>
+Nour_End_8 = Bref, il suffit de suivre la rivière pour y aller ! C'est là que je vais.
+Nour_End_9 = À plus !
+
+Nour_Path_1 = Mousse ? Qu'est ce que tu fais là ?
+Nour_Path_2 = J'étais chez toi, et j'essayais de trouver un bon angle pour dessiner ton hamac...
+Nour_Path_3 = ...mais en reculant, je me suis emmêlée les pieds dans les racines des arbres...
+Nour_Path_4 = Je suis tombée, et me voilà !
+Nour_Path_5 = Je ne savais pas qu'on pouvait traverser ces roseaux, mais en fait il suffisait de slalomer entre les racines. C'est fou !
+Nour_Path_6 = Maintenant je n'aurai pas besoin de faire tout le tour, c'est génial.
+Nour_Path_7 = Bon, j'y vais. Ce hamac ne va pas se dessiner tout seul. À plus !
+
+Nour_Flavour_Trigo_1 = <i>Argh</i>, les angles sont trop durs à aligner... 
+Nour_Flavour_Trigo_2 = Oh, salut Mousse, désolée pour ça... Tu voulais quelque chose ?
+Nour_Flavour_Trigo_3 = Si tu as des plantes que tu ne peux pas utiliser, n'hésite pas à me les donner.
+Nour_Flavour_Trigo_4 = J'en ferai des pigments pour ma carte, ou peut être juste des couronnes pour les esprits...
+Nour_Flavour_Trigo_5 = Bon, eh bien j'y vais ! À plus !
+
+Nour_Flavour_Calc_1 = C'est pas les bonnes distances, les calculs ne marchent pas !
+Nour_Flavour_Calc_2 = Ah, pardon Mousse, tu voulais me dire quelque chose ?
+Nour_Flavour_Calc_3 = Ou est-ce que tu as des plantes en trop pour moi ?
+Nour_Flavour_Calc_4 = À plus tard !
+
+Nour_Flavour_Map_1 = <i>Ce sera la plus belle carte du monde...</i>
+Nour_Flavour_Map_2 = Hé, ne regarde pas ! C'est une surprise !
+Nour_Flavour_Map_3 = Bref, tu as des plantes pour moi ou un truc du genre ?
+Nour_Flavour_Map_4 = Salut !
+
+Nour_Flavour_Dry_1 = Salut Mousse ! Tu as fait sécher beaucoup de plantes récemment ?
+Nour_Flavour_Dry_2 = N'hésite pas à m'en donner si tu en as cueilli trop.
+Nour_Flavour_Dry_3 = Bon, j'y vais, à plus !
+
+Nour_Flavour_Thanks_1 = Merci !
+
+Nour_Endgame_1 = Salut Mousse ! Tu vois, le nouveau chemin est juste là !
+Nour_Endgame_2 = Mais avant qu'on y aille, est ce que tu as une plante à me donner ?
+
+# BARBROOK DIALOGS -----------------------------------------------------------------------------------------------------------------
+
+Spirit_Flow_Name = Barbrook
+Spirit_Flow_Title = Incarnation du courant
+
+Barbrook_Start_1 = <i>Hmmm... La rivière coule autour de moi...</i>
+Barbrook_Start_2 = Oh, salut p'tite racine, tout roule ?
+Barbrook_Start_3 = Tu sais, je commence à avoir un petit creux...
+Barbrook_Start_4 = Tu voudrais prendre un goûter avec moi ?
+Barbrook_Start_5 = Je me disais, peut être un peu de vase... Quelques cailloux...
+Barbrook_Start_6 = Mais comme tu es là, pourquoi pas un peu de cresson ?
+Barbrook_Start_7 = Je pense qu'il en reste, autour de mon ancienne maison...
+Barbrook_Start_8 = Si tu pouvais nous récupérer deux fleurs... Ce serait chouette...
+
+Barbrook_Quest_Plant_1 = Hey p'tit poisson.
+Barbrook_Quest_Plant_2 = Tu as amené des fleurs à manger ?
+Barbrook_Quest_NoPlant_1 = Salut p'tit galet, tout va bien pour toi ?
+
+Barbrook_Quest_Give0_1 = Dis-moi, tu n'as pas oublié le cresson, hein ?
+Barbrook_Quest_Give0_2 = Enfin, si tu es toujours partant·e pour ce goûter...
+Barbrook_Quest_Give0_3 = Je ne vis plus dans ma maison, mais je sais qu'il y a du cresson qui pousse autour.
+Barbrook_Quest_Give0_4 = Reviens avec des snacks, caneton !
+
+Barbrook_Quest_Give1_1 = Merci pour le cresson, mais tu sais, je ne vais pas manger tout seul !
+Barbrook_Quest_Give1_2 = Va nous choper une autre fleur, et on pourra goûter ensemble.
+Barbrook_Quest_Give1_3 = Je t'attends ici...
+
+Barbrook_Quest_Give2_1 = Oh merci p'tite fleur !
+Barbrook_Quest_Give2_2 = C'est bien, c'est bien... Juste ce qu'il nous fallait.
+Barbrook_Quest_Give2_3 = À table !
+
+Barbrook_Picnic_1 = Aaah, ça fait du bien...
+Barbrook_Picnic_2 = <i>Crounch</i>
+Barbrook_Picnic_3 = Tu es sûr·e que tu ne veux pas de vase sur tes fleurs ? C'est délicieux.
+Barbrook_Picnic_4 = Enfin, moi, je dis ça pour toi...
+Barbrook_Picnic_5 = <i>Crounch crounch</i>
+Barbrook_Picnic_6 = Tu sais, le goût du cresson me rapelle des souvenirs...
+Barbrook_Picnic_7 = Tu te souviens il y a quelques années, quand tu courais partout, tout nu ? Oh, tu étais tout·e petit·e à l'époque.
+Barbrook_Picnic_8 = Tu éternuais tout le temps, et il n'y avait que le cresson qui t'apaisait...
+Barbrook_Picnic_9 = Mais comme tu détestais le goût, il fallait que j'en mange avec toi, sinon tu refusais d'y toucher.
+Barbrook_Picnic_10 = C'est devenu notre petit rituel.
+Barbrook_Picnic_11 = <i>Crounch miam</i>
+Barbrook_Picnic_12 = C'est drôle, mais je me suis mis à aimer le cresson grâce à ça.
+Barbrook_Picnic_13 = Peut-être que ça me rappelle ton petit rire adorable, à l'époque. Tu étais la·e plus chou du marais.
+Barbrook_Picnic_14 = Enfin, tu l'es toujours, bien sûr...
+Barbrook_Picnic_15 = <i>Crunch</i>
+Barbrook_Picnic_16 = Hmm, ça m'a fait du bien.
+Barbrook_Picnic_17 = On devrait le faire plus souvent.
+Barbrook_Picnic_18 = Prends soin de toi, p'tit nénuphar.
+
+Barbrook_Conclusion_1 = Hey p'tite lentille!
+Barbrook_Conclusion_2 = Ce goûter était très chouette.
+Barbrook_Conclusion_3 = Reviens me voir un de ces jours, on pourrait refaire ça...
+
+Barbrook_Flavour_Toes_1 = <i>Hmmm... Il y a de la bourbe entre mes orteils...</i>

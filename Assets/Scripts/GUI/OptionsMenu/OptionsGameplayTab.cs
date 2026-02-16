@@ -30,6 +30,7 @@ public class OptionsGameplayTab : OptionsTab
     /// <param name="enabled">True if it is active</param>
     public void ChangeAutoCompleteInteractionEnabled(bool enabled)
     {
+        parent.InvokeOnCheckboxEvent(enabled);
         Settings.instance.EnableAutocompleteInteraction(enabled);
     }
 
@@ -39,6 +40,7 @@ public class OptionsGameplayTab : OptionsTab
     /// <param name="strength">The new strength</param>
     public void ChangeScreenshakeStrength(float strength)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetScreenshakeStrength(strength);
     }
 
@@ -47,6 +49,15 @@ public class OptionsGameplayTab : OptionsTab
     /// Resets all settings
     /// </summary>
     public void ResetAll()
+    {
+        parent.InvokeOnClickEvent();
+        parent.GetConfirmPopup().Open(CallbackResetAll);
+    }
+
+    /// <summary>
+    /// Callback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
     {
         Settings.instance.ResetGameplay();
         OnOpen();

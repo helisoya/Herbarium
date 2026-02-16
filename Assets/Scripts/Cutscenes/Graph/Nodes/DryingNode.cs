@@ -23,7 +23,7 @@ public class DryingNode : HerbariumNode
 
     public override IEnumerator Apply()
     {
-
+        
         GameGUI.instance.OpenInventoryGive();
         yield return new WaitForEndOfFrame();
         while(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
@@ -42,19 +42,44 @@ public class DryingNode : HerbariumNode
         {
             string selectedPlant = GameManager.instance.GetPlayerDataHandler().GetInventoryItem(selected);
 
-            if (GameManager.instance.GetPlayerDataHandler().IsUnlockedInHerbarium(selectedPlant))
+            // Temp fix for herbarium & secret plants
+            // Nothing to see here, I swear
+            bool isSecret = false;
+            string[] secretPlants = GameManager.instance.GetPlantDatabase().GetExistingSecretPlants();
+            foreach(string secret in secretPlants)
             {
+                if (selectedPlant.Equals(secret))
+                {
+                    isSecret = true;
+                    break;
+                }
+            }
+
+            if (isSecret || GameManager.instance.GetPlayerDataHandler().IsUnlockedInHerbarium(selectedPlant))
+            {
+                GameGUI.instance.ShowPopup("Popup_Drying_Fail",null);
+                
+                yield return new WaitForSeconds(2.0f);
+
                 yield return 1;
             }
             else
             {
+
+                GameGUI.instance.ShowPopup("Popup_Drying_Good",null);
+
+                AudioManager.Instance.PlayEvent2D(EventID.DryPlant);
+
+                yield return new WaitForSeconds(2.0f);
+
                 GameManager.instance.GetPlayerDataHandler().RemoveFromInventoryAt(selected);
                 GameManager.instance.GetPlayerDataHandler().AddHerbariumPage(selectedPlant);
 
                 if (showHerbariumImmediatly)
                 {
+                    GameGUI.instance.HidePopup();
                     GameGUI.instance.OpenHerbarium();
-                    GameGUI.instance.HerbariumShowPlantPage(GameManager.instance.GetPlantDatabase().PlantIDToIndex(selectedPlant));
+                    GameGUI.instance.HerbariumShowPlantPage(GameManager.instance.GetPlantDatabase().PlantIDToIndex(selectedPlant),true);
                     yield return new WaitForEndOfFrame();
                     while(GameGUI.instance.inHerbarium)
                     {

@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 /// <summary>
 /// Represents the page in the Herbarium that describes a specific plant
@@ -32,18 +33,27 @@ public class HerbariumPlant : HerbariumPage
     [SerializeField] private UnityEvent onClickIndividualHint;
     [SerializeField] private UnityEvent onHintClosed;
 
+    [Header("Appear Animation")]
+    [SerializeField] private TMPDilateAppear nameAppear;
+    [SerializeField] private TMPDilateAppear latinNameAppear;
+    [SerializeField] private TMPDilateAppear categoryAppear;
+    [SerializeField] private TMPDilateAppear informationsTitleAppear;
+    [SerializeField] private TMPDilateAppear informationsAppear;
+    [SerializeField] private TMPDilateAppear specificsAppear;
+    [SerializeField] private TMPDilateAppear logAppear;
+    [SerializeField] private Animator plantAnimator;
 
     public override void GoLeft()
     {
         CloseHints(false);
         gui.InvokeOnLeftEvent();
-        
-        if(localPageIndex == 0)
+
+        if (localPageIndex == 0)
         {
             string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
             int pagesCount = Mathf.CeilToInt((float)allPlants.Length / HerbariumPlantIndex.ENTRY_COUNT);
 
-            gui.SetPlantIndex(pagesCount-1);
+            gui.SetPlantIndex(pagesCount - 1);
         }
         else
         {
@@ -58,7 +68,7 @@ public class HerbariumPlant : HerbariumPage
         string[] allPlants = GameManager.instance.GetPlantDatabase().GetExistingPlants();
         gui.InvokeOnRightEvent();
 
-        if(localPageIndex == allPlants.Length - 1)
+        if (localPageIndex == allPlants.Length - 1)
         {
             gui.SetQuestIndex(0);
         }
@@ -76,8 +86,8 @@ public class HerbariumPlant : HerbariumPage
 
     public override void OnOpen()
     {
-        gui.SetMarkers(true,false);
-        gui.SetLeftRightActive(true,true);
+        gui.SetMarkers(true, false);
+        gui.SetLeftRightActive(true, true);
         RefreshVisuals();
     }
 
@@ -88,7 +98,7 @@ public class HerbariumPlant : HerbariumPage
 
     public void InvokeOnHoverHint(int index)
     {
-        if(hintsButtons[index].interactable) onHoverIndividualHint.Invoke();
+        if (hintsButtons[index].interactable) onHoverIndividualHint.Invoke();
     }
 
     /// <summary>
@@ -97,7 +107,7 @@ public class HerbariumPlant : HerbariumPage
     /// <param name="playSound">True if the closing sound can be played</param>
     public void CloseHints(bool playSound = true)
     {
-        if(playSound) onHintClosed.Invoke();
+        if (playSound) onHintClosed.Invoke();
         hintsRoot.SetActive(false);
     }
 
@@ -109,10 +119,10 @@ public class HerbariumPlant : HerbariumPage
         onHintOpen.Invoke();
         hintsRoot.SetActive(true);
 
-        for(int i = 0; i < hintsButtons.Length; i++)
+        for (int i = 0; i < hintsButtons.Length; i++)
         {
             hintsButtons[i].interactable = true;
-            hintsTexts[i].SetNewKey("Herbarium_Plant_Hint_"+i);
+            hintsTexts[i].SetNewKey("Herbarium_Plant_Hint_" + i);
         }
     }
 
@@ -125,7 +135,22 @@ public class HerbariumPlant : HerbariumPage
         onClickIndividualHint.Invoke();
 
         hintsButtons[index].interactable = false;
-        hintsTexts[index].SetNewKey(Plant.GetHint(GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex],index));
+        hintsTexts[index].SetNewKey(Plant.GetHint(GameManager.instance.GetPlantDatabase().GetExistingPlants()[localPageIndex], index));
+    }
+
+    /// <summary>
+    /// Starts the typewriting effect for this page
+    /// </summary>
+    public void StartTypeWritingEffect()
+    {
+        nameAppear?.PlayAppear();
+        latinNameAppear?.PlayAppear();
+        categoryAppear?.PlayAppear();
+        informationsTitleAppear?.PlayAppear();
+        informationsAppear?.PlayAppear();
+        specificsAppear?.PlayAppear();
+        logAppear?.PlayAppear();
+        plantAnimator?.SetTrigger("Appear");
     }
 
     /// <summary>
@@ -145,28 +170,32 @@ public class HerbariumPlant : HerbariumPage
         textSpecifics.SetNoText(!wasPlantFound);
 
         Plant plantData = GameManager.instance.GetPlantDatabase().GetPlant(plantId);
-        imagePlant.sprite = plantData.herbariumSprite;
+        imagePlant.sprite = wasPlantFound ? plantData.driedSprite : plantData.shadowSprite;
+
+        nameAppear?.ResetVisibleCharacters();
+        latinNameAppear?.ResetVisibleCharacters();
+        categoryAppear?.ResetVisibleCharacters();
+        informationsTitleAppear?.ResetVisibleCharacters();
+        informationsAppear?.ResetVisibleCharacters();
+        specificsAppear?.ResetVisibleCharacters();
+        logAppear?.ResetVisibleCharacters();
 
         if (wasPlantFound)
         {
-            
             textName.SetNewKey(Plant.GetName(plantId));
             textLatinName.SetNewKey(Plant.GetLatinName(plantId));
             textInformations.SetNewKey(Plant.GetLore(plantId));
             textSpecifics.SetNewKey(Plant.GetSpecifics(plantId));
             textCategory.SetNewKey(plantData.Category);
-            imagePlant.color = Color.white;
-            
 
-            textLog.SetInjectors(new string[]{"Swamp","25/12"},false);
+
+            textLog.SetInjectors(new string[] { "Swamp", "25/12" }, false);
             textLog.SetNewKey("Herbarium_Plant_Log");
         }
         else
         {
             textName.SetNewKey("Herbarium_PlantsIndex_Unknown");
             textCategory.SetNewKey("Herbarium_PlantsIndex_Unknown");
-            imagePlant.color = Color.black;
         }
-
     }
 }

@@ -5,7 +5,6 @@ using AYellowpaper.SerializedCollections;
 public class AudioData : ScriptableObject
 {
     public SerializedDictionary<EventID, FMODUnity.EventReference> events = new();
-    public SerializedDictionary<ParamID, FMODUnity.ParamRef> parameters = new();
 }
 
 public enum EventID
@@ -21,9 +20,20 @@ public enum EventID
     PinQuestOff, HintButtonHover, PlantsIndexHover, QuestsIndexHover,
     ToolCut, ToolCutGood, ToolCutBad, ToolPickUp, ToolDrop, PlantPickUp, PlantDrop,
     ToolImpact, PlantImpact, PlantStress, InBag,
+    MusExploration2D, MusExploration3DCresson, MusExploration3DCapillaire, MusExploration3DMenthe,
+    StopPlantStress,
+    DialogueIn, DialogueOut, DialogueNext, Speak, StartTyping, StopTyping,
+    MusForaging, StartForaging, StopForaging, StopForagingGood, StopForagingBad, StopForagingCancel,
+    MusNour, MusBarbrook, MusNourPartB, MusBarbrookPicnic,
+    MusGoodNight, MusGoodMorning, MusSpawn,
+    DryPlant, PlantDamage,
+    PlayerWalk, PlayerWalkStop, PlayerBend, PlayerInteract, PlayerWalkCloatDown, PlayerWalkCloatUp,
+    Click, Hover, Back, ToggleOn, ToggleOff,
+    Pause,
+    BarbrookSleeping, BarbrookWakeUp, BarbrookIdle, BarbrookHappy,
+    NourIdle, NourRun, NourJump,
+    Lucioles, BigLilyPadEnter, BigLilyPadExit, PtitLilyPadEnter, PtitLilyPadExit,
+    FrogEnsemble,
 }
 
-public enum ParamID
-{
-    HerbariumEntries, 
-}
+

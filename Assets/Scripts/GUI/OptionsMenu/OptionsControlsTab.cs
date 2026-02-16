@@ -30,6 +30,7 @@ public class OptionsControlsTab : OptionsTab
     /// <param name="enabled">True if it is active</param>
     public void ChangeToggleGrabEnabled(bool enabled)
     {
+        parent.InvokeOnCheckboxEvent(enabled);
         Settings.instance.EnableToggleGrab(enabled);
     }
 
@@ -39,6 +40,7 @@ public class OptionsControlsTab : OptionsTab
     /// <param name="enabled">True if it is active</param>
     public void ChangeToggleMoveEnabled(bool enabled)
     {
+        parent.InvokeOnCheckboxEvent(enabled);
         Settings.instance.EnableToggleMove(enabled);
     }
 
@@ -46,6 +48,15 @@ public class OptionsControlsTab : OptionsTab
     /// Resets all settings
     /// </summary>
     public void ResetAll()
+    {
+        parent.InvokeOnClickEvent();
+        parent.GetConfirmPopup().Open(CallbackResetAll);
+    }
+
+    /// <summary>
+    /// Callback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
     {
         Settings.instance.ResetInput();
         OnOpen();

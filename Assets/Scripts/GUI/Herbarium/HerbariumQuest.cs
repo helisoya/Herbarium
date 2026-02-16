@@ -71,6 +71,9 @@ public class HerbariumQuest : HerbariumPage
         bool isPinned = GameManager.instance.GetPlayerDataHandler().IsPinned(currentQuest.id);
         imagePin.color = isPinned ? Color.white : Color.black;
 
+        if(isPinned) GameGUI.instance.AddPin(currentQuest.id);
+        else GameGUI.instance.RemovePin(currentQuest.id);
+
         gui.InvokeOnPinQuest(isPinned);
     }
 
@@ -95,5 +98,10 @@ public class HerbariumQuest : HerbariumPage
         textLore.SetNewKey(currentQuest.Lore);
         textProgress.SetNewKey(currentQuest.GetState(GameManager.instance.GetPlayerDataHandler().GetVariable(currentQuest.linkedVariable)));
         imageQuest.sprite = currentQuest.questSprite;
+
+        if(GameManager.instance.GetPlayerDataHandler().GetVariable(currentQuest.linkedVariable) == 100)
+        {
+            imagePin.gameObject.SetActive(false);
+        }
     }
 }

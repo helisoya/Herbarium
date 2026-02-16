@@ -26,14 +26,15 @@ public class MicroInteractionPickable : MonoBehaviour
     [SerializeField] private Joint2D[] joints;
 
     [Header("Audio")]
-    [SerializeField] private UnityEvent onTouchedGround;
-    [SerializeField] private UnityEvent onStartTouchPlant;
-    [SerializeField] private UnityEvent onStopTouchPlant;
-    private bool shouldInvokeOnTouchGround = false;
-    private bool shouldInvokeOnStartPlant = false;
-    private bool shouldInvokeOnEndPlant = false;
+    [SerializeField] private UnityEvent<Transform> onTouchedGround;
+    [SerializeField] private UnityEvent<Transform> onStartTouchPlant;
+    [SerializeField] private UnityEvent<Transform> onStopTouchPlant;
+    private Transform invokeOnTouchGround = null;
+    private Transform invokeOnStartPlant = null;
+    private Transform invokeOnEndPlant = null;
 
     private MicroInteractionPickablePart currentMovablePart;
+    private float totalSize;
 
     void Start()
     {
@@ -79,25 +80,28 @@ public class MicroInteractionPickable : MonoBehaviour
     /// <summary>
     /// Invokes the on touched ground event
     /// </summary>
-    public void InvokeOnTouchGround()
+    /// <param name="part">The part that collided</param>
+    public void InvokeOnTouchGround(Transform part)
     {
-        shouldInvokeOnTouchGround = true;
+        invokeOnTouchGround = part;
     }
 
     /// <summary>
     /// Invokes the on start touched plant event
     /// </summary>
-    public void InvokeOnStartTouchPlant()
+    /// <param name="part">The part that collided</param>
+    public void InvokeOnStartTouchPlant(Transform part)
     {
-        shouldInvokeOnStartPlant = true;
+        invokeOnStartPlant = part;
     }
 
     /// <summary>
     /// Invokes the on end touched plant event
     /// </summary>
-    public void InvokeOnEndTouchPlant()
+    /// <param name="part">The part that collided</param>
+    public void InvokeOnEndTouchPlant(Transform part)
     {
-        shouldInvokeOnEndPlant = true;
+        invokeOnEndPlant = part;
     }
 
     /// <summary>
@@ -107,7 +111,8 @@ public class MicroInteractionPickable : MonoBehaviour
     {
         foreach (Joint2D joint in joints) Destroy(joint);
         joints = null;
-
+        
+        totalSize = rbs.Length * individualMassOnDrop;
         LayerMask mask = LayerMask.NameToLayer("Default");
         for(int i = 0; i < rbs.Length;i++)
         {
@@ -154,22 +159,22 @@ public class MicroInteractionPickable : MonoBehaviour
 
     void Update()
     {
-        if (shouldInvokeOnTouchGround)
+        if (invokeOnTouchGround != null)
         {
-            shouldInvokeOnTouchGround = false;
-            onTouchedGround.Invoke();
+            onTouchedGround.Invoke(invokeOnTouchGround);
+            invokeOnTouchGround = null;
         }
 
-        if (shouldInvokeOnStartPlant)
+        if (invokeOnStartPlant != null)
         {
-            shouldInvokeOnStartPlant = false;
-            onStartTouchPlant.Invoke();
+            onStartTouchPlant.Invoke(invokeOnStartPlant);
+            invokeOnStartPlant = null;
         }
 
-        if (shouldInvokeOnEndPlant)
+        if (invokeOnEndPlant != null)
         {
-            shouldInvokeOnEndPlant = false;
-            onStopTouchPlant.Invoke();
+            onStopTouchPlant.Invoke(invokeOnEndPlant);
+            invokeOnEndPlant = null;
         }
     }
 
@@ -188,6 +193,13 @@ public class MicroInteractionPickable : MonoBehaviour
     public void Pickup(MicroInteractionPickablePart part)
     {
         currentMovablePart = part;
+
+        for(int i = 0; i < rbs.Length;i++)
+        {
+            rbs[i].mass = individualMassOnDrop/2;
+            rbs[i].gravityScale = 0.5f;
+        }
+
         part.Pickup(canRotate);
     }
 
@@ -198,6 +210,13 @@ public class MicroInteractionPickable : MonoBehaviour
     {
         currentMovablePart.Drop();
         currentMovablePart = null;
+
+        for(int i = 0; i < rbs.Length;i++)
+        {
+            //rbs[i].mass = individualMassOnDrop;
+            rbs[i].gravityScale = 1f;
+        }
+
     }
 
     /// <summary>
@@ -207,7 +226,7 @@ public class MicroInteractionPickable : MonoBehaviour
     /// <param name="speed">The speed</param>
     public void MoveTowards(Vector2 position, float speed)
     {
-        currentMovablePart.MoveTowards(position, speed);
+        currentMovablePart.MoveTowards(position, speed * rbs.Length / totalSize);
     }
 
     /// <summary>

@@ -1,8 +1,11 @@
 using System;
+using FMODUnity;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Represents the player
@@ -18,11 +21,23 @@ public class Player : MonoBehaviour
 
     private MicroInteraction currentMicroInteraction;
     private string currentMicroInteractionScene;
+    private bool pointerOverGUI;
     public static Player instance;
 
-    public Vector3 position{get{return controller.GetBody().position;}}
-    public bool inMicroInteraction{get; private set;}
-    public MicroInteraction.EndingType lastMicroInteractionEnding {get; private set;}
+    public Vector3 position { get { return controller.GetBody().position; } }
+    public bool inMicroInteraction { get; private set; }
+    public MicroInteraction.EndingType lastMicroInteractionEnding { get; private set; }
+
+    private Renderer[] renderers;
+
+    public bool canComponentsUpdate
+    {
+        get
+        {
+            return !GameGUI.instance.isPauseOpen && !inMicroInteraction && (!CutsceneManager.instance.inCutscene || CutsceneManager.instance.inParrallelCutscene) &&
+            GameGUI.instance.currentRadialMenu == RadialMenuID.CLOSED && !GameGUI.instance.inHerbarium && !GameGUI.instance.isPauseOpen;
+        }
+    }
 
     void Awake()
     {
@@ -30,6 +45,36 @@ public class Player : MonoBehaviour
         currentMicroInteraction = null;
         currentMicroInteractionScene = null;
         lastMicroInteractionEnding = MicroInteraction.EndingType.CANCEL;
+        renderers = GetComponentsInChildren<Renderer>();
+        renderers = Array.FindAll(renderers, r => !(r is VFXRenderer));
+    }
+
+    void Start()
+    {
+        SetHighlight(Settings.instance.GetPlayerOutlineActive() ? Settings.instance.GetPlayerOutlineStrength() : 0.0f, Settings.instance.GetPlayerOutlineColor());
+    }
+
+    /// <summary>
+    /// Gets the player body
+    /// </summary>
+    /// <returns>Its rigidbody</returns>
+    public Rigidbody GetBody()
+    {
+        return controller.GetBody();
+    }
+
+    /// <summary>
+    /// Sets the highlight for an interactable
+    /// </summary>
+    /// <param name="strength">The highlight's strength</param>
+    /// <param name="color">The highlight's color</param>
+    public void SetHighlight(float strength, Color color)
+    {
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.material.SetFloat("_HighlightStrength", strength);
+            renderer.material.SetColor("_HighlightColor", color);
+        }
     }
 
     /// <summary>
@@ -50,52 +95,80 @@ public class Player : MonoBehaviour
         cinemachineCamera.Target.TrackingTarget = controller.GetBody().transform;
         cinemachineCamera.Target.LookAtTarget = controller.GetBody().transform;
     }
-    
+
 
     void OnMove(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+        if (inMicroInteraction)
+        {
+            if (currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MoveKeys, value);
+            return;
+        }
+
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || GameGUI.instance.mapOpen) return;
 
         Vector2 vec = value.Get<Vector2>();
 
-        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED)
         {
-            if(Mathf.Abs(vec.x) >= 0.95f ||Mathf.Abs(vec.y) >= 0.95f)
+            if (Mathf.Abs(vec.x) >= 0.95f || Mathf.Abs(vec.y) >= 0.95f)
             {
                 GameGUI.instance.UpdateRadial(new Vector2(
                     Screen.width / 2f + vec.x * 100f,
                     Screen.height / 2f + vec.y * 100f
-                ),true);
+                ), true);
             }
             return;
         }
 
         if (GameGUI.instance.inHerbarium)
         {
-            if(vec.x >= 0.95f)
+            if (vec.x >= 0.95f)
             {
                 GameGUI.instance.HerbariumGoRight();
             }
-            else if(vec.x <= -0.95f)
+            else if (vec.x <= -0.95f)
             {
                 GameGUI.instance.HerbariumGoLeft();
             }
             return;
         }
 
+        if (GameGUI.instance.isPauseOpen)
+        {
+            float delta = vec.x >= 0.95f ? 1 : (vec.x <= -0.95f ? -1 : 0);
+            if (delta != 0.0f) GameGUI.instance.OptionsMove(delta);
+        }
+
         controller.SetMoveVector(vec);
+    }
+
+
+    void OnResetAll(InputValue value)
+    {
+        if (inMicroInteraction)
+        {
+            if (currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.ResetAll, value);
+            return;
+        }
+
+        if (GameGUI.instance.isPauseOpen)
+        {
+            GameGUI.instance.OptionsResetAll();
+        }
     }
 
     void OnMousePosition(InputValue value)
     {
-        if(GameGUI.instance.isPauseOpen) return;
+        if (GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
-        if(inMicroInteraction){
-            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MousePosition,value);
+        if (inMicroInteraction)
+        {
+            if (currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MousePosition, value);
             return;
-        } 
+        }
 
-        if(GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
+        if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
 
         Vector2 mousePos = value.Get<Vector2>();
 
@@ -113,11 +186,11 @@ public class Player : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        if(GameGUI.instance.isPauseOpen) return;
-        
-        if(inMicroInteraction)
-        { 
-            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseLeftClick,value);
+        if (GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
+
+        if (inMicroInteraction)
+        {
+            if (currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseLeftClick, value);
             return;
         }
 
@@ -129,38 +202,47 @@ public class Player : MonoBehaviour
 
         if (CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene)
         {
-            CutsceneManager.instance.UserSubmit();
+            if (value.isPressed) CutsceneManager.instance.UserSubmit();
             return;
         }
 
-        if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog) return;
+        if (GameGUI.instance.inHerbarium || GameGUI.instance.showingDialog || pointerOverGUI) return;
 
-        bool shouldHold = Settings.instance.IsToggleMoveEnabled();
+        if (value.isPressed && interaction.TryInterract()) return;
 
-        if (!shouldHold) controller.SetTryToMoveUsingCursor(value.isPressed);
-        else if (value.isPressed) controller.ToggleTryToMoveUsingCursor();
+        bool toggleEnabled = Settings.instance.IsToggleMoveEnabled();
 
-        if (value.isPressed) interaction.TryInterract();
+        if (!toggleEnabled) controller.SetUpdateTargetWithMouse(value.isPressed);
+        else if (value.isPressed) controller.ToggleUpdateTargetWithMouse();
+
+        if (value.isPressed)
+            controller.PlayMouseTargetVFX();
     }
 
     void OnBackpack(InputValue value)
     {
-        if(GameGUI.instance.isPauseOpen) return;
+        if (GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         if (inMicroInteraction)
         {
-            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseRightClick,value);
+            if (currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.MouseRightClick, value);
             return;
-        } 
+        }
 
         if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog) return;
+
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED && value.isPressed)
+        {
+            GameGUI.instance.CloseRadialMenu();
+            return;
+        }
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.BACKPACK && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             if (value.isPressed)
             {
                 StopPlayerMovements();
-                if(GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
+                if (GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
                 GameGUI.instance.OpenBackpack();
             }
             return;
@@ -169,46 +251,81 @@ public class Player : MonoBehaviour
 
     void OnInventory(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         if (GameGUI.instance.currentRadialMenu != RadialMenuID.INVENTORY && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
-            if (value.isPressed)
+            if (value.isPressed && GameGUI.instance.currentRadialMenu == RadialMenuID.CLOSED)
             {
                 StopPlayerMovements();
-                if(GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
+                if (GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
                 GameGUI.instance.OpenInventory();
             }
             return;
+        }
+        else if (value.isPressed && GameGUI.instance.currentRadialMenu == RadialMenuID.INVENTORY)
+        {
+            GameGUI.instance.CloseRadialMenu();
         }
     }
 
     void OnHerbarium(InputValue value)
     {
-        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen || GameGUI.instance.mapOpen) return;
 
         if (!GameGUI.instance.inHerbarium)
         {
             if (value.isPressed)
             {
                 StopPlayerMovements();
-                if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED) GameGUI.instance.CloseRadialMenu();
+                if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED) GameGUI.instance.CloseRadialMenu();
                 GameGUI.instance.OpenHerbarium();
             }
             return;
+        }
+        else if (value.isPressed)
+        {
+            GameGUI.instance.CloseHerbarium();
+        }
+    }
+
+    void OnMap(InputValue value)
+    {
+        if ((CutsceneManager.instance.inCutscene && !CutsceneManager.instance.inParrallelCutscene) || GameGUI.instance.showingDialog || inMicroInteraction || GameGUI.instance.isPauseOpen) return;
+
+        if (!GameGUI.instance.mapOpen && GameManager.instance.GetPlayerDataHandler().IsMapUnlocked())
+        {
+            if (value.isPressed)
+            {
+                StopPlayerMovements();
+                if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED) GameGUI.instance.CloseRadialMenu();
+                if (GameGUI.instance.inHerbarium) GameGUI.instance.CloseHerbarium();
+                GameGUI.instance.OpenMap();
+            }
+            return;
+        }
+        else if (value.isPressed && GameGUI.instance.mapOpen)
+        {
+            GameGUI.instance.CloseMap();
         }
     }
 
 
     void OnPause(InputValue value)
     {
-        if(inMicroInteraction)
-        { 
-            if(currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.Pause,value);
+        if (inMicroInteraction)
+        {
+            if (currentMicroInteraction) currentMicroInteraction.ForwardInput(MicroInteraction.InputType.Pause, value);
             return;
         }
 
-        if(GameGUI.instance.showingDialog) return;
+        if (GameGUI.instance.showingDialog) return;
+
+        if (GameGUI.instance.mapOpen)
+        {
+            GameGUI.instance.CloseHerbarium();
+            return;
+        }
 
         if (GameGUI.instance.inHerbarium)
         {
@@ -216,9 +333,15 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if(GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
+        if (GameGUI.instance.currentRadialMenu != RadialMenuID.CLOSED && GameGUI.instance.currentRadialMenu != RadialMenuID.GIVE)
         {
             GameGUI.instance.CloseRadialMenu();
+            return;
+        }
+
+        if (GameGUI.instance.mapOpen)
+        {
+            GameGUI.instance.CloseMap();
             return;
         }
 
@@ -227,12 +350,23 @@ public class Player : MonoBehaviour
         if (GameGUI.instance.isPauseOpen)
         {
             GameGUI.instance.ClosePause();
+            return;
         }
         else
         {
             GameGUI.instance.OpenPause();
+            return;
         }
 
+
+    }
+
+    void OnSwitchHerbarium(InputValue value)
+    {
+        if (value.isPressed && GameGUI.instance.inHerbarium)
+        {
+            GameGUI.instance.HerbariumSwitchTabs();
+        }
     }
 
     /// <summary>
@@ -245,15 +379,15 @@ public class Player : MonoBehaviour
         GameGUI.instance.DisableHud();
         inMicroInteraction = true;
         currentMicroInteractionScene = sceneName;
-        SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Additive).completed += (x) =>
+        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive).completed += (x) =>
         {
             Scene s = SceneManager.GetSceneByName(sceneName);
             GameObject[] gameObjects = s.GetRootGameObjects();
-            foreach(GameObject obj in gameObjects)
+            foreach (GameObject obj in gameObjects)
             {
-                if(obj.TryGetComponent<MicroInteraction>(out MicroInteraction interaction))
+                if (obj.TryGetComponent<MicroInteraction>(out MicroInteraction interaction))
                 {
-                    StartMicroInteraction(interaction,plantId);
+                    StartMicroInteraction(interaction, plantId);
                     break;
                 }
             }
@@ -270,6 +404,10 @@ public class Player : MonoBehaviour
         GameGUI.instance.DisableHud();
         inMicroInteraction = true;
         playerCamera.enabled = false;
+        if (playerCamera.TryGetComponent<StudioListener>(out StudioListener listener))
+        {
+            Destroy(listener);
+        }
         currentMicroInteraction = microInteraction;
         microInteraction.StartInteraction(plantId);
     }
@@ -280,7 +418,7 @@ public class Player : MonoBehaviour
     /// <param name="endingType">The micro interaction's ending type</param>
     public void StopMicroInteraction(MicroInteraction.EndingType endingType)
     {
-        if(currentMicroInteractionScene != null)
+        if (currentMicroInteractionScene != null)
         {
             SceneManager.UnloadSceneAsync(currentMicroInteractionScene).completed += (x) =>
             {
@@ -290,6 +428,10 @@ public class Player : MonoBehaviour
                 currentMicroInteraction = null;
                 currentMicroInteractionScene = null;
                 playerCamera.enabled = true;
+                if (!playerCamera.GetComponent<StudioListener>())
+                {
+                    playerCamera.gameObject.AddComponent<StudioListener>().AttenuationObject = controller.GetBody().gameObject;
+                }
                 inMicroInteraction = false;
             };
         }
@@ -321,7 +463,20 @@ public class Player : MonoBehaviour
     /// <param name="position"></param>
     public void SetPosition(Vector3 position)
     {
+        cinemachineCamera.enabled = false;
         controller.SetPosition(position);
+    }
+
+    void LateUpdate()
+    {
+        if (!cinemachineCamera.enabled)
+        {
+            cinemachineCamera.PreviousStateIsValid = false;
+            cinemachineCamera.enabled = true;
+            CinemachineCore.UniformDeltaTimeOverride = -1;
+        }
+
+        pointerOverGUI = EventSystem.current.IsPointerOverGameObject();
     }
 
     /// <summary>
@@ -330,6 +485,6 @@ public class Player : MonoBehaviour
     public void StopPlayerMovements()
     {
         controller.SetMoveVector(Vector2.zero);
-        controller.SetTryToMoveUsingCursor(false);
+        controller.SetUpdateTargetWithMouse(false);
     }
 }

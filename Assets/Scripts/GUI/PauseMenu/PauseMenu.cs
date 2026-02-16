@@ -1,5 +1,8 @@
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,18 +15,28 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject root;
     [SerializeField] private OptionsMenu optionsMenu;
     [SerializeField] private string mainMenuScene;
+    [SerializeField] private Fade linkedFade;
+    [SerializeField] private ConfirmPopup popup;
 
     [Header("Dialog Logs")]
     [SerializeField] private Transform dialogLogsRoot;
     [SerializeField] private LocalizedText dialogLogPrefab;
 
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onOpen;
+    [SerializeField] private UnityEvent onClose;
+    [SerializeField] private UnityEvent onHover;
+    [SerializeField] private UnityEvent onClick;
+
     public bool isOpen{get{return root.activeInHierarchy;}}
+    private bool exitingToMainMenu;
 
     /// <summary>
     /// Opens the pause menu
     /// </summary>
     public void Open()
     {
+        onOpen.Invoke();
         Time.timeScale = 0;
         root.SetActive(true);
         ReloadDialogLogs(); 
@@ -32,28 +45,55 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// Closes the pause menu
     /// </summary>
-    public void Close()
+    /// <returns>True if it was fully closed</returns>
+    public bool Close()
     {
+        if (optionsMenu.isOpen)
+        {
+            optionsMenu.Close();
+            return false;
+        }
+
         Time.timeScale = 1;
+        onClose.Invoke();
         root.SetActive(false);
-        optionsMenu.Close();
+        
+        
         ClearDialogLogs();
+
+        if(!Player.instance.inMicroInteraction) GameGUI.instance.EnableHudIfPossible();
+        return true;
     }
 
     /// <summary>
-    /// (Deprecated?) Counts the number of visible characters in a text
-    /// Deprecated since apparently TMP decided to 
+    /// Try to reset the options (if open)
     /// </summary>
-    /// <param name="text">The text</param>
-    /// <returns>The number of visible characters</returns>
-    private int CountVisibleCharacters(TMP_Text text)
+    public void OptionsResetAll()
     {
-        int count = 0;
-        foreach(TMP_LineInfo line in text.textInfo.lineInfo)
+        if (optionsMenu.isOpen)
         {
-            count += line.visibleCharacterCount + line.visibleSpaceCount;
+            optionsMenu.ResetAllSettings();
         }
-        return count;
+    }
+
+    /// <summary>
+    /// Try to move the options tab (if open)
+    /// </summary>
+    /// <param name="delta">The move delta</param>
+    public void OptionsMove(float delta)
+    {
+        if (optionsMenu.isOpen)
+        {
+            optionsMenu.IncrementTab((int)delta);
+        }
+    }
+
+    /// <summary>
+    /// Invokes On Hover Event
+    /// </summary>
+    public void OnHover()
+    {
+        onHover.Invoke();
     }
 
     /// <summary>
@@ -91,6 +131,8 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickResume()
     {
+        if(exitingToMainMenu) return;
+        onClick.Invoke();
         Close();
     }
 
@@ -99,6 +141,8 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickOptions()
     {
+        if(exitingToMainMenu) return;
+        onClick.Invoke();
         optionsMenu.Open();
     }
 
@@ -107,7 +151,26 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ClickMainMenu()
     {
+        if(exitingToMainMenu) return;
+        onClick.Invoke();
+        popup.Open(CallbackMainMenu);
+    }
+
+    /// <summary>
+    /// Routine for exiting to the main menu
+    /// </summary>
+    /// <returns>IEnumerator</returns>
+    private IEnumerator RoutineMainMenu()
+    {
         Time.timeScale = 1;
+
+        linkedFade.FadeTo(1);
+        yield return new WaitForEndOfFrame();
+        while (linkedFade.fading)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
         SceneManager.LoadScene(mainMenuScene);
     }
 
@@ -115,6 +178,26 @@ public class PauseMenu : MonoBehaviour
     /// Click even for quiting the menu
     /// </summary>
     public void ClickQuit()
+    {
+        if(exitingToMainMenu) return;
+        onClick.Invoke();
+        popup.Open(CallbackQuit);
+    }
+
+    /// <summary>
+    /// Callback on confirming the exit to main menu
+    /// </summary>
+    public void CallbackMainMenu()
+    {
+        exitingToMainMenu = true;
+        StartCoroutine(RoutineMainMenu());
+    }
+
+
+    /// <summary>
+    /// Callback on confirming the exit to desktop
+    /// </summary>
+    public void CallbackQuit()
     {
         Application.Quit();
     }

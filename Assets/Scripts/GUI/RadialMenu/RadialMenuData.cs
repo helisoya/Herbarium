@@ -10,7 +10,7 @@ public struct RadialMenuData
     public RadialMenuEntryData[] entries;
     public float radius;
     public RadialMenuID id;
-
+    public bool showBackpack;
 }
 
 /// <summary>
@@ -19,6 +19,7 @@ public struct RadialMenuData
 public struct RadialMenuEntryData
 {
     public Sprite sprite;
+    public Sprite itemSprite;
     public float rotation;
     public string key;
     public bool interactable;

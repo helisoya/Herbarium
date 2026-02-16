@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlantDatabase plantDatabase;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private Volume accessVolume;
+    [SerializeField] private HerbariumCursor cursor;
     public static GameManager instance;
 
     public bool inMainMenu {get; set;}
@@ -31,8 +32,8 @@ public class GameManager : MonoBehaviour
 
             Locals.Init();
             Settings.Init();
-            playerDataHandler.ResetData();
             plantDatabase.Init();
+            playerDataHandler.ResetData();
 
             DontDestroyOnLoad(gameObject);
 
@@ -40,10 +41,10 @@ public class GameManager : MonoBehaviour
             // Debug build
             if (Debug.isDebugBuild)
             {
-                //playerDataHandler.AddInInventory("TestPlant1");
-                //playerDataHandler.AddHerbariumPage("TestPlant1");
+                playerDataHandler.AddInInventory("Herb_01");
+                playerDataHandler.AddHerbariumPage("Fern_01");
                 playerDataHandler.AddHerbariumPage("TestPlant2");
-                playerDataHandler.SetVariable("quest_test",0);
+                //playerDataHandler.SetVariable("quest_test",0);
             }
         }
     }
@@ -84,10 +85,19 @@ public class GameManager : MonoBehaviour
     /// <summary>
 	/// Gets the plant database
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>The plant database</returns>
     public PlantDatabase GetPlantDatabase()
     {
         return plantDatabase;
+    }
+
+    /// <summary>
+    /// Gets the cursor handler
+    /// </summary>
+    /// <returns>The cursor handler</returns>
+    public HerbariumCursor GetCursor()
+    {
+        return cursor;
     }
 
     void Update()

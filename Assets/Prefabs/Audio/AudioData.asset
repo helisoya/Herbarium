@@ -101,7 +101,7 @@ MonoBehaviour:
           Data2: 1298101746
           Data3: -1417898603
           Data4: -1885305986
-        Path: event:/Music/Enviro2DMusicA
+        Path: event:/Zarchives/Enviro2DMusicA
     - Key: 14
       Value:
         Guid:
@@ -109,7 +109,7 @@ MonoBehaviour:
           Data2: 1119854668
           Data3: -1488861055
           Data4: 1398650092
-        Path: event:/Music/Plant1Music3DA
+        Path: event:/Zarchives/Plant1Music3DA
     - Key: 15
       Value:
         Guid:
@@ -117,7 +117,7 @@ MonoBehaviour:
           Data2: 1256568988
           Data3: -271094642
           Data4: 1078125191
-        Path: event:/Music/Plant2Music3DA
+        Path: event:/Zarchives/Plant2Music3DA
     - Key: 16
       Value:
         Guid:
@@ -125,7 +125,7 @@ MonoBehaviour:
           Data2: 1092233566
           Data3: -1276406858
           Data4: 1436739522
-        Path: event:/Music/Plant3Music3DA
+        Path: event:/Zarchives/Plant3Music3DA
     - Key: 22
       Value:
         Guid:
@@ -150,6 +150,14 @@ MonoBehaviour:
           Data3: 699557014
           Data4: -1617012228
         Path: event:/Enviro/Animals/FrogTiny
+    - Key: 119
+      Value:
+        Guid:
+          Data1: 235566351
+          Data2: 1082266067
+          Data3: 1634581154
+          Data4: -57881867
+        Path: event:/Enviro/Animals/FrogEnsemble
     - Key: 19
       Value:
         Guid:
@@ -270,6 +278,14 @@ MonoBehaviour:
           Data3: -1737303128
           Data4: -1619933153
         Path: event:/Herbarium/PlantsIndex
+    - Key: 56
+      Value:
+        Guid:
+          Data1: -2004310563
+          Data2: 1267727318
+          Data3: 194767775
+          Data4: -1846652933
+        Path: event:/Herbarium/PlantsIndexHover
     - Key: 43
       Value:
         Guid:
@@ -278,6 +294,14 @@ MonoBehaviour:
           Data3: -2126332032
           Data4: 144649729
         Path: event:/Herbarium/QuestsIndex
+    - Key: 57
+      Value:
+        Guid:
+          Data1: -2044027311
+          Data2: 1186194745
+          Data3: 1174043578
+          Data4: 1710773193
+        Path: event:/Herbarium/QuestIndexHover
     - Key: 44
       Value:
         Guid:
@@ -297,19 +321,19 @@ MonoBehaviour:
     - Key: 55
       Value:
         Guid:
-          Data1: -1729080200
-          Data2: 1274938705
-          Data3: -2066254449
-          Data4: -1209897726
-        Path: event:/Herbarium/LinkHover
-    - Key: 47
-      Value:
-        Guid:
           Data1: 1668387115
           Data2: 1155659706
           Data3: -1134555505
           Data4: -2046391313
         Path: event:/Herbarium/HintHover
+    - Key: 47
+      Value:
+        Guid:
+          Data1: -1729080200
+          Data2: 1274938705
+          Data3: -2066254449
+          Data4: -1209897726
+        Path: event:/Herbarium/LinkHover
     - Key: 48
       Value:
         Guid:
@@ -365,7 +389,7 @@ MonoBehaviour:
           Data2: 1103713744
           Data3: 1983132293
           Data4: -147631320
-        Path: event:/Herbarium/PageAquaMint
+        Path: event:/Herbarium/PageMenthe
     - Key: 53
       Value:
         Guid:
@@ -373,7 +397,7 @@ MonoBehaviour:
           Data2: 1316445871
           Data3: -1944942419
           Data4: -410257525
-        Path: event:/Herbarium/PageMurailles
+        Path: event:/Herbarium/PageCapillaire
     - Key: 58
       Value:
         Guid:
@@ -398,6 +422,14 @@ MonoBehaviour:
           Data3: 846832303
           Data4: -642617776
         Path: event:/Foraging/ToolCutBad
+    - Key: 94
+      Value:
+        Guid:
+          Data1: 168046096
+          Data2: 1251706358
+          Data3: 34935995
+          Data4: -2051973089
+        Path: event:/Foraging/PlantDamage
     - Key: 61
       Value:
         Guid:
@@ -433,11 +465,11 @@ MonoBehaviour:
     - Key: 65
       Value:
         Guid:
-          Data1: -450063602
-          Data2: 1330128220
-          Data3: -1484447324
-          Data4: 618182184
-        Path: event:/Foraging/PlantDrop
+          Data1: -1821744757
+          Data2: 1186412329
+          Data3: -1606569323
+          Data4: 2006236752
+        Path: event:/Foraging/ToolImpact
     - Key: 66
       Value:
         Guid:
@@ -454,6 +486,14 @@ MonoBehaviour:
           Data3: -164370558
           Data4: 134605275
         Path: event:/Foraging/PlantStress
+    - Key: 73
+      Value:
+        Guid:
+          Data1: -677372952
+          Data2: 1195826568
+          Data3: 104841609
+          Data4: -753860466
+        Path: event:/Foraging/StopPlantStress
     - Key: 68
       Value:
         Guid:
@@ -462,9 +502,379 @@ MonoBehaviour:
           Data3: -1822618692
           Data4: 1450517288
         Path: event:/Foraging/InBag
-  parameters:
-    _serializedList:
-    - Key: 0
+    - Key: 80
       Value:
-        Name: HerbariumEntries
-        Value: 2
+        Guid:
+          Data1: 947403358
+          Data2: 1092701408
+          Data3: 1208081339
+          Data4: 39222286
+        Path: event:/Foraging/MusForaging
+    - Key: 81
+      Value:
+        Guid:
+          Data1: -1391706277
+          Data2: 1183444588
+          Data3: -43580268
+          Data4: 248710475
+        Path: event:/Foraging/StartForaging
+    - Key: 85
+      Value:
+        Guid:
+          Data1: -1892171895
+          Data2: 1134308675
+          Data3: -2038585184
+          Data4: -1805068338
+        Path: event:/Foraging/ForagingQuit
+    - Key: 83
+      Value:
+        Guid:
+          Data1: -1834645353
+          Data2: 1087011135
+          Data3: 1113813655
+          Data4: -1099029169
+        Path: event:/Foraging/ForagingGood
+    - Key: 84
+      Value:
+        Guid:
+          Data1: 657951521
+          Data2: 1255576054
+          Data3: 1602195647
+          Data4: -1537716295
+        Path: event:/Foraging/ForagingBad
+    - Key: 69
+      Value:
+        Guid:
+          Data1: 1067830092
+          Data2: 1330972021
+          Data3: 1603665040
+          Data4: -1489828681
+        Path: event:/Music/MusExploration2D
+    - Key: 70
+      Value:
+        Guid:
+          Data1: -766236562
+          Data2: 1132876444
+          Data3: 387710611
+          Data4: 396095646
+        Path: event:/Music/MusExplorationCresson
+    - Key: 71
+      Value:
+        Guid:
+          Data1: 1374967287
+          Data2: 1262865678
+          Data3: 1972438937
+          Data4: 111984578
+        Path: event:/Music/MusExplorationCapillaire
+    - Key: 72
+      Value:
+        Guid:
+          Data1: -521227545
+          Data2: 1257475418
+          Data3: 1034088616
+          Data4: 462391477
+        Path: event:/Music/MusExplorationMenthe
+    - Key: 74
+      Value:
+        Guid:
+          Data1: 1268001710
+          Data2: 1162529344
+          Data3: -1798947707
+          Data4: -940417867
+        Path: event:/Dialogues/DialogueIn
+    - Key: 75
+      Value:
+        Guid:
+          Data1: -1255384568
+          Data2: 1105346234
+          Data3: 386164645
+          Data4: -386622216
+        Path: event:/Dialogues/DialogueOut
+    - Key: 76
+      Value:
+        Guid:
+          Data1: -979819798
+          Data2: 1277114368
+          Data3: 114518948
+          Data4: 1205206830
+        Path: event:/Dialogues/DialogueNext
+    - Key: 78
+      Value:
+        Guid:
+          Data1: -1722066562
+          Data2: 1186394883
+          Data3: -1938716499
+          Data4: 1938481711
+        Path: event:/Dialogues/StartTyping
+    - Key: 79
+      Value:
+        Guid:
+          Data1: 583755533
+          Data2: 1206251597
+          Data3: -2030025306
+          Data4: 952823535
+        Path: event:/Dialogues/StopTyping
+    - Key: 77
+      Value:
+        Guid:
+          Data1: 604168423
+          Data2: 1268004889
+          Data3: 1362151312
+          Data4: -176486155
+        Path: event:/Dialogues/Speak
+    - Key: 86
+      Value:
+        Guid:
+          Data1: -2008040059
+          Data2: 1075570377
+          Data3: 1011248278
+          Data4: 9949770
+        Path: event:/Music/MusNour
+    - Key: 88
+      Value:
+        Guid:
+          Data1: -2008040059
+          Data2: 1075570377
+          Data3: 1011248278
+          Data4: 9949770
+        Path: event:/Music/MusNour
+    - Key: 87
+      Value:
+        Guid:
+          Data1: 796641288
+          Data2: 1185709990
+          Data3: -1878214783
+          Data4: 939166719
+        Path: event:/Music/MusBarbrook
+    - Key: 89
+      Value:
+        Guid:
+          Data1: 1742531754
+          Data2: 1091474063
+          Data3: 1237999025
+          Data4: -846138089
+        Path: event:/Music/MusBarbrookPicnic
+    - Key: 90
+      Value:
+        Guid:
+          Data1: 1554727129
+          Data2: 1329737585
+          Data3: -245700452
+          Data4: -359503909
+        Path: event:/Music/GoodNight
+    - Key: 91
+      Value:
+        Guid:
+          Data1: 1737669194
+          Data2: 1319400337
+          Data3: 1696715156
+          Data4: 928092914
+        Path: event:/Music/GoodMorning
+    - Key: 33
+      Value:
+        Guid:
+          Data1: 322501970
+          Data2: 1287373941
+          Data3: 7893903
+          Data4: -1760100468
+        Path: event:/Backpack/InventoryOpen
+    - Key: 92
+      Value:
+        Guid:
+          Data1: -1298560170
+          Data2: 1223359162
+          Data3: 1503838128
+          Data4: 1074599256
+        Path: event:/Music/MusSpawn
+    - Key: 93
+      Value:
+        Guid:
+          Data1: -975458927
+          Data2: 1094555286
+          Data3: 1129153711
+          Data4: -1585433899
+        Path: event:/Home/DryPlant
+    - Key: 95
+      Value:
+        Guid:
+          Data1: -2133423950
+          Data2: 1188802652
+          Data3: -427022968
+          Data4: 151313131
+        Path: event:/Player/PlayerWalk
+    - Key: 96
+      Value:
+        Guid:
+          Data1: -767912887
+          Data2: 1085537737
+          Data3: 1261970865
+          Data4: 903153836
+        Path: event:/Player/PlayerStopWalk
+    - Key: 97
+      Value:
+        Guid:
+          Data1: -867723807
+          Data2: 1097338344
+          Data3: 1667948210
+          Data4: 359915282
+        Path: event:/Player/PlayerBend
+    - Key: 98
+      Value:
+        Guid:
+          Data1: 955629170
+          Data2: 1282350626
+          Data3: 592696203
+          Data4: -378776595
+        Path: event:/Player/PlayerInteract
+    - Key: 99
+      Value:
+        Guid:
+          Data1: -1815741394
+          Data2: 1187116874
+          Data3: -724694376
+          Data4: -1425053862
+        Path: event:/Player/PlayerWalkCloatDown
+    - Key: 101
+      Value:
+        Guid:
+          Data1: 515763216
+          Data2: 1134884876
+          Data3: 1995612566
+          Data4: -949596622
+        Path: event:/Menu/Click
+    - Key: 100
+      Value:
+        Guid:
+          Data1: 1144861969
+          Data2: 1186097849
+          Data3: 414117266
+          Data4: -958432331
+        Path: event:/Player/PlayerWalkCloatUp
+    - Key: 102
+      Value:
+        Guid:
+          Data1: -720673848
+          Data2: 1082897277
+          Data3: -384087927
+          Data4: 1782723738
+        Path: event:/Menu/Hover
+    - Key: 103
+      Value:
+        Guid:
+          Data1: 175262126
+          Data2: 1197684818
+          Data3: 908679099
+          Data4: 619818987
+        Path: event:/Menu/Back
+    - Key: 104
+      Value:
+        Guid:
+          Data1: 343747752
+          Data2: 1235782023
+          Data3: 129247667
+          Data4: -1268699291
+        Path: event:/Menu/ToggleOn
+    - Key: 105
+      Value:
+        Guid:
+          Data1: -1355315305
+          Data2: 1113306893
+          Data3: 921923505
+          Data4: 280345236
+        Path: event:/Menu/ToggleOff
+    - Key: 106
+      Value:
+        Guid:
+          Data1: -1154011682
+          Data2: 1196648607
+          Data3: 1635952784
+          Data4: -1874457948
+        Path: snapshot:/Pause
+    - Key: 107
+      Value:
+        Guid:
+          Data1: -872594026
+          Data2: 1095645278
+          Data3: 489637565
+          Data4: -155885157
+        Path: event:/NPC/BarbrookSleeping
+    - Key: 108
+      Value:
+        Guid:
+          Data1: -1551087838
+          Data2: 1131203918
+          Data3: -1815818850
+          Data4: 687758200
+        Path: event:/NPC/BarbrookWakeUp
+    - Key: 109
+      Value:
+        Guid:
+          Data1: -229647473
+          Data2: 1122568524
+          Data3: 35379092
+          Data4: -330683336
+        Path: event:/NPC/BarbrookIdle
+    - Key: 111
+      Value:
+        Guid:
+          Data1: -519732337
+          Data2: 1270854192
+          Data3: -1883929415
+          Data4: 1868766725
+        Path: event:/NPC/NourIdle
+    - Key: 110
+      Value:
+        Guid:
+          Data1: 823265360
+          Data2: 1246368472
+          Data3: 930348676
+          Data4: -1408003878
+        Path: event:/NPC/BarbrookDandine
+    - Key: 112
+      Value:
+        Guid:
+          Data1: -1298928352
+          Data2: 1260485099
+          Data3: 751477384
+          Data4: -1465907326
+        Path: event:/NPC/NourRun
+    - Key: 113
+      Value:
+        Guid:
+          Data1: 1036702512
+          Data2: 1115909773
+          Data3: 303426176
+          Data4: -613708091
+        Path: event:/NPC/NourJump
+    - Key: 115
+      Value:
+        Guid:
+          Data1: -1385557925
+          Data2: 1272460096
+          Data3: 1600499886
+          Data4: 137735112
+        Path: event:/Player/BigLilyPadEnter
+    - Key: 116
+      Value:
+        Guid:
+          Data1: 491777583
+          Data2: 1325885157
+          Data3: 971808691
+          Data4: -1414940111
+        Path: event:/Player/BigLilyPadExit
+    - Key: 117
+      Value:
+        Guid:
+          Data1: 2010727191
+          Data2: 1225348134
+          Data3: 346384013
+          Data4: 1605699906
+        Path: event:/Player/PtitLilyPadEnter
+    - Key: 118
+      Value:
+        Guid:
+          Data1: -671158311
+          Data2: 1080107139
+          Data3: 1983123873
+          Data4: -1282368102
+        Path: event:/Player/PtitLilyPadExit

@@ -11,7 +11,7 @@ public class OptionsTextTab : OptionsTab
 {
     [Header("Language")]
     [SerializeField] private TMP_Dropdown languageDropdown;
-    
+
     [Header("Texts")]
     [SerializeField] private TMP_Dropdown textsFontDropdown;
     [SerializeField] private TMP_Dropdown textsSizeDropdown;
@@ -21,6 +21,11 @@ public class OptionsTextTab : OptionsTab
     [SerializeField] private TMP_Dropdown titlesFontDropdown;
     [SerializeField] private TMP_Dropdown titlesSizeDropdown;
     [SerializeField] private Image titlesColorImage;
+
+    [Header("Input reminders")]
+    [SerializeField] private TMP_Dropdown inputRemindersFontDropdown;
+    [SerializeField] private TMP_Dropdown inputRemindersSizeDropdown;
+    [SerializeField] private Image inputRemindersColorImage;
 
     [Header("Dialogs")]
     [SerializeField] private TMP_Dropdown dialogsFontDropdown;
@@ -38,11 +43,11 @@ public class OptionsTextTab : OptionsTab
         // Language
         int currentLanguage = 0;
         List<string> languagesOptions = new List<string>();
-        for(int i = 0; i < Locals.GetLanguages().Length; i++)
+        for (int i = 0; i < Locals.GetLanguages().Length; i++)
         {
-            print(Locals.current + " " +Locals.GetLanguages()[i]);
-            languagesOptions.Add(Locals.GetLocal(Locals.GetLocal("Language_"+Locals.GetLanguages()[i])));
-            if(currentLanguage == 0 && Locals.current.Equals(Locals.GetLanguages()[i])) currentLanguage = i;
+            print(Locals.current + " " + Locals.GetLanguages()[i]);
+            languagesOptions.Add(Locals.GetLocal(Locals.GetLocal("Language_" + Locals.GetLanguages()[i])));
+            if (currentLanguage == 0 && Locals.current.Equals(Locals.GetLanguages()[i])) currentLanguage = i;
         }
         languageDropdown.ClearOptions();
         languageDropdown.AddOptions(languagesOptions);
@@ -50,13 +55,13 @@ public class OptionsTextTab : OptionsTab
 
         // Generate shared lists
         List<string> fontsOptions = new List<string>();
-        foreach(TMP_FontAsset font in Locals.GetFonts())
+        foreach (TMP_FontAsset font in Locals.GetFonts())
         {
             fontsOptions.Add(font.name);
         }
 
         List<string> sizesOptions = new List<string>();
-        foreach(int size in Locals.GetSizes())
+        foreach (int size in Locals.GetSizes())
         {
             sizesOptions.Add(size.ToString());
         }
@@ -95,6 +100,18 @@ public class OptionsTextTab : OptionsTab
         dialogsColorImage.color = Locals.GetColor(Locals.Channel.CHANNEL2);
         dialogsBackgroundOpacity.SetValueWithoutNotify(Settings.instance.GetSubtitlesBackgroundOpacity());
 
+
+        // Input Reminders
+        inputRemindersFontDropdown.ClearOptions();
+        inputRemindersFontDropdown.AddOptions(fontsOptions);
+        inputRemindersFontDropdown.SetValueWithoutNotify(Locals.GetFontIndex(Locals.Channel.CHANNEL3));
+
+        inputRemindersSizeDropdown.ClearOptions();
+        inputRemindersSizeDropdown.AddOptions(sizesOptions);
+        inputRemindersSizeDropdown.SetValueWithoutNotify(Locals.GetFontSizeIndex(Locals.Channel.CHANNEL3));
+
+        inputRemindersColorImage.color = Locals.GetColor(Locals.Channel.CHANNEL3);
+
     }
 
     /// <summary>
@@ -103,12 +120,13 @@ public class OptionsTextTab : OptionsTab
     /// <param name="languageIndex">The language index</param>
     public void ChangeLanguage(int languageIndex)
     {
+        parent.InvokeOnClickEvent();
         Settings.instance.ChangeLanguage(Locals.GetLanguages()[languageIndex]);
 
         List<string> languagesOptions = new List<string>();
-        for(int i = 0; i < Locals.GetLanguages().Length; i++)
+        for (int i = 0; i < Locals.GetLanguages().Length; i++)
         {
-            languagesOptions.Add(Locals.GetLocal(Locals.GetLocal("Language_"+Locals.GetLanguages()[i])));
+            languagesOptions.Add(Locals.GetLocal(Locals.GetLocal("Language_" + Locals.GetLanguages()[i])));
         }
         languageDropdown.ClearOptions();
         languageDropdown.AddOptions(languagesOptions);
@@ -121,7 +139,8 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The font index</param>
     public void ChangeTextsFont(int fontIndex)
     {
-        Settings.instance.SetTextFont(Locals.Channel.CHANNEL0,fontIndex);
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextFont(Locals.Channel.CHANNEL0, fontIndex);
     }
 
     /// <summary>
@@ -130,7 +149,8 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The size index</param>
     public void ChangeTextsSize(int sizeIndex)
     {
-        Settings.instance.SetTextSize(Locals.Channel.CHANNEL0,sizeIndex);
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextSize(Locals.Channel.CHANNEL0, sizeIndex);
     }
 
     /// <summary>
@@ -138,7 +158,8 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void StartChangeTextsColor()
     {
-        parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL0),ChangeTextsColor);
+        parent.InvokeOnClickEvent();
+        parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL0), ChangeTextsColor);
     }
 
     /// <summary>
@@ -148,7 +169,7 @@ public class OptionsTextTab : OptionsTab
     public void ChangeTextsColor(Color color)
     {
         textsColorImage.color = color;
-        Settings.instance.SetTextColor(Locals.Channel.CHANNEL0,color);
+        Settings.instance.SetTextColor(Locals.Channel.CHANNEL0, color);
     }
 
     /// <summary>
@@ -157,7 +178,8 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The font index</param>
     public void ChangeTitlesFont(int fontIndex)
     {
-        Settings.instance.SetTextFont(Locals.Channel.CHANNEL1,fontIndex);
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextFont(Locals.Channel.CHANNEL1, fontIndex);
     }
 
     /// <summary>
@@ -166,7 +188,8 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The size index</param>
     public void ChangeTitlesSize(int sizeIndex)
     {
-        Settings.instance.SetTextSize(Locals.Channel.CHANNEL1,sizeIndex);
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextSize(Locals.Channel.CHANNEL1, sizeIndex);
     }
 
     /// <summary>
@@ -174,7 +197,8 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void StartChangeTitlesColor()
     {
-        parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL1),ChangeTitlesColor);
+        parent.InvokeOnClickEvent();
+        parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL1), ChangeTitlesColor);
     }
 
     /// <summary>
@@ -184,7 +208,7 @@ public class OptionsTextTab : OptionsTab
     public void ChangeTitlesColor(Color color)
     {
         titlesColorImage.color = color;
-        Settings.instance.SetTextColor(Locals.Channel.CHANNEL1,color);
+        Settings.instance.SetTextColor(Locals.Channel.CHANNEL1, color);
     }
 
     /// <summary>
@@ -193,7 +217,8 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The font index</param>
     public void ChangeDialogsFont(int fontIndex)
     {
-        Settings.instance.SetTextFont(Locals.Channel.CHANNEL2,fontIndex);
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextFont(Locals.Channel.CHANNEL2, fontIndex);
     }
 
     /// <summary>
@@ -202,7 +227,8 @@ public class OptionsTextTab : OptionsTab
     /// <param name="fontIndex">The size index</param>
     public void ChangeDialogsSize(int sizeIndex)
     {
-        Settings.instance.SetTextSize(Locals.Channel.CHANNEL2,sizeIndex);
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextSize(Locals.Channel.CHANNEL2, sizeIndex);
     }
 
     /// <summary>
@@ -210,7 +236,8 @@ public class OptionsTextTab : OptionsTab
     /// </summary>
     public void StartChangeDialogsColor()
     {
-        parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL2),ChangeDialogsColor);
+        parent.InvokeOnClickEvent();
+        parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL2), ChangeDialogsColor);
     }
 
     /// <summary>
@@ -220,7 +247,7 @@ public class OptionsTextTab : OptionsTab
     public void ChangeDialogsColor(Color color)
     {
         dialogsColorImage.color = color;
-        Settings.instance.SetTextColor(Locals.Channel.CHANNEL2,color);
+        Settings.instance.SetTextColor(Locals.Channel.CHANNEL2, color);
     }
 
     /// <summary>
@@ -229,14 +256,64 @@ public class OptionsTextTab : OptionsTab
     /// <param name="opacity">The new opacity</param>
     public void ChangeDialogsOpacity(float opacity)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetSubtitlesBackgroundOpacity(opacity);
     }
+
+    /// <summary>
+    /// Callback for changing the input reminder's font
+    /// </summary>
+    /// <param name="fontIndex">The font index</param>
+    public void ChangeInputRemindersFont(int fontIndex)
+    {
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextFont(Locals.Channel.CHANNEL3, fontIndex);
+    }
+
+    /// <summary>
+    /// Callback for changing the input reminder's size
+    /// </summary>
+    /// <param name="fontIndex">The size index</param>
+    public void ChangeInputRemindersSize(int sizeIndex)
+    {
+        parent.InvokeOnClickEvent();
+        Settings.instance.SetTextSize(Locals.Channel.CHANNEL3, sizeIndex);
+    }
+
+    /// <summary>
+    /// Starts changing the input reminder's color
+    /// </summary>
+    public void StartChangeInputRemindersColor()
+    {
+        parent.InvokeOnClickEvent();
+        parent.GetColorPicker().Open(Locals.GetColor(Locals.Channel.CHANNEL3), ChangeInputRemindersColor);
+    }
+
+    /// <summary>
+    /// Changes the input reminder's color
+    /// </summary>
+    /// <param name="color">The new color</param>
+    public void ChangeInputRemindersColor(Color color)
+    {
+        inputRemindersColorImage.color = color;
+        Settings.instance.SetTextColor(Locals.Channel.CHANNEL3, color);
+    }
+
 
 
     /// <summary>
     /// Resets all settings
     /// </summary>
     public void ResetAll()
+    {
+        parent.InvokeOnClickEvent();
+        parent.GetConfirmPopup().Open(CallbackResetAll);
+    }
+
+    /// <summary>
+    /// Callback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
     {
         Settings.instance.ResetText();
         OnOpen();

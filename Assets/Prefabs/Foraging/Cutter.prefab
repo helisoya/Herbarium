@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 9881107362206845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.9969651, w: 0.077850066}
-  m_LocalPosition: {x: 0.72, y: 0.71, z: 0}
+  m_LocalPosition: {x: 0.07, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -7903353637476605527, guid: ba0838d7fe9460b4180935406efb7b39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,7 +121,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 4845128256286033786}
   m_Father: {fileID: 6953767973617601706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1919170779773020094
@@ -158,7 +159,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.6624018, y: -1.9249}
+  m_Offset: {x: 0, y: -1.9000171}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.3710122, y: 0.680766}
@@ -168,7 +169,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.8266537, y: 9.756922}
+  m_Size: {x: 3.5, y: 8.114684}
   m_EdgeRadius: 0
 --- !u!50 &5833339774332460342
 Rigidbody2D:
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForagingPickablePart
   parent: {fileID: 8870376368917973648}
+  waitingTime: 0.8
 --- !u!1 &827639893516800108
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +238,7 @@ Transform:
   m_GameObject: {fileID: 827639893516800108}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7570065, w: 0.6534074}
-  m_LocalPosition: {x: 0.64, y: 0.63, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -288,7 +290,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7079701295855981540, guid: ba0838d7fe9460b4180935406efb7b39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -326,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 3248047199472144386}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.4118433, w: 0.9112547}
-  m_LocalPosition: {x: -0.44, y: 1.79, z: 0.27}
+  m_LocalPosition: {x: -1.09, y: 1.12, z: 0.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -417,11 +419,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.668, y: -0.241, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1811810607637034267}
-  - {fileID: 4845128256286033786}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8870376368917973648
@@ -439,16 +440,41 @@ MonoBehaviour:
   canBePickedUp: 1
   type: 1
   canRotate: 1
+  individualMassOnDrop: 1
   moveRb: {fileID: 5833339774332460342}
   rbs:
   - {fileID: 5833339774332460342}
   joints: []
   onTouchedGround:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostToolImpact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onStartTouchPlant:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AudioForaging, Assembly-CSharp
+        m_MethodName: PostPlantStress
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onStopTouchPlant:
     m_PersistentCalls:
       m_Calls: []
@@ -462,6 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4845128256286033786}
   - component: {fileID: 1740815891148133818}
+  - component: {fileID: 5147944171422765987}
   m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
@@ -479,13 +506,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.9214618, w: 0.3884689}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5058827420069511466}
   - {fileID: 7080969063306191956}
   - {fileID: 4531670284392342732}
-  m_Father: {fileID: 6953767973617601706}
+  m_Father: {fileID: 1811810607637034267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 134.281}
 --- !u!95 &1740815891148133818
 Animator:
@@ -509,3 +536,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &5147944171422765987
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074396002222437654}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0

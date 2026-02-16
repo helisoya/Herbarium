@@ -14,7 +14,7 @@ public class OptionsSoundTab : OptionsTab
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Toggle muteAllSlider;
-    [SerializeField] private TMP_Dropdown deviceDropdown;
+    [SerializeField] private Toggle mixToggle;
 
 
     protected override void OnClose()
@@ -23,12 +23,17 @@ public class OptionsSoundTab : OptionsTab
 
     protected override void OnOpen()
     {
+        bool allMuted = Settings.instance.IsSoundsMuted();
         masterSlider.SetValueWithoutNotify(Settings.instance.GetVolumeMaster());
         musicSlider.SetValueWithoutNotify(Settings.instance.GetVolumeMusic());
         sfxSlider.SetValueWithoutNotify(Settings.instance.GetVolumeSFX());
-        muteAllSlider.SetIsOnWithoutNotify(Settings.instance.IsSoundsMuted());
+        muteAllSlider.SetIsOnWithoutNotify(allMuted);
 
-        deviceDropdown.ClearOptions();
+        masterSlider.interactable = !allMuted;
+        sfxSlider.interactable = !allMuted;
+        musicSlider.interactable = !allMuted;
+
+        mixToggle.SetIsOnWithoutNotify(Settings.instance.GetIsMono());
     }
 
     /// <summary>
@@ -37,6 +42,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="volume">The new volume</param>
     public void ChangeMasterVolume(float volume)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetVolumeMaster(volume);
     }
 
@@ -46,6 +52,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="volume">The new volume</param>
     public void ChangeSFXVolume(float volume)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetVolumeSFX(volume);
     }
 
@@ -55,6 +62,7 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="volume">The new volume</param>
     public void ChangeMusicVolume(float volume)
     {
+        parent.InvokeOnSliderEvent();
         Settings.instance.SetVolumeMusic(volume);
     }
 
@@ -64,22 +72,34 @@ public class OptionsSoundTab : OptionsTab
     /// <param name="muted">True if all sounds are muted</param>
     public void ChangeSoundsMuted(bool muted)
     {
+        parent.InvokeOnCheckboxEvent(muted);
         Settings.instance.MuteAllSounds(muted);
+        OnOpen();
     }
 
     /// <summary>
-    /// Callback for changing the output device
+    /// Callback for changing if audio is mono or not
     /// </summary>
-    /// <param name="deviceIdx">The device's index</param>
-    public void ChangeOutputDevice(int deviceIdx)
+    /// <param name="isMono">True if the audio is in mono</param>
+    public void ChangeIsMono(bool isMono)
     {
-        Settings.instance.SetOutputDevice(deviceIdx);
+        parent.InvokeOnCheckboxEvent(isMono);
+        Settings.instance.SetIsMono(isMono);
     }
 
     /// <summary>
     /// Resets all settings
     /// </summary>
     public void ResetAll()
+    {
+        parent.InvokeOnClickEvent();
+        parent.GetConfirmPopup().Open(CallbackResetAll);
+    }
+
+    /// <summary>
+    /// Callback for reseting all settings
+    /// </summary>
+    public void CallbackResetAll()
     {
         Settings.instance.ResetSound();
         OnOpen();

@@ -31,12 +31,19 @@ public class ForagingNode : HerbariumNode
         }
         else
         {
+            GameGUI.instance.FadeTo(1);
+            yield return new WaitForEndOfFrame();
+            while (GameGUI.instance.fading)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+            MicroInteraction.EndingType result;
+            int resultIdx = 0;
+
             if (Settings.instance.IsAutocompleteInteractionEnabled())
             {
-                GameObject obj = CutsceneManager.instance.GetObject("THIS");
-                if(obj) obj.SetActive(false);
-                GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
-                yield return 0;
+                result = MicroInteraction.EndingType.SUCCESS;
             }
             else
             {
@@ -48,28 +55,34 @@ public class ForagingNode : HerbariumNode
                     yield return new WaitForEndOfFrame();
                 }
 
-                GameObject obj = CutsceneManager.instance.GetObject("THIS");
-
-                switch (Player.instance.lastMicroInteractionEnding)
-                {
-                    case MicroInteraction.EndingType.SUCCESS:
-                        if(obj) obj.SendMessage("TagEntityAsNotRegrown");
-                        GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
-                        GameGUI.instance.ShowPopup("Popup_Foraging_Done",new object[]{Locals.GetLocal(Plant.GetName(plantId))});
-                        yield return 0;
-                        break;
-
-                    case MicroInteraction.EndingType.FAILURE:
-                        if(obj) obj.SendMessage("TagEntityAsNotRegrown");
-                        GameGUI.instance.ShowPopup("Popup_Foraging_Fail",null);
-                        yield return 1;
-                        break;
-
-                    case MicroInteraction.EndingType.CANCEL:
-                        yield return 3;
-                        break;
-                }
+                result = Player.instance.lastMicroInteractionEnding;
             }
+
+            GameObject obj = CutsceneManager.instance.GetObject("THIS");
+
+            switch (result)
+            {
+                case MicroInteraction.EndingType.SUCCESS:
+                    if(obj) obj.SendMessage("TagEntityAsNotRegrown");
+                    GameManager.instance.GetPlayerDataHandler().AddInInventory(plantId);
+                    GameGUI.instance.ShowPopup("Popup_Foraging_Done",new object[]{Locals.GetLocal(Plant.GetName(plantId))});
+                    resultIdx = 0;
+                    break;
+
+                case MicroInteraction.EndingType.FAILURE:
+                    if(obj) obj.SendMessage("TagEntityAsNotRegrown");
+                    GameGUI.instance.ShowPopup("Popup_Foraging_Fail",null);
+                    resultIdx = 1;
+                    break;
+
+                case MicroInteraction.EndingType.CANCEL:
+                    resultIdx = 3;
+                    break;
+            }
+
+            GameGUI.instance.FadeTo(0);
+
+            yield return resultIdx;
         }
     }
 }

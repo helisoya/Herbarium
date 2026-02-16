@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Handles the players data
@@ -15,6 +16,9 @@ public class PlayerDataHandler : MonoBehaviour
     [SerializeField] private DefaultPlayerVariables variables;
     [SerializeField] private PlayerQuests quests;
     [SerializeField] private SerializedDictionary<string,int> defaultPlantRegrowth;
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent<string, float> onUnlockPlant;
 
     public string filePath
     {
@@ -92,6 +96,22 @@ public class PlayerDataHandler : MonoBehaviour
         return result.ToArray();
     }
 
+    /// <summary>
+    /// Gets the index of a known quest given its ID
+    /// </summary>
+    /// <param name="questID">The quest's ID</param>
+    /// <returns>Its index in the known quests array</returns>
+    public int KnownQuestIDToIndex(string questID)
+    {
+        Quest[] quests = GetKnownQuests();
+
+        for(int i = 0; i < quests.Length; i++)
+        {
+            if(quests[i].id.Equals(questID)) return i;
+        }
+
+        return 0;
+    }
 
     /// <summary>
     /// Pin a quest
@@ -149,7 +169,11 @@ public class PlayerDataHandler : MonoBehaviour
 	/// <param name="plantID">The plant ID</param>
     public void AddHerbariumPage(string plantID)
     {
-        if (!data.herbarium.Contains(plantID)) data.herbarium.Add(plantID);
+        if (!data.herbarium.Contains(plantID))
+        {
+            onUnlockPlant.Invoke(plantID,1);
+            data.herbarium.Add(plantID);
+        } 
     }
 
     /// <summary>
@@ -427,6 +451,28 @@ public class PlayerDataHandler : MonoBehaviour
 
     #endregion
 
+    #region Map
+
+    /// <summary>
+    /// Gets if the map is unlocked
+    /// </summary>
+    /// <returns>True if the map is unlocked</returns>
+    public bool IsMapUnlocked()
+    {
+        return data.mapUnlocked;
+    }
+
+    /// <summary>
+    /// Unlocks the map
+    /// </summary>
+    /// <param name="unlocked">True if the map is now unlocked</param>
+    public void UnlockMap(bool unlocked)
+    {
+        data.mapUnlocked = unlocked;
+    }
+
+    #endregion
+
     #region Save, Load & Control
 
     /// <summary>
@@ -440,6 +486,7 @@ public class PlayerDataHandler : MonoBehaviour
         data.herbarium = new List<string>();
         data.regrowthData = new List<RegrowthPlantData>();
         data.pinnedQuests = new List<string>();
+        data.mapUnlocked = false;
 
         data.variables = new PlayerVariable[variables.variables.Length];
         for (int i = 0; i < variables.variables.Length; i++)
@@ -449,6 +496,11 @@ public class PlayerDataHandler : MonoBehaviour
                 id = variables.variables[i].id,
                 value = variables.variables[i].value
             };
+        }
+
+        foreach(string plant in GameManager.instance.GetPlantDatabase().GetExistingPlants())
+        {
+            onUnlockPlant.Invoke(plant,0);
         }
     }
 
@@ -471,7 +523,7 @@ public class PlayerDataHandler : MonoBehaviour
 
         for (int i = 0; i < data.variables.Length; i++)
         {
-            for (int j = 0; j < finalData.Length; i++)
+            for (int j = 0; j < finalData.Length; j++)
             {
                 if (data.variables[i].id.Equals(finalData[j].id))
                 {
@@ -492,6 +544,17 @@ public class PlayerDataHandler : MonoBehaviour
 
 
         this.data = data;
+
+
+        foreach(string plant in GameManager.instance.GetPlantDatabase().GetExistingPlants())
+        {
+            onUnlockPlant.Invoke(plant,0);
+        }
+
+        foreach(string plant in data.herbarium)
+        {
+            onUnlockPlant.Invoke(plant,1);
+        }
     }
 
     /// <summary>

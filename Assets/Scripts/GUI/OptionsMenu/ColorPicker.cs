@@ -1,6 +1,6 @@
 using System;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 /// <summary>
@@ -14,6 +14,12 @@ public class ColorPicker : MonoBehaviour
     [SerializeField] private Slider hSlider;
     [SerializeField] private Slider sSlider;
     [SerializeField] private Slider vSlider;
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onConfirm;
+    [SerializeField] private UnityEvent onCancel;
+    [SerializeField] private UnityEvent onHover;
+    [SerializeField] private UnityEvent onSlider;
 
     private Action<Color> endCallback;
 
@@ -37,6 +43,23 @@ public class ColorPicker : MonoBehaviour
     }
 
     /// <summary>
+    /// Event for when hovering over a slider
+    /// </summary>
+    public void OnHover()
+    {
+        onHover.Invoke();
+    }
+
+    /// <summary>
+    /// Event for when using a slider
+    /// </summary>
+    public void OnSlider()
+    {
+        onSlider.Invoke();
+        RefreshPreview();
+    }
+
+    /// <summary>
     /// Refreshs the preview
     /// </summary>
     public void RefreshPreview()
@@ -52,6 +75,16 @@ public class ColorPicker : MonoBehaviour
         Color endColor = Color.HSVToRGB(hSlider.value,sSlider.value,vSlider.value);
         endColor.a = 1.0f;
         endCallback.Invoke(endColor);
+        onConfirm.Invoke();
+        Close();
+    }
+
+    /// <summary>
+    /// Cancels the action
+    /// </summary>
+    public void Cancel()
+    {
+        onCancel.Invoke();
         Close();
     }
 

@@ -63,7 +63,7 @@ Material:
     - _GlowOffset: 0
     - _GlowOuter: 0.05
     - _GlowPower: 0.75
-    - _GradientScale: 10
+    - _GradientScale: 5
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
@@ -86,8 +86,8 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _TextureHeight: 1024
-    - _TextureWidth: 1024
+    - _TextureHeight: 512
+    - _TextureWidth: 512
     - _UnderlayDilate: 0
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0
@@ -126,24 +126,24 @@ MonoBehaviour:
     m_FaceIndex: 0
     m_FamilyName: Averia Sans Libre
     m_StyleName: Light Italic
-    m_PointSize: 90
+    m_PointSize: 47
     m_Scale: 1
     m_UnitsPerEM: 2048
-    m_LineHeight: 111.35742
-    m_AscentLine: 89.42871
-    m_CapLine: 61
-    m_MeanLine: 43
+    m_LineHeight: 58.15332
+    m_AscentLine: 46.70166
+    m_CapLine: 32
+    m_MeanLine: 23
     m_Baseline: 0
-    m_DescentLine: -21.92871
-    m_SuperscriptOffset: 89.42871
+    m_DescentLine: -11.45166
+    m_SuperscriptOffset: 46.70166
     m_SuperscriptSize: 0.5
-    m_SubscriptOffset: -21.92871
+    m_SubscriptOffset: -11.45166
     m_SubscriptSize: 0.5
-    m_UnderlineOffset: -10.854492
-    m_UnderlineThickness: 4.3945312
-    m_StrikethroughOffset: 17.2
-    m_StrikethroughThickness: 4.3945312
-    m_TabWidth: 26
+    m_UnderlineOffset: -5.668457
+    m_UnderlineThickness: 2.2949219
+    m_StrikethroughOffset: 9.2
+    m_StrikethroughThickness: 2.2949219
+    m_TabWidth: 14
   m_Material: {fileID: -5088306390667929804}
   m_SourceFontFileGUID: 8a0eb2d001bce59468f7edac462b6e0c
   m_CreationSettings:
@@ -151,14 +151,14 @@ MonoBehaviour:
     sourceFontFileGUID: 8a0eb2d001bce59468f7edac462b6e0c
     faceIndex: 0
     pointSizeSamplingMode: 0
-    pointSize: 90
-    padding: 9
-    paddingMode: 2
+    pointSize: 47
+    padding: 4
+    paddingMode: 1
     packingMode: 0
-    atlasWidth: 1024
-    atlasHeight: 1024
-    characterSetSelectionMode: 7
-    characterSequence: 
+    atlasWidth: 512
+    atlasHeight: 512
+    characterSetSelectionMode: 1
+    characterSequence: 32 - 126, 160 - 255, 8192 - 8303, 8364, 8482, 9633
     referencedFontAssetGUID: 
     referencedTextAssetGUID: 
     fontStyle: 0
@@ -177,16 +177,16 @@ MonoBehaviour:
   m_IsMultiAtlasTexturesEnabled: 0
   m_GetFontFeatures: 1
   m_ClearDynamicDataOnBuild: 1
-  m_AtlasWidth: 1024
-  m_AtlasHeight: 1024
-  m_AtlasPadding: 9
+  m_AtlasWidth: 512
+  m_AtlasHeight: 512
+  m_AtlasPadding: 4
   m_AtlasRenderMode: 4165
   m_UsedGlyphRects: []
   m_FreeGlyphRects:
   - m_X: 0
     m_Y: 0
-    m_Width: 1023
-    m_Height: 1023
+    m_Width: 511
+    m_Height: 511
   m_FontFeatureTable:
     m_MultipleSubstitutionRecords: []
     m_LigatureSubstitutionRecords: []
@@ -256,7 +256,7 @@ Texture2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AveriaSansLibre-LightItalic Atlas
+  m_Name: AveriaSansLibre-LightItalic SDF Atlas
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000

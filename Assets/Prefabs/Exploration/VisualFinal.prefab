@@ -1349,6 +1349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3052209592159193195}
   - component: {fileID: 6682358383625169866}
+  - component: {fileID: 6961780320422412091}
   m_Layer: 0
   m_Name: VisualFinal
   m_TagString: Untagged
@@ -1395,6 +1396,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6961780320422412091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4751493653176424159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5eb71001dd3a64e940db4931a84156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: "Assembly-CSharp::AudioPlayerAni\xF9"
+  playerWalk: 95
+  playerInteract: 98
+  playerCloatUp: 100
+  playerCloatDown: 99
 --- !u!1 &4822609809677609665
 GameObject:
   m_ObjectHideFlags: 0

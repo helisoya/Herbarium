@@ -1,24 +1,46 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Represents the player controller in the exploration phase
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] private float playerSpeed;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform target;
     [SerializeField] private LayerMask mask;
+    [SerializeField] private PlayerInteraction interaction;
+
+    [Header("Ground Detection")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float hoverDistance = 0.01f;
+    [SerializeField] private float groundCheckDistance = 0.05f;
+
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private Transform graphicToFlip;
+    [SerializeField] private VisualEffect vfxWalk;
+    [SerializeField] private ParticleSystem vfxClick;
+    [SerializeField] private VisualEffect vfxClickGraph;
 
-    private bool shouldTryToMoveUsingCursor;
+    private bool lastVfxState;
+
+    private bool canUpdateTargetWithMouse;
+    private bool moveToTarget;
     private Vector2 mousePosition;
+    private Vector3 targetPosition;
     private Vector2 moveVector;
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(rb.position, rb.position + Vector3.down * groundCheckDistance);
+    }
 
     /// <summary>
     /// Gets the player body
@@ -29,6 +51,23 @@ public class PlayerController : MonoBehaviour
         return rb;
     }
 
+    /// <summary>
+    /// Updates the target position
+    /// </summary>
+    /// <param name="mousePosition">The mouse position</param>
+    /// <returns>True if succeded</returns>
+    public bool UpdateTargetPosition(Vector2 mousePosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, mask))
+        {
+            targetPosition = hitInfo.point;
+            targetPosition.y = rb.position.y;
+            return true;
+        }
+        return false;
+    }
 
     /// <summary>
     /// Sets the move vector (keyboard/gamepad)
@@ -36,6 +75,8 @@ public class PlayerController : MonoBehaviour
     /// <param name="moveVector">The move vector</param>
     public void SetMoveVector(Vector2 moveVector)
     {
+        moveToTarget = false;
+        interaction.DisableClosingInTag();
         this.moveVector = moveVector;
     }
 
@@ -49,20 +90,42 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Toggle if the controller should try to move the player using the mouse position
+    /// Toggle if the controller should try to update the target with the mouse postion
     /// </summary>
-    public void ToggleTryToMoveUsingCursor()
+    public void ToggleUpdateTargetWithMouse()
     {
-        shouldTryToMoveUsingCursor = !shouldTryToMoveUsingCursor;
+        canUpdateTargetWithMouse = !canUpdateTargetWithMouse;
+        if (canUpdateTargetWithMouse)
+        {
+            moveToTarget = true;
+            interaction.DisableClosingInTag();
+        }
+
     }
 
     /// <summary>
-    /// Sets if the controller should try to move the player using the mouse position
+    /// Sets if the controller should try to update the target with the mouse postion
     /// </summary>
     /// <param name="value">True if the controller should move using the mouse</param>
-    public void SetTryToMoveUsingCursor(bool value)
+    public void SetUpdateTargetWithMouse(bool value)
     {
-        shouldTryToMoveUsingCursor = value;
+        canUpdateTargetWithMouse = value;
+        if (canUpdateTargetWithMouse)
+        {
+            interaction.DisableClosingInTag();
+            moveToTarget = true;
+        }
+
+    }
+
+    /// <summary>
+    /// Sets the target position manually
+    /// </summary>
+    /// <param name="targetPosition">The new target position</param>
+    public void SetTargetPosition(Vector3 targetPosition)
+    {
+        moveToTarget = true;
+        this.targetPosition = targetPosition;
     }
 
     /// <summary>
@@ -77,24 +140,67 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (shouldTryToMoveUsingCursor && moveVector == Vector2.zero)
+        // Ground check
+
+        if (Physics.Raycast(rb.position, Vector3.down, out RaycastHit hit, groundCheckDistance, groundLayer))
         {
-            // Get exact location of click
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+            rb.position = new Vector3(rb.position.x, hit.point.y + hoverDistance, rb.position.z);
+        }
 
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, mask))
+
+        // Walking animation
+
+        bool isWalking = rb.linearVelocity.magnitude > 0.5f;
+
+        animator.SetBool("isWalking", isWalking);
+        vfxWalk.SetBool("isWalking", isWalking);
+
+
+        // Flip to the right side
+
+        if (isWalking)
+        {
+            if (moveToTarget)
             {
-                Vector3 place = hitInfo.point;
-                place.y = rb.position.y;
 
-                target.position = place;
+                Vector3 velocity = (targetPosition - rb.position).normalized;
+                Vector3 s = graphicToFlip.localScale;
+                s.x = Mathf.Abs(s.x) * -Mathf.Sign(velocity.x);
+                graphicToFlip.localScale = s;
+            }
+            else if (moveVector != Vector2.zero)
+            {
+                Vector3 s = graphicToFlip.localScale;
+                s.x = Mathf.Abs(s.x) * -Mathf.Sign(moveVector.x);
+                graphicToFlip.localScale = s;
+            }
+        }
 
-                Vector3 direction = place - rb.position;
+        if (!Player.instance.canComponentsUpdate)
+        {
+            target.position = new Vector3(0, -50, 0);
+            return;
+        }
 
-                if (direction.magnitude > 0.5f)
-                {
-                    rb.linearVelocity = direction.normalized * playerSpeed;
-                }
+        if (moveToTarget)
+        {
+            if (canUpdateTargetWithMouse)
+            {
+                UpdateTargetPosition(mousePosition);
+            }
+
+            Vector3 direction = targetPosition - rb.position;
+
+            if (direction.magnitude > 0.5f)
+            {
+                target.position = targetPosition;
+                direction = direction.normalized * playerSpeed;
+                direction.y = 0;
+                rb.linearVelocity = direction;
+            }
+            else if (!canUpdateTargetWithMouse)
+            {
+                target.position = new Vector3(0, -50, 0);
             }
         }
         else
@@ -106,22 +212,20 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocity = new Vector3(moveVector.x, 0, moveVector.y) * playerSpeed;
             }
         }
+    }
 
-        // Walking animation
+    public void PlayMouseTargetVFX()
+    {
+        if (!canUpdateTargetWithMouse)
+            return;
 
-        bool isWalking = rb.linearVelocity.magnitude > 0.1f;
+        if (!UpdateTargetPosition(mousePosition))
+            return;
 
-        animator.SetBool("isWalking", isWalking);
+        vfxClick.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        vfxClick.Play();
 
-        Vector3 velocity = rb.linearVelocity;
-
-        // Flip to the right side
-
-        if (Mathf.Abs(velocity.x) > 0.1f)
-        {
-            Vector3 s = graphicToFlip.localScale;
-            s.x = Mathf.Abs(s.x) * -Mathf.Sign(velocity.x);
-            graphicToFlip.localScale = s;
-        }
+        vfxClickGraph.Reinit();
+        vfxClickGraph.Play();
     }
 }

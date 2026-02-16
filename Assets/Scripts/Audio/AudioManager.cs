@@ -2,21 +2,28 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEngine.Playables;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioData audioData;
+
 
     private static AudioManager instance;
     public static AudioManager Instance => instance;
 
     private Dictionary<EventInstance, GameObject> tracked3DEvents = new();
 
+    
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            sfxBus = RuntimeManager.GetBus(sfxBusString);
+            masterBus = RuntimeManager.GetBus(masterBusString);
+            musicBus = RuntimeManager.GetBus(musicBusString);
         }
         else
         {
@@ -24,6 +31,8 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+    
 
     void Update()
     {
@@ -71,9 +80,7 @@ public class AudioManager : MonoBehaviour
         EventInstance instance = RuntimeManager.CreateInstance(audioData.events[id]);
         instance.set3DAttributes(RuntimeUtils.To3DAttributes(eventSource));
         instance.start();
-
         tracked3DEvents.Add(instance, eventSource);
-
         return instance;
     }
 
@@ -86,6 +93,56 @@ public class AudioManager : MonoBehaviour
 
         instance.stop(mode);
         instance.release();
+    }
+
+    public void SetGlobalParameterByName(string name, int value)
+    {
+        RuntimeManager.StudioSystem.setParameterByName(name, value);
+        Debug.Log(name + value);
+        
+    }
+
+    /// <summary>
+    /// AUDIO OPTIONS
+    /// </summary>
+    /// 
+
+    string masterBusString = "Bus:/";
+    Bus masterBus;
+
+    string sfxBusString = "Bus:/GlobalSFX";
+    Bus sfxBus;
+
+    string musicBusString = "Bus:/Music";
+    Bus musicBus;
+
+    public void SetMasterVolume(float volume)
+    {
+        masterBus.setVolume(volume);
+    }
+    
+    public void SetSFXVolume(float volume)
+    {
+        sfxBus.setVolume(volume);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicBus.setVolume(volume);
+    }
+
+    public void MuteAll()
+    {
+        masterBus.setVolume(0);
+    }
+
+    public void OnToggleMono(bool mono)
+    {
+        if (mono)
+        {
+
+        }
+        else return;
     }
 
 }

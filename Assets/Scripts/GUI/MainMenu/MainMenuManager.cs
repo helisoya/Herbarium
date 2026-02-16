@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -13,13 +16,32 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private string newGameScene;
     [SerializeField] private OptionsMenu optionsMenu;
+    [SerializeField] private Fade fade;
+    [SerializeField] private ConfirmPopup confirmPopup;
+
+    [Header("Audio")]
+    [SerializeField] private UnityEvent onEnterMainMenu;
+    [SerializeField] private UnityEvent onExitMainMenu;
+    [SerializeField] private UnityEvent onHover;
+    [SerializeField] private UnityEvent onClick;
+    private bool exitingMainMenu = false;
 
     void Start()
     {
+        onEnterMainMenu.Invoke();
         GameManager.instance.inMainMenu = true;
         generalRoot.SetActive(true);
         creditsRoot.SetActive(false);
         continueButton.interactable = GameManager.instance.GetPlayerDataHandler().fileExistsOnDisk;
+    }
+
+
+    /// <summary>
+    /// Invokes On Hover Event
+    /// </summary>
+    public void OnHover()
+    {
+        onHover.Invoke();
     }
 
     /// <summary>
@@ -27,9 +49,12 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void ResumeGame()
     {
+        if(exitingMainMenu) return;
+        onClick.Invoke();
         GameManager.instance.loadingSave = true;
         GameManager.instance.GetPlayerDataHandler().LoadData();
-        SceneManager.LoadScene(GameManager.instance.GetPlayerDataHandler().GetCurrentMap());
+        exitingMainMenu = true;
+        StartCoroutine(RoutineTransitionToNextScene(GameManager.instance.GetPlayerDataHandler().GetCurrentMap()));
     }
 
     /// <summary>
@@ -37,16 +62,38 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void NewGame()
     {
+        if(exitingMainMenu) return;
+        onClick.Invoke();
         GameManager.instance.loadingSave = false;
         GameManager.instance.GetPlayerDataHandler().ResetData();
-        SceneManager.LoadScene(newGameScene);
+        exitingMainMenu = true;
+        StartCoroutine(RoutineTransitionToNextScene(newGameScene));
     }
+
+    /// <summary>
+    /// Routine for changing scenes
+    /// </summary>
+    /// <param name="nextScene">The next scene</param>
+    private IEnumerator RoutineTransitionToNextScene(string nextScene)
+    {
+        fade.FadeTo(1);
+        yield return new WaitForEndOfFrame();
+        while (fade.fading)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        onExitMainMenu.Invoke();
+        SceneManager.LoadScene(nextScene);
+    }
+
 
     /// <summary>
     /// Opens the credits
     /// </summary>
     public void OpenCredits()
     {
+        if(exitingMainMenu) return;
+        onClick.Invoke();
         generalRoot.SetActive(false);
         creditsRoot.SetActive(true);
     }
@@ -56,6 +103,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void CloseCredits()
     {
+        onClick.Invoke();
         generalRoot.SetActive(true);
         creditsRoot.SetActive(false);
     }
@@ -65,6 +113,8 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void OpenOptions()
     {
+        if(exitingMainMenu) return;
+        onClick.Invoke();
         optionsMenu.Open();
     }
     
@@ -73,7 +123,47 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void QuitGame()
     {
+        if(exitingMainMenu) return;
+        onClick.Invoke();
+        confirmPopup.Open(CallbackQuit);
+    }
+
+    /// <summary>
+    /// Callback for quiting the game
+    /// </summary>
+    public void CallbackQuit()
+    {
         Application.Quit();
+    }
+
+
+    void OnPause(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            if(optionsMenu.isOpen) optionsMenu.Close();
+            else if(creditsRoot.activeInHierarchy) CloseCredits();
+        }
+
+    }
+
+    void OnResetAll(InputValue value)
+    {
+        if (optionsMenu.isOpen)
+        {
+            optionsMenu.ResetAllSettings();
+        }
+    }
+
+    void OnMove(InputValue value)
+    {
+        Vector2 vec = value.Get<Vector2>();
+
+        if (optionsMenu.isOpen)
+        {
+            float delta = vec.x >= 0.95f ? 1 : (vec.x <= -0.95f ? -1 : 0);
+            if(delta != 0.0f) optionsMenu.IncrementTab((int)delta);
+        }
     }
 
 }
