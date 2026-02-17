@@ -10,8 +10,8 @@ public class AudioBackpack : MonoBehaviour
     [SerializeField] private EventID inventoryOpen;
     [SerializeField] private EventID inventoryClose;
     [SerializeField] private EventID inventoryHover;
-    [SerializeField] private EventID mapOpen;
-    [SerializeField] private EventID mapClose;
+    
+
 
     public void PostBackpackOpen()
     {
@@ -48,15 +48,6 @@ public class AudioBackpack : MonoBehaviour
         AudioManager.Instance.PlayOneShot2D(inventoryClose);
     }
 
-    public void PostMapOpen()
-    {
-        AudioManager.Instance.PlayOneShot2D(mapOpen);
-    }
-
-    public void PostMapClose()
-    {
-        AudioManager.Instance.PlayOneShot2D(mapClose);
-    }
     
 
 }

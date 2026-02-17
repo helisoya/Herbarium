@@ -34,7 +34,6 @@ public enum EventID
     NourIdle, NourRun, NourJump,
     Lucioles, BigLilyPadEnter, BigLilyPadExit, PtitLilyPadEnter, PtitLilyPadExit,
     FrogEnsemble,
-    MapOpen, MapClose,
 }
 
 
