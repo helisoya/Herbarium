@@ -231,7 +231,7 @@ public class RadialMenu : MonoBehaviour
     private void CloseInventory()
     {
         onCloseInventory.Invoke();
-        Close(false);
+        OpenBackpack();
     }
 
     public void OpenMap()
