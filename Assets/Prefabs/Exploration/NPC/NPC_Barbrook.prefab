@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -4122497583239065669}
   - component: {fileID: 5897515676789966041}
   - component: {fileID: 2521987721379659726}
-  - component: {fileID: 4447640318929934087}
   m_Layer: 7
   m_Name: NPC_Barbrook
   m_TagString: Untagged
@@ -115,25 +114,6 @@ MonoBehaviour:
   playCutscenesEvents: 1
   audioCutsceneId: 0
   animationTrigger: isSpeaking
---- !u!114 &4447640318929934087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 987121762875902854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8760dca85bf571943bc1196b11c15a0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SyncAnimations
-  animator1: {fileID: 8581000320063934733}
-  animator2: {fileID: 0}
-  links:
-  - stateGO1: AN_NPC_Barbrook_sleep
-    stateGO2: An_Barbrook_Dreams_Burst
-  - stateGO1: AN_NPC_Barbrook_Wake_Up
-    stateGO2: AN_Barbrook_Dreams_Stop
 --- !u!1 &1138556005546378995
 GameObject:
   m_ObjectHideFlags: 0
