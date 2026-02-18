@@ -140,4 +140,14 @@ public class AudioProximity : MonoBehaviour
     {
         MusicManager.Instance.FadeMusExploration(0);
     }
+
+    public void MuteMusExploration()
+    {
+        AudioManager.Instance.SetGlobalParameterByName("Zone", 3);
+    }
+
+    public void UnmuteMusExploration()
+    {
+        AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
+    }
 }

@@ -8,6 +8,9 @@ public class AudioDialogues : MonoBehaviour
     [SerializeField] private EventID speak;
     [SerializeField] private EventID startTyping;
     [SerializeField] private EventID stopTyping;
+    [SerializeField] private EventID mapOpen;
+    [SerializeField] private EventID mapClose;
+    
 
     [SerializeField] private GameObject nourGameObject;
     [SerializeField] private GameObject barbrookGameObject;
@@ -23,6 +26,16 @@ public class AudioDialogues : MonoBehaviour
     public void PostDialogueNext()
     {
         AudioManager.Instance.PlayOneShot2D(dialogueNext);
+    }
+
+    public void PostMapOpen()
+    {
+        AudioManager.Instance.PlayOneShot2D(mapOpen);
+    }
+
+    public void PostMapClose()
+    {
+        AudioManager.Instance.PlayOneShot2D(mapClose);
     }
 
     public void PostSpeak(string speaker, string emotion)

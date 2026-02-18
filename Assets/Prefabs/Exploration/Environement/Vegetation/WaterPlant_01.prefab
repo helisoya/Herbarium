@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 954404393777473294}
+  - component: {fileID: 7648658188160524876}
+  - component: {fileID: 1045474593092690664}
   m_Layer: 0
   m_Name: WaterPlant_01
   m_TagString: Untagged
@@ -30,8 +32,72 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7252609908765819738}
+  - {fileID: 2449597816258768917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7648658188160524876
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861066428449970268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1045474593092690664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861066428449970268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d490f63912b97458b4dc065c3bfbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityTrigger
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 92756323919271657}
+        m_TargetAssemblyTypeName: AudioWaterPlants, Assembly-CSharp
+        m_MethodName: OnEnterBigWaterPlant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 92756323919271657}
+        m_TargetAssemblyTypeName: AudioWaterPlants, Assembly-CSharp
+        m_MethodName: OnExitBigWaterPlant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3584159196186727291
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,3 +575,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &6194355805422353317
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 954404393777473294}
+    m_Modifications:
+    - target: {fileID: 2894876265371668819, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_Name
+      value: AudioWaterPlants
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00268
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.76659
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+--- !u!114 &92756323919271657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106683919937236300, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+  m_PrefabInstance: {fileID: 6194355805422353317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e92291fe51a01649b2052bf0000baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioWaterPlants
+--- !u!4 &2449597816258768917 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8361071201350503344, guid: 325b3082d34ea5c4085d9ef3dd4fa19a, type: 3}
+  m_PrefabInstance: {fileID: 6194355805422353317}
+  m_PrefabAsset: {fileID: 0}
