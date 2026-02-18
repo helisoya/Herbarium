@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AmbiantLightMap:
-        m_Texture: {fileID: 2800000, guid: 537975bf686e677409b75fe7258e1886, type: 3}
+        m_Texture: {fileID: 2800000, guid: 18f0744799663934ca866e8f0675782d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GroundTexture:
@@ -46,15 +46,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMapUV1:
-        m_Texture: {fileID: 2800000, guid: f11fd852606f0f445b9502e6702fc133, type: 3}
+        m_Texture: {fileID: 2800000, guid: c130c58cfa850ec45b1d63bf80adc3d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMapUV2:
-        m_Texture: {fileID: 2800000, guid: ab2ec850983b7ba46b34375541b9e1bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: b1fdb739bec79d64caf49603ac4b83af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMapUV3:
-        m_Texture: {fileID: 2800000, guid: f3ad00af812614f4c9f805b7796670bb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5786800544c81a24897b5a07d26fc6a0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -87,25 +87,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 0.58
+    - _Brightness: -0.24
     - _Delay: 10
     - _IntensityAmbiant: 0.03
-    - _IntensityUV1: 0
-    - _IntensityUV2: 0
-    - _IntensityUV3: 0
+    - _IntensityUV1: 0.36
+    - _IntensityUV2: 0.5
+    - _IntensityUV3: 0.05
     - _LeavesTiling: 4.06
     - _MainTexTilling: 14.8
     - _MaskTiling: 1.88
     - _Michel: 6.1
-    - _Power: -0.7
+    - _Power: -0.53
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 0.02
     - _Timee: 10
+    - _dark: 0.46
     m_Colors:
     - _AmbiantColor: {r: 0.9296404, g: 1, b: 0, a: 1}
-    - _ColorUV1: {r: 0.8666667, g: 0.6913212, b: 0.2745098, a: 1}
-    - _ColorUV2: {r: 0.92460704, g: 1, b: 0, a: 1}
-    - _ColorUV3: {r: 0.8410202, g: 1, b: 0.8349056, a: 1}
+    - _ColorUV1: {r: 0.88987565, g: 1, b: 0, a: 1}
+    - _ColorUV2: {r: 0.7123226, g: 0.8962264, b: 0.1986917, a: 1}
+    - _ColorUV3: {r: 1, g: 0.9253984, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
