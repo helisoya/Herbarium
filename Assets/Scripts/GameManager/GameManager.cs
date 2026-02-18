@@ -42,8 +42,9 @@ public class GameManager : MonoBehaviour
             if (Debug.isDebugBuild)
             {
                 playerDataHandler.AddInInventory("Herb_01");
+                playerDataHandler.AddInInventory("Herb_02");
                 playerDataHandler.AddHerbariumPage("Fern_01");
-                playerDataHandler.AddHerbariumPage("TestPlant2");
+                //playerDataHandler.AddHerbariumPage("TestPlant2");
                 //playerDataHandler.SetVariable("quest_test",0);
             }
         }
