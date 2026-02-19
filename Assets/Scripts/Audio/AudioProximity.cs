@@ -38,7 +38,7 @@ public class AudioProximity : MonoBehaviour
     public void PostBioLightA(GameObject obj)
     {
         AudioManager.Instance.PlayOneShot3D(bioLightA, obj);
-        Debug.Log("tu entres dans la zooooone du nénuphar lumineux");
+        Debug.Log("tu entres dans la zooooone du nï¿½nuphar lumineux");
     }
 
     public void PostInsectA(GameObject obj)
@@ -98,7 +98,7 @@ public class AudioProximity : MonoBehaviour
     public void PostRiver(GameObject obj)
     {
         AudioManager.Instance.PlayOneShot3D(river, obj);
-        Debug.Log("tu entres dans la zooooone de la rivière");
+        Debug.Log("tu entres dans la zooooone de la riviï¿½re");
     }
 
     public void PostGrassCollision(GameObject obj)
@@ -133,7 +133,7 @@ public class AudioProximity : MonoBehaviour
 
     public void PostMusExploration()
     {
-        MusicManager.Instance.PlayMusExploration();
+        AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
     }
 
     public void StopMusExploration()

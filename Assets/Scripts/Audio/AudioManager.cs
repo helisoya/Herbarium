@@ -32,11 +32,17 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        MusicManager.Instance.PlayMusExploration();
+        AudioManager.Instance.SetGlobalParameterByName("Zone", 0);
+    }
+
     
 
     void Update()
     {
-        // Met à jour automatiquement la position de tous les events 3D
+        // Met ï¿½ jour automatiquement la position de tous les events 3D
         foreach (var kvp in tracked3DEvents)
         {
             EventInstance instance = kvp.Key;
@@ -44,7 +50,7 @@ public class AudioManager : MonoBehaviour
 
             if (!instance.isValid() || go == null)
             {
-                // Libère les instances invalides ou dont le GameObject a été détruit
+                // Libï¿½re les instances invalides ou dont le GameObject a ï¿½tï¿½ dï¿½truit
                 instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 instance.release();
                 tracked3DEvents.Remove(instance);
@@ -52,7 +58,7 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                // Met à jour la position et la vélocité
+                // Met ï¿½ jour la position et la vï¿½locitï¿½
                 instance.set3DAttributes(RuntimeUtils.To3DAttributes(go));
             }
         }

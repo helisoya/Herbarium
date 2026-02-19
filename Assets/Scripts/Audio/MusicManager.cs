@@ -89,7 +89,7 @@ public class MusicManager : MonoBehaviour
         {
             AudioManager.Instance.SetGlobalParameterByName("Zone", 1);
             musExploration = RuntimeManager.CreateInstance(MusExplorationEvent);
-            Debug.Log("Je demande à la musique d'exploration de jouer");
+            Debug.Log("Je demande ï¿½ la musique d'exploration de jouer");
             musExploration.start();
         }
         else
@@ -239,6 +239,8 @@ public class MusicManager : MonoBehaviour
                 break;
 
             case CutSceneID.Drying:
+                AudioManager.Instance.SetGlobalParameterByName("Zone", 0);
+                musExploration.start();
                 break;
 
             case CutSceneID.Plant:
